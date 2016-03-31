@@ -36,5 +36,5 @@
     - you develop in a scalable manner.
 
 - Deliverables
-    - The cloned version of this repo;
+    - The forked version of this repo;
     - A video of the app working (a TestFlight invite from which we can directly run the app will also add a good amount of bonus points).
