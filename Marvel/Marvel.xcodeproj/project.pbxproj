@@ -10,12 +10,12 @@
 		B3D403DE1CAF20BD00A256F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3D403DD1CAF20BD00A256F0 /* Assets.xcassets */; };
 		B3D403EC1CAF20BD00A256F0 /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D403EB1CAF20BD00A256F0 /* MarvelTests.swift */; };
 		B3D403F91CAF225600A256F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D403F71CAF225600A256F0 /* AppDelegate.swift */; };
-		B3D403FA1CAF225600A256F0 /* ComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D403F81CAF225600A256F0 /* ComicsViewController.swift */; };
 		B3D404001CAF26B200A256F0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D403FB1CAF26B200A256F0 /* Alamofire.framework */; };
 		B3D404011CAF26B200A256F0 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D403FC1CAF26B200A256F0 /* Argo.framework */; };
 		B3D404021CAF26B200A256F0 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D403FD1CAF26B200A256F0 /* CryptoSwift.framework */; };
 		B3D404031CAF26B200A256F0 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D403FE1CAF26B200A256F0 /* Curry.framework */; };
 		B3D404041CAF26B200A256F0 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D403FF1CAF26B200A256F0 /* Timberjack.framework */; };
+		B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +36,12 @@
 		B3D403EB1CAF20BD00A256F0 /* MarvelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTests.swift; sourceTree = "<group>"; };
 		B3D403ED1CAF20BD00A256F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3D403F71CAF225600A256F0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3D403F81CAF225600A256F0 /* ComicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
 		B3D403FB1CAF26B200A256F0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		B3D403FC1CAF26B200A256F0 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = "<group>"; };
 		B3D403FD1CAF26B200A256F0 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		B3D403FE1CAF26B200A256F0 /* Curry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Curry.framework; path = Carthage/Build/iOS/Curry.framework; sourceTree = "<group>"; };
 		B3D403FF1CAF26B200A256F0 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = Carthage/Build/iOS/Timberjack.framework; sourceTree = "<group>"; };
+		B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +113,41 @@
 			isa = PBXGroup;
 			children = (
 				B3D403F71CAF225600A256F0 /* AppDelegate.swift */,
-				B3D403F81CAF225600A256F0 /* ComicsViewController.swift */,
+				B3D404091CAF285E00A256F0 /* UI */,
+				B3D404061CAF282900A256F0 /* Model */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		B3D404061CAF282900A256F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3D404071CAF282900A256F0 /* Entities */,
+				B3D404081CAF282900A256F0 /* Marvel API */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3D404071CAF282900A256F0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B3D404081CAF282900A256F0 /* Marvel API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Marvel API";
+			sourceTree = "<group>";
+		};
+		B3D404091CAF285E00A256F0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3D403FA1CAF225600A256F0 /* ComicsViewController.swift in Sources */,
+				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
 				B3D403F91CAF225600A256F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
