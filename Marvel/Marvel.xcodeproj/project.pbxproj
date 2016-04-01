@@ -16,6 +16,7 @@
 		B3D404031CAF26B200A256F0 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D403FE1CAF26B200A256F0 /* Curry.framework */; };
 		B3D404041CAF26B200A256F0 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D403FF1CAF26B200A256F0 /* Timberjack.framework */; };
 		B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */; };
+		B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404121CAF2A1E00A256F0 /* Comic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B3D403FE1CAF26B200A256F0 /* Curry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Curry.framework; path = Carthage/Build/iOS/Curry.framework; sourceTree = "<group>"; };
 		B3D403FF1CAF26B200A256F0 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = Carthage/Build/iOS/Timberjack.framework; sourceTree = "<group>"; };
 		B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
+		B3D404121CAF2A1E00A256F0 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		B3D404071CAF282900A256F0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				B3D404121CAF2A1E00A256F0 /* Comic.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */,
 				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
 				B3D403F91CAF225600A256F0 /* AppDelegate.swift in Sources */,
 			);
