@@ -1,0 +1,8 @@
+github "Alamofire/Alamofire" "3.3.0"
+github "thoughtbot/Argo" "v2.3.0"
+github "ruipfcosta/AutoLayoutPlus" "e9c2ebbde524a3e33bc5d64afb4c03e2148079df"
+github "krzyzanowskim/CryptoSwift" "0.3.1"
+github "thoughtbot/Curry" "v1.2.0"
+github "ReactiveX/RxSwift" "2.3.1"
+github "andrewjackman/Timberjack" "57a3f29e14ca2713f5c032722ac677b187bd5aca"
+github "ruipfcosta/RxMediaPicker" "ba76dbb4da4d5f866cac05ccd1917efc68f29879"
