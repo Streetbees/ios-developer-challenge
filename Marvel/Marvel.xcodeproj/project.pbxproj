@@ -33,6 +33,7 @@
 		B3D404321CB05B1500A256F0 /* ComicDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404311CB05B1500A256F0 /* ComicDataContainer.swift */; };
 		B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */; };
 		B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */; };
+		B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		B3D404311CB05B1500A256F0 /* ComicDataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDataContainer.swift; sourceTree = "<group>"; };
 		B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+JSON.swift"; sourceTree = "<group>"; };
 		B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
+		B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */,
 				B3D4042D1CB0472B00A256F0 /* Security.framework in Frameworks */,
 				B3D4042B1CB0472100A256F0 /* QuartzCore.framework in Frameworks */,
 				B3D404291CB0463600A256F0 /* DropboxSDK.framework in Frameworks */,
@@ -111,6 +114,7 @@
 		B3D403CA1CAF20BD00A256F0 = {
 			isa = PBXGroup;
 			children = (
+				B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */,
 				B3D4042C1CB0472B00A256F0 /* Security.framework */,
 				B3D4042A1CB0472100A256F0 /* QuartzCore.framework */,
 				B3D404281CB0463600A256F0 /* DropboxSDK.framework */,
@@ -343,6 +347,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AutoLayoutPlus.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			outputPaths = (
 			);

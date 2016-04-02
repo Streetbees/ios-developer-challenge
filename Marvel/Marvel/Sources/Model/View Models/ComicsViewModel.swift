@@ -40,6 +40,7 @@ class ComicsViewModel: BaseViewModel {
                         
             if let moreComics = comicData.comics {
                 self.model += moreComics
+                moreComics.forEach(self.marvelAPI.loadComicThumbnail)
             }
             
         }, onFailure: { requestFailed in
