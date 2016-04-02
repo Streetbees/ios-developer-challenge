@@ -26,6 +26,7 @@
 		B3D4041D1CAFFB2600A256F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */; };
 		B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */; };
 		B3D404211CAFFD8000A256F0 /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404201CAFFD8000A256F0 /* ComicCell.swift */; };
+		B3D404231CB001A800A256F0 /* AutoLayoutPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B3D404201CAFFD8000A256F0 /* ComicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCell.swift; sourceTree = "<group>"; };
+		B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AutoLayoutPlus.framework; path = Carthage/Build/iOS/AutoLayoutPlus.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D404231CB001A800A256F0 /* AutoLayoutPlus.framework in Frameworks */,
 				B3D4041D1CAFFB2600A256F0 /* RxCocoa.framework in Frameworks */,
 				B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */,
 				B3D404001CAF26B200A256F0 /* Alamofire.framework in Frameworks */,
@@ -92,6 +95,7 @@
 		B3D403CA1CAF20BD00A256F0 = {
 			isa = PBXGroup;
 			children = (
+				B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */,
 				B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */,
 				B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */,
 				B3D403FB1CAF26B200A256F0 /* Alamofire.framework */,
@@ -307,6 +311,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Timberjack.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AutoLayoutPlus.framework",
 			);
 			outputPaths = (
 			);
