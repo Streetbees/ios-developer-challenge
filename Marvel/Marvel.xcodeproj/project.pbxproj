@@ -30,6 +30,7 @@
 		B3D404291CB0463600A256F0 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404281CB0463600A256F0 /* DropboxSDK.framework */; };
 		B3D4042B1CB0472100A256F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4042A1CB0472100A256F0 /* QuartzCore.framework */; };
 		B3D4042D1CB0472B00A256F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4042C1CB0472B00A256F0 /* Security.framework */; };
+		B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		B3D4042A1CB0472100A256F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3D4042C1CB0472B00A256F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B3D4042E1CB049D800A256F0 /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
+		B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+JSON.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		B3D404061CAF282900A256F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3D404331CB05B7B00A256F0 /* Extensions */,
 				B3D404141CAF3D4900A256F0 /* View Models */,
 				B3D404071CAF282900A256F0 /* Entities */,
 				B3D404081CAF282900A256F0 /* Marvel API */,
@@ -214,6 +217,14 @@
 				B3D404201CAFFD8000A256F0 /* ComicCell.swift */,
 			);
 			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		B3D404331CB05B7B00A256F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +356,7 @@
 				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
 				B3D4041A1CAF454100A256F0 /* ComicCellViewModel.swift in Sources */,
 				B3D404161CAF42A500A256F0 /* ComicsViewModel.swift in Sources */,
+				B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */,
 				B3D404111CAF29C200A256F0 /* Router.swift in Sources */,
 				B3D404181CAF430700A256F0 /* BaseViewModel.swift in Sources */,
 				B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */,
