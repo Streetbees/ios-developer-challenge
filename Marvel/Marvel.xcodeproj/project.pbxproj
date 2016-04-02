@@ -20,6 +20,8 @@
 		B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4040D1CAF29C200A256F0 /* Request+Argo.swift */; };
 		B3D404111CAF29C200A256F0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4040E1CAF29C200A256F0 /* Router.swift */; };
 		B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404121CAF2A1E00A256F0 /* Comic.swift */; };
+		B3D4041D1CAFFB2600A256F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */; };
+		B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		B3D4040D1CAF29C200A256F0 /* Request+Argo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Argo.swift"; sourceTree = "<group>"; };
 		B3D4040E1CAF29C200A256F0 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B3D404121CAF2A1E00A256F0 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D4041D1CAFFB2600A256F0 /* RxCocoa.framework in Frameworks */,
+				B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */,
 				B3D404001CAF26B200A256F0 /* Alamofire.framework in Frameworks */,
 				B3D404011CAF26B200A256F0 /* Argo.framework in Frameworks */,
 				B3D404021CAF26B200A256F0 /* CryptoSwift.framework in Frameworks */,
@@ -78,6 +84,8 @@
 		B3D403CA1CAF20BD00A256F0 = {
 			isa = PBXGroup;
 			children = (
+				B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */,
+				B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */,
 				B3D403FB1CAF26B200A256F0 /* Alamofire.framework */,
 				B3D403FC1CAF26B200A256F0 /* Argo.framework */,
 				B3D403FD1CAF26B200A256F0 /* CryptoSwift.framework */,
@@ -269,6 +277,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Curry.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Timberjack.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			outputPaths = (
 			);
