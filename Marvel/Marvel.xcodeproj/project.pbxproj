@@ -22,6 +22,7 @@
 		B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404121CAF2A1E00A256F0 /* Comic.swift */; };
 		B3D4041D1CAFFB2600A256F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */; };
 		B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */; };
+		B3D404211CAFFD8000A256F0 /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404201CAFFD8000A256F0 /* ComicCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B3D404121CAF2A1E00A256F0 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		B3D404201CAFFD8000A256F0 /* ComicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +168,17 @@
 			isa = PBXGroup;
 			children = (
 				B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */,
+				B3D4041F1CAFFD6000A256F0 /* Custom Cells */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		B3D4041F1CAFFD6000A256F0 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B3D404201CAFFD8000A256F0 /* ComicCell.swift */,
+			);
+			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 				B3D404111CAF29C200A256F0 /* Router.swift in Sources */,
 				B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */,
 				B3D403F91CAF225600A256F0 /* AppDelegate.swift in Sources */,
+				B3D404211CAFFD8000A256F0 /* ComicCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
