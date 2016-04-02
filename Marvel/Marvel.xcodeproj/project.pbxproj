@@ -30,6 +30,7 @@
 		B3D404291CB0463600A256F0 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404281CB0463600A256F0 /* DropboxSDK.framework */; };
 		B3D4042B1CB0472100A256F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4042A1CB0472100A256F0 /* QuartzCore.framework */; };
 		B3D4042D1CB0472B00A256F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4042C1CB0472B00A256F0 /* Security.framework */; };
+		B3D404321CB05B1500A256F0 /* ComicDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404311CB05B1500A256F0 /* ComicDataContainer.swift */; };
 		B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		B3D4042A1CB0472100A256F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3D4042C1CB0472B00A256F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B3D4042E1CB049D800A256F0 /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
+		B3D404311CB05B1500A256F0 /* ComicDataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDataContainer.swift; sourceTree = "<group>"; };
 		B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+JSON.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 		B3D404071CAF282900A256F0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				B3D404311CB05B1500A256F0 /* ComicDataContainer.swift */,
 				B3D404121CAF2A1E00A256F0 /* Comic.swift */,
 			);
 			path = Entities;
@@ -353,6 +356,7 @@
 			files = (
 				B3D4040F1CAF29C200A256F0 /* MarvelAPI.swift in Sources */,
 				B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */,
+				B3D404321CB05B1500A256F0 /* ComicDataContainer.swift in Sources */,
 				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
 				B3D4041A1CAF454100A256F0 /* ComicCellViewModel.swift in Sources */,
 				B3D404161CAF42A500A256F0 /* ComicsViewModel.swift in Sources */,

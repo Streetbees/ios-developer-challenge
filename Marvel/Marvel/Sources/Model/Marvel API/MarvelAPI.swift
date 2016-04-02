@@ -5,7 +5,7 @@ import Timberjack
 typealias OnFailure = RequestFailed -> Void
 
 protocol MarvelComicsAPI {
-    func listComics(onSuccess: ComicDataWrapper -> Void, onFailure: OnFailure)
+    func listComics(onSuccess: ComicDataContainer -> Void, onFailure: OnFailure)
 }
 
 class MarvelAPI: MarvelComicsAPI {
@@ -13,9 +13,9 @@ class MarvelAPI: MarvelComicsAPI {
     
     private let manager = Alamofire.Manager(configuration: Timberjack.defaultSessionConfiguration())
         
-    func listComics(onSuccess: ComicDataWrapper -> Void, onFailure: OnFailure) {
+    func listComics(onSuccess: ComicDataContainer -> Void, onFailure: OnFailure) {
         manager.startRequestsImmediately = true
-        manager.request(Router.ListComics).responseArgo { (r: Response<ComicDataWrapper, RequestFailed>) in
+        manager.request(Router.ListComics).responseArgo { (r: Response<ComicDataContainer, RequestFailed>) in
             switch r.result {
             case .Success(let object):
                 onSuccess(object)
