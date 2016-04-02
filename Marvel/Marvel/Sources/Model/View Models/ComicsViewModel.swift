@@ -3,6 +3,8 @@ import RxSwift
 
 class ComicsViewModel: BaseViewModel {
 
+    let marvelAPI: MarvelComicsAPI
+    
     private let limit = 20 // number of results loaded each time: should not change
     var offset = 0
     //var count = 0
@@ -16,6 +18,10 @@ class ComicsViewModel: BaseViewModel {
         }
     }
     
+    init(marvelAPI: MarvelComicsAPI = MarvelAPI.api) {
+        self.marvelAPI = marvelAPI
+    }
+    
     override func didBecomeActive() {
         fetchData()
     }
@@ -26,13 +32,13 @@ class ComicsViewModel: BaseViewModel {
     }
     
     func fetchData() {
-        MarvelAPI.api.listComics({ comicData in
-            print("Sucess: \(comicData.data?.results)")
+        marvelAPI.listComics({ comicData in
+            print("Sucess: \(comicData.comics)")
             
             //self.offset = offset
             //self.total = total
                         
-            if let moreComics = comicData.data?.results {
+            if let moreComics = comicData.comics {
                 self.model += moreComics
             }
             
