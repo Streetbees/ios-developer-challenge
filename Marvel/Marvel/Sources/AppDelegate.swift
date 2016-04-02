@@ -14,7 +14,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = UIColor.whiteColor()
         
+        setupDropbox()
+        
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if DBSession.sharedSession().handleOpenURL(url) {
+            if DBSession.sharedSession().isLinked() {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func setupDropbox() {
+        let appKey = "7mzmkj2ac4hyodx"
+        let appSecret = "9xwxfttz6m4dhgg"
+        
+        let dropboxSession = DBSession(appKey: appKey, appSecret: appSecret, root: kDBRootAppFolder)
+        DBSession.setSharedSession(dropboxSession)
     }
 
 }
