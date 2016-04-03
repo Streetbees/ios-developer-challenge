@@ -8,7 +8,7 @@ private let publicKey = "f2db8b5ba4d87bd481d5b43a2702814b"
 private let privateKey = "eb4a7ff3a919ab84cd6022bd5eb6179529629046"
 
 enum Router {
-    case ListComics // (offset, count, limit, etc)
+    case ListComics(Int, Int)
     
     var method: Alamofire.Method {
         switch self {
@@ -47,8 +47,14 @@ extension Router: URLRequestConvertible {
         request = Alamofire.ParameterEncoding.URL.encode(request, parameters: defaultParameters).0
         
         switch self {
-        case .ListComics:
-            //request = Alamofire.ParameterEncoding.URL.encode(request, parameters: ["limit": 1]).0
+        case .ListComics(let offset, let limit):
+            let parameters: [String : AnyObject] = [
+                "offset": offset,
+                "limit": limit,
+                "orderBy": "-onsaleDate",
+            ]
+            
+            request = Alamofire.ParameterEncoding.URL.encode(request, parameters: parameters).0
             return request
         }
     }

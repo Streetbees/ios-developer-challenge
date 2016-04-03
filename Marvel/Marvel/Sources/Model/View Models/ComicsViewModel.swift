@@ -1,15 +1,15 @@
 import Foundation
 import RxSwift
 
+private let defaultLimit = 20
+
 class ComicsViewModel: BaseViewModel {
 
     let marvelAPI: MarvelComicsAPI
     let disposeBag = DisposeBag()
     
-    private let limit = 20
-    var offset = 0
-    //var count = 0
-    // var total = 0
+    var isLoadingData = false
+    var currentOffset = 0
     
     var comics = PublishSubject<[Comic]>()
     var thumbnailLoaded = PublishSubject<(Int, Comic)>()
@@ -42,17 +42,34 @@ class ComicsViewModel: BaseViewModel {
     }
     
     func fetchData() {
-        marvelAPI.listComics({ comicData in
-            // TODO: deal with paging (offset, count, total...)
-
-            if let moreComics = comicData.comics {
-                self.model += moreComics
-                moreComics.forEach(ImageLoaderService.service.loadComicThumbnail)
-            }
+        fetchNextBatchOfComics()
+    }
+    
+    func fetchNextBatchOfComics() {
+        if !isLoadingData {
+            isLoadingData = true
             
-        }, onFailure: { requestFailed in
-            print("Failed... : \(requestFailed.description)")
-            self.comics.on(.Error(requestFailed)) // if the list had comics already, it should still be presented
-        })
+            marvelAPI.listComics(currentOffset, limit: defaultLimit, onSuccess: successfulyLoadedComics, onFailure: failedToLoadComics)
+        }
+    }
+    
+    func successfulyLoadedComics(comicData: ComicDataContainer) {
+        guard let moreComics = comicData.comics, count = comicData.count else {
+            isLoadingData = false
+            return
+        }
+        
+        model += moreComics
+        currentOffset += count
+        
+        moreComics.forEach(ImageLoaderService.service.loadComicThumbnail)
+        
+        isLoadingData = false
+    }
+    
+    func failedToLoadComics(requestFailed: RequestFailed) {
+        print("Failed... : \(requestFailed.description)")
+        comics.on(.Error(requestFailed))
+        isLoadingData = false
     }
 }

@@ -6,7 +6,7 @@ import AlamofireImage
 typealias OnFailure = RequestFailed -> Void
 
 protocol MarvelComicsAPI {
-    func listComics(onSuccess: ComicDataContainer -> Void, onFailure: OnFailure)
+    func listComics(offset: Int, limit: Int, onSuccess: ComicDataContainer -> Void, onFailure: OnFailure)
     func loadComicThumbnail(comic: Comic, onSuccess: UIImage -> Void, onFailure: OnFailure)
 }
 
@@ -14,15 +14,18 @@ class MarvelAPI: MarvelComicsAPI {
     static let api = MarvelAPI()
     private init() {}
     
-    private let manager = Alamofire.Manager(configuration: Timberjack.defaultSessionConfiguration())
+    //private let manager = Alamofire.Manager(configuration: Timberjack.defaultSessionConfiguration())
+    private let manager = Alamofire.Manager.sharedInstance
     
     private lazy var imageDownloader: ImageDownloader = {
         return ImageDownloader(sessionManager: self.manager, downloadPrioritization: .FIFO, maximumActiveDownloads: 4, imageCache: AutoPurgingImageCache())
     }()
     
-    func listComics(onSuccess: ComicDataContainer -> Void, onFailure: OnFailure) {
+    func listComics(offset: Int, limit: Int, onSuccess: ComicDataContainer -> Void, onFailure: OnFailure) {
+        let request = Router.ListComics(offset, limit)
+        
         manager.startRequestsImmediately = true
-        manager.request(Router.ListComics).responseArgo { (r: Response<ComicDataContainer, RequestFailed>) in
+        manager.request(request).responseArgo { (r: Response<ComicDataContainer, RequestFailed>) in
             switch r.result {
             case .Success(let object):
                 onSuccess(object)
