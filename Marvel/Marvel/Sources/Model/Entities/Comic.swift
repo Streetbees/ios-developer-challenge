@@ -19,7 +19,6 @@ class Comic {
         self.thumbnailPath = thumbnailPath
         self.thumbnailExtension = thumbnailExtension
     }
- 
 }
 
 extension Comic: Decodable {
@@ -33,3 +32,11 @@ extension Comic: Decodable {
             <*> j <|? ["thumbnail", "extension"]
     }
 }
+
+extension Comic: Equatable {}
+
+func ==(lhs: Comic, rhs: Comic) -> Bool {
+    return lhs.id == rhs.id
+}
+
+

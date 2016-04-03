@@ -19,11 +19,13 @@ class ComicsViewController: UIViewController {
         setupConstraints()
         
         navigationItem.title = "Marvel Comics"
-        view.backgroundColor = UIColor.redColor()
+        view.backgroundColor = UIColor.whiteColor()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        edgesForExtendedLayout = .None
         
         setupBindings()
         viewModel.active = true
@@ -42,6 +44,7 @@ class ComicsViewController: UIViewController {
         let c = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         c.translatesAutoresizingMaskIntoConstraints = false
         c.registerClass(ComicCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        c.backgroundColor = UIColor.whiteColor()
                 
         c.rx_setDelegate(self)
             .addDisposableTo(disposeBag)
@@ -51,10 +54,16 @@ class ComicsViewController: UIViewController {
     
     func setupBindings() {
         viewModel.comics
-            .bindTo(comicsCollectionView.rx_itemsWithCellIdentifier(cellIdentifier)) { (row, element, cell) in
-                guard let comicCell = cell as? ComicCell else { return }
+            .bindTo(comicsCollectionView.rx_itemsWithCellIdentifier(cellIdentifier, cellType: ComicCell.self)) { (row, element, cell) in
+                cell.viewModel = ComicCellViewModel(model: element)
             }
             .addDisposableTo(disposeBag)
+        
+        viewModel.thumbnailLoaded
+            .subscribeNext { (index, comic) in
+                let cell = self.comicsCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ComicCell
+                cell?.viewModel?.model = comic
+            }.addDisposableTo(disposeBag)
     }
 }
 

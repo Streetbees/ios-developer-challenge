@@ -12,7 +12,7 @@ class ComicsViewModel: BaseViewModel {
     // var total = 0
     
     var comics = PublishSubject<[Comic]>()
-    var thumbnailLoaded = PublishSubject<Comic>()
+    var thumbnailLoaded = PublishSubject<(Int, Comic)>()
     
     var model: [Comic] = [] {
         didSet {
@@ -29,8 +29,9 @@ class ComicsViewModel: BaseViewModel {
         
         ImageLoaderService.service.loadedImage
             .subscribeNext { (comic, image) in
-                if let c = self.model.filter({ $0.id == comic.id }).first {
-                    self.notifyComicThumbnailLoaded(c, image: image)
+                if let index = self.model.indexOf({ $0 == comic }) {
+                    comic.thumbnail = image
+                    self.thumbnailLoaded.onNext((index, comic))
                 }
             }
             .addDisposableTo(disposeBag)
@@ -42,8 +43,6 @@ class ComicsViewModel: BaseViewModel {
     
     func fetchData() {
         marvelAPI.listComics({ comicData in
-            print("Sucess: \(comicData.comics)")
-            
             // TODO: deal with paging (offset, count, total...)
 
             if let moreComics = comicData.comics {
@@ -55,11 +54,5 @@ class ComicsViewModel: BaseViewModel {
             print("Failed... : \(requestFailed.description)")
             self.comics.on(.Error(requestFailed)) // if the list had comics already, it should still be presented
         })
-    }
-    
-    func notifyComicThumbnailLoaded(comic: Comic, image: UIImage) {
-        comic.thumbnail = image
-        thumbnailLoaded.onNext(comic)
-        print("loaded image for comic: \(comic.title)")
     }
 }

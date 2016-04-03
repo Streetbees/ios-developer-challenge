@@ -1,6 +1,10 @@
 import Foundation
+import RxSwift
 
 class ComicCellViewModel: BaseViewModel {
+    
+    var title     = PublishSubject<String>()
+    var thumbnail = PublishSubject<UIImage?>()
     
     var model: Comic {
         didSet {
@@ -19,6 +23,9 @@ class ComicCellViewModel: BaseViewModel {
     }
     
     func modelWasUpdated() {
-    }
+        guard let comicTitle = model.title where !comicTitle.isEmpty else { return }
 
+        title.on(.Next(comicTitle))
+        thumbnail.on(.Next(model.thumbnail))
+    }
 }
