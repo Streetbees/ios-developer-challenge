@@ -45,6 +45,7 @@ class ComicsViewController: UIViewController {
         c.translatesAutoresizingMaskIntoConstraints = false
         c.registerClass(ComicCell.self, forCellWithReuseIdentifier: cellIdentifier)
         c.backgroundColor = UIColor.whiteColor()
+        c.bounces = false
                 
         c.rx_setDelegate(self)
             .addDisposableTo(disposeBag)
