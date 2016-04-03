@@ -27,6 +27,8 @@
 		B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */; };
 		B3D404211CAFFD8000A256F0 /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404201CAFFD8000A256F0 /* ComicCell.swift */; };
 		B3D404231CB001A800A256F0 /* AutoLayoutPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */; };
+		B3D404251CB00E7300A256F0 /* ComicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404241CB00E7300A256F0 /* ComicDetailsViewController.swift */; };
+		B3D404271CB03F4100A256F0 /* RxMediaPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404261CB03F4100A256F0 /* RxMediaPicker.framework */; };
 		B3D404291CB0463600A256F0 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404281CB0463600A256F0 /* DropboxSDK.framework */; };
 		B3D4042B1CB0472100A256F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4042A1CB0472100A256F0 /* QuartzCore.framework */; };
 		B3D4042D1CB0472B00A256F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4042C1CB0472B00A256F0 /* Security.framework */; };
@@ -35,6 +37,7 @@
 		B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */; };
 		B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */; };
 		B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */; };
+		B3EC97431CB160B900A502C1 /* ComicDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97421CB160B900A502C1 /* ComicDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,8 @@
 		B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B3D404201CAFFD8000A256F0 /* ComicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCell.swift; sourceTree = "<group>"; };
 		B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AutoLayoutPlus.framework; path = Carthage/Build/iOS/AutoLayoutPlus.framework; sourceTree = "<group>"; };
+		B3D404241CB00E7300A256F0 /* ComicDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailsViewController.swift; sourceTree = "<group>"; };
+		B3D404261CB03F4100A256F0 /* RxMediaPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMediaPicker.framework; path = Carthage/Build/iOS/RxMediaPicker.framework; sourceTree = "<group>"; };
 		B3D404281CB0463600A256F0 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Frameworks/DropboxSDK.framework; sourceTree = "<group>"; };
 		B3D4042A1CB0472100A256F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3D4042C1CB0472B00A256F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -81,6 +86,7 @@
 		B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
 		B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoaderService.swift; path = Marvel/Sources/Model/Services/ImageLoaderService.swift; sourceTree = SOURCE_ROOT; };
+		B3EC97421CB160B900A502C1 /* ComicDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 				B3D4042D1CB0472B00A256F0 /* Security.framework in Frameworks */,
 				B3D4042B1CB0472100A256F0 /* QuartzCore.framework in Frameworks */,
 				B3D404291CB0463600A256F0 /* DropboxSDK.framework in Frameworks */,
+				B3D404271CB03F4100A256F0 /* RxMediaPicker.framework in Frameworks */,
 				B3D404231CB001A800A256F0 /* AutoLayoutPlus.framework in Frameworks */,
 				B3D4041D1CAFFB2600A256F0 /* RxCocoa.framework in Frameworks */,
 				B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */,
@@ -120,6 +127,7 @@
 				B3D4042C1CB0472B00A256F0 /* Security.framework */,
 				B3D4042A1CB0472100A256F0 /* QuartzCore.framework */,
 				B3D404281CB0463600A256F0 /* DropboxSDK.framework */,
+				B3D404261CB03F4100A256F0 /* RxMediaPicker.framework */,
 				B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */,
 				B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */,
 				B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */,
@@ -208,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */,
+				B3D404241CB00E7300A256F0 /* ComicDetailsViewController.swift */,
 				B3D4041F1CAFFD6000A256F0 /* Custom Cells */,
 			);
 			path = UI;
@@ -219,6 +228,7 @@
 				B3D404171CAF430700A256F0 /* BaseViewModel.swift */,
 				B3D404151CAF42A500A256F0 /* ComicsViewModel.swift */,
 				B3D404191CAF454100A256F0 /* ComicCellViewModel.swift */,
+				B3EC97421CB160B900A502C1 /* ComicDetailsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -359,6 +369,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AutoLayoutPlus.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxMediaPicker.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			outputPaths = (
@@ -374,8 +385,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D404251CB00E7300A256F0 /* ComicDetailsViewController.swift in Sources */,
 				B3D4040F1CAF29C200A256F0 /* MarvelAPI.swift in Sources */,
 				B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */,
+				B3EC97431CB160B900A502C1 /* ComicDetailsViewModel.swift in Sources */,
 				B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */,
 				B3D404321CB05B1500A256F0 /* ComicDataContainer.swift in Sources */,
 				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
@@ -577,6 +590,7 @@
 				B3D403F21CAF20BD00A256F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3D403F31CAF20BD00A256F0 /* Build configuration list for PBXNativeTarget "MarvelTests" */ = {
 			isa = XCConfigurationList;
@@ -585,6 +599,7 @@
 				B3D403F51CAF20BD00A256F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

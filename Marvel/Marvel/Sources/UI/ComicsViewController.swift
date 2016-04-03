@@ -84,6 +84,12 @@ extension ComicsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("selected item at indexPath: \(indexPath)")
+        do {
+            let comic: Comic = try collectionView.rx_modelAtIndexPath(indexPath)
+            let viewModel = ComicDetailsViewModel(model: comic)
+            
+            let detailsScreen = ComicDetailsViewController(viewModel: viewModel)
+            navigationController?.pushViewController(detailsScreen, animated: true)
+        } catch {}
     }
 }
