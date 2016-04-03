@@ -4,13 +4,15 @@ import RxSwift
 class ComicsViewModel: BaseViewModel {
 
     let marvelAPI: MarvelComicsAPI
+    let disposeBag = DisposeBag()
     
-    private let limit = 20 // number of results loaded each time: should not change
+    private let limit = 20
     var offset = 0
     //var count = 0
     // var total = 0
     
-    var comics = PublishSubject<[ComicCellViewModel]>()
+    var comics = PublishSubject<[Comic]>()
+    var thumbnailLoaded = PublishSubject<Comic>()
     
     var model: [Comic] = [] {
         didSet {
@@ -24,28 +26,40 @@ class ComicsViewModel: BaseViewModel {
     
     override func didBecomeActive() {
         fetchData()
+        
+        ImageLoaderService.service.loadedImage
+            .subscribeNext { (comic, image) in
+                if let c = self.model.filter({ $0.id == comic.id }).first {
+                    self.notifyComicThumbnailLoaded(c, image: image)
+                }
+            }
+            .addDisposableTo(disposeBag)
     }
     
     func modelWasUpdated() {
-        let cellsViewModels = model.map { ComicCellViewModel(model: $0) }
-        comics.on(.Next(cellsViewModels))
+        comics.on(.Next(model))
     }
     
     func fetchData() {
         marvelAPI.listComics({ comicData in
             print("Sucess: \(comicData.comics)")
             
-            //self.offset = offset
-            //self.total = total
-                        
+            // TODO: deal with paging (offset, count, total...)
+
             if let moreComics = comicData.comics {
                 self.model += moreComics
-                moreComics.forEach(self.marvelAPI.loadComicThumbnail)
+                moreComics.forEach(ImageLoaderService.service.loadComicThumbnail)
             }
             
         }, onFailure: { requestFailed in
             print("Failed... : \(requestFailed.description)")
             self.comics.on(.Error(requestFailed)) // if the list had comics already, it should still be presented
         })
+    }
+    
+    func notifyComicThumbnailLoaded(comic: Comic, image: UIImage) {
+        comic.thumbnail = image
+        thumbnailLoaded.onNext(comic)
+        print("loaded image for comic: \(comic.title)")
     }
 }

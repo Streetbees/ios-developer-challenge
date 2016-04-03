@@ -34,6 +34,7 @@
 		B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */; };
 		B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */; };
 		B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */; };
+		B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+JSON.swift"; sourceTree = "<group>"; };
 		B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
 		B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoaderService.swift; path = Marvel/Sources/Model/Services/ImageLoaderService.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		B3D404061CAF282900A256F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3D4043A1CB0763600A256F0 /* Services */,
 				B3D404331CB05B7B00A256F0 /* Extensions */,
 				B3D404141CAF3D4900A256F0 /* View Models */,
 				B3D404071CAF282900A256F0 /* Entities */,
@@ -235,6 +238,15 @@
 				B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B3D4043A1CB0763600A256F0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */,
+			);
+			name = Services;
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +382,7 @@
 				B3D4041A1CAF454100A256F0 /* ComicCellViewModel.swift in Sources */,
 				B3D404161CAF42A500A256F0 /* ComicsViewModel.swift in Sources */,
 				B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */,
+				B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */,
 				B3D404111CAF29C200A256F0 /* Router.swift in Sources */,
 				B3D404181CAF430700A256F0 /* BaseViewModel.swift in Sources */,
 				B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */,

@@ -7,11 +7,12 @@ typealias OnFailure = RequestFailed -> Void
 
 protocol MarvelComicsAPI {
     func listComics(onSuccess: ComicDataContainer -> Void, onFailure: OnFailure)
-    func loadComicThumbnail(comic: Comic)
+    func loadComicThumbnail(comic: Comic, onSuccess: UIImage -> Void, onFailure: OnFailure)
 }
 
 class MarvelAPI: MarvelComicsAPI {
     static let api = MarvelAPI()
+    private init() {}
     
     private let manager = Alamofire.Manager(configuration: Timberjack.defaultSessionConfiguration())
     
@@ -31,15 +32,19 @@ class MarvelAPI: MarvelComicsAPI {
         }
     }
     
-    func loadComicThumbnail(comic: Comic) {
+    func loadComicThumbnail(comic: Comic, onSuccess: UIImage -> Void, onFailure: OnFailure) {
         guard let path = comic.thumbnailPath where !path.isEmpty, let ext = comic.thumbnailExtension where !ext.isEmpty else { return }
         
         let imageUrl = "\(path).\(ext)"
         let URLRequest = NSURLRequest(URL: NSURL(string: imageUrl)!)
         
-        imageDownloader.downloadImage(URLRequest: URLRequest) { response in
-            if let image = response.result.value {
-                print("Image loaded successfuly: \(URLRequest)")
+        imageDownloader.downloadImage(URLRequest: URLRequest) { r in
+            switch r.result {
+            case .Success(let image):
+                onSuccess(image)
+            case .Failure(let error):
+                let failure = RequestFailed(code: .UnknownFailure, description: "Request failed: \(error.localizedDescription)")
+                onFailure(failure)
             }
         }
     }
