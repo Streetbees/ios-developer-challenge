@@ -1,9 +1,18 @@
 import Foundation
+import UIKit
 
 extension UIImage {
     
-    class var coverPlaceholder  = UIImage(named: "cover-placeholder")!
-    class var iconBin           = UIImage(named: "icon-bin")!
-    class var iconCamera        = UIImage(named: "icon-camera")!
+    class func coverPlaceholder() -> UIImage {
+        return UIImage(named: "cover-placeholder")!
+    }
+    
+    class func iconBin() -> UIImage {
+        return UIImage(named: "icon-bin")!
+    }
+    
+    class func iconCamera() -> UIImage {
+        return UIImage(named: "icon-camera")!
+    }
     
 }
