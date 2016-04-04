@@ -1,18 +1,15 @@
 import Foundation
 import RxSwift
 
-private let defaultLimit = 20
+private let defaultLimit = 30
 
 class ComicsViewModel: BaseViewModel {
 
     let marvelAPI: MarvelComicsAPI
-    let disposeBag = DisposeBag()
-    
     var isLoadingData = false
     var currentOffset = 0
     
-    var comics = PublishSubject<[Comic]>()
-    var thumbnailLoaded = PublishSubject<(Int, Comic)>()
+    var comics = PublishSubject<([Comic])>()
     
     var model: [Comic] = [] {
         didSet {
@@ -26,15 +23,6 @@ class ComicsViewModel: BaseViewModel {
     
     override func didBecomeActive() {
         fetchData()
-        
-        ImageLoaderService.service.loadedImage
-            .subscribeNext { (comic, image) in
-                if let index = self.model.indexOf({ $0 == comic }) {
-                    comic.thumbnail = image
-                    self.thumbnailLoaded.onNext((index, comic))
-                }
-            }
-            .addDisposableTo(disposeBag)
     }
     
     func modelWasUpdated() {
@@ -61,8 +49,6 @@ class ComicsViewModel: BaseViewModel {
         
         model += moreComics
         currentOffset += count
-        
-        moreComics.forEach(ImageLoaderService.service.loadComicThumbnail)
         
         isLoadingData = false
     }

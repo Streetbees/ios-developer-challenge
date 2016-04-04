@@ -3,6 +3,8 @@ import RxSwift
 
 class ComicCellViewModel: BaseViewModel {
     
+    let disposeBag = DisposeBag()
+    
     var title     = PublishSubject<String>()
     var thumbnail = PublishSubject<UIImage?>()
     
@@ -24,8 +26,13 @@ class ComicCellViewModel: BaseViewModel {
     
     func modelWasUpdated() {
         guard let comicTitle = model.title where !comicTitle.isEmpty else { return }
-
+        
         title.on(.Next(comicTitle))
         thumbnail.on(.Next(model.thumbnail))
+    }
+    
+    func loadImage() {
+        //ImageLoaderService.service.loadComicThumbnail(model)
+        //ImageLoaderService.service.downloadFileFromDropbox(model)
     }
 }

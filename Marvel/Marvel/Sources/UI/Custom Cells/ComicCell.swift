@@ -50,8 +50,7 @@ class ComicCell: UICollectionViewCell {
     }
     
     func makeComicImageView() -> UIImageView {
-
-        let i = UIImageView(image: UIImage(named: "comicPlaceholder"))
+        let i = UIImageView(image: UIImage.coverPlaceholder())
         i.translatesAutoresizingMaskIntoConstraints = false
         i.contentMode = .ScaleAspectFill
         
@@ -89,7 +88,17 @@ class ComicCell: UICollectionViewCell {
         viewModel?.title.bindTo(titleLabel.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewModel?.thumbnail.bindTo(comicImageView.rx_image)
-            .addDisposableTo(disposeBag)
+        viewModel?.thumbnail.subscribeNext({ image in
+            if let i = image {
+                self.comicImageView.image = i
+            } else {
+                self.comicImageView.image = UIImage.coverPlaceholder()
+                self.viewModel?.loadImage()
+            }
+        }).addDisposableTo(disposeBag)
+    }
+    
+    func configure(viewModel: ComicCellViewModel) {
+        self.viewModel = viewModel
     }
 }

@@ -15,6 +15,9 @@ class ComicDetailsViewController: UIViewController {
     
     lazy var detailsTableView: UITableView  = self.makeDetailsTableView()
     lazy var comicThumbnail: UIImageView    = self.makeComicThumbnail()
+    lazy var titleLabel: UILabel            = self.makeTitleLabel()
+    lazy var removeButton: UIButton         = UIButton.circularButton(self, action: #selector(deleteCustomImage), icon: UIImage.iconBin())
+    lazy var cameraButton: UIButton         = UIButton.circularButton(self, action: #selector(selectCustomImage), icon: UIImage.iconCamera())
     
     init(viewModel: ComicDetailsViewModel) {
         self.viewModel = viewModel
@@ -32,7 +35,7 @@ class ComicDetailsViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         
-        view.backgroundColor = UIColor.whiteColor()
+        navigationItem.title = "Comic Details"
     }
 
     override func viewDidLoad() {
@@ -59,6 +62,9 @@ class ComicDetailsViewController: UIViewController {
         t.translatesAutoresizingMaskIntoConstraints = false
         t.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         t.tableHeaderView = comicThumbnail
+        t.separatorStyle = .None
+        t.rowHeight = UITableViewAutomaticDimension
+        t.estimatedRowHeight = 100
         
         t.rx_setDelegate(self)
             .addDisposableTo(disposeBag)
@@ -71,18 +77,51 @@ class ComicDetailsViewController: UIViewController {
         let i = UIImageView(frame: frame)
         i.userInteractionEnabled = true
         i.contentMode = .ScaleAspectFit
-        i.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectCustomImage)))
+        i.backgroundColor = UIColor.blackColor()
+        i.addSubview(removeButton)
+        i.addSubview(cameraButton)
+        
+        let constraints = NSLayoutConstraint.withFormat([
+            "V:[removeButton(==50)]-10-[cameraButton(==50)]-10-|",
+            "H:[removeButton(==50)]-10-|",
+            "H:[cameraButton(==50)]-10-|",
+        ], views: ["removeButton": removeButton, "cameraButton": cameraButton])
+        
+        NSLayoutConstraint.activateConstraints(constraints)
         
         return i
     }
     
+    func makeTitleLabel() -> UILabel {
+        let l = UILabel(frame: CGRect.zero)
+        l.font = UIFont.marvelRegular(16)
+        l.textAlignment = .Center
+        l.numberOfLines = 2
+        l.textColor = UIColor.whiteColor()
+        l.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.75)
+        
+        return l
+    }
+    
     func setupBindings() {
-        viewModel.title.subscribeNext { self.navigationItem.title = $0 }
+        viewModel.title
+            .bindTo(titleLabel.rx_text)
             .addDisposableTo(disposeBag)
         
         viewModel.thumbnail
             .bindTo(comicThumbnail.rx_image)
             .addDisposableTo(disposeBag)
+        
+        viewModel.details
+            .bindTo(detailsTableView.rx_itemsWithCellIdentifier(cellIdentifier)) { (row, element, cell) in
+                cell.textLabel?.text = element
+                cell.textLabel?.numberOfLines = 0
+            }
+            .addDisposableTo(disposeBag)
+    }
+    
+    func deleteCustomImage() {
+        self.comicThumbnail.image = viewModel.model.thumbnail
     }
     
     func selectCustomImage() {
@@ -99,15 +138,17 @@ class ComicDetailsViewController: UIViewController {
         picker?.takePhoto(device: .Front, editable: true)
             .observeOn(MainScheduler.instance)
             .subscribeNext{ (image, editedImage) in
-                self.comicThumbnail.image = editedImage
+                
+                if let img = editedImage {
+                    self.comicThumbnail.image = img
+                    ImageLoaderService.service.uploadImageForComic(self.viewModel.model, image: img)
+                }
+                
             }.addDisposableTo(disposeBag)
     }
     
     func launchPermissionsAlert() {
-        let title = "Camera access required"
-        let message = "Please enable Camera Access in Settings / Privacy / Camera"
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Camera access required", message: "Please enable Camera Access in Settings / Privacy / Camera", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: .None))
         
         dispatch_async(dispatch_get_main_queue()) {
@@ -117,20 +158,14 @@ class ComicDetailsViewController: UIViewController {
 }
 
 extension ComicDetailsViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        // TODO: calculate description size
-        return 100
-    }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
     
-    /*
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return comicTitleHeader
+        return titleLabel
     }
-    */
 }
 
 extension ComicDetailsViewController: RxMediaPickerDelegate {
