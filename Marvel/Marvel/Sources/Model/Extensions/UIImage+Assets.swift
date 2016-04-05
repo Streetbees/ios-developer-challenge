@@ -15,4 +15,8 @@ extension UIImage {
         return UIImage(named: "icon-camera")!
     }
     
+    class func iconDropbox() -> UIImage {
+        return UIImage(named: "icon-dropbox")!
+    }
+    
 }
