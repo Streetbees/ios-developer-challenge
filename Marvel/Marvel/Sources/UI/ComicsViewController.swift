@@ -14,6 +14,9 @@ class ComicsViewController: UIViewController {
         return ImageLoaderService.service.dropboxLinked
     }
     
+    var bannerView: BannerView?
+    var bannerViewTap: UITapGestureRecognizer?
+    
     lazy var comicsCollectionView: UICollectionView       = self.makeComicsCollectionView()
     lazy var dropboxButton: UIButton                      = self.makeDropboxButton()
     lazy var moreComicsIndicator: UIActivityIndicatorView = self.makeMoreComicsIndicator()
@@ -37,6 +40,8 @@ class ComicsViewController: UIViewController {
         loadNextComicBatch()
                 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(dropboxLinkHandler), name: Notification.dropboxLinkNotification, object: .None)
+        
+        displayBanner()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -87,6 +92,12 @@ class ComicsViewController: UIViewController {
         let newIndexes = (oldComicCount..<comics.count).map { NSIndexPath(forItem: $0, inSection: 0) }
         comicsCollectionView.insertItemsAtIndexPaths(newIndexes)
         
+        // First batch
+        if comics.count == count {
+            bannerView?.removeFromSuperview()
+            bannerViewTap = .None
+        }
+        
         moreComicsIndicator.stopAnimating()
         moreComicsIndicator.hidden = true
         
@@ -94,8 +105,13 @@ class ComicsViewController: UIViewController {
     }
     
     func failedToObtainComics(failure: RequestFailed) {
-        moreComicsIndicator.stopAnimating()
-        moreComicsIndicator.hidden = true
+        if comics.isEmpty {
+            bannerView?.showError(failure.description)
+            bannerViewTap?.enabled = true
+        } else {
+            moreComicsIndicator.stopAnimating()
+            moreComicsIndicator.hidden = true
+        }
         
         isLoadingData = false
     }
@@ -113,6 +129,23 @@ class ComicsViewController: UIViewController {
     
     func reloadVisibleItems() {
         comicsCollectionView.reloadItemsAtIndexPaths(comicsCollectionView.indexPathsForVisibleItems())
+    }
+    
+    func bannerTapped() {
+        bannerViewTap?.enabled = false
+        bannerView?.showLoading()
+        loadNextComicBatch()
+    }
+    
+    func displayBanner() {
+        bannerViewTap = UITapGestureRecognizer(target: self, action: #selector(bannerTapped))
+        bannerViewTap?.enabled = false
+        
+        bannerView = makeBannerView()
+        bannerView?.addGestureRecognizer(bannerViewTap!)
+        
+        view.addSubview(bannerView!)
+        NSLayoutConstraint.activateConstraints(bannerView!.likeParent())
     }
 }
 

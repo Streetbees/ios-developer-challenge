@@ -20,7 +20,7 @@ extension ComicsViewController {
             ], views: views)
         
         constraints += [moreComicsIndicator.centeredInParentX()]
-        
+                
         NSLayoutConstraint.activateConstraints(constraints)
     }
     
@@ -53,4 +53,12 @@ extension ComicsViewController {
         
         return a
     }
+    
+    func makeBannerView() -> BannerView {
+        let b = BannerView()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        
+        return b
+    }
+    
 }

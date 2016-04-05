@@ -40,6 +40,7 @@
 		B3EC97551CB3AD2100A502C1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97541CB3AD2100A502C1 /* UIColor.swift */; };
 		B3EC975B1CB3E64A00A502C1 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC975A1CB3E64A00A502C1 /* Notification.swift */; };
 		B3EC975D1CB3FCD300A502C1 /* UIViewController+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC975C1CB3FCD300A502C1 /* UIViewController+Notifications.swift */; };
+		B3EC97611CB4365700A502C1 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97601CB4365700A502C1 /* BannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		B3EC97541CB3AD2100A502C1 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B3EC975A1CB3E64A00A502C1 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B3EC975C1CB3FCD300A502C1 /* UIViewController+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Notifications.swift"; sourceTree = "<group>"; };
+		B3EC97601CB4365700A502C1 /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		B705765E2DEAA9F0DCC0499F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D504C10917177268F1D052C3 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 			children = (
 				B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */,
 				B3D404241CB00E7300A256F0 /* ComicDetailsViewController.swift */,
+				B3EC975F1CB4363B00A502C1 /* Custom Views */,
 				B3D4041F1CAFFD6000A256F0 /* Custom Cells */,
 				B3EC974B1CB34ABA00A502C1 /* Layout */,
 			);
@@ -291,6 +294,14 @@
 				B3D403FF1CAF26B200A256F0 /* Timberjack.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3EC975F1CB4363B00A502C1 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC97601CB4365700A502C1 /* BannerView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		E1CD1FA19D611E51220937B9 /* Pods */ = {
@@ -477,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EC97611CB4365700A502C1 /* BannerView.swift in Sources */,
 				B3EC97511CB3A66000A502C1 /* ComicCell+Layout.swift in Sources */,
 				B3D404251CB00E7300A256F0 /* ComicDetailsViewController.swift in Sources */,
 				B3D4040F1CAF29C200A256F0 /* MarvelAPI.swift in Sources */,
