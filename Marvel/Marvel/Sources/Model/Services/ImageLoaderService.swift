@@ -93,7 +93,6 @@ class ImageLoaderService: NSObject {
     }
     
     private func generatePathForImage(name: String) -> String {
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
-        return (documentsDirectory as NSString).stringByAppendingPathComponent(name)
+        return (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent(name)
     }
 }
