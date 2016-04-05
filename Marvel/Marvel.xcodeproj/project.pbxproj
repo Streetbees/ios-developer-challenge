@@ -38,6 +38,7 @@
 		B3EC97511CB3A66000A502C1 /* ComicCell+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */; };
 		B3EC97531CB3AB8300A502C1 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EC97521CB3AB8300A502C1 /* Whisper.framework */; };
 		B3EC97551CB3AD2100A502C1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97541CB3AD2100A502C1 /* UIColor.swift */; };
+		B3EC975B1CB3E64A00A502C1 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC975A1CB3E64A00A502C1 /* Notification.swift */; };
 		B3EC975D1CB3FCD300A502C1 /* UIViewController+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC975C1CB3FCD300A502C1 /* UIViewController+Notifications.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicCell+Layout.swift"; sourceTree = "<group>"; };
 		B3EC97521CB3AB8300A502C1 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
 		B3EC97541CB3AD2100A502C1 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		B3EC975A1CB3E64A00A502C1 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B3EC975C1CB3FCD300A502C1 /* UIViewController+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Notifications.swift"; sourceTree = "<group>"; };
 		B705765E2DEAA9F0DCC0499F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D504C10917177268F1D052C3 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		B3D404061CAF282900A256F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3EC97591CB3E63F00A502C1 /* Helpers */,
 				B3D4043A1CB0763600A256F0 /* Services */,
 				B3D404331CB05B7B00A256F0 /* Extensions */,
 				B3D404071CAF282900A256F0 /* Entities */,
@@ -274,6 +277,14 @@
 				B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		B3EC97591CB3E63F00A502C1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC975A1CB3E64A00A502C1 /* Notification.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E1CD1FA19D611E51220937B9 /* Pods */ = {
@@ -471,6 +482,7 @@
 				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
 				B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */,
 				B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */,
+				B3EC975B1CB3E64A00A502C1 /* Notification.swift in Sources */,
 				B3D404111CAF29C200A256F0 /* Router.swift in Sources */,
 				B3EC97551CB3AD2100A502C1 /* UIColor.swift in Sources */,
 				B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */,

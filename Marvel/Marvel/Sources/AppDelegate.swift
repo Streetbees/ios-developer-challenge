@@ -23,10 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         if let authResult = Dropbox.handleRedirectURL(url) {
             switch authResult {
-            case .Success(let token):
+            case .Success:
                 print("Success! User is logged into Dropbox.")
-            case .Error(let error, let description):
+                NSNotificationCenter.defaultCenter().postNotificationName(Notification.dropboxLinkNotification, object: .None, userInfo: [Notification.dropboxLinkSuccessKey : true])
+            case .Error(_, let description):
                 print("Error: \(description)")
+                NSNotificationCenter.defaultCenter().postNotificationName(Notification.dropboxLinkNotification, object: .None, userInfo: [Notification.dropboxLinkSuccessKey : false])
             }
         }
         
@@ -35,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupDropbox() {
         let appKey = "7mzmkj2ac4hyodx"
-        let appSecret = "9xwxfttz6m4dhgg"
         Dropbox.setupWithAppKey(appKey)
     }
-
 }
