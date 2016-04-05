@@ -6,4 +6,5 @@ github "ruipfcosta/AutoLayoutPlus" "master"
 github "ruipfcosta/RxMediaPicker" "master"
 github "krzyzanowskim/CryptoSwift"
 github "Alamofire/AlamofireImage" ~> 2.0
+github "hyperoslo/Whisper"
 

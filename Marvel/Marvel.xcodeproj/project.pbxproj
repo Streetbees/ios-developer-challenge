@@ -37,6 +37,7 @@
 		B3EC974D1CB34AD600A502C1 /* ComicsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */; };
 		B3EC974F1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */; };
 		B3EC97511CB3A66000A502C1 /* ComicCell+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */; };
+		B3EC97531CB3AB8300A502C1 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EC97521CB3AB8300A502C1 /* Whisper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicsViewController+Layout.swift"; sourceTree = "<group>"; };
 		B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicDetailsViewController+Layout.swift"; sourceTree = "<group>"; };
 		B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicCell+Layout.swift"; sourceTree = "<group>"; };
+		B3EC97521CB3AB8300A502C1 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
 		B705765E2DEAA9F0DCC0499F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D504C10917177268F1D052C3 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EC97531CB3AB8300A502C1 /* Whisper.framework in Frameworks */,
 				B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */,
 				B3D404271CB03F4100A256F0 /* RxMediaPicker.framework in Frameworks */,
 				B3D404231CB001A800A256F0 /* AutoLayoutPlus.framework in Frameworks */,
@@ -123,6 +126,7 @@
 		52C9C603557F1B9F81458226 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3EC97521CB3AB8300A502C1 /* Whisper.framework */,
 				B705765E2DEAA9F0DCC0499F /* Pods_Marvel.framework */,
 			);
 			name = Frameworks;
@@ -408,6 +412,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/AutoLayoutPlus.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxMediaPicker.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Whisper.framework",
 			);
 			outputPaths = (
 			);
