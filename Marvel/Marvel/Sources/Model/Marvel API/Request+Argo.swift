@@ -82,7 +82,7 @@ extension Request {
     }
     
     private func serverError(code: ErrorCode, string: String) -> RequestFailed {
-        return RequestFailed(code: code, description: "Request failed: \(string)")
+        return RequestFailed(code: code, description: "\(string)")
     }
     
     private func failedToParseJSON(data: NSData) -> RequestFailed {
@@ -90,10 +90,10 @@ extension Request {
     }
     
     private func unkownFailure(data: NSData) -> RequestFailed {
-        return RequestFailed(code: .UnknownFailure, description: "Request failed: \(String(data: data, encoding: NSUTF8StringEncoding))")
+        return RequestFailed(code: .UnknownFailure, description: "\(String(data: data, encoding: NSUTF8StringEncoding))")
     }
     
     private func unkownFailure(error: NSError) -> RequestFailed {
-        return RequestFailed(code: .UnknownFailure, description: "Request failed: \(error.localizedDescription)")
+        return RequestFailed(code: .UnknownFailure, description: "\(error.localizedDescription)")
     }
 }

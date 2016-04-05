@@ -167,7 +167,6 @@ class ComicDetailsViewController: UIViewController {
     
     func deleteDropboxThumbnail() {
         DropboxService.service.deleteImageForComic(comic) { error in
-            
             if let _ = error {
                 self.showError("Failed to save changes")
             } else {

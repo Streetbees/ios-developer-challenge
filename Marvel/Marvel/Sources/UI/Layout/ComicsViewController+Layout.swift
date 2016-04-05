@@ -47,7 +47,7 @@ extension ComicsViewController {
     }
     
     func makeMoreComicsIndicator() -> UIActivityIndicatorView {
-        let a = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        let a = UIActivityIndicatorView(activityIndicatorStyle: .White)
         a.translatesAutoresizingMaskIntoConstraints = false
         a.hidden = true
         

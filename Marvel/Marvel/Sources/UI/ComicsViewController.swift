@@ -109,6 +109,7 @@ class ComicsViewController: UIViewController {
             bannerView?.showError(failure.description)
             bannerViewTap?.enabled = true
         } else {
+            showError(failure.description)
             moreComicsIndicator.stopAnimating()
             moreComicsIndicator.hidden = true
         }
