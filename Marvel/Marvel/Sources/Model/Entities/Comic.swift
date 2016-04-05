@@ -3,24 +3,13 @@ import Argo
 import Curry
 import UIKit
 
-class Comic {
+struct Comic {
     let id: Int?
     let title: String?
     let description: String?
     let modified: NSDate?
     let thumbnailPath: String?
     let thumbnailExtension: String?
-    var thumbnail: UIImage?
-    var dropboxThumbnail: UIImage?
-    
-    init(id: Int?, title: String?, description: String?, modified: NSDate?, thumbnailPath: String?, thumbnailExtension: String?) {
-        self.id = id
-        self.title = title
-        self.description = description
-        self.modified = modified
-        self.thumbnailPath = thumbnailPath
-        self.thumbnailExtension = thumbnailExtension
-    }
 }
 
 extension Comic: Decodable {

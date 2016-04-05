@@ -5,15 +5,18 @@ import AVFoundation
 import SwiftyDropbox
 
 class ComicDetailsViewController: UIViewController {
+    
     let comic: Comic
     let disposeBag = DisposeBag()
     let cellIdentifier = "cellIdentifier"
     
+    var marvelThumbnail: UIImage?
+    var dropboxThumbnail: UIImage?
     var picker: RxMediaPicker?
     var tempPhoto: UIImage?
     var removedDropboxThumbnail: Bool = false
     
-    var hasDropboxThumbnail: Bool { return comic.dropboxThumbnail != .None }
+    var hasDropboxThumbnail: Bool { return dropboxThumbnail != .None }
     var hasTempPhoto: Bool        { return tempPhoto != .None }
     var dropboxLinked: Bool       { return ImageLoaderService.service.dropboxLinked }
     
@@ -26,8 +29,10 @@ class ComicDetailsViewController: UIViewController {
     lazy var progressBar: UIProgressView    = self.makeProgressBar()
     lazy var titleActivityIndicator: UIView = self.makeTitleActivityIndicator()
         
-    init(comic: Comic) {
+    init(comic: Comic, marvelThumbnail: UIImage?, dropboxThumbnail: UIImage?) {
         self.comic = comic
+        self.marvelThumbnail = marvelThumbnail
+        self.dropboxThumbnail = dropboxThumbnail
         
         super.init(nibName: .None, bundle: .None)
     }
@@ -68,12 +73,11 @@ class ComicDetailsViewController: UIViewController {
     }
     
     func deleteImagePressed() {
-        
         if let _ = tempPhoto {
             tempPhoto = .None
             comicThumbnail.image = defineImageToDisplay()
         } else {
-            comicThumbnail.image = comic.thumbnail ?? UIImage.coverPlaceholder()
+            comicThumbnail.image = marvelThumbnail ?? UIImage.coverPlaceholder()
             removedDropboxThumbnail = true
         }
         
@@ -83,9 +87,9 @@ class ComicDetailsViewController: UIViewController {
     func defineImageToDisplay() -> UIImage {
         let image: UIImage
         
-        if let dropboxImage = comic.dropboxThumbnail {
+        if let dropboxImage = dropboxThumbnail {
             image = dropboxImage
-        } else if let marvelImage = comic.thumbnail {
+        } else if let marvelImage = marvelThumbnail {
             image = marvelImage
         } else {
             image = UIImage.coverPlaceholder()
@@ -132,7 +136,7 @@ class ComicDetailsViewController: UIViewController {
         
         if let temp = tempPhoto {
             uploadNewCover(temp)
-        } else if comic.dropboxThumbnail != .None && removedDropboxThumbnail {
+        } else if dropboxThumbnail != .None && removedDropboxThumbnail {
             deleteDropboxThumbnail()
         }
     }
@@ -151,7 +155,8 @@ class ComicDetailsViewController: UIViewController {
             if let _ = error {
                 self.showError("Failed to save changes")
             } else {
-                self.comic.dropboxThumbnail = image
+                ImagesCache.instance.dropboxCache[self.comic.id!] = image
+                self.dropboxThumbnail = image
                 self.tempPhoto = .None
                 self.showSuccess("Changes saved successfuly")
             }
@@ -166,7 +171,8 @@ class ComicDetailsViewController: UIViewController {
             if let _ = error {
                 self.showError("Failed to save changes")
             } else {
-                self.comic.dropboxThumbnail = .None
+                ImagesCache.instance.dropboxCache.removeObjectForKey(self.comic.id!)
+                self.dropboxThumbnail = .None
                 self.removedDropboxThumbnail = false
                 self.showSuccess("Changes saved successfuly")
             }

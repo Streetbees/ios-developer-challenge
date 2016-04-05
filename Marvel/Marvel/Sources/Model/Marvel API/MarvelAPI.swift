@@ -44,7 +44,6 @@ class MarvelAPI: MarvelComicsAPI {
         imageDownloader.downloadImage(URLRequest: URLRequest) { r in
             switch r.result {
             case .Success(let image):
-                comic.thumbnail = image
                 completion(image)
             case .Failure:
                 completion(.None)

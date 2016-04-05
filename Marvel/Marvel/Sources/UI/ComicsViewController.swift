@@ -55,7 +55,7 @@ class ComicsViewController: UIViewController {
             showSuccess("Dropbox unlinked")
             refreshDropboxButtonTitle()
             
-            comics.forEach { $0.dropboxThumbnail = .None }
+            ImagesCache.instance.dropboxCache.removeAllObjects()
             reloadVisibleItems()
         } else {
             Dropbox.authorizeFromController(self)
@@ -180,7 +180,11 @@ extension ComicsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailsScreen = ComicDetailsViewController(comic: comics[indexPath.row])
+        let comic = comics[indexPath.row]
+        let marvelThumbnail = ImagesCache.instance.marvelCache[comic.id!]
+        let dropboxThumbnail = ImagesCache.instance.dropboxCache[comic.id!]
+        
+        let detailsScreen = ComicDetailsViewController(comic: comic, marvelThumbnail: marvelThumbnail, dropboxThumbnail: dropboxThumbnail)
         navigationController?.pushViewController(detailsScreen, animated: true)
     }
     

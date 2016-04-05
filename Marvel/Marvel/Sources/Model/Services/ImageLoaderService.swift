@@ -40,8 +40,8 @@ class ImageLoaderService: NSObject {
         client.files.download(path: "/\(imageName)", destination: destination).response { response, error in
             if let (_, url) = response {
                 let data = NSData(contentsOfURL: url)!
-                comic.dropboxThumbnail = UIImage(data: data)
-                completion(comic.dropboxThumbnail)
+                let image = UIImage(data: data)
+                completion(image)
             } else {
                 completion(.None)
             }
