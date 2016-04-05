@@ -19,4 +19,12 @@ extension UIImage {
         return UIImage(named: "icon-dropbox")!
     }
     
+    class func bannerImage() -> UIImage {
+        return UIImage(named: "banner-image")!
+    }
+    
+    class func marvelLogo() -> UIImage {
+        return UIImage(named: "marvel-logo")!
+    }
+    
 }
