@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyDropbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,14 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.whiteColor()
         
         setupDropbox()
-        
+                
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        if DBSession.sharedSession().handleOpenURL(url) {
-            if DBSession.sharedSession().isLinked() {
-                return true
+        if let authResult = Dropbox.handleRedirectURL(url) {
+            switch authResult {
+            case .Success(let token):
+                print("Success! User is logged into Dropbox.")
+            case .Error(let error, let description):
+                print("Error: \(description)")
             }
         }
         
@@ -32,9 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupDropbox() {
         let appKey = "7mzmkj2ac4hyodx"
         let appSecret = "9xwxfttz6m4dhgg"
-        
-        let dropboxSession = DBSession(appKey: appKey, appSecret: appSecret, root: kDBRootAppFolder)
-        DBSession.setSharedSession(dropboxSession)
+        Dropbox.setupWithAppKey(appKey)
     }
 
 }
