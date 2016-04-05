@@ -77,7 +77,6 @@
 		B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AutoLayoutPlus.framework; path = Carthage/Build/iOS/AutoLayoutPlus.framework; sourceTree = "<group>"; };
 		B3D404241CB00E7300A256F0 /* ComicDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailsViewController.swift; sourceTree = "<group>"; };
 		B3D404261CB03F4100A256F0 /* RxMediaPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMediaPicker.framework; path = Carthage/Build/iOS/RxMediaPicker.framework; sourceTree = "<group>"; };
-		B3D404281CB0463600A256F0 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Frameworks/DropboxSDK.framework; sourceTree = "<group>"; };
 		B3D4042A1CB0472100A256F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3D4042C1CB0472B00A256F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B3D404311CB05B1500A256F0 /* ComicDataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDataContainer.swift; sourceTree = "<group>"; };
@@ -139,19 +138,7 @@
 		B3D403CA1CAF20BD00A256F0 = {
 			isa = PBXGroup;
 			children = (
-				B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */,
-				B3D4042C1CB0472B00A256F0 /* Security.framework */,
-				B3D4042A1CB0472100A256F0 /* QuartzCore.framework */,
-				B3D404281CB0463600A256F0 /* DropboxSDK.framework */,
-				B3D404261CB03F4100A256F0 /* RxMediaPicker.framework */,
-				B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */,
-				B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */,
-				B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */,
-				B3D403FB1CAF26B200A256F0 /* Alamofire.framework */,
-				B3D403FC1CAF26B200A256F0 /* Argo.framework */,
-				B3D403FD1CAF26B200A256F0 /* CryptoSwift.framework */,
-				B3D403FE1CAF26B200A256F0 /* Curry.framework */,
-				B3D403FF1CAF26B200A256F0 /* Timberjack.framework */,
+				B3EC975E1CB407D900A502C1 /* Frameworks */,
 				B3D403D51CAF20BD00A256F0 /* Marvel */,
 				B3D403EA1CAF20BD00A256F0 /* MarvelTests */,
 				B3D403D41CAF20BD00A256F0 /* Products */,
@@ -234,8 +221,8 @@
 			children = (
 				B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */,
 				B3D404241CB00E7300A256F0 /* ComicDetailsViewController.swift */,
-				B3EC974B1CB34ABA00A502C1 /* Layout */,
 				B3D4041F1CAFFD6000A256F0 /* Custom Cells */,
+				B3EC974B1CB34ABA00A502C1 /* Layout */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -285,6 +272,25 @@
 				B3EC975A1CB3E64A00A502C1 /* Notification.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B3EC975E1CB407D900A502C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */,
+				B3D4042C1CB0472B00A256F0 /* Security.framework */,
+				B3D4042A1CB0472100A256F0 /* QuartzCore.framework */,
+				B3D404261CB03F4100A256F0 /* RxMediaPicker.framework */,
+				B3D404221CB001A800A256F0 /* AutoLayoutPlus.framework */,
+				B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */,
+				B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */,
+				B3D403FB1CAF26B200A256F0 /* Alamofire.framework */,
+				B3D403FC1CAF26B200A256F0 /* Argo.framework */,
+				B3D403FD1CAF26B200A256F0 /* CryptoSwift.framework */,
+				B3D403FE1CAF26B200A256F0 /* Curry.framework */,
+				B3D403FF1CAF26B200A256F0 /* Timberjack.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E1CD1FA19D611E51220937B9 /* Pods */ = {
