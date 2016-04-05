@@ -6,8 +6,8 @@ enum DropboxError: ErrorType {
     case GeneralError(String)
 }
 
-class ImageLoaderService: NSObject {
-    static let service = ImageLoaderService()
+class DropboxService: NSObject {
+    static let service = DropboxService()
     
     private override init() {
         super.init()

@@ -18,7 +18,7 @@ class ComicDetailsViewController: UIViewController {
     
     var hasDropboxThumbnail: Bool { return dropboxThumbnail != .None }
     var hasTempPhoto: Bool        { return tempPhoto != .None }
-    var dropboxLinked: Bool       { return ImageLoaderService.service.dropboxLinked }
+    var dropboxLinked: Bool       { return DropboxService.service.dropboxLinked }
     
     lazy var detailsTableView: UITableView  = self.makeDetailsTableView()
     lazy var comicThumbnail: UIImageView    = self.makeComicThumbnail()
@@ -145,7 +145,7 @@ class ComicDetailsViewController: UIViewController {
         progressBar.setProgress(0, animated: false)
         progressBar.hidden = false
         
-        ImageLoaderService.service.uploadImageForComic(comic, image: image, progress: { progress in
+        DropboxService.service.uploadImageForComic(comic, image: image, progress: { progress in
             dispatch_async(dispatch_get_main_queue(), { 
                 self.progressBar.setProgress(progress, animated: true)
             })
@@ -166,7 +166,7 @@ class ComicDetailsViewController: UIViewController {
     }
     
     func deleteDropboxThumbnail() {
-        ImageLoaderService.service.deleteImageForComic(comic) { error in
+        DropboxService.service.deleteImageForComic(comic) { error in
             
             if let _ = error {
                 self.showError("Failed to save changes")

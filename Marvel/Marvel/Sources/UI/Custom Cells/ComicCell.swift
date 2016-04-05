@@ -56,29 +56,36 @@ class ComicCell: UICollectionViewCell {
         let fromDropbox = ImagesCache.instance.dropboxCache[comic.id!]
         let fromMarvel = ImagesCache.instance.marvelCache[comic.id!]
         
-        if fromDropbox == .None && ImageLoaderService.service.dropboxLinked {
-            ImageLoaderService.service.downloadComicThumbnailFromDropbox(comic, completion: { image in
-                dispatch_async(dispatch_get_main_queue()) {
-                    ImagesCache.instance.dropboxCache[comic.id!] = image
-                    
-                    if self.tag == comic.id! {
-                        self.comicImageView.image = self.defineImageToDisplay(comic)
-                    }
-                }
-            })
+        if fromDropbox == .None && DropboxService.service.dropboxLinked {
+            loadMissingDropboxThumbnail(comic)
         }
         
         if fromMarvel == .None {
-            MarvelAPI.api.downloadComicThumbnailFromMarvel(comic, completion: { image in
-                dispatch_async(dispatch_get_main_queue()) {
-                    ImagesCache.instance.marvelCache[comic.id!] = image
-                    
-                    if self.tag == comic.id! {
-                        self.comicImageView.image = self.defineImageToDisplay(comic)
-                    }
-                }
-            })
+            loadMissingMarvelThumbnail(comic)
         }
     }
-
+    
+    func loadMissingMarvelThumbnail(comic: Comic) {
+        MarvelAPI.api.downloadComicThumbnailFromMarvel(comic, completion: { image in
+            dispatch_async(dispatch_get_main_queue()) {
+                ImagesCache.instance.marvelCache[comic.id!] = image
+                
+                if self.tag == comic.id! {
+                    self.comicImageView.image = self.defineImageToDisplay(comic)
+                }
+            }
+        })
+    }
+    
+    func loadMissingDropboxThumbnail(comic: Comic) {
+        DropboxService.service.downloadComicThumbnailFromDropbox(comic, completion: { image in
+            dispatch_async(dispatch_get_main_queue()) {
+                ImagesCache.instance.dropboxCache[comic.id!] = image
+                
+                if self.tag == comic.id! {
+                    self.comicImageView.image = self.defineImageToDisplay(comic)
+                }
+            }
+        })
+    }
 }

@@ -31,7 +31,7 @@
 		B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */; };
 		B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */; };
 		B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */; };
-		B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */; };
+		B3D4043F1CB0B2F700A256F0 /* DropboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4043E1CB0B2F700A256F0 /* DropboxService.swift */; };
 		B3EC97481CB2D5DF00A502C1 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97471CB2D5DF00A502C1 /* UIImage+Assets.swift */; };
 		B3EC974D1CB34AD600A502C1 /* ComicsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */; };
 		B3EC974F1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */; };
@@ -86,7 +86,7 @@
 		B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+JSON.swift"; sourceTree = "<group>"; };
 		B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
 		B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
-		B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoaderService.swift; path = Marvel/Sources/Model/Services/ImageLoaderService.swift; sourceTree = SOURCE_ROOT; };
+		B3D4043E1CB0B2F700A256F0 /* DropboxService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DropboxService.swift; path = Marvel/Sources/Model/Services/DropboxService.swift; sourceTree = SOURCE_ROOT; };
 		B3EC97471CB2D5DF00A502C1 /* UIImage+Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
 		B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicsViewController+Layout.swift"; sourceTree = "<group>"; };
 		B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicDetailsViewController+Layout.swift"; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 		B3D4043A1CB0763600A256F0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */,
+				B3D4043E1CB0B2F700A256F0 /* DropboxService.swift */,
 			);
 			name = Services;
 			path = Cache;
@@ -634,7 +634,7 @@
 				B3D404321CB05B1500A256F0 /* ComicDataContainer.swift in Sources */,
 				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
 				B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */,
-				B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */,
+				B3D4043F1CB0B2F700A256F0 /* DropboxService.swift in Sources */,
 				B3EC97631CB460FF00A502C1 /* ImagesCache.swift in Sources */,
 				B3EC975B1CB3E64A00A502C1 /* Notification.swift in Sources */,
 				B3D404111CAF29C200A256F0 /* Router.swift in Sources */,

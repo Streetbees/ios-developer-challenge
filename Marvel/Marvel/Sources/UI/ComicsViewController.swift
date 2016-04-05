@@ -11,7 +11,7 @@ class ComicsViewController: UIViewController {
     var isLoadingData = false
     
     var dropboxLinked: Bool {
-        return ImageLoaderService.service.dropboxLinked
+        return DropboxService.service.dropboxLinked
     }
     
     var bannerView: BannerView?
