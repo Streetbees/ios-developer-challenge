@@ -1,20 +1,25 @@
 import UIKit
+import AutoLayoutPlus
 
 extension ComicsViewController {
     
     func setupSubviews() {
         view.addSubview(comicsCollectionView)
         view.addSubview(dropboxButton)
+        view.addSubview(moreComicsIndicator)
     }
     
     func setupConstraints() {
-        let views = ["collectionView": comicsCollectionView, "dropboxButton": dropboxButton]
+        let views = ["collectionView": comicsCollectionView, "dropboxButton": dropboxButton, "moreComicsIndicator": moreComicsIndicator]
         
-        let constraints = NSLayoutConstraint.withFormat([
+        var constraints = NSLayoutConstraint.withFormat([
             "V:|[collectionView][dropboxButton(==50)]|",
+            "V:[moreComicsIndicator]-5-[dropboxButton]",
             "H:|[collectionView]|",
             "H:|[dropboxButton]|",
             ], views: views)
+        
+        constraints += [moreComicsIndicator.centeredInParentX()]
         
         NSLayoutConstraint.activateConstraints(constraints)
     }
@@ -24,7 +29,6 @@ extension ComicsViewController {
         c.translatesAutoresizingMaskIntoConstraints = false
         c.registerClass(ComicCell.self, forCellWithReuseIdentifier: cellIdentifier)
         c.backgroundColor = UIColor.whiteColor()
-        c.bounces = false
         c.delegate = self
         c.dataSource = self
         
@@ -40,5 +44,13 @@ extension ComicsViewController {
         b.addTarget(self, action: #selector(dropboxButtonPressed), forControlEvents: .TouchUpInside)
         
         return b
+    }
+    
+    func makeMoreComicsIndicator() -> UIActivityIndicatorView {
+        let a = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        a.translatesAutoresizingMaskIntoConstraints = false
+        a.hidden = true
+        
+        return a
     }
 }

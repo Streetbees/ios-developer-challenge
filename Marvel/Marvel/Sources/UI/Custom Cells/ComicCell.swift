@@ -23,8 +23,11 @@ class ComicCell: UICollectionViewCell {
     }
     
     func configure(comic: Comic) {
+        guard let id = comic.id else { return }
+        
         titleLabel.text = comic.title
         comicImageView.image = defineImageToDisplay(comic)
+        tag = id
         
         loadMissingThumbnails(comic)
     }
@@ -45,11 +48,24 @@ class ComicCell: UICollectionViewCell {
     
     func loadMissingThumbnails(comic: Comic) {
         if comic.dropboxThumbnail == .None {
-            ImageLoaderService.service.downloadFileFromDropbox(comic)
+            ImageLoaderService.service.downloadComicThumbnailFromDropbox(comic, completion: { image in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if self.tag == comic.id! {
+                        self.comicImageView.image = self.defineImageToDisplay(comic)
+                    }
+                }
+            })            
         }
         
         if comic.thumbnail == .None {
-            ImageLoaderService.service.downloadComicThumbnailFromMarvel(comic)
+            MarvelAPI.api.downloadComicThumbnailFromMarvel(comic, completion: { image in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if self.tag == comic.id! {
+                        self.comicImageView.image = self.defineImageToDisplay(comic)
+                    }
+                }
+            })
         }
     }
+
 }

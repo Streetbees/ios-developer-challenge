@@ -1,13 +1,9 @@
 import UIKit
-import RxSwift
-import RxCocoa
-import AutoLayoutPlus
 import SwiftyDropbox
 
-private let defaultLimit = 1
+private let defaultLimit = 30
 
 class ComicsViewController: UIViewController {
-    let disposeBag = DisposeBag()
     let cellIdentifier = "cellIdentifier"
     
     var comics: [Comic] = []
@@ -18,8 +14,9 @@ class ComicsViewController: UIViewController {
         return ImageLoaderService.service.dropboxLinked
     }
     
-    lazy var comicsCollectionView: UICollectionView = self.makeComicsCollectionView()
-    lazy var dropboxButton: UIButton                = self.makeDropboxButton()
+    lazy var comicsCollectionView: UICollectionView       = self.makeComicsCollectionView()
+    lazy var dropboxButton: UIButton                      = self.makeDropboxButton()
+    lazy var moreComicsIndicator: UIActivityIndicatorView = self.makeMoreComicsIndicator()
     
     override func loadView() {
         super.loadView()
@@ -36,47 +33,44 @@ class ComicsViewController: UIViewController {
         
         edgesForExtendedLayout = .None
         
-        setupBindings()
         refreshDropboxButtonTitle()
-        
         loadNextComicBatch()
+                
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(dropboxLinkHandler), name: Notification.dropboxLinkNotification, object: .None)
     }
-            
-    func setupBindings() {
-        ImageLoaderService.service.downloadedImage
-            .observeOn(MainScheduler.instance)
-            .subscribeNext { comic in
-                if let index = self.comics.indexOf(comic) {
-                    let path = NSIndexPath(forRow: index, inSection: 0)
-                    self.comicsCollectionView.reloadItemsAtIndexPaths([path])
-                }
-            }
-            .addDisposableTo(disposeBag)
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadVisibleItems()
     }
     
     func dropboxButtonPressed() {
         if dropboxLinked {
             Dropbox.unlinkClient()
+            showSuccess("Dropbox unlinked")
             refreshDropboxButtonTitle()
             
             comics.forEach { $0.dropboxThumbnail = .None }
-            comicsCollectionView.reloadItemsAtIndexPaths(comicsCollectionView.indexPathsForVisibleItems())
+            reloadVisibleItems()
         } else {
             Dropbox.authorizeFromController(self)
         }
     }
     
     func refreshDropboxButtonTitle() {
-        if let _ = Dropbox.authorizedClient {
-            dropboxButton.setTitle("  Unlink Dropbox", forState: .Normal)
-        } else {
-            dropboxButton.setTitle("  Link Dropbox", forState: .Normal)
-        }
+        let title =  dropboxLinked ? "  Unlink Dropbox" : "  Link Dropbox"
+        dropboxButton.setTitle(title, forState: .Normal)
     }
     
     func loadNextComicBatch() {
         if !isLoadingData {
             isLoadingData = true
+            
+            moreComicsIndicator.hidden = currentOffset == 0
+            if !moreComicsIndicator.hidden {
+                moreComicsIndicator.startAnimating()
+            }
+            
             MarvelAPI.api.listComics(currentOffset, limit: defaultLimit, onSuccess: obtainedComics, onFailure: failedToObtainComics)
         }
     }
@@ -93,12 +87,32 @@ class ComicsViewController: UIViewController {
         let newIndexes = (oldComicCount..<comics.count).map { NSIndexPath(forItem: $0, inSection: 0) }
         comicsCollectionView.insertItemsAtIndexPaths(newIndexes)
         
+        moreComicsIndicator.stopAnimating()
+        moreComicsIndicator.hidden = true
+        
         isLoadingData = false
     }
     
     func failedToObtainComics(failure: RequestFailed) {
-        // Retry, show message, etc
+        moreComicsIndicator.stopAnimating()
+        moreComicsIndicator.hidden = true
+        
         isLoadingData = false
+    }
+    
+    func dropboxLinkHandler(notification: NSNotification) {
+        if let info = notification.userInfo, success = info[Notification.dropboxLinkSuccessKey] as? Bool where success {
+            showSuccess("Linked to Dropbox")
+            reloadVisibleItems()
+        } else {
+            showError("Failed to link to Dropbox")
+        }
+        
+        refreshDropboxButtonTitle()
+    }
+    
+    func reloadVisibleItems() {
+        comicsCollectionView.reloadItemsAtIndexPaths(comicsCollectionView.indexPathsForVisibleItems())
     }
 }
 
@@ -110,13 +124,10 @@ extension ComicsViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ComicCell
-        
-        let comic = comics[indexPath.row]
-        cell.configure(comic)
+        cell.configure(comics[indexPath.row])
         
         return cell
     }
-    
 }
 
 extension ComicsViewController: UICollectionViewDelegateFlowLayout {
@@ -141,7 +152,7 @@ extension ComicsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.y >= scrollView.contentSize.height - (scrollView.frame.size.height * 3) {
+        if scrollView.contentOffset.y >= scrollView.contentSize.height - (scrollView.frame.size.height * 2) {
             loadNextComicBatch()
         }
     }

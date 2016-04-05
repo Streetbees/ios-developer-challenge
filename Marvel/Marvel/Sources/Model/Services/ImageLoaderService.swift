@@ -2,8 +2,8 @@ import Foundation
 import RxSwift
 import SwiftyDropbox
 
-enum UploadError: ErrorType {
-    case Failed(String)
+enum DropboxError: ErrorType {
+    case GeneralError(String)
 }
 
 class ImageLoaderService: NSObject {
@@ -13,8 +13,6 @@ class ImageLoaderService: NSObject {
         super.init()
     }
  
-    var downloadedImage = PublishSubject<Comic>()
-    
     var dropboxLinked: Bool {
         if let _ = Dropbox.authorizedClient {
             return true
@@ -22,16 +20,7 @@ class ImageLoaderService: NSObject {
         return false
     }
     
-    func downloadComicThumbnailFromMarvel(comic: Comic) {
-        MarvelAPI.api.loadComicThumbnail(comic, onSuccess: { image in
-            comic.thumbnail = image
-            self.downloadedImage.on(.Next(comic))
-            }, onFailure: { failure in
-                print("Failed to load image for comic")
-        })
-    }
-    
-    func downloadFileFromDropbox(comic: Comic) {
+    func downloadComicThumbnailFromDropbox(comic: Comic, completion: UIImage? -> ()) {
         guard let id = comic.id, let client = Dropbox.authorizedClient else {
             return
         }
@@ -47,20 +36,21 @@ class ImageLoaderService: NSObject {
             
             return NSURL(fileURLWithPath: path)
         }
-
+        
         client.files.download(path: "/\(imageName)", destination: destination).response { response, error in
             if let (_, url) = response {
                 let data = NSData(contentsOfURL: url)!
                 comic.dropboxThumbnail = UIImage(data: data)
-                
-                self.downloadedImage.on(.Next(comic))
+                completion(comic.dropboxThumbnail)
+            } else {
+                completion(.None)
             }
         }
     }
     
-    func uploadImageForComic(comic: Comic, image: UIImage, progress: Float -> (), completion: ErrorType? -> ()) {
+    func uploadImageForComic(comic: Comic, image: UIImage, progress: Float -> (), completion: DropboxError? -> ()) {
         guard let id = comic.id, let client = Dropbox.authorizedClient else {
-            completion(UploadError.Failed("Dropbox not linked"))
+            completion(DropboxError.GeneralError("Dropbox not linked"))
             return
         }
         
@@ -68,44 +58,42 @@ class ImageLoaderService: NSObject {
         let fileData = UIImagePNGRepresentation(image)!
         
         client.files.upload(path: "/\(imageName)", mode: .Overwrite, autorename: false, clientModified: .None, mute: false, body: fileData)
-        //client.files.upload(path: "/\(imageName)", body: fileData)
             .progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
                 let value = Float(totalBytesRead) / Float(totalBytesExpectedToRead)
-                //self.uploadProgress.on(.Next(progress))
                 progress(value)
             }
             .response { response, error in
                 if let e = error {
-                    completion(UploadError.Failed(e.description))
+                    completion(DropboxError.GeneralError(e.description))
                 } else {
                     completion(.None)
                 }
             }
     }
     
+    func deleteImageForComic(comic: Comic, completion: DropboxError? -> ()) {
+        guard let id = comic.id, let client = Dropbox.authorizedClient else {
+            completion(DropboxError.GeneralError("Dropbox not linked"))
+            return
+        }
+        
+        let imageName = generateFilenameWithExtension(id)
+        
+        client.files.delete(path: "/\(imageName)").response { response, error in
+            if let e = error {
+                completion(DropboxError.GeneralError(e.description))
+            } else {
+                completion(.None)
+            }
+        }
+    }
+    
     private func generateFilenameWithExtension(comicId: Int) -> String {
         return "\(comicId).png"
     }
     
-    /*
-    private func saveComicImage(image: UIImage, name: String) {
-        let path = generatePathForImage(name)
-        NSFileManager.defaultManager().createFileAtPath(path, contents: UIImagePNGRepresentation(image), attributes: .None)
-    }
-    
-    private func deleteComicImage(name: String) {
-        let path = generatePathForImage(name)
-        
-        do {
-            try NSFileManager.defaultManager().removeItemAtPath(path)
-        } catch {
-            print("Failed to delete image from filesystem: \(path)")
-        }
-    }
-    */
-    
     private func generatePathForImage(name: String) -> String {
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
         return (documentsDirectory as NSString).stringByAppendingPathComponent(name)
     }
 }

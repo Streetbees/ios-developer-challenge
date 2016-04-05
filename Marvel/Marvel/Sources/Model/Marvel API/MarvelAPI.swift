@@ -3,11 +3,11 @@ import Alamofire
 import Timberjack
 import AlamofireImage
 
-typealias OnFailure = RequestFailed -> Void
+typealias OnFailure = RequestFailed -> ()
 
 protocol MarvelComicsAPI {
-    func listComics(offset: Int, limit: Int, onSuccess: ComicDataContainer -> Void, onFailure: OnFailure)
-    func loadComicThumbnail(comic: Comic, onSuccess: UIImage -> Void, onFailure: OnFailure)
+    func listComics(offset: Int, limit: Int, onSuccess: ComicDataContainer -> (), onFailure: OnFailure)
+    func downloadComicThumbnailFromMarvel(comic: Comic, completion: UIImage? -> ())
 }
 
 class MarvelAPI: MarvelComicsAPI {
@@ -21,7 +21,7 @@ class MarvelAPI: MarvelComicsAPI {
         return ImageDownloader(configuration: ImageDownloader.defaultURLSessionConfiguration(), downloadPrioritization: .LIFO, maximumActiveDownloads: 6, imageCache: AutoPurgingImageCache())
     }()
     
-    func listComics(offset: Int, limit: Int, onSuccess: ComicDataContainer -> Void, onFailure: OnFailure) {
+    func listComics(offset: Int, limit: Int, onSuccess: ComicDataContainer -> (), onFailure: OnFailure) {
         let request = Router.ListComics(offset, limit)
         
         manager.startRequestsImmediately = true
@@ -35,7 +35,7 @@ class MarvelAPI: MarvelComicsAPI {
         }
     }
     
-    func loadComicThumbnail(comic: Comic, onSuccess: UIImage -> Void, onFailure: OnFailure) {
+    func downloadComicThumbnailFromMarvel(comic: Comic, completion: UIImage? -> ()) {
         guard let path = comic.thumbnailPath where !path.isEmpty, let ext = comic.thumbnailExtension where !ext.isEmpty else { return }
         
         let imageUrl = "\(path).\(ext)"
@@ -44,10 +44,10 @@ class MarvelAPI: MarvelComicsAPI {
         imageDownloader.downloadImage(URLRequest: URLRequest) { r in
             switch r.result {
             case .Success(let image):
-                onSuccess(image)
-            case .Failure(let error):
-                let failure = RequestFailed(code: .UnknownFailure, description: "Request failed: \(error.localizedDescription)")
-                onFailure(failure)
+                comic.thumbnail = image
+                completion(image)
+            case .Failure:
+                completion(.None)
             }
         }
     }
