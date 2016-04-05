@@ -1,49 +1,31 @@
 import UIKit
 import RxSwift
-import RxCocoa
-import AutoLayoutPlus
 import RxMediaPicker
 import AVFoundation
 import SwiftyDropbox
 
 class ComicDetailsViewController: UIViewController {
-    
     let comic: Comic
     let disposeBag = DisposeBag()
     let cellIdentifier = "cellIdentifier"
     
     var picker: RxMediaPicker?
     var tempPhoto: UIImage?
-    var dropboxPhotoWasRemoved: Bool = false
+    var removedDropboxThumbnail: Bool = false
     
-    var hasDropboxThumbnail: Bool {
-        if let _ = comic.dropboxThumbnail {
-            return true
-        }
-        return false
-    }
-    
-    var hasTempPhoto: Bool {
-        if let _ = tempPhoto {
-            return true
-        }
-        return false
-    }
-    
-    var dropboxLinked: Bool {
-        return ImageLoaderService.service.dropboxLinked
-    }
+    var hasDropboxThumbnail: Bool { return comic.dropboxThumbnail != .None }
+    var hasTempPhoto: Bool        { return tempPhoto != .None }
+    var dropboxLinked: Bool       { return ImageLoaderService.service.dropboxLinked }
     
     lazy var detailsTableView: UITableView  = self.makeDetailsTableView()
     lazy var comicThumbnail: UIImageView    = self.makeComicThumbnail()
     lazy var titleLabel: UILabel            = self.makeTitleLabel()
-    lazy var removeButton: UIButton         = UIButton.circularButton(self, action: #selector(deleteDropboxImage), icon: UIImage.iconBin())
-    lazy var cameraButton: UIButton         = UIButton.circularButton(self, action: #selector(selectCustomImage), icon: UIImage.iconCamera())
     lazy var removeButton: UIButton         = self.makeCircularButton(self, action: #selector(deleteImagePressed), icon: UIImage.iconBin())
     lazy var cameraButton: UIButton         = self.makeCircularButton(self, action: #selector(selectImagePressed), icon: UIImage.iconCamera())
     lazy var saveButton: UIBarButtonItem    = UIBarButtonItem(title: "Save", style: .Done, target: self, action: #selector(saveChanges))
-    lazy var progress: UIProgressView       = self.makeProgressView()
-    
+    lazy var progressBar: UIProgressView    = self.makeProgressBar()
+    lazy var titleActivityIndicator: UIView = self.makeTitleActivityIndicator()
+        
     init(comic: Comic) {
         self.comic = comic
         
@@ -75,23 +57,44 @@ class ComicDetailsViewController: UIViewController {
         }
         
         titleLabel.text = comic.title
-        comicThumbnail.image = defineImageToDisplay(comic)
+        comicThumbnail.image = defineImageToDisplay()
         
-        updateUI()
+        refreshUI()
     }
     
-    func deleteDropboxImage() {
-        if let _ = comic.dropboxThumbnail {
-            comicThumbnail.image = comic.thumbnail ?? UIImage.coverPlaceholder()
-            dropboxPhotoWasRemoved = true
-        } else {
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        silentNotification()
+    }
+    
+    func deleteImagePressed() {
+        
+        if let _ = tempPhoto {
             tempPhoto = .None
+            comicThumbnail.image = defineImageToDisplay()
+        } else {
+            comicThumbnail.image = comic.thumbnail ?? UIImage.coverPlaceholder()
+            removedDropboxThumbnail = true
         }
         
-        updateUI()
+        refreshUI()
     }
     
-    func selectCustomImage() {
+    func defineImageToDisplay() -> UIImage {
+        let image: UIImage
+        
+        if let dropboxImage = comic.dropboxThumbnail {
+            image = dropboxImage
+        } else if let marvelImage = comic.thumbnail {
+            image = marvelImage
+        } else {
+            image = UIImage.coverPlaceholder()
+        }
+        
+        return image
+    }
+    
+    func selectImagePressed() {
         AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo) { granted in
             if granted {
                 self.launchCameraPicker()
@@ -102,13 +105,14 @@ class ComicDetailsViewController: UIViewController {
     }
     
     func launchCameraPicker() {
+        //picker?.selectImage(editable: true)
         picker?.takePhoto(device: .Front, editable: true)
             .observeOn(MainScheduler.instance)
             .subscribeNext{ (image, editedImage) in
                 if let img = editedImage {
                     self.comicThumbnail.image = img
                     self.tempPhoto = img
-                    self.updateUI()
+                    self.refreshUI()
                 }
                 
             }.addDisposableTo(disposeBag)
@@ -124,47 +128,89 @@ class ComicDetailsViewController: UIViewController {
     }
     
     func saveChanges() {
-        navigationItem.hidesBackButton = true
-        progress.hidden = false
+        setSaving()
         
-        /*
-        viewModel.saveChanges(tempPhoto!, progress: { progress in
-            print("Upload progress: \(progress)")
-        }, completion: { error in
-            print("Save changes completed")
-        })
-        */
-        
-        //upload or delete file on dropbox
-    }
-    
-    func updateUI() {
-        let existingChanges = hasTempPhoto || dropboxPhotoWasRemoved
-        
-        saveButton.enabled = existingChanges
-        removeButton.hidden = !(existingChanges || hasDropboxThumbnail)
-    }
-    
-    func defineImageToDisplay(comic: Comic) -> UIImage {
-        let image: UIImage
-        
-        if let dropboxImage = comic.dropboxThumbnail {
-            image = dropboxImage
-        } else if let marvelImage = comic.thumbnail {
-            image = marvelImage
-        } else {
-            image = UIImage.coverPlaceholder()
+        if let temp = tempPhoto {
+            uploadNewCover(temp)
+        } else if comic.dropboxThumbnail != .None && removedDropboxThumbnail {
+            deleteDropboxThumbnail()
         }
-        
-        return image
     }
     
-    func setSavingUI() {
-        let activity = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activity)
-        activity.startAnimating()
-    }
+    func uploadNewCover(image: UIImage) {
+        progressBar.setProgress(0, animated: false)
+        progressBar.hidden = false
+        
+        ImageLoaderService.service.uploadImageForComic(comic, image: image, progress: { progress in
+            dispatch_async(dispatch_get_main_queue(), { 
+                self.progressBar.setProgress(progress, animated: true)
+            })
+        }, completion: { error in
+            self.progressBar.hidden = true
+            
+            if let _ = error {
+                self.showError("Failed to save changes")
+            } else {
+                self.comic.dropboxThumbnail = image
+                self.tempPhoto = .None
+                self.showSuccess("Changes saved successfuly")
+            }
 
+            self.endSaving()
+        })
+    }
+    
+    func deleteDropboxThumbnail() {
+        ImageLoaderService.service.deleteImageForComic(comic) { error in
+            
+            if let _ = error {
+                self.showError("Failed to save changes")
+            } else {
+                self.comic.dropboxThumbnail = .None
+                self.removedDropboxThumbnail = false
+                self.showSuccess("Changes saved successfuly")
+            }
+            
+            self.endSaving()
+        }
+    }
+    
+    func refreshUI() {
+        saveButton.enabled = hasTempPhoto || removedDropboxThumbnail
+        
+        let visible = (hasDropboxThumbnail && !removedDropboxThumbnail) || hasTempPhoto
+        removeButton.hidden = !visible
+    }
+    
+    func setSaving() {
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = .None
+        
+        showActivityIndicator()
+        
+        removeButton.enabled = false
+        cameraButton.enabled = false
+    }
+    
+    func endSaving() {
+        hideActivityIndicator()
+        
+        navigationItem.hidesBackButton = false
+        navigationItem.rightBarButtonItem = saveButton
+        
+        removeButton.enabled = true
+        cameraButton.enabled = true
+        
+        refreshUI()
+    }
+    
+    func showActivityIndicator() {
+        navigationItem.titleView = titleActivityIndicator
+    }
+    
+    func hideActivityIndicator() {
+        navigationItem.titleView = .None
+    }
 }
 
 extension ComicDetailsViewController: UITableViewDataSource {
@@ -180,7 +226,6 @@ extension ComicDetailsViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 extension ComicDetailsViewController: UITableViewDelegate {

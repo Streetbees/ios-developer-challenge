@@ -1,13 +1,23 @@
 import UIKit
+import AutoLayoutPlus
 
 extension ComicDetailsViewController {
     
     func setupSubviews() {
         view.addSubview(detailsTableView)
+        view.addSubview(progressBar)
     }
     
     func setupConstraints() {
-        let constraints = detailsTableView.likeParent()
+        let views = ["detailsTableView": detailsTableView, "progressBar": progressBar]
+        
+        var constraints = NSLayoutConstraint.withFormat([
+            "V:|[progressBar(==4)]",
+            "H:|[progressBar]|",
+        ], views: views)
+        
+        constraints += detailsTableView.likeParent()
+        
         NSLayoutConstraint.activateConstraints(constraints)
     }
     
@@ -58,9 +68,32 @@ extension ComicDetailsViewController {
         return l
     }
     
-    func makeProgressView() -> UIProgressView {
-        let p = UIProgressView()
+    func makeProgressBar() -> UIProgressView {
+        let p = UIProgressView(progressViewStyle: .Default)
+        p.translatesAutoresizingMaskIntoConstraints = false
+        p.progressTintColor = UIColor.success()
+        p.hidden = true
+        
         return p
+    }
+    
+    func makeTitleActivityIndicator() -> UIView {
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        activityIndicatorView.startAnimating()
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Saving"
+        titleLabel.font = UIFont.marvelRegular(14)
+        
+        let fittingSize = titleLabel.sizeThatFits(CGSize(width: 200, height: activityIndicatorView.frame.size.height))
+        titleLabel.frame = CGRect(x: activityIndicatorView.frame.origin.x + activityIndicatorView.frame.size.width + 8, y: activityIndicatorView.frame.origin.y, width: fittingSize.width, height: fittingSize.height)
+        
+        let titleView = UIView(frame: CGRect(x: ((activityIndicatorView.frame.size.width + 8 + titleLabel.frame.size.width) / 2), y: ((activityIndicatorView.frame.size.height) / 2), width: (activityIndicatorView.frame.size.width + 8 + titleLabel.frame.size.width), height: (activityIndicatorView.frame.size.height)))
+        
+        titleView.addSubview(activityIndicatorView)
+        titleView.addSubview(titleLabel)
+        
+        return titleView
     }
     
     func makeCircularButton(target: AnyObject?, action: Selector, icon: UIImage) -> UIButton {
