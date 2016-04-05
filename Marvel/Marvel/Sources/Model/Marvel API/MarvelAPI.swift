@@ -18,7 +18,7 @@ class MarvelAPI: MarvelComicsAPI {
     private let manager = Alamofire.Manager.sharedInstance
     
     private lazy var imageDownloader: ImageDownloader = {
-        return ImageDownloader(sessionManager: self.manager, downloadPrioritization: .FIFO, maximumActiveDownloads: 4, imageCache: AutoPurgingImageCache())
+        return ImageDownloader(configuration: ImageDownloader.defaultURLSessionConfiguration(), downloadPrioritization: .LIFO, maximumActiveDownloads: 6, imageCache: AutoPurgingImageCache())
     }()
     
     func listComics(offset: Int, limit: Int, onSuccess: ComicDataContainer -> Void, onFailure: OnFailure) {
