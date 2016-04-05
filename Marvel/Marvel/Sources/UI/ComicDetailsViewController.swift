@@ -39,6 +39,8 @@ class ComicDetailsViewController: UIViewController {
     lazy var titleLabel: UILabel            = self.makeTitleLabel()
     lazy var removeButton: UIButton         = UIButton.circularButton(self, action: #selector(deleteDropboxImage), icon: UIImage.iconBin())
     lazy var cameraButton: UIButton         = UIButton.circularButton(self, action: #selector(selectCustomImage), icon: UIImage.iconCamera())
+    lazy var removeButton: UIButton         = self.makeCircularButton(self, action: #selector(deleteImagePressed), icon: UIImage.iconBin())
+    lazy var cameraButton: UIButton         = self.makeCircularButton(self, action: #selector(selectImagePressed), icon: UIImage.iconCamera())
     lazy var saveButton: UIBarButtonItem    = UIBarButtonItem(title: "Save", style: .Done, target: self, action: #selector(saveChanges))
     lazy var progress: UIProgressView       = self.makeProgressView()
     
