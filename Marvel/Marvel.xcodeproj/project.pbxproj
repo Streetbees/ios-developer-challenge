@@ -32,12 +32,13 @@
 		B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */; };
 		B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */; };
 		B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */; };
-		B3EC97461CB2137C00A502C1 /* UIButton+CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97451CB2137C00A502C1 /* UIButton+CustomButtons.swift */; };
 		B3EC97481CB2D5DF00A502C1 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97471CB2D5DF00A502C1 /* UIImage+Assets.swift */; };
 		B3EC974D1CB34AD600A502C1 /* ComicsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */; };
 		B3EC974F1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */; };
 		B3EC97511CB3A66000A502C1 /* ComicCell+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */; };
 		B3EC97531CB3AB8300A502C1 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EC97521CB3AB8300A502C1 /* Whisper.framework */; };
+		B3EC97551CB3AD2100A502C1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97541CB3AD2100A502C1 /* UIColor.swift */; };
+		B3EC975D1CB3FCD300A502C1 /* UIViewController+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC975C1CB3FCD300A502C1 /* UIViewController+Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,12 +84,13 @@
 		B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
 		B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoaderService.swift; path = Marvel/Sources/Model/Services/ImageLoaderService.swift; sourceTree = SOURCE_ROOT; };
-		B3EC97451CB2137C00A502C1 /* UIButton+CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+CustomButtons.swift"; sourceTree = "<group>"; };
 		B3EC97471CB2D5DF00A502C1 /* UIImage+Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
 		B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicsViewController+Layout.swift"; sourceTree = "<group>"; };
 		B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicDetailsViewController+Layout.swift"; sourceTree = "<group>"; };
 		B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicCell+Layout.swift"; sourceTree = "<group>"; };
 		B3EC97521CB3AB8300A502C1 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
+		B3EC97541CB3AD2100A502C1 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		B3EC975C1CB3FCD300A502C1 /* UIViewController+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Notifications.swift"; sourceTree = "<group>"; };
 		B705765E2DEAA9F0DCC0499F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D504C10917177268F1D052C3 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,8 +250,9 @@
 			children = (
 				B3D404341CB05B8800A256F0 /* NSDate+JSON.swift */,
 				B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */,
-				B3EC97451CB2137C00A502C1 /* UIButton+CustomButtons.swift */,
 				B3EC97471CB2D5DF00A502C1 /* UIImage+Assets.swift */,
+				B3EC97541CB3AD2100A502C1 /* UIColor.swift */,
+				B3EC975C1CB3FCD300A502C1 /* UIViewController+Notifications.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,7 +460,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3EC97461CB2137C00A502C1 /* UIButton+CustomButtons.swift in Sources */,
 				B3EC97511CB3A66000A502C1 /* ComicCell+Layout.swift in Sources */,
 				B3D404251CB00E7300A256F0 /* ComicDetailsViewController.swift in Sources */,
 				B3D4040F1CAF29C200A256F0 /* MarvelAPI.swift in Sources */,
@@ -470,8 +472,10 @@
 				B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */,
 				B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */,
 				B3D404111CAF29C200A256F0 /* Router.swift in Sources */,
+				B3EC97551CB3AD2100A502C1 /* UIColor.swift in Sources */,
 				B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */,
 				B3EC97481CB2D5DF00A502C1 /* UIImage+Assets.swift in Sources */,
+				B3EC975D1CB3FCD300A502C1 /* UIViewController+Notifications.swift in Sources */,
 				B3D403F91CAF225600A256F0 /* AppDelegate.swift in Sources */,
 				B3D404211CAFFD8000A256F0 /* ComicCell.swift in Sources */,
 			);
