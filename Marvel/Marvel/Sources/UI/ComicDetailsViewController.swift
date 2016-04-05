@@ -4,23 +4,46 @@ import RxCocoa
 import AutoLayoutPlus
 import RxMediaPicker
 import AVFoundation
-
-private let cellIdentifier = "cellIdentifier"
+import SwiftyDropbox
 
 class ComicDetailsViewController: UIViewController {
     
-    let viewModel: ComicDetailsViewModel
+    let comic: Comic
     let disposeBag = DisposeBag()
+    let cellIdentifier = "cellIdentifier"
+    
     var picker: RxMediaPicker?
+    var tempPhoto: UIImage?
+    var dropboxPhotoWasRemoved: Bool = false
+    
+    var hasDropboxThumbnail: Bool {
+        if let _ = comic.dropboxThumbnail {
+            return true
+        }
+        return false
+    }
+    
+    var hasTempPhoto: Bool {
+        if let _ = tempPhoto {
+            return true
+        }
+        return false
+    }
+    
+    var dropboxLinked: Bool {
+        return ImageLoaderService.service.dropboxLinked
+    }
     
     lazy var detailsTableView: UITableView  = self.makeDetailsTableView()
     lazy var comicThumbnail: UIImageView    = self.makeComicThumbnail()
     lazy var titleLabel: UILabel            = self.makeTitleLabel()
-    lazy var removeButton: UIButton         = UIButton.circularButton(self, action: #selector(deleteCustomImage), icon: UIImage.iconBin())
+    lazy var removeButton: UIButton         = UIButton.circularButton(self, action: #selector(deleteDropboxImage), icon: UIImage.iconBin())
     lazy var cameraButton: UIButton         = UIButton.circularButton(self, action: #selector(selectCustomImage), icon: UIImage.iconCamera())
+    lazy var saveButton: UIBarButtonItem    = UIBarButtonItem(title: "Save", style: .Done, target: self, action: #selector(saveChanges))
+    lazy var progress: UIProgressView       = self.makeProgressView()
     
-    init(viewModel: ComicDetailsViewModel) {
-        self.viewModel = viewModel
+    init(comic: Comic) {
+        self.comic = comic
         
         super.init(nibName: .None, bundle: .None)
     }
@@ -34,8 +57,6 @@ class ComicDetailsViewController: UIViewController {
         
         setupSubviews()
         setupConstraints()
-        
-        navigationItem.title = "Comic Details"
     }
 
     override func viewDidLoad() {
@@ -44,84 +65,28 @@ class ComicDetailsViewController: UIViewController {
         
         edgesForExtendedLayout = .None
         
-        setupBindings()
-        viewModel.active = true
+        if dropboxLinked {
+            navigationItem.rightBarButtonItem = saveButton
+        } else {
+            removeButton.hidden = true
+            cameraButton.hidden = true
+        }
+        
+        titleLabel.text = comic.title
+        comicThumbnail.image = defineImageToDisplay(comic)
+        
+        updateUI()
     }
     
-    func setupSubviews() {
-        view.addSubview(detailsTableView)
-    }
-    
-    func setupConstraints() {
-        let constraints = detailsTableView.likeParent()
-        NSLayoutConstraint.activateConstraints(constraints)
-    }
-    
-    func makeDetailsTableView() -> UITableView {
-        let t = UITableView()
-        t.translatesAutoresizingMaskIntoConstraints = false
-        t.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        t.tableHeaderView = comicThumbnail
-        t.separatorStyle = .None
-        t.rowHeight = UITableViewAutomaticDimension
-        t.estimatedRowHeight = 100
+    func deleteDropboxImage() {
+        if let _ = comic.dropboxThumbnail {
+            comicThumbnail.image = comic.thumbnail ?? UIImage.coverPlaceholder()
+            dropboxPhotoWasRemoved = true
+        } else {
+            tempPhoto = .None
+        }
         
-        t.rx_setDelegate(self)
-            .addDisposableTo(disposeBag)
-        
-        return t
-    }
-    
-    func makeComicThumbnail() -> UIImageView {
-        let frame = CGRect(x: 0, y: 0, width: 0, height: 300)
-        let i = UIImageView(frame: frame)
-        i.userInteractionEnabled = true
-        i.contentMode = .ScaleAspectFit
-        i.backgroundColor = UIColor.blackColor()
-        i.addSubview(removeButton)
-        i.addSubview(cameraButton)
-        
-        let constraints = NSLayoutConstraint.withFormat([
-            "V:[removeButton(==50)]-10-[cameraButton(==50)]-10-|",
-            "H:[removeButton(==50)]-10-|",
-            "H:[cameraButton(==50)]-10-|",
-        ], views: ["removeButton": removeButton, "cameraButton": cameraButton])
-        
-        NSLayoutConstraint.activateConstraints(constraints)
-        
-        return i
-    }
-    
-    func makeTitleLabel() -> UILabel {
-        let l = UILabel(frame: CGRect.zero)
-        l.font = UIFont.marvelRegular(16)
-        l.textAlignment = .Center
-        l.numberOfLines = 2
-        l.textColor = UIColor.whiteColor()
-        l.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.75)
-        
-        return l
-    }
-    
-    func setupBindings() {
-        viewModel.title
-            .bindTo(titleLabel.rx_text)
-            .addDisposableTo(disposeBag)
-        
-        viewModel.thumbnail
-            .bindTo(comicThumbnail.rx_image)
-            .addDisposableTo(disposeBag)
-        
-        viewModel.details
-            .bindTo(detailsTableView.rx_itemsWithCellIdentifier(cellIdentifier)) { (row, element, cell) in
-                cell.textLabel?.text = element
-                cell.textLabel?.numberOfLines = 0
-            }
-            .addDisposableTo(disposeBag)
-    }
-    
-    func deleteCustomImage() {
-        self.comicThumbnail.image = viewModel.model.thumbnail
+        updateUI()
     }
     
     func selectCustomImage() {
@@ -138,10 +103,10 @@ class ComicDetailsViewController: UIViewController {
         picker?.takePhoto(device: .Front, editable: true)
             .observeOn(MainScheduler.instance)
             .subscribeNext{ (image, editedImage) in
-                
                 if let img = editedImage {
                     self.comicThumbnail.image = img
-                    ImageLoaderService.service.uploadImageForComic(self.viewModel.model, image: img)
+                    self.tempPhoto = img
+                    self.updateUI()
                 }
                 
             }.addDisposableTo(disposeBag)
@@ -155,6 +120,65 @@ class ComicDetailsViewController: UIViewController {
             self.presentViewController(alert, animated: true, completion: .None)
         }
     }
+    
+    func saveChanges() {
+        navigationItem.hidesBackButton = true
+        progress.hidden = false
+        
+        /*
+        viewModel.saveChanges(tempPhoto!, progress: { progress in
+            print("Upload progress: \(progress)")
+        }, completion: { error in
+            print("Save changes completed")
+        })
+        */
+        
+        //upload or delete file on dropbox
+    }
+    
+    func updateUI() {
+        let existingChanges = hasTempPhoto || dropboxPhotoWasRemoved
+        
+        saveButton.enabled = existingChanges
+        removeButton.hidden = !(existingChanges || hasDropboxThumbnail)
+    }
+    
+    func defineImageToDisplay(comic: Comic) -> UIImage {
+        let image: UIImage
+        
+        if let dropboxImage = comic.dropboxThumbnail {
+            image = dropboxImage
+        } else if let marvelImage = comic.thumbnail {
+            image = marvelImage
+        } else {
+            image = UIImage.coverPlaceholder()
+        }
+        
+        return image
+    }
+    
+    func setSavingUI() {
+        let activity = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activity)
+        activity.startAnimating()
+    }
+
+}
+
+extension ComicDetailsViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        cell.textLabel?.text = comic.description ?? "No description available for this comic."
+        cell.textLabel?.numberOfLines = 0
+        
+        return cell
+    }
+    
 }
 
 extension ComicDetailsViewController: UITableViewDelegate {

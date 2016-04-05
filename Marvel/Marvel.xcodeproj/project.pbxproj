@@ -21,9 +21,6 @@
 		B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4040D1CAF29C200A256F0 /* Request+Argo.swift */; };
 		B3D404111CAF29C200A256F0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4040E1CAF29C200A256F0 /* Router.swift */; };
 		B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404121CAF2A1E00A256F0 /* Comic.swift */; };
-		B3D404161CAF42A500A256F0 /* ComicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404151CAF42A500A256F0 /* ComicsViewModel.swift */; };
-		B3D404181CAF430700A256F0 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404171CAF430700A256F0 /* BaseViewModel.swift */; };
-		B3D4041A1CAF454100A256F0 /* ComicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404191CAF454100A256F0 /* ComicCellViewModel.swift */; };
 		B3D4041D1CAFFB2600A256F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */; };
 		B3D4041E1CAFFB2600A256F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */; };
 		B3D404211CAFFD8000A256F0 /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404201CAFFD8000A256F0 /* ComicCell.swift */; };
@@ -35,9 +32,11 @@
 		B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */; };
 		B3D404391CB06DAA00A256F0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */; };
 		B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */; };
-		B3EC97431CB160B900A502C1 /* ComicDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97421CB160B900A502C1 /* ComicDetailsViewModel.swift */; };
 		B3EC97461CB2137C00A502C1 /* UIButton+CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97451CB2137C00A502C1 /* UIButton+CustomButtons.swift */; };
 		B3EC97481CB2D5DF00A502C1 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97471CB2D5DF00A502C1 /* UIImage+Assets.swift */; };
+		B3EC974D1CB34AD600A502C1 /* ComicsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */; };
+		B3EC974F1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */; };
+		B3EC97511CB3A66000A502C1 /* ComicCell+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +68,6 @@
 		B3D4040D1CAF29C200A256F0 /* Request+Argo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Argo.swift"; sourceTree = "<group>"; };
 		B3D4040E1CAF29C200A256F0 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B3D404121CAF2A1E00A256F0 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
-		B3D404151CAF42A500A256F0 /* ComicsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewModel.swift; sourceTree = "<group>"; };
-		B3D404171CAF430700A256F0 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		B3D404191CAF454100A256F0 /* ComicCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCellViewModel.swift; sourceTree = "<group>"; };
 		B3D4041B1CAFFB2600A256F0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B3D4041C1CAFFB2600A256F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B3D404201CAFFD8000A256F0 /* ComicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCell.swift; sourceTree = "<group>"; };
@@ -86,9 +82,11 @@
 		B3D404361CB063C800A256F0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
 		B3D404381CB06DAA00A256F0 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		B3D4043E1CB0B2F700A256F0 /* ImageLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoaderService.swift; path = Marvel/Sources/Model/Services/ImageLoaderService.swift; sourceTree = SOURCE_ROOT; };
-		B3EC97421CB160B900A502C1 /* ComicDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailsViewModel.swift; sourceTree = "<group>"; };
 		B3EC97451CB2137C00A502C1 /* UIButton+CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+CustomButtons.swift"; sourceTree = "<group>"; };
 		B3EC97471CB2D5DF00A502C1 /* UIImage+Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
+		B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicsViewController+Layout.swift"; sourceTree = "<group>"; };
+		B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicDetailsViewController+Layout.swift"; sourceTree = "<group>"; };
+		B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicCell+Layout.swift"; sourceTree = "<group>"; };
 		B705765E2DEAA9F0DCC0499F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D504C10917177268F1D052C3 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,7 +195,6 @@
 			children = (
 				B3D4043A1CB0763600A256F0 /* Services */,
 				B3D404331CB05B7B00A256F0 /* Extensions */,
-				B3D404141CAF3D4900A256F0 /* View Models */,
 				B3D404071CAF282900A256F0 /* Entities */,
 				B3D404081CAF282900A256F0 /* Marvel API */,
 			);
@@ -228,20 +225,10 @@
 			children = (
 				B3D4040A1CAF285E00A256F0 /* ComicsViewController.swift */,
 				B3D404241CB00E7300A256F0 /* ComicDetailsViewController.swift */,
+				B3EC974B1CB34ABA00A502C1 /* Layout */,
 				B3D4041F1CAFFD6000A256F0 /* Custom Cells */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		B3D404141CAF3D4900A256F0 /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-				B3D404171CAF430700A256F0 /* BaseViewModel.swift */,
-				B3D404151CAF42A500A256F0 /* ComicsViewModel.swift */,
-				B3D404191CAF454100A256F0 /* ComicCellViewModel.swift */,
-				B3EC97421CB160B900A502C1 /* ComicDetailsViewModel.swift */,
-			);
-			path = "View Models";
 			sourceTree = "<group>";
 		};
 		B3D4041F1CAFFD6000A256F0 /* Custom Cells */ = {
@@ -270,6 +257,16 @@
 			);
 			name = Services;
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		B3EC974B1CB34ABA00A502C1 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC974C1CB34AD600A502C1 /* ComicsViewController+Layout.swift */,
+				B3EC974E1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift */,
+				B3EC97501CB3A66000A502C1 /* ComicCell+Layout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		E1CD1FA19D611E51220937B9 /* Pods */ = {
@@ -456,19 +453,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3EC97461CB2137C00A502C1 /* UIButton+CustomButtons.swift in Sources */,
+				B3EC97511CB3A66000A502C1 /* ComicCell+Layout.swift in Sources */,
 				B3D404251CB00E7300A256F0 /* ComicDetailsViewController.swift in Sources */,
 				B3D4040F1CAF29C200A256F0 /* MarvelAPI.swift in Sources */,
 				B3D404131CAF2A1E00A256F0 /* Comic.swift in Sources */,
-				B3EC97431CB160B900A502C1 /* ComicDetailsViewModel.swift in Sources */,
 				B3D404371CB063C800A256F0 /* UIFont+Marvel.swift in Sources */,
+				B3EC974D1CB34AD600A502C1 /* ComicsViewController+Layout.swift in Sources */,
+				B3EC974F1CB34AEB00A502C1 /* ComicDetailsViewController+Layout.swift in Sources */,
 				B3D404321CB05B1500A256F0 /* ComicDataContainer.swift in Sources */,
 				B3D4040B1CAF285E00A256F0 /* ComicsViewController.swift in Sources */,
-				B3D4041A1CAF454100A256F0 /* ComicCellViewModel.swift in Sources */,
-				B3D404161CAF42A500A256F0 /* ComicsViewModel.swift in Sources */,
 				B3D404351CB05B8800A256F0 /* NSDate+JSON.swift in Sources */,
 				B3D4043F1CB0B2F700A256F0 /* ImageLoaderService.swift in Sources */,
 				B3D404111CAF29C200A256F0 /* Router.swift in Sources */,
-				B3D404181CAF430700A256F0 /* BaseViewModel.swift in Sources */,
 				B3D404101CAF29C200A256F0 /* Request+Argo.swift in Sources */,
 				B3EC97481CB2D5DF00A502C1 /* UIImage+Assets.swift in Sources */,
 				B3D403F91CAF225600A256F0 /* AppDelegate.swift in Sources */,

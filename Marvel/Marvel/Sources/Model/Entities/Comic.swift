@@ -1,6 +1,7 @@
 import Foundation
 import Argo
 import Curry
+import UIKit
 
 class Comic {
     let id: Int?
@@ -10,6 +11,7 @@ class Comic {
     let thumbnailPath: String?
     let thumbnailExtension: String?
     var thumbnail: UIImage?
+    var dropboxThumbnail: UIImage?
     
     init(id: Int?, title: String?, description: String?, modified: NSDate?, thumbnailPath: String?, thumbnailExtension: String?) {
         self.id = id
@@ -38,5 +40,3 @@ extension Comic: Equatable {}
 func ==(lhs: Comic, rhs: Comic) -> Bool {
     return lhs.id == rhs.id
 }
-
-

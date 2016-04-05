@@ -2,24 +2,24 @@ import UIKit
 import RxSwift
 import RxCocoa
 import AutoLayoutPlus
+import SwiftyDropbox
 
-private let cellIdentifier = "cellIdentifier"
+private let defaultLimit = 1
 
 class ComicsViewController: UIViewController {
-    let viewModel: ComicsViewModel
     let disposeBag = DisposeBag()
+    let cellIdentifier = "cellIdentifier"
+    
+    var comics: [Comic] = []
+    var currentOffset = 0
+    var isLoadingData = false
+    
+    var dropboxLinked: Bool {
+        return ImageLoaderService.service.dropboxLinked
+    }
     
     lazy var comicsCollectionView: UICollectionView = self.makeComicsCollectionView()
     lazy var dropboxButton: UIButton                = self.makeDropboxButton()
-    
-    init(viewModel: ComicsViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: .None, bundle: .None)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func loadView() {
         super.loadView()
@@ -37,62 +37,16 @@ class ComicsViewController: UIViewController {
         edgesForExtendedLayout = .None
         
         setupBindings()
-        viewModel.active = true
-        
         refreshDropboxButtonTitle()
         
+        loadNextComicBatch()
     }
-    
-    func setupSubviews() {
-        view.addSubview(comicsCollectionView)
-        view.addSubview(dropboxButton)
-    }
-    
-    func setupConstraints() {
-        let views = ["collectionView": comicsCollectionView, "dropboxButton": dropboxButton]
-        
-        let constraints = NSLayoutConstraint.withFormat([
-            "V:|[collectionView][dropboxButton(==50)]|",
-            "H:|[collectionView]|",
-            "H:|[dropboxButton]|",
-        ], views: views)
-        
-        NSLayoutConstraint.activateConstraints(constraints)
-    }
-    
-    func makeComicsCollectionView() -> UICollectionView {
-        let c = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
-        c.translatesAutoresizingMaskIntoConstraints = false
-        c.registerClass(ComicCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        c.backgroundColor = UIColor.whiteColor()
-        c.bounces = false
-        c.delegate = self
-        
-        return c
-    }
-    
-    func makeDropboxButton() -> UIButton {
-        let b = UIButton()
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = UIColor.blueColor()
-        b.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        b.addTarget(self, action: #selector(dropboxButtonPressed), forControlEvents: .TouchUpInside)
-        
-        return b
-    }
-    
+            
     func setupBindings() {
-        viewModel.comics
-            .bindTo(comicsCollectionView.rx_itemsWithCellIdentifier(cellIdentifier, cellType: ComicCell.self)) { (row, element, cell) in
-                let cellViewModel = ComicCellViewModel(model: element)
-                cell.configure(cellViewModel)
-            }
-            .addDisposableTo(disposeBag)
-        
         ImageLoaderService.service.downloadedImage
             .observeOn(MainScheduler.instance)
             .subscribeNext { comic in
-                if let index = self.viewModel.model.indexOf(comic) {
+                if let index = self.comics.indexOf(comic) {
                     let path = NSIndexPath(forRow: index, inSection: 0)
                     self.comicsCollectionView.reloadItemsAtIndexPaths([path])
                 }
@@ -101,18 +55,68 @@ class ComicsViewController: UIViewController {
     }
     
     func dropboxButtonPressed() {
-        if !DBSession.sharedSession().isLinked() {
-            DBSession.sharedSession().linkFromController(self)
-        } else {
-            DBSession.sharedSession().unlinkAll()
+        if dropboxLinked {
+            Dropbox.unlinkClient()
             refreshDropboxButtonTitle()
+            
+            comics.forEach { $0.dropboxThumbnail = .None }
+            comicsCollectionView.reloadItemsAtIndexPaths(comicsCollectionView.indexPathsForVisibleItems())
+        } else {
+            Dropbox.authorizeFromController(self)
         }
     }
     
     func refreshDropboxButtonTitle() {
-        let title = DBSession.sharedSession().isLinked() ? "Unlink Dropbox" : "Link Dropbox"
-        dropboxButton.setTitle(title, forState: .Normal)
+        if let _ = Dropbox.authorizedClient {
+            dropboxButton.setTitle("  Unlink Dropbox", forState: .Normal)
+        } else {
+            dropboxButton.setTitle("  Link Dropbox", forState: .Normal)
+        }
     }
+    
+    func loadNextComicBatch() {
+        if !isLoadingData {
+            isLoadingData = true
+            MarvelAPI.api.listComics(currentOffset, limit: defaultLimit, onSuccess: obtainedComics, onFailure: failedToObtainComics)
+        }
+    }
+    
+    func obtainedComics(comicData: ComicDataContainer) {
+        guard let moreComics = comicData.comics, count = comicData.count else {
+            return
+        }
+        
+        let oldComicCount = comics.count
+        comics += moreComics
+        currentOffset += count
+        
+        let newIndexes = (oldComicCount..<comics.count).map { NSIndexPath(forItem: $0, inSection: 0) }
+        comicsCollectionView.insertItemsAtIndexPaths(newIndexes)
+        
+        isLoadingData = false
+    }
+    
+    func failedToObtainComics(failure: RequestFailed) {
+        // Retry, show message, etc
+        isLoadingData = false
+    }
+}
+
+extension ComicsViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return comics.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ComicCell
+        
+        let comic = comics[indexPath.row]
+        cell.configure(comic)
+        
+        return cell
+    }
+    
 }
 
 extension ComicsViewController: UICollectionViewDelegateFlowLayout {
@@ -132,14 +136,13 @@ extension ComicsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailsViewModel = ComicDetailsViewModel(model: viewModel.model[indexPath.row])
-        let detailsScreen = ComicDetailsViewController(viewModel: detailsViewModel)
+        let detailsScreen = ComicDetailsViewController(comic: comics[indexPath.row])
         navigationController?.pushViewController(detailsScreen, animated: true)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.contentOffset.y >= scrollView.contentSize.height - (scrollView.frame.size.height * 3) {
-            viewModel.fetchNextBatchOfComics()
+            loadNextComicBatch()
         }
     }
 }
