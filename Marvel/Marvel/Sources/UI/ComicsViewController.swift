@@ -9,11 +9,10 @@ class ComicsViewController: UIViewController {
     var comics: [Comic] = []
     var currentOffset = 0
     var isLoadingData = false
-    
-    var dropboxLinked: Bool { return DropboxService.service.dropboxLinked }
-    
     var bannerView: BannerView?
     var bannerViewTap: UITapGestureRecognizer?
+    
+    var dropboxLinked: Bool { return DropboxService.service.dropboxLinked }
     
     lazy var comicsCollectionView: UICollectionView       = self.makeComicsCollectionView()
     lazy var dropboxButton: UIButton                      = self.makeDropboxButton()
