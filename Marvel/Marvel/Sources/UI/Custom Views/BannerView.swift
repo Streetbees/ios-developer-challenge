@@ -76,7 +76,7 @@ class BannerView: UIView {
     func makeBottomImage() -> UIImageView {
         let i = UIImageView(image: UIImage.bannerImage())
         i.translatesAutoresizingMaskIntoConstraints = false
-        i.contentMode = .ScaleAspectFit
+        i.contentMode = .ScaleAspectFill
         
         return i
     }
