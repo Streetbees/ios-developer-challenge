@@ -82,7 +82,7 @@ class BannerView: UIView {
     }
     
     func showError(description: String) {
-        label.text = "Failed to load comics: \(description).\n\nTap to retry."
+        label.text = "\(description).\n\nTap to retry."
         indicator.hidden = true
     }
     

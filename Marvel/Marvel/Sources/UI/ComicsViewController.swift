@@ -79,8 +79,12 @@ class ComicsViewController: UIViewController {
         let newIndexes = (previousComicCount..<comics.count).map { NSIndexPath(forItem: $0, inSection: 0) }
         comicsCollectionView.insertItemsAtIndexPaths(newIndexes)
         
-        let firstBatch = comics.count == count
-        endLoadingSuccess(firstBatch)
+        let firstBatch = previousComicCount == 0
+        if firstBatch && count == 0 {
+            endLoadingFailure(firstBatch, message: "No comics available")
+        } else {
+            endLoadingSuccess(firstBatch)
+        }
     }
     
     func failedToObtainComics(failure: RequestFailed) {
@@ -149,7 +153,7 @@ class ComicsViewController: UIViewController {
     }
     
     func endLoadingFailure(firstBatch: Bool, message: String) {
-        if firstBatch {
+        if firstBatch || comics.count == 0 {
             bannerView?.showError(message)
             bannerViewTap?.enabled = true
         } else {
