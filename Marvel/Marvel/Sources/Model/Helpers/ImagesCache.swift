@@ -1,6 +1,8 @@
 import Foundation
 import NSCacheSwift
 
+private let countLimit = 30
+
 class ImagesCache {
     static let instance = ImagesCache()
 
@@ -9,6 +11,9 @@ class ImagesCache {
     
     private init() {
         self.marvelCache = NSCacheSwift<Int, UIImage>()
+        self.marvelCache.countLimit = countLimit
+        
         self.dropboxCache = NSCacheSwift<Int, UIImage>()
+        self.dropboxCache.countLimit = countLimit
     }
 }
