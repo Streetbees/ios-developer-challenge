@@ -50,21 +50,9 @@ class ComicDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupInitialUI()
         picker = RxMediaPicker(delegate: self)
-        
-        edgesForExtendedLayout = .None
-        
-        if dropboxLinked {
-            navigationItem.rightBarButtonItem = saveButton
-        } else {
-            removeButton.hidden = true
-            cameraButton.hidden = true
-        }
-        
-        titleLabel.text = comic.title
-        comicThumbnail.image = defineImageToDisplay()
-        
-        refreshUI()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -215,6 +203,22 @@ class ComicDetailsViewController: UIViewController {
     
     func hideActivityIndicator() {
         navigationItem.titleView = .None
+    }
+    
+    func setupInitialUI() {
+        edgesForExtendedLayout = .None
+        
+        if dropboxLinked {
+            navigationItem.rightBarButtonItem = saveButton
+        } else {
+            removeButton.hidden = true
+            cameraButton.hidden = true
+        }
+        
+        titleLabel.text = comic.title
+        comicThumbnail.image = defineImageToDisplay()
+        
+        refreshUI()
     }
 }
 
