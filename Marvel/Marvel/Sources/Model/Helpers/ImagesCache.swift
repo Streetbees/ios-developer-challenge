@@ -11,5 +11,4 @@ class ImagesCache {
         self.marvelCache = NSCacheSwift<Int, UIImage>()
         self.dropboxCache = NSCacheSwift<Int, UIImage>()
     }
-   
 }

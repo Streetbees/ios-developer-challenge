@@ -10,9 +10,7 @@ class ComicsViewController: UIViewController {
     var currentOffset = 0
     var isLoadingData = false
     
-    var dropboxLinked: Bool {
-        return DropboxService.service.dropboxLinked
-    }
+    var dropboxLinked: Bool { return DropboxService.service.dropboxLinked }
     
     var bannerView: BannerView?
     var bannerViewTap: UITapGestureRecognizer?
@@ -27,21 +25,16 @@ class ComicsViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         
-        navigationItem.title = "Marvel Comics"
         view.backgroundColor = UIColor.whiteColor()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        edgesForExtendedLayout = .None
-        
-        refreshDropboxButtonTitle()
+        setupInitialUI()
         loadNextComicBatch()
-                
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(dropboxLinkHandler), name: Notification.dropboxLinkNotification, object: .None)
         
-        displayBanner()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(dropboxLinkHandler), name: Notification.dropboxLinkNotification, object: .None)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -63,58 +56,36 @@ class ComicsViewController: UIViewController {
     }
     
     func refreshDropboxButtonTitle() {
-        let title =  dropboxLinked ? "  Unlink Dropbox" : "  Link Dropbox"
+        let title = dropboxLinked ? "  Unlink Dropbox" : "  Link Dropbox"
         dropboxButton.setTitle(title, forState: .Normal)
     }
     
     func loadNextComicBatch() {
         if !isLoadingData {
-            isLoadingData = true
-            
-            moreComicsIndicator.hidden = currentOffset == 0
-            if !moreComicsIndicator.hidden {
-                moreComicsIndicator.startAnimating()
-            }
-            
+            let firstBatch = currentOffset == 0
+            startLoading(firstBatch)
+                        
             MarvelAPI.api.listComics(currentOffset, limit: defaultLimit, onSuccess: obtainedComics, onFailure: failedToObtainComics)
         }
     }
     
     func obtainedComics(comicData: ComicDataContainer) {
-        guard let moreComics = comicData.comics, count = comicData.count else {
-            return
-        }
+        guard let moreComics = comicData.comics, count = comicData.count else { return }
         
-        let oldComicCount = comics.count
+        let previousComicCount = comics.count
         comics += moreComics
         currentOffset += count
         
-        let newIndexes = (oldComicCount..<comics.count).map { NSIndexPath(forItem: $0, inSection: 0) }
+        let newIndexes = (previousComicCount..<comics.count).map { NSIndexPath(forItem: $0, inSection: 0) }
         comicsCollectionView.insertItemsAtIndexPaths(newIndexes)
         
-        // First batch
-        if comics.count == count {
-            bannerView?.removeFromSuperview()
-            bannerViewTap = .None
-        }
-        
-        moreComicsIndicator.stopAnimating()
-        moreComicsIndicator.hidden = true
-        
-        isLoadingData = false
+        let firstBatch = comics.count == count
+        endLoadingSuccess(firstBatch)
     }
     
     func failedToObtainComics(failure: RequestFailed) {
-        if comics.isEmpty {
-            bannerView?.showError(failure.description)
-            bannerViewTap?.enabled = true
-        } else {
-            showError(failure.description)
-            moreComicsIndicator.stopAnimating()
-            moreComicsIndicator.hidden = true
-        }
-        
-        isLoadingData = false
+        let firstBatch = comics.isEmpty
+        endLoadingFailure(firstBatch, message: failure.description)
     }
     
     func dropboxLinkHandler(notification: NSNotification) {
@@ -147,6 +118,47 @@ class ComicsViewController: UIViewController {
         
         view.addSubview(bannerView!)
         NSLayoutConstraint.activateConstraints(bannerView!.likeParent())
+    }
+    
+    func setupInitialUI() {
+        edgesForExtendedLayout = .None
+        navigationItem.title = "Marvel Comics"
+        refreshDropboxButtonTitle()
+        displayBanner()
+    }
+    
+    func startLoading(firstBatch: Bool) {
+        isLoadingData = true
+        
+        moreComicsIndicator.hidden = firstBatch
+        if !firstBatch {
+            moreComicsIndicator.startAnimating()
+        }
+    }
+    
+    func endLoadingSuccess(firstBatch: Bool) {
+        if firstBatch {
+            bannerView?.removeFromSuperview()
+            bannerViewTap = .None
+        } else {
+            moreComicsIndicator.stopAnimating()
+            moreComicsIndicator.hidden = true
+        }
+        
+        isLoadingData = false
+    }
+    
+    func endLoadingFailure(firstBatch: Bool, message: String) {
+        if firstBatch {
+            bannerView?.showError(message)
+            bannerViewTap?.enabled = true
+        } else {
+            showError(message)
+            moreComicsIndicator.stopAnimating()
+            moreComicsIndicator.hidden = true
+        }
+        
+        isLoadingData = false
     }
 }
 

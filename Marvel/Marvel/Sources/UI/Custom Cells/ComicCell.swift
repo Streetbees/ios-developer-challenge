@@ -25,13 +25,10 @@ class ComicCell: UICollectionViewCell {
     }
     
     func configure(comic: Comic) {
-        guard let id = comic.id else { return }
-        
         self.comic = comic
         
         titleLabel.text = comic.title
         comicImageView.image = defineImageToDisplay(comic)
-        tag = id
         
         loadMissingThumbnails(comic)
     }
@@ -68,24 +65,32 @@ class ComicCell: UICollectionViewCell {
     func loadMissingMarvelThumbnail(comic: Comic) {
         MarvelAPI.api.downloadComicThumbnailFromMarvel(comic, completion: { image in
             dispatch_async(dispatch_get_main_queue()) {
-                ImagesCache.instance.marvelCache[comic.id!] = image
-                
-                if self.tag == comic.id! {
-                    self.comicImageView.image = self.defineImageToDisplay(comic)
+                if let loadedImage = image {
+                    ImagesCache.instance.marvelCache[comic.id!] = loadedImage
+                    self.showLoadedImageForComic(comic)
                 }
             }
         })
     }
     
     func loadMissingDropboxThumbnail(comic: Comic) {
-        DropboxService.service.downloadComicThumbnailFromDropbox(comic, completion: { image in
-            dispatch_async(dispatch_get_main_queue()) {
-                ImagesCache.instance.dropboxCache[comic.id!] = image
-                
-                if self.tag == comic.id! {
-                    self.comicImageView.image = self.defineImageToDisplay(comic)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+            DropboxService.service.downloadComicThumbnailFromDropbox(comic, completion: { image in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let loadedImage = image {
+                        ImagesCache.instance.dropboxCache[comic.id!] = loadedImage
+                        self.showLoadedImageForComic(comic)
+                    }
                 }
-            }
-        })
+            })
+        }
+    }
+    
+    func showLoadedImageForComic(comic: Comic) {
+        guard let currentComic = self.comic else { return }
+        
+        if currentComic.id! == comic.id! {
+            comicImageView.image = self.defineImageToDisplay(comic)
+        }
     }
 }
