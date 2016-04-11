@@ -1,0 +1,6 @@
+framework module SwiftKeepLayout {
+  umbrella header "SwiftKeepLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

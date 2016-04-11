@@ -1,0 +1,13 @@
+PODS:
+  - Alamofire (3.3.1)
+  - SwiftKeepLayout (0.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - SwiftKeepLayout
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  SwiftKeepLayout: d1ef265c69648b223bf6812b7eccdf1ffa2b8f00
+
+COCOAPODS: 0.39.0
