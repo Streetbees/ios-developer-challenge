@@ -1,5 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
 use_frameworks!
-platform :ios, '8.0'
 
+pod 'CryptoSwift'
 pod 'SwiftKeepLayout'
 pod 'Alamofire', '~> 3.0'
