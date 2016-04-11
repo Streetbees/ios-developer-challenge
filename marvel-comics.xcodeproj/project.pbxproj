@@ -16,6 +16,8 @@
 		A9F98B361CBBB7C4006915DC /* SharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B351CBBB7C4006915DC /* SharedViewController.swift */; };
 		A9F98B381CBBB9E1006915DC /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B371CBBB9E1006915DC /* Global.swift */; };
 		A9F98B3A1CBBBCD5006915DC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B391CBBBCD5006915DC /* Session.swift */; };
+		A9F98B3E1CBBC228006915DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B3D1CBBC228006915DC /* Extensions.swift */; };
+		A9F98B401CBC217C006915DC /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B3F1CBC217C006915DC /* Comic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		A9F98B351CBBB7C4006915DC /* SharedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedViewController.swift; sourceTree = "<group>"; };
 		A9F98B371CBBB9E1006915DC /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		A9F98B391CBBBCD5006915DC /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		A9F98B3D1CBBC228006915DC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A9F98B3F1CBC217C006915DC /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		E117B1C04ECD7BB73EAC7D56 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +142,9 @@
 		A9F98B301CBBB76D006915DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9F98B3C1CBBC1FD006915DC /* Extension */,
 				A9F98B391CBBBCD5006915DC /* Session.swift */,
+				A9F98B3F1CBC217C006915DC /* Comic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +162,14 @@
 				A9F98B351CBBB7C4006915DC /* SharedViewController.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		A9F98B3C1CBBC1FD006915DC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A9F98B3D1CBBC228006915DC /* Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F98B3A1CBBBCD5006915DC /* Session.swift in Sources */,
+				A9F98B3E1CBBC228006915DC /* Extensions.swift in Sources */,
+				A9F98B401CBC217C006915DC /* Comic.swift in Sources */,
 				A9F98B381CBBB9E1006915DC /* Global.swift in Sources */,
 				A9F98B331CBBB783006915DC /* ViewController.swift in Sources */,
 				A9F98B361CBBB7C4006915DC /* SharedViewController.swift in Sources */,
