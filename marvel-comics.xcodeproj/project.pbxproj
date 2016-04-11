@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		A11EE359DED54140B7462793 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3702EE48B2A72F22022EAA74 /* Pods.framework */; };
 		A9F98B0F1CBBB323006915DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B0E1CBBB323006915DC /* AppDelegate.swift */; };
-		A9F98B111CBBB323006915DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B101CBBB323006915DC /* ViewController.swift */; };
 		A9F98B161CBBB323006915DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F98B151CBBB323006915DC /* Assets.xcassets */; };
 		A9F98B191CBBB323006915DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F98B171CBBB323006915DC /* LaunchScreen.storyboard */; };
 		A9F98B241CBBB323006915DC /* marvel_comicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B231CBBB323006915DC /* marvel_comicsTests.swift */; };
+		A9F98B331CBBB783006915DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B321CBBB783006915DC /* ViewController.swift */; };
+		A9F98B361CBBB7C4006915DC /* SharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B351CBBB7C4006915DC /* SharedViewController.swift */; };
+		A9F98B381CBBB9E1006915DC /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B371CBBB9E1006915DC /* Global.swift */; };
+		A9F98B3A1CBBBCD5006915DC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B391CBBBCD5006915DC /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,13 +33,16 @@
 		7EFBD7AA7E61F3621910C93C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A9F98B0B1CBBB323006915DC /* marvel-comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "marvel-comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F98B0E1CBBB323006915DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9F98B101CBBB323006915DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9F98B151CBBB323006915DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9F98B181CBBB323006915DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9F98B1A1CBBB323006915DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9F98B1F1CBBB323006915DC /* marvel-comicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "marvel-comicsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F98B231CBBB323006915DC /* marvel_comicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marvel_comicsTests.swift; sourceTree = "<group>"; };
 		A9F98B251CBBB323006915DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9F98B321CBBB783006915DC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9F98B351CBBB7C4006915DC /* SharedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedViewController.swift; sourceTree = "<group>"; };
+		A9F98B371CBBB9E1006915DC /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		A9F98B391CBBBCD5006915DC /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		E117B1C04ECD7BB73EAC7D56 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,8 +105,11 @@
 		A9F98B0D1CBBB323006915DC /* marvel-comics */ = {
 			isa = PBXGroup;
 			children = (
+				A9F98B371CBBB9E1006915DC /* Global.swift */,
 				A9F98B0E1CBBB323006915DC /* AppDelegate.swift */,
-				A9F98B101CBBB323006915DC /* ViewController.swift */,
+				A9F98B301CBBB76D006915DC /* Model */,
+				A9F98B311CBBB76D006915DC /* View */,
+				A9F98B2F1CBBB76D006915DC /* Controller */,
 				A9F98B151CBBB323006915DC /* Assets.xcassets */,
 				A9F98B171CBBB323006915DC /* LaunchScreen.storyboard */,
 				A9F98B1A1CBBB323006915DC /* Info.plist */,
@@ -115,6 +124,38 @@
 				A9F98B251CBBB323006915DC /* Info.plist */,
 			);
 			path = "marvel-comicsTests";
+			sourceTree = "<group>";
+		};
+		A9F98B2F1CBBB76D006915DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9F98B341CBBB79F006915DC /* Shared */,
+				A9F98B321CBBB783006915DC /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A9F98B301CBBB76D006915DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9F98B391CBBBCD5006915DC /* Session.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9F98B311CBBB76D006915DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9F98B341CBBB79F006915DC /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A9F98B351CBBB7C4006915DC /* SharedViewController.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9F98B111CBBB323006915DC /* ViewController.swift in Sources */,
+				A9F98B3A1CBBBCD5006915DC /* Session.swift in Sources */,
+				A9F98B381CBBB9E1006915DC /* Global.swift in Sources */,
+				A9F98B331CBBB783006915DC /* ViewController.swift in Sources */,
+				A9F98B361CBBB7C4006915DC /* SharedViewController.swift in Sources */,
 				A9F98B0F1CBBB323006915DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
