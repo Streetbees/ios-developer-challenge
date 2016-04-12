@@ -5,3 +5,4 @@ use_frameworks!
 pod 'CryptoSwift'
 pod 'SwiftKeepLayout'
 pod 'Alamofire', '~> 3.0'
+pod 'Kingfisher', '~> 2.2'
