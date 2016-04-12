@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 let API_BASE_URL = "https://gateway.marvel.com/"
 let API_VERSION = "v1"
@@ -23,3 +23,4 @@ let MARVEL_JSON_DATE_FORMATTER: NSDateFormatter = {
 }()
 
 let COMIC_BATCH_LIMIT = 30
+let COMICS_SPACING: CGFloat = 5

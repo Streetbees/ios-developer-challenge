@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import CryptoSwift
 
+let NOTIFICATION_COMICS_DID_UPDATE = "NOTIFICATION_COMICS_DID_UPDATE"
+
 class Session {
 	static let instance = Session()
 	
@@ -30,9 +32,11 @@ class Session {
 			
 			self.comics = comicsJson.map{ Comic(dictionary: $0) }
 			
-			for comic in self.comics {
-				print( comic.title ?? "No title" )
-			}
+			NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_COMICS_DID_UPDATE, object: self)
+			
+//			for comic in self.comics {
+//				print( comic.title ?? "No title" )
+//			}
 		}?.send()
 	}
 }

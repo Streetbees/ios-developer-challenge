@@ -17,6 +17,13 @@ class Comic {
 	var updateDate: NSDate?
 	var thumbnailPath: String?
 	var thumbnailExtension: String?
+	var thumbnailUrl: NSURL? {
+		guard let path = thumbnailPath where !path.isEmpty,
+			let ext = thumbnailExtension where !ext.isEmpty
+			else { return nil }
+		
+		return NSURL(string: "\(path).\(ext)")
+	}
 	
 	init(dictionary: [String: AnyObject]) {
 		self.id = dictionary["id"] as? Int

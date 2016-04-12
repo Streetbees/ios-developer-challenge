@@ -21,6 +21,7 @@
 		A9F98B441CBC44B0006915DC /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B431CBC44B0006915DC /* WebService.swift */; };
 		A9F98B471CBC4B90006915DC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B461CBC4B90006915DC /* Request.swift */; };
 		A9F98B491CBCF5E5006915DC /* ComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B481CBCF5E5006915DC /* ComicsViewController.swift */; };
+		A9F98B4C1CBCFC1A006915DC /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B4B1CBCFC1A006915DC /* ComicCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A9F98B431CBC44B0006915DC /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		A9F98B461CBC4B90006915DC /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		A9F98B481CBCF5E5006915DC /* ComicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
+		A9F98B4B1CBCFC1A006915DC /* ComicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicCell.swift; path = Cell/ComicCell.swift; sourceTree = "<group>"; };
 		E117B1C04ECD7BB73EAC7D56 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 		A9F98B311CBBB76D006915DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A9F98B4A1CBCFC08006915DC /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +190,14 @@
 				A9F98B461CBC4B90006915DC /* Request.swift */,
 			);
 			name = WebService;
+			sourceTree = "<group>";
+		};
+		A9F98B4A1CBCFC08006915DC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A9F98B4B1CBCFC1A006915DC /* ComicCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +353,7 @@
 				A9F98B3A1CBBBCD5006915DC /* Session.swift in Sources */,
 				A9F98B3E1CBBC228006915DC /* Extensions.swift in Sources */,
 				A9F98B491CBCF5E5006915DC /* ComicsViewController.swift in Sources */,
+				A9F98B4C1CBCFC1A006915DC /* ComicCell.swift in Sources */,
 				A9F98B441CBC44B0006915DC /* WebService.swift in Sources */,
 				A9F98B401CBC217C006915DC /* Comic.swift in Sources */,
 				A9F98B381CBBB9E1006915DC /* Global.swift in Sources */,

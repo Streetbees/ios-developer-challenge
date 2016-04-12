@@ -12,13 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+	private(set) var navigationController: UINavigationController?
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
 		
+		UIApplication.sharedApplication().statusBarStyle = .LightContent
+		
+		navigationController = UINavigationController(rootViewController: ComicsViewController())
+		navigationController!.navigationBar.barTintColor = UIColor(red: 0.9, green: 0, blue: 0, alpha: 0.8)
+		navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+		
 		window = UIWindow(frame: UIScreen.mainScreen().bounds)
-		window!.rootViewController = UINavigationController(rootViewController: ViewController())
+		window!.rootViewController = navigationController!
 		window!.makeKeyAndVisible()
 		
 		return true
