@@ -20,31 +20,19 @@ class Session {
 	}
 	
 	func requestComics() {
-		func parameters() -> [String: AnyObject] {
-			let timestamp = String(NSDate().timeIntervalSince1970 * 1000)
-			let hash = "\(timestamp)\(API_PRIVATE_KEY)\(API_PUBLIC_KEY)".md5()
-			return [
-				"apikey": API_PUBLIC_KEY,
-				"ts": timestamp,
-				"hash": hash
-			]
-		}
-		
-		Alamofire.request(.GET, API_COMICS_URL, parameters: parameters()).responseJSON { response in
-			guard let json = response.result.value as? [String: AnyObject],
-				let data = json["data"] as? [String: AnyObject]
-				else { return }
-			
-			print(json)
-			
-			guard let comicsJson = data["results"] as? [[String: AnyObject]]
+		Request(stringUrl: API_COMICS_URL, parameters: [
+			"offset": COMIC_BATCH_LIMIT,
+			"limit": COMIC_BATCH_LIMIT,
+			"orderBy": "-onsaleDate"
+		]) { (result: [String : AnyObject]) -> (Void) in
+			guard let comicsJson = result["results"] as? [[String: AnyObject]]
 				else { return }
 			
 			self.comics = comicsJson.map{ Comic(dictionary: $0) }
 			
 			for comic in self.comics {
-				print( comic.title )
+				print( comic.title ?? "No title" )
 			}
-		}
+		}?.send()
 	}
 }

@@ -21,3 +21,5 @@ let MARVEL_JSON_DATE_FORMATTER: NSDateFormatter = {
 	dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
 	return dateFormatter
 }()
+
+let COMIC_BATCH_LIMIT = 30
