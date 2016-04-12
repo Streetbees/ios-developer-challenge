@@ -24,3 +24,5 @@ let MARVEL_JSON_DATE_FORMATTER: NSDateFormatter = {
 
 let COMIC_BATCH_LIMIT = 30
 let COMICS_SPACING: CGFloat = 5
+
+typealias RequestState = (loading: Bool, loaded: Bool)

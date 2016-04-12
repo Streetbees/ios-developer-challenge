@@ -18,7 +18,7 @@ class WebService {
 				let data = json["data"] as? [String: AnyObject]
 				else { return }
 			
-			print(data)
+//			print(data)
 			
 			request.completion?(data)
 		}

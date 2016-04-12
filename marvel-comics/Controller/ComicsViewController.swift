@@ -38,6 +38,9 @@ class ComicsViewController: UICollectionViewController {
 		
 		title = "Marvel Comics"
 		
+		view.backgroundColor = UIColor(white: 0.8, alpha: 1)
+		
+		collectionView!.backgroundColor = UIColor(white: 0.9, alpha: 1)
 		collectionView!.contentInset = UIEdgeInsetsMake(COMICS_SPACING, COMICS_SPACING, COMICS_SPACING, COMICS_SPACING)
 		collectionView!.registerClass(ComicCell.self, forCellWithReuseIdentifier: ComicsViewController.cellIdentifier)
 	}
@@ -63,14 +66,16 @@ extension ComicsViewController {
 		let comic = comics[indexPath.row]
 		
 		if comic.thumbnailUrl != nil {
-			cell.imageView.kf_setImageWithURL(comic.thumbnailUrl!)
+			cell.imageView.kf_setImageWithURL(comic.thumbnailUrl!, placeholderImage: nil, optionsInfo: [
+				.Transition(ImageTransition.FlipFromLeft(0.4))
+				])
 		}
 		
 		return cell
 	}
 }
 
-extension ComicsViewController: UICollectionViewDelegateFlowLayout {
+extension ComicsViewController {
 	
 //	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 //		
@@ -95,9 +100,9 @@ extension ComicsViewController: UICollectionViewDelegateFlowLayout {
 //		navigationController?.pushViewController(detailsScreen, animated: true)
 //	}
 //	
-//	func scrollViewDidScroll(scrollView: UIScrollView) {
-//		if scrollView.contentOffset.y >= scrollView.contentSize.height - (scrollView.frame.size.height * 2) {
-//			loadNextComicBatch()
-//		}
-//	}
+	override func scrollViewDidScroll(scrollView: UIScrollView) {
+		if scrollView.contentOffset.y >= scrollView.contentSize.height - (scrollView.frame.size.height * 2) {
+			Session.instance.requestComics()
+		}
+	}
 }

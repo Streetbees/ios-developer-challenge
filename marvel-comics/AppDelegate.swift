@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.mainScreen().bounds)
 		window!.rootViewController = navigationController!
 		window!.makeKeyAndVisible()
+		
+		// Image Cache
+		let cache = KingfisherManager.sharedManager.cache
+		cache.clearDiskCache()
+		cache.clearMemoryCache()
 		
 		return true
 	}

@@ -18,7 +18,7 @@ class ComicCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: CGRectMake(0, 0, ComicCell.width, ComicCell.height))
 		
-		contentView.backgroundColor = UIColor.grayColor()
+		contentView.backgroundColor = UIColor(white: 1, alpha: 0.2)
 		
 		contentView.addSubview(imageView)
 		imageView.keepInsets.vEqual = 0
