@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyDropbox
+import JDStatusBarNotification
 
 let NOTIFICATION_COMIC_IMAGE_DID_UPDATE = "NOTIFICATION_COMIC_IMAGE_DID_UPDATE"
 
@@ -84,16 +85,30 @@ extension Comic {
 	internal func deleteDropboxImage() {
 		customThumbnail = nil
 		if Dropbox.authorizedClient != nil {
-			Dropbox.authorizedClient!.files.delete(path: dropboxPath)
+			Dropbox.authorizedClient!.files.delete(path: dropboxPath).response { _,_ in
+				Mana.dispatchMainThread {
+					JDStatusBarNotification.showWithStatus("Image deleted from dropbox", styleName: JDStatusBarStyleError)
+					JDStatusBarNotification.dismissAfter(1)
+				}
+			}
 		}
 	}
 	
 	internal func saveDropboxImage() {
 		if Dropbox.authorizedClient != nil && customThumbnail != nil {
+			Mana.dispatchMainThread {
+				JDStatusBarNotification.showWithStatus("Saving to dropbox...", styleName: JDStatusBarStyleError)
+			}
 			Dropbox.authorizedClient!.files.upload(path: dropboxPath, mode: .Overwrite, autorename: false, body: customThumbnail!).progress({ (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
 				let value = Float(totalBytesRead) / Float(totalBytesExpectedToRead)
-				print(value)
-			})
+				Mana.dispatchMainThread {
+					JDStatusBarNotification.showProgress(CGFloat(value))
+				}
+			}).response { _,_ in
+				Mana.dispatchMainThread {
+					JDStatusBarNotification.dismiss()
+				}
+			}
 		}
 	}
 }
