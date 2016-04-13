@@ -20,8 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		UIApplication.sharedApplication().statusBarStyle = .LightContent
 		
+		UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clearColor()], forState: .Normal)
+		UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clearColor()], forState: .Highlighted)
+		
 		navigationController = UINavigationController(rootViewController: ComicsViewController())
 		navigationController!.navigationBar.barTintColor = UIColor(red: 0.9, green: 0, blue: 0, alpha: 0.8)
+		navigationController!.navigationBar.tintColor = UIColor.whiteColor()
 		navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 		
 		window = UIWindow(frame: UIScreen.mainScreen().bounds)

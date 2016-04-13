@@ -12,7 +12,6 @@
 		A9F98B161CBBB323006915DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F98B151CBBB323006915DC /* Assets.xcassets */; };
 		A9F98B191CBBB323006915DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F98B171CBBB323006915DC /* LaunchScreen.storyboard */; };
 		A9F98B241CBBB323006915DC /* marvel_comicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B231CBBB323006915DC /* marvel_comicsTests.swift */; };
-		A9F98B331CBBB783006915DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B321CBBB783006915DC /* ViewController.swift */; };
 		A9F98B361CBBB7C4006915DC /* SharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B351CBBB7C4006915DC /* SharedViewController.swift */; };
 		A9F98B381CBBB9E1006915DC /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B371CBBB9E1006915DC /* Global.swift */; };
 		A9F98B3A1CBBBCD5006915DC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B391CBBBCD5006915DC /* Session.swift */; };
@@ -22,6 +21,7 @@
 		A9F98B471CBC4B90006915DC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B461CBC4B90006915DC /* Request.swift */; };
 		A9F98B491CBCF5E5006915DC /* ComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B481CBCF5E5006915DC /* ComicsViewController.swift */; };
 		A9F98B4C1CBCFC1A006915DC /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B4B1CBCFC1A006915DC /* ComicCell.swift */; };
+		A9F98B4E1CBE4308006915DC /* ComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F98B4D1CBE4308006915DC /* ComicViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,6 @@
 		A9F98B1F1CBBB323006915DC /* marvel-comicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "marvel-comicsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F98B231CBBB323006915DC /* marvel_comicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marvel_comicsTests.swift; sourceTree = "<group>"; };
 		A9F98B251CBBB323006915DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9F98B321CBBB783006915DC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9F98B351CBBB7C4006915DC /* SharedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedViewController.swift; sourceTree = "<group>"; };
 		A9F98B371CBBB9E1006915DC /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		A9F98B391CBBBCD5006915DC /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		A9F98B461CBC4B90006915DC /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		A9F98B481CBCF5E5006915DC /* ComicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
 		A9F98B4B1CBCFC1A006915DC /* ComicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicCell.swift; path = Cell/ComicCell.swift; sourceTree = "<group>"; };
+		A9F98B4D1CBE4308006915DC /* ComicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicViewController.swift; sourceTree = "<group>"; };
 		E117B1C04ECD7BB73EAC7D56 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,8 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				A9F98B341CBBB79F006915DC /* Shared */,
-				A9F98B321CBBB783006915DC /* ViewController.swift */,
 				A9F98B481CBCF5E5006915DC /* ComicsViewController.swift */,
+				A9F98B4D1CBE4308006915DC /* ComicViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -355,9 +355,9 @@
 				A9F98B491CBCF5E5006915DC /* ComicsViewController.swift in Sources */,
 				A9F98B4C1CBCFC1A006915DC /* ComicCell.swift in Sources */,
 				A9F98B441CBC44B0006915DC /* WebService.swift in Sources */,
+				A9F98B4E1CBE4308006915DC /* ComicViewController.swift in Sources */,
 				A9F98B401CBC217C006915DC /* Comic.swift in Sources */,
 				A9F98B381CBBB9E1006915DC /* Global.swift in Sources */,
-				A9F98B331CBBB783006915DC /* ViewController.swift in Sources */,
 				A9F98B361CBBB7C4006915DC /* SharedViewController.swift in Sources */,
 				A9F98B471CBC4B90006915DC /* Request.swift in Sources */,
 				A9F98B0F1CBBB323006915DC /* AppDelegate.swift in Sources */,

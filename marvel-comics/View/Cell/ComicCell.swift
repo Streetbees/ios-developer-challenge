@@ -20,6 +20,8 @@ class ComicCell: UICollectionViewCell {
 		
 		contentView.backgroundColor = UIColor(white: 1, alpha: 0.2)
 		
+		imageView.contentMode = .ScaleToFill
+		imageView.clipsToBounds = true
 		contentView.addSubview(imageView)
 		imageView.keepInsets.vEqual = 0
 	}

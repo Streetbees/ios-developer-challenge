@@ -18,8 +18,8 @@ class ComicsViewController: UICollectionViewController {
 	init() {
 		let flowLayout = UICollectionViewFlowLayout()
 		flowLayout.itemSize = CGSizeMake(ComicCell.width, ComicCell.height)
-		flowLayout.minimumInteritemSpacing = 3
-		flowLayout.minimumLineSpacing = 3
+		flowLayout.minimumInteritemSpacing = COMICS_SPACING
+		flowLayout.minimumLineSpacing = COMICS_SPACING
 		
 		super.init(collectionViewLayout: flowLayout)
 		
@@ -56,7 +56,6 @@ extension ComicsViewController {
 
 // MARK: COLLECTION
 extension ComicsViewController {
-	
 	override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return comics.count
 	}
@@ -73,33 +72,16 @@ extension ComicsViewController {
 		
 		return cell
 	}
+	
+	override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		let comic = comics[indexPath.row]
+		
+		navigationController?.pushViewController(ComicViewController(comic: comic), animated: true)
+	}
 }
 
+// MARK: SCROLL
 extension ComicsViewController {
-	
-//	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//		
-//		let width = view.bounds.size.width / 3
-//		return CGSizeMake(width, width * 1.3)
-//	}
-//	
-//	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-//		return 0
-//	}
-//	
-//	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-//		return 0
-//	}
-//	
-//	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//		let comic = comics[indexPath.row]
-//		let marvelThumbnail = ImagesCache.instance.marvelCache[comic.id!]
-//		let dropboxThumbnail = ImagesCache.instance.dropboxCache[comic.id!]
-//		
-//		let detailsScreen = ComicDetailsViewController(comic: comic, marvelThumbnail: marvelThumbnail, dropboxThumbnail: dropboxThumbnail)
-//		navigationController?.pushViewController(detailsScreen, animated: true)
-//	}
-//	
 	override func scrollViewDidScroll(scrollView: UIScrollView) {
 		if scrollView.contentOffset.y >= scrollView.contentSize.height - (scrollView.frame.size.height * 2) {
 			Session.instance.requestComics()
