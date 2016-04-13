@@ -1,19 +1,32 @@
 PODS:
   - Alamofire (3.3.1)
+  - BSGridCollectionViewLayout (1.1.1)
+  - BSImagePicker (2.3.0):
+    - BSGridCollectionViewLayout (~> 1.1)
+    - UIImageViewModeScaleAspect (~> 1.3)
   - CryptoSwift (0.3.1)
   - Kingfisher (2.2.2)
   - SwiftKeepLayout (0.2.0)
+  - SwiftyDropbox (3.0.0):
+    - Alamofire (~> 3.1)
+  - UIImageViewModeScaleAspect (1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - BSImagePicker (~> 2.3)
   - CryptoSwift
   - Kingfisher (~> 2.2)
   - SwiftKeepLayout
+  - SwiftyDropbox (~> 3.0.0)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  BSGridCollectionViewLayout: d7304dcb35c6b3b4420c527e9f9b77ff322250f3
+  BSImagePicker: 591b28ce4994c44cbc4ac896717c1db9f9fadd18
   CryptoSwift: baf01e3fb3226c0155cd54c266be882b13d45d5e
   Kingfisher: 7e8de5b0cf7b5dc8ec559d193029a0859df93ef1
   SwiftKeepLayout: d1ef265c69648b223bf6812b7eccdf1ffa2b8f00
+  SwiftyDropbox: e0d4aa3166082ec07ed942e94edb8c732b3376e4
+  UIImageViewModeScaleAspect: ec78901acfc20d3782154111a21d34390f8f71ad
 
 COCOAPODS: 0.39.0

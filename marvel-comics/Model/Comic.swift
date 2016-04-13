@@ -24,6 +24,7 @@ class Comic {
 		
 		return NSURL(string: "\(path).\(ext)")
 	}
+	var customThumbnail: NSURL?
 	
 	init(dictionary: [String: AnyObject]) {
 		self.id = dictionary["id"] as? Int

@@ -85,13 +85,21 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Alamofire.framework"
+  install_framework "Pods/BSGridCollectionViewLayout.framework"
+  install_framework "Pods/BSImagePicker.framework"
   install_framework "Pods/CryptoSwift.framework"
   install_framework "Pods/Kingfisher.framework"
   install_framework "Pods/SwiftKeepLayout.framework"
+  install_framework "Pods/SwiftyDropbox.framework"
+  install_framework "Pods/UIImageViewModeScaleAspect.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Alamofire.framework"
+  install_framework "Pods/BSGridCollectionViewLayout.framework"
+  install_framework "Pods/BSImagePicker.framework"
   install_framework "Pods/CryptoSwift.framework"
   install_framework "Pods/Kingfisher.framework"
   install_framework "Pods/SwiftKeepLayout.framework"
+  install_framework "Pods/SwiftyDropbox.framework"
+  install_framework "Pods/UIImageViewModeScaleAspect.framework"
 fi

@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 // All extension except if they are too big then we create a specific file for it
 
@@ -42,5 +42,11 @@ class Mana {
 	/// Use DISPATCH_QUEUE_PRIORITY_XXX
 	class func dispatchAsync(priority: Int, closure:()->()) {
 		dispatch_async(dispatch_get_global_queue(priority, 0), closure)
+	}
+}
+
+extension UIViewController {
+	public func backButtonAction() {
+		navigationController?.popViewControllerAnimated(true)
 	}
 }

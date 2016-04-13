@@ -31,8 +31,10 @@ class ComicsViewController: UICollectionViewController {
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
-	// MARK: LAYOUT
+}
+
+// MARK: LAYOUT
+extension ComicsViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -64,8 +66,8 @@ extension ComicsViewController {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ComicsViewController.cellIdentifier, forIndexPath: indexPath) as! ComicCell
 		let comic = comics[indexPath.row]
 		
-		if comic.thumbnailUrl != nil {
-			cell.imageView.kf_setImageWithURL(comic.thumbnailUrl!, placeholderImage: nil, optionsInfo: [
+		if comic.customThumbnail != nil || comic.thumbnailUrl != nil {
+			cell.imageView.kf_setImageWithURL(comic.customThumbnail ?? comic.thumbnailUrl!, placeholderImage: nil, optionsInfo: [
 				.Transition(ImageTransition.FlipFromLeft(0.4))
 				])
 		}

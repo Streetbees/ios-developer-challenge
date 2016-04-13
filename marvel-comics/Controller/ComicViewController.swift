@@ -9,6 +9,8 @@
 import UIKit
 import SwiftKeepLayout
 import Kingfisher
+import BSImagePicker
+import Photos
 
 class ComicViewController: SharedViewController {
 	// Models
@@ -22,11 +24,16 @@ class ComicViewController: SharedViewController {
 	let titleLabel = UILabel()
 	let descriptionLabel = UILabel()
 	
+	// Controllers
+	lazy var imagePickerController = BSImagePickerViewController()
+	
 	init(comic: Comic) {
 		self.comic = comic
 		
 		super.init()
 		
+		navigationItem.hidesBackButton = true
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "BackIcon"), style: .Plain, target: self, action: #selector(UIViewController.backButtonAction))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "CameraIcon"), style: .Plain, target: self, action: #selector(ComicViewController.cameraButtonAction))
 	}
 	
@@ -53,8 +60,9 @@ extension ComicViewController {
 		contentView.keepWidthTo(scrollView).vEqual = 1
 		
 		// Content
-		comicImageView.contentMode = .ScaleAspectFit
-		comicImageView.kf_setImageWithURL(comic.thumbnailUrl!)
+		comicImageView.clipsToBounds = true
+		comicImageView.contentMode = comic.customThumbnail == nil ? .ScaleAspectFit : .ScaleAspectFill
+		comicImageView.kf_setImageWithURL(comic.customThumbnail ?? comic.thumbnailUrl!)
 		contentView.addSubview(comicImageView)
 		comicImageView.keepHorizontalInsets.vEqual = 10
 		comicImageView.keepTopInset.vEqual = 8
@@ -63,7 +71,7 @@ extension ComicViewController {
 		let whiteContainer = UIView()
 		whiteContainer.backgroundColor = UIColor.whiteColor()
 		contentView.addSubview(whiteContainer)
-		whiteContainer.keepTopOffsetTo(comicImageView).vEqual = 0
+		whiteContainer.keepTopOffsetTo(comicImageView).vEqual = 10
 		whiteContainer.keepHorizontalInsets.vEqual = 0
 		whiteContainer.keepBottomInset.vEqual = 0
 		
@@ -85,11 +93,40 @@ extension ComicViewController {
 		descriptionLabel.keepHorizontalInsets.vEqual = 10
 		descriptionLabel.keepBottomInset.vEqual = 10
 	}
+	
+	override func viewWillAppear(animated: Bool) { // This is for when we go back from the image picker
+		super.viewWillAppear(animated)
+		UIApplication.sharedApplication().statusBarStyle = .LightContent
+	}
 }
 
 // MARK: ACTION
 extension ComicViewController {
 	func cameraButtonAction() {
+		imagePickerController.maxNumberOfSelections = 1
+		imagePickerController.takePhotos = true
 		
+		bs_presentImagePickerController(imagePickerController, animated: true, select: { (asset) in
+			
+			}, deselect: { (asset) in
+				
+			}, cancel: { (assets: [PHAsset]) in
+				
+			}, finish: { (assets: [PHAsset]) in
+				PHImageManager.defaultManager().requestImageDataForAsset(assets.first!, options: PHImageRequestOptions(), resultHandler: { (imagedata, dataUTI, orientation, info) in
+					if info!.keys.contains(NSString(string: "PHImageFileURLKey")) {
+						if let path = info![NSString(string: "PHImageFileURLKey")] as? NSURL {
+							print("Path: \(path)")
+							
+							self.comic.customThumbnail = path
+							self.comicImageView.contentMode = .ScaleAspectFill
+							self.comicImageView.kf_setImageWithURL(self.comic.customThumbnail!)
+						}
+					}
+				})
+		}) {
+			UIApplication.sharedApplication().statusBarStyle = .Default
+				
+		}
 	}
 }
