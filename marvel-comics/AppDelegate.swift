@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftyDropbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		cache.clearDiskCache()
 		cache.clearMemoryCache()
 		
+		// Dropbox
+		Dropbox.setupWithAppKey(DROPBOX_PUBLIC_KEY)
+		
 		return true
 	}
 
@@ -62,6 +66,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
 
-
+	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+		if let authResult = Dropbox.handleRedirectURL(url) {
+			switch authResult {
+			case .Success:
+				print("Success! User is logged into Dropbox.")
+				Session.instance.checkForDropboxImages()
+			case .Error(_, let description):
+				print("Error: \(description)")
+			}
+		}
+		
+		return false
+	}
 }
 

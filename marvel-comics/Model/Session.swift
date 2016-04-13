@@ -46,3 +46,13 @@ class Session {
 		self.comicsState = (true, self.comicsState.loaded)
 	}
 }
+
+extension Session {
+	internal func checkForDropboxImages() {
+		comics.forEach {$0.checkForDropboxImage()}
+	}
+	
+	internal func removeDropboxImages() {
+		comics.forEach {$0.removeDropboxImage()}
+	}
+}

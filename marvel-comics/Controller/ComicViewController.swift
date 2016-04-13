@@ -76,9 +76,8 @@ extension ComicViewController {
 		whiteContainer.keepBottomInset.vEqual = 0
 		
 		titleLabel.text = comic.title
-		titleLabel.numberOfLines = 1
+		titleLabel.numberOfLines = 0
 		titleLabel.font = UIFont.boldSystemFontOfSize(14)
-		titleLabel.adjustsFontSizeToFitWidth = true
 		titleLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, forAxis: .Vertical)
 		whiteContainer.addSubview(titleLabel)
 		titleLabel.keepTopInset.vEqual = 10
@@ -103,30 +102,59 @@ extension ComicViewController {
 // MARK: ACTION
 extension ComicViewController {
 	func cameraButtonAction() {
-		imagePickerController.maxNumberOfSelections = 1
-		imagePickerController.takePhotos = true
-		
-		bs_presentImagePickerController(imagePickerController, animated: true, select: { (asset) in
+		func showImagePicker() {
+			imagePickerController.maxNumberOfSelections = 1
+			imagePickerController.takePhotos = true
 			
-			}, deselect: { (asset) in
+			bs_presentImagePickerController(imagePickerController, animated: true, select: { (asset) in
 				
-			}, cancel: { (assets: [PHAsset]) in
-				
-			}, finish: { (assets: [PHAsset]) in
-				PHImageManager.defaultManager().requestImageDataForAsset(assets.first!, options: PHImageRequestOptions(), resultHandler: { (imagedata, dataUTI, orientation, info) in
-					if info!.keys.contains(NSString(string: "PHImageFileURLKey")) {
-						if let path = info![NSString(string: "PHImageFileURLKey")] as? NSURL {
-							print("Path: \(path)")
-							
-							self.comic.customThumbnail = path
-							self.comicImageView.contentMode = .ScaleAspectFill
-							self.comicImageView.kf_setImageWithURL(self.comic.customThumbnail!)
+				}, deselect: { (asset) in
+					
+				}, cancel: { (assets: [PHAsset]) in
+					
+				}, finish: { (assets: [PHAsset]) in
+					PHImageManager.defaultManager().requestImageForAsset(assets.first!, targetSize: CGSizeMake(488, 764), contentMode: .Default, options: nil, resultHandler: { (image: UIImage?, info: [NSObject : AnyObject]?) in
+						if info!.keys.contains(NSString(string: "PHImageFileURLKey")) {
+							if let path = info![NSString(string: "PHImageFileURLKey")] as? NSURL {
+								print("Path: \(path)")
+								
+								let data: NSData = UIImageJPEGRepresentation(image!, 0.5)!
+								
+								data.writeToURL(self.comic.cleanTemporaryFileURL, atomically: true)
+								self.comic.customThumbnail = self.comic.temporaryFileURL
+								self.comicImageView.contentMode = .ScaleAspectFill
+								self.comicImageView.kf_setImageWithURL(self.comic.customThumbnail ?? self.comic.thumbnailUrl!, optionsInfo: [
+									.ForceRefresh
+									])
+								self.comic.saveDropboxImage()
+							}
 						}
-					}
-				})
-		}) {
-			UIApplication.sharedApplication().statusBarStyle = .Default
+					})
+			}) {
+				UIApplication.sharedApplication().statusBarStyle = .Default
 				
+			}
+		}
+		
+		if comic.customThumbnail != nil {
+			let photoAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+			photoAlertController.addAction(UIAlertAction(title: "Set a new custom cover", style: .Default, handler: { (action: UIAlertAction) in
+				showImagePicker()
+			}))
+			photoAlertController.addAction(UIAlertAction(title: "Delete custom cover", style: .Destructive, handler: { (action: UIAlertAction) in
+				self.comic.deleteDropboxImage()
+				self.comicImageView.kf_setImageWithURL(self.comic.customThumbnail ?? self.comic.thumbnailUrl!, optionsInfo: [
+					.ForceRefresh
+					])
+			}))
+			photoAlertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction) in
+				
+			}))
+			presentViewController(photoAlertController, animated: true, completion: nil)
+
+		}
+		else {
+			showImagePicker()
 		}
 	}
 }

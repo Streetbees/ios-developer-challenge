@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftyDropbox
 
 class ComicsViewController: UICollectionViewController {
 	static let cellIdentifier = "comicCell"
@@ -23,7 +24,10 @@ class ComicsViewController: UICollectionViewController {
 		
 		super.init(collectionViewLayout: flowLayout)
 		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "DropboxIcon"), style: .Plain, target: self, action: #selector(ComicsViewController.dropboxButtonAction))
+		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComicsViewController.comicsDidUpdate), name: NOTIFICATION_COMICS_DID_UPDATE, object: Session.instance)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComicsViewController.comicDidUpdate), name: NOTIFICATION_COMIC_IMAGE_DID_UPDATE, object: nil)
 		
 		Session.instance.requestComics()
 	}
@@ -48,11 +52,47 @@ extension ComicsViewController {
 	}
 }
 
+// MARK: ACTION
+extension ComicsViewController {
+	func dropboxButtonAction() {
+		if Dropbox.authorizedClient == nil {
+			Dropbox.authorizeFromController(self)
+		}
+		else {
+			let dropboxAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+			dropboxAlertController.addAction(UIAlertAction(title: "Disconnect from dropbox", style: .Destructive, handler: { (action: UIAlertAction) in
+				Dropbox.unlinkClient()
+				Session.instance.removeDropboxImages()
+			}))
+			dropboxAlertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction) in
+				
+			}))
+			presentViewController(dropboxAlertController, animated: true, completion: nil)
+		}
+	}
+}
+
 // MARK: OBSERVERS
 extension ComicsViewController {
 	func comicsDidUpdate() {
 		comics = Session.instance.comics
 		collectionView?.reloadData()
+	}
+	
+	func comicDidUpdate(notification: NSNotification) {
+		guard let comic = notification.object as? Comic
+			else {return}
+		
+		if let comicIndex = comics.indexOf({ $0 === comic }) {
+			if let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forRow: comicIndex, inSection: 0)) as? ComicCell {
+				Mana.dispatchMainThread {
+					cell.imageView.kf_setImageWithURL(comic.customThumbnail ?? comic.thumbnailUrl!, optionsInfo: [
+						.Transition(ImageTransition.FlipFromLeft(0.4)),
+						.ForceRefresh
+						])
+				}
+			}
+		}
 	}
 }
 

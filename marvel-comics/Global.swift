@@ -15,6 +15,8 @@ let API_PRIVATE_KEY = "fbfc5ce40674c65f095247e425f46bdbb565e935"
 let API_DEFAULT_URL = API_BASE_URL + API_VERSION + "/public/"
 let API_COMICS_URL = API_DEFAULT_URL + "comics"
 
+let DROPBOX_PUBLIC_KEY = "lqhspnbvkbl1i08"
+
 let MARVEL_JSON_DATE_FORMATTER: NSDateFormatter = {
 	let dateFormatter = NSDateFormatter()
 	dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
