@@ -88,7 +88,7 @@ extension Comic {
 			Dropbox.authorizedClient!.files.delete(path: dropboxPath).response { _,_ in
 				Mana.dispatchMainThread {
 					JDStatusBarNotification.showWithStatus("Image deleted from dropbox", styleName: JDStatusBarStyleError)
-					JDStatusBarNotification.dismissAfter(1)
+					JDStatusBarNotification.dismissAfter(2)
 				}
 			}
 		}
