@@ -1,0 +1,11 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target "Marveble" do
+  pod "Alamofire"
+  pod "Nuke"
+  pod "Nuke-Alamofire-Plugin"
+  pod "SwiftyDropbox"
+  pod "Permissionable"
+  pod "UILoader"
+end

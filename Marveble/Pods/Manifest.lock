@@ -1,0 +1,47 @@
+PODS:
+  - Alamofire (3.3.1)
+  - Alertable (0.2.1)
+  - Defines (0.3.1)
+  - Nuke (3.1.0)
+  - Nuke-Alamofire-Plugin (0.6.0):
+    - Alamofire (~> 3.0)
+    - Nuke (~> 3.0)
+  - Permissionable (0.5.1):
+    - Permissionable/All (= 0.5.1)
+  - Permissionable/All (0.5.1):
+    - Permissionable/Camera
+    - Permissionable/Core
+    - Permissionable/Location
+    - Permissionable/Photos
+  - Permissionable/Camera (0.5.1):
+    - Permissionable/Core
+  - Permissionable/Core (0.5.1):
+    - Alertable
+    - Defines
+  - Permissionable/Location (0.5.1):
+    - Permissionable/Core
+  - Permissionable/Photos (0.5.1):
+    - Permissionable/Core
+  - SwiftyDropbox (3.0.0):
+    - Alamofire (~> 3.1)
+  - UILoader (0.6.6)
+
+DEPENDENCIES:
+  - Alamofire
+  - Nuke
+  - Nuke-Alamofire-Plugin
+  - Permissionable
+  - SwiftyDropbox
+  - UILoader
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Alertable: 8cdfe3415b745bdb343f9509f6e6e9e1ca6c5b28
+  Defines: 393edd879b8274df972d3d1b0c6a09980cc9585f
+  Nuke: e93fa6ad10472c2d46ddca3a9dc92fd65027e40e
+  Nuke-Alamofire-Plugin: 410bdb98360c586f8ca736e04dbba78fa1294aae
+  Permissionable: b67228a4c98308fb82111952d0f5d7794209a9c4
+  SwiftyDropbox: e0d4aa3166082ec07ed942e94edb8c732b3376e4
+  UILoader: 0fe6cd21e84d1fb91e304187289517b529baf02e
+
+COCOAPODS: 0.39.0

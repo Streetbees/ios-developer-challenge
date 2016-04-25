@@ -1,0 +1,6 @@
+framework module Defines {
+  umbrella header "Defines-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_Marveble {
+  umbrella header "Pods-Marveble-umbrella.h"
+
+  export *
+  module * { export * }
+}
