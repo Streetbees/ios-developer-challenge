@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65EC32CB1CCE747500D973B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC32CA1CCE747500D973B6 /* AppDelegate.swift */; };
+		65EC32CD1CCE747500D973B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC32CC1CCE747500D973B6 /* ViewController.swift */; };
+		65EC32D01CCE747500D973B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EC32CE1CCE747500D973B6 /* Main.storyboard */; };
+		65EC32D21CCE747500D973B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65EC32D11CCE747500D973B6 /* Assets.xcassets */; };
+		65EC32D51CCE747500D973B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EC32D31CCE747500D973B6 /* LaunchScreen.storyboard */; };
+		65EC32E01CCE747500D973B6 /* MarvebleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC32DF1CCE747500D973B6 /* MarvebleTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65EC32DC1CCE747500D973B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65EC32BF1CCE747500D973B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65EC32C61CCE747500D973B6;
+			remoteInfo = Marveble;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65EC32C71CCE747500D973B6 /* Marveble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marveble.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65EC32CA1CCE747500D973B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65EC32CC1CCE747500D973B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65EC32CF1CCE747500D973B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65EC32D11CCE747500D973B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65EC32D41CCE747500D973B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65EC32D61CCE747500D973B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65EC32DB1CCE747500D973B6 /* MarvebleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvebleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65EC32DF1CCE747500D973B6 /* MarvebleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvebleTests.swift; sourceTree = "<group>"; };
+		65EC32E11CCE747500D973B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65EC32C41CCE747500D973B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65EC32D81CCE747500D973B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65EC32BE1CCE747500D973B6 = {
+			isa = PBXGroup;
+			children = (
+				65EC32C91CCE747500D973B6 /* Marveble */,
+				65EC32DE1CCE747500D973B6 /* MarvebleTests */,
+				65EC32C81CCE747500D973B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65EC32C81CCE747500D973B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65EC32C71CCE747500D973B6 /* Marveble.app */,
+				65EC32DB1CCE747500D973B6 /* MarvebleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65EC32C91CCE747500D973B6 /* Marveble */ = {
+			isa = PBXGroup;
+			children = (
+				65EC32CA1CCE747500D973B6 /* AppDelegate.swift */,
+				65EC32CC1CCE747500D973B6 /* ViewController.swift */,
+				65EC32CE1CCE747500D973B6 /* Main.storyboard */,
+				65EC32D11CCE747500D973B6 /* Assets.xcassets */,
+				65EC32D31CCE747500D973B6 /* LaunchScreen.storyboard */,
+				65EC32D61CCE747500D973B6 /* Info.plist */,
+			);
+			path = Marveble;
+			sourceTree = "<group>";
+		};
+		65EC32DE1CCE747500D973B6 /* MarvebleTests */ = {
+			isa = PBXGroup;
+			children = (
+				65EC32DF1CCE747500D973B6 /* MarvebleTests.swift */,
+				65EC32E11CCE747500D973B6 /* Info.plist */,
+			);
+			path = MarvebleTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65EC32C61CCE747500D973B6 /* Marveble */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65EC32E41CCE747500D973B6 /* Build configuration list for PBXNativeTarget "Marveble" */;
+			buildPhases = (
+				65EC32C31CCE747500D973B6 /* Sources */,
+				65EC32C41CCE747500D973B6 /* Frameworks */,
+				65EC32C51CCE747500D973B6 /* Resources */,
+				65EC32EA1CCE748B00D973B6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Marveble;
+			productName = Marveble;
+			productReference = 65EC32C71CCE747500D973B6 /* Marveble.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65EC32DA1CCE747500D973B6 /* MarvebleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65EC32E71CCE747500D973B6 /* Build configuration list for PBXNativeTarget "MarvebleTests" */;
+			buildPhases = (
+				65EC32D71CCE747500D973B6 /* Sources */,
+				65EC32D81CCE747500D973B6 /* Frameworks */,
+				65EC32D91CCE747500D973B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65EC32DD1CCE747500D973B6 /* PBXTargetDependency */,
+			);
+			name = MarvebleTests;
+			productName = MarvebleTests;
+			productReference = 65EC32DB1CCE747500D973B6 /* MarvebleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65EC32BF1CCE747500D973B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Bell App Lab";
+				TargetAttributes = {
+					65EC32C61CCE747500D973B6 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					65EC32DA1CCE747500D973B6 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 65EC32C61CCE747500D973B6;
+					};
+				};
+			};
+			buildConfigurationList = 65EC32C21CCE747500D973B6 /* Build configuration list for PBXProject "Marveble" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65EC32BE1CCE747500D973B6;
+			productRefGroup = 65EC32C81CCE747500D973B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65EC32C61CCE747500D973B6 /* Marveble */,
+				65EC32DA1CCE747500D973B6 /* MarvebleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65EC32C51CCE747500D973B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65EC32D51CCE747500D973B6 /* LaunchScreen.storyboard in Resources */,
+				65EC32D21CCE747500D973B6 /* Assets.xcassets in Resources */,
+				65EC32D01CCE747500D973B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65EC32D91CCE747500D973B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65EC32EA1CCE748B00D973B6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65EC32C31CCE747500D973B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65EC32CD1CCE747500D973B6 /* ViewController.swift in Sources */,
+				65EC32CB1CCE747500D973B6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65EC32D71CCE747500D973B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65EC32E01CCE747500D973B6 /* MarvebleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65EC32DD1CCE747500D973B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65EC32C61CCE747500D973B6 /* Marveble */;
+			targetProxy = 65EC32DC1CCE747500D973B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65EC32CE1CCE747500D973B6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65EC32CF1CCE747500D973B6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65EC32D31CCE747500D973B6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65EC32D41CCE747500D973B6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65EC32E21CCE747500D973B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65EC32E31CCE747500D973B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65EC32E51CCE747500D973B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Marveble/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bellapplab.Marveble;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		65EC32E61CCE747500D973B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Marveble/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bellapplab.Marveble;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		65EC32E81CCE747500D973B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarvebleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bellapplab.MarvebleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marveble.app/Marveble";
+			};
+			name = Debug;
+		};
+		65EC32E91CCE747500D973B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarvebleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bellapplab.MarvebleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marveble.app/Marveble";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65EC32C21CCE747500D973B6 /* Build configuration list for PBXProject "Marveble" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65EC32E21CCE747500D973B6 /* Debug */,
+				65EC32E31CCE747500D973B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65EC32E41CCE747500D973B6 /* Build configuration list for PBXNativeTarget "Marveble" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65EC32E51CCE747500D973B6 /* Debug */,
+				65EC32E61CCE747500D973B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65EC32E71CCE747500D973B6 /* Build configuration list for PBXNativeTarget "MarvebleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65EC32E81CCE747500D973B6 /* Debug */,
+				65EC32E91CCE747500D973B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65EC32BF1CCE747500D973B6 /* Project object */;
+}
