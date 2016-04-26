@@ -86,6 +86,9 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Marveble/Alamofire.framework"
   install_framework "Pods-Marveble/Alertable.framework"
+  install_framework "Pods-Marveble/BLLogger.framework"
+  install_framework "Pods-Marveble/Backgroundable.framework"
+  install_framework "Pods-Marveble/CryptoSwift.framework"
   install_framework "Pods-Marveble/Defines.framework"
   install_framework "Pods-Marveble/Nuke.framework"
   install_framework "Pods-Marveble/NukeAlamofirePlugin.framework"
@@ -96,6 +99,9 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Marveble/Alamofire.framework"
   install_framework "Pods-Marveble/Alertable.framework"
+  install_framework "Pods-Marveble/BLLogger.framework"
+  install_framework "Pods-Marveble/Backgroundable.framework"
+  install_framework "Pods-Marveble/CryptoSwift.framework"
   install_framework "Pods-Marveble/Defines.framework"
   install_framework "Pods-Marveble/Nuke.framework"
   install_framework "Pods-Marveble/NukeAlamofirePlugin.framework"

@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (3.3.1)
   - Alertable (0.2.1)
+  - Backgroundable (0.4.1)
+  - BLLogger (0.4.0)
+  - CryptoSwift (0.3.1)
   - Defines (0.3.1)
   - Nuke (3.1.0)
   - Nuke-Alamofire-Plugin (0.6.0):
@@ -28,6 +31,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Backgroundable
+  - BLLogger
+  - CryptoSwift
   - Nuke
   - Nuke-Alamofire-Plugin
   - Permissionable
@@ -37,6 +43,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Alertable: 8cdfe3415b745bdb343f9509f6e6e9e1ca6c5b28
+  Backgroundable: 9e01e01cf08da408f7f0c88f3c6ed7c34eaa6f1e
+  BLLogger: 1cd1422dbb48d0fb9a5407fc8f36e756deb1008e
+  CryptoSwift: baf01e3fb3226c0155cd54c266be882b13d45d5e
   Defines: 393edd879b8274df972d3d1b0c6a09980cc9585f
   Nuke: e93fa6ad10472c2d46ddca3a9dc92fd65027e40e
   Nuke-Alamofire-Plugin: 410bdb98360c586f8ca736e04dbba78fa1294aae

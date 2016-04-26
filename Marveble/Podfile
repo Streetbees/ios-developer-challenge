@@ -8,4 +8,7 @@ target "Marveble" do
   pod "SwiftyDropbox"
   pod "Permissionable"
   pod "UILoader"
+  pod "Backgroundable"
+  pod "BLLogger"
+  pod "CryptoSwift"
 end
