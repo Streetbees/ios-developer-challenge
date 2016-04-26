@@ -9,15 +9,35 @@
 import UIKit
 import Nuke
 import Alertable
+import Permissionable
+import Defines
 
 
-class MainViewController: UICollectionViewController, ApocalypseDelegate
+class MainViewController: UICollectionViewController, ApocalypseDelegate, Alertable, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
+    @IBOutlet var infoBarButtonItem: UIBarButtonItem!
+    
     //MARK: View Controller Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItems = nil
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.loadData()
+        if !self.alerting {
+            self.loadData()
+        }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animateAlongsideTransition(nil) { [weak self] (ctx: UIViewControllerTransitionCoordinatorContext) in
+            self?.loadData()
+        }
+        
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     }
     
     //MARK: Collection View Controller Data Source
@@ -26,7 +46,7 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.apocalypse.marveler.comics?.count ?? 0
+        return self.apocalypse.marveler.totalComics
     }
     
     private static let mainCellId = "MainCell"
@@ -42,25 +62,58 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate
     }
     
     //MARK: Collection View Delegate
+    private var currentComic: Comic?
+    
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.currentComic = self.apocalypse.marveler.comics?[indexPath.row]
         
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        func present() {
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        
+        if Defines.Device.IsSimulator {
+            Permissions.Photos.request(self) { (success) in
+                if success {
+                    imagePicker.sourceType = .PhotoLibrary
+                    present()
+                }
+            }
+            return
+        }
+        
+        let cameraAction = Alert.Action(title: "Camera", style: nil, handler: { (action) -> Void in
+            imagePicker.sourceType = .Camera
+            present()
+        })
+        let photoAction = Alert.Action(title: "Camera", style: nil, handler: { (action) -> Void in
+            imagePicker.sourceType = .PhotoLibrary
+            present()
+        })
+        self.alert(this: Alert("Where would you like to pick an image from?", nil, self, [cameraAction, photoAction], .ActionSheet))
     }
     
     //MARK: Scroll View Delegate
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        super.scrollViewDidScroll(scrollView)
         self.loadData()
     }
     
     override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        super.scrollViewDidEndDragging(scrollView, willDecelerate: decelerate)
         guard !decelerate else { return }
         self.loadData()
     }
     
     override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        super.scrollViewDidEndDecelerating(scrollView)
         self.loadData()
+    }
+    
+    //MARK: Image Picker Delegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        guard let current = self.currentComic else { return }
+        self.currentComic = nil
+        self.apocalypse.uploadImage(image, toComic: current)
     }
     
     //MARK: Apocalypse
@@ -77,7 +130,15 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate
     //Delegate
     func didFinishLoadingEverything(errorMessage: String?) {
         if let message = errorMessage {
-            Alert(message, "Marveble", self).show(self)
+            self.alert(this: Alert(message, "Marveble", self))
+            self.collectionView?.reloadData()
+            return
+        }
+        
+        if let visibleCells = self.collectionView?.visibleCells() {
+            if visibleCells.isEmpty {
+                self.collectionView?.reloadData()
+            }
         }
     }
     

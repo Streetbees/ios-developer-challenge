@@ -23,6 +23,9 @@
 		652A18E91CCFE62800496971 /* DroboxerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18E81CCFE62800496971 /* DroboxerTests.swift */; };
 		652A18EC1CCFF55900496971 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18EB1CCFF55900496971 /* Appearance.swift */; };
 		652A18EF1CD0026B00496971 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18EE1CD0026B00496971 /* Cells.swift */; };
+		652A18F71CD0237E00496971 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 652A18F51CD0237E00496971 /* iTunesArtwork */; };
+		652A18F81CD0237E00496971 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 652A18F61CD0237E00496971 /* iTunesArtwork@2x */; };
+		652A18F91CD0262900496971 /* Serialising.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18C61CCF504900496971 /* Serialising.swift */; };
 		659645D11CCE876D00D524CE /* Marveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659645D01CCE876D00D524CE /* Marveler.swift */; };
 		659645D51CCF39B800D524CE /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659645D41CCF39B800D524CE /* Comic.swift */; };
 		65EC32CB1CCE747500D973B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC32CA1CCE747500D973B6 /* AppDelegate.swift */; };
@@ -54,6 +57,8 @@
 		652A18E81CCFE62800496971 /* DroboxerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DroboxerTests.swift; sourceTree = "<group>"; };
 		652A18EB1CCFF55900496971 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		652A18EE1CD0026B00496971 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		652A18F51CD0237E00496971 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		652A18F61CD0237E00496971 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		659645D01CCE876D00D524CE /* Marveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marveler.swift; sourceTree = "<group>"; };
 		659645D41CCF39B800D524CE /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		65EC32C71CCE747500D973B6 /* Marveble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marveble.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +140,15 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		652A18F01CD020F700496971 /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				65EC32D11CCE747500D973B6 /* Assets.xcassets */,
+				65EC32D61CCE747500D973B6 /* Info.plist */,
+			);
+			name = Aux;
+			sourceTree = "<group>";
+		};
 		659645D31CCE877300D524CE /* Data Model and Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +164,8 @@
 		65EC32BE1CCE747500D973B6 = {
 			isa = PBXGroup;
 			children = (
+				652A18F51CD0237E00496971 /* iTunesArtwork */,
+				652A18F61CD0237E00496971 /* iTunesArtwork@2x */,
 				65EC32C91CCE747500D973B6 /* Marveble */,
 				652A18D41CCF701900496971 /* MarvebleTests */,
 				65EC32C81CCE747500D973B6 /* Products */,
@@ -173,8 +189,7 @@
 				65EC32CA1CCE747500D973B6 /* AppDelegate.swift */,
 				659645D31CCE877300D524CE /* Data Model and Controllers */,
 				652A18EA1CCFF31200496971 /* UI */,
-				65EC32D11CCE747500D973B6 /* Assets.xcassets */,
-				65EC32D61CCE747500D973B6 /* Info.plist */,
+				652A18F01CD020F700496971 /* Aux */,
 			);
 			path = Marveble;
 			sourceTree = "<group>";
@@ -280,9 +295,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652A18F81CD0237E00496971 /* iTunesArtwork@2x in Resources */,
 				65EC32D51CCE747500D973B6 /* LaunchScreen.storyboard in Resources */,
 				65EC32D21CCE747500D973B6 /* Assets.xcassets in Resources */,
 				65EC32D01CCE747500D973B6 /* Main.storyboard in Resources */,
+				652A18F71CD0237E00496971 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +375,7 @@
 				652A18E41CCF960800496971 /* Apocalypse.swift in Sources */,
 				652A18E71CCF972100496971 /* Comic.swift in Sources */,
 				652A18E61CCF971B00496971 /* MarvelComic.swift in Sources */,
+				652A18F91CD0262900496971 /* Serialising.swift in Sources */,
 				652A18E01CCF924200496971 /* DropboxComic.swift in Sources */,
 				652A18D61CCF701900496971 /* MarvelerTests.swift in Sources */,
 				652A18E91CCFE62800496971 /* DroboxerTests.swift in Sources */,

@@ -64,6 +64,7 @@ public final class Apocalypse<D: ApocalypseDelegate>: MarvelerDelegate, Dropboxe
     
     public final func willFinishLoadingMarvelComics(errorMessage: String?) {
         self.delegate?.loading = false
+        self.delegate?.didFinishLoadingEverything(errorMessage)
         self.dropboxer.listFolder()
     }
     

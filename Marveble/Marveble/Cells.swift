@@ -19,7 +19,7 @@ class MainCell: UICollectionViewCell, UILoader
             if let comic = comic {
                 self.updateCellImage(withComic: comic)
                 self.titleLabel.text = comic.title
-                self.descriptionLabel.text = comic.description
+                self.descriptionLabel?.text = comic.description
             }
         }
     }
@@ -46,13 +46,13 @@ class MainCell: UICollectionViewCell, UILoader
     //MARK: UI
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel?
     
     //MARK: UI Loader
     @IBOutlet weak var spinningThing: UIActivityIndicatorView?
     
     func didChangeLoadingStatus(loading: Bool) {
         self.titleLabel.hidden = loading
-        self.descriptionLabel.hidden = loading
+        self.descriptionLabel?.hidden = loading
     }
 }

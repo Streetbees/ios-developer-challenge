@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="khC-xP-MJy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--MARVEBLE-->
@@ -13,25 +14,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.035294117647058823" green="0.070588235294117646" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gfc-RO-64I">
-                            <size key="itemSize" width="120" height="200"/>
+                            <size key="itemSize" width="111" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="so0-5E-mbL" customClass="MainCell" customModule="Marveble" customModuleProvider="target">
-                                <rect key="frame" x="10" y="74" width="120" height="200"/>
+                                <rect key="frame" x="10" y="74" width="111" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="111" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-p2-fMp">
-                                            <rect key="frame" x="50" y="90" width="20" height="20"/>
+                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4cM-ou-QBv">
+                                            <rect key="frame" x="0.0" y="0.0" width="111" height="150"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="aBy-61-dKm"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zaO-gb-rqi">
+                                            <rect key="frame" x="8" y="155" width="95" height="37"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-p2-fMp">
+                                            <rect key="frame" x="45.5" y="90" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="zaO-gb-rqi" secondAttribute="bottom" id="2oj-f6-AhB"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="4cM-ou-QBv" secondAttribute="trailing" constant="-8" id="9BZ-U0-1Nx"/>
+                                    <constraint firstItem="zaO-gb-rqi" firstAttribute="top" secondItem="4cM-ou-QBv" secondAttribute="bottom" constant="5" id="DaH-Sl-XFn"/>
+                                    <constraint firstItem="b2S-p2-fMp" firstAttribute="centerY" secondItem="so0-5E-mbL" secondAttribute="centerY" id="EkE-WE-1jJ"/>
+                                    <constraint firstItem="b2S-p2-fMp" firstAttribute="centerX" secondItem="so0-5E-mbL" secondAttribute="centerX" id="GJl-h4-HY8"/>
+                                    <constraint firstAttribute="leadingMargin" secondItem="zaO-gb-rqi" secondAttribute="leading" id="M38-Or-shV"/>
+                                    <constraint firstItem="4cM-ou-QBv" firstAttribute="top" secondItem="so0-5E-mbL" secondAttribute="topMargin" constant="-8" id="MeS-Gh-WOG"/>
+                                    <constraint firstItem="4cM-ou-QBv" firstAttribute="leading" secondItem="so0-5E-mbL" secondAttribute="leadingMargin" constant="-8" id="VcO-cz-4Wf"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="zaO-gb-rqi" secondAttribute="trailing" id="z5U-H3-pQa"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="coverImage" destination="4cM-ou-QBv" id="a5q-YC-QYB"/>
+                                    <outlet property="spinningThing" destination="b2S-p2-fMp" id="tqp-fl-qBf"/>
+                                    <outlet property="titleLabel" destination="zaO-gb-rqi" id="saD-0s-MPg"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -65,6 +95,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="infoBarButtonItem" destination="yAc-xq-yEb" id="hTU-KC-aDI"/>
                         <outlet property="spinningThing" destination="0Nc-Ws-7Jw" id="7WB-vH-sC6"/>
                     </connections>
                 </collectionViewController>

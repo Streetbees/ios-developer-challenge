@@ -9,20 +9,11 @@ PODS:
   - Nuke-Alamofire-Plugin (0.6.0):
     - Alamofire (~> 3.0)
     - Nuke (~> 3.0)
-  - Permissionable (0.5.1):
-    - Permissionable/All (= 0.5.1)
-  - Permissionable/All (0.5.1):
-    - Permissionable/Camera
-    - Permissionable/Core
-    - Permissionable/Location
-    - Permissionable/Photos
   - Permissionable/Camera (0.5.1):
     - Permissionable/Core
   - Permissionable/Core (0.5.1):
     - Alertable
     - Defines
-  - Permissionable/Location (0.5.1):
-    - Permissionable/Core
   - Permissionable/Photos (0.5.1):
     - Permissionable/Core
   - SwiftyDropbox (3.0.0):
@@ -36,7 +27,8 @@ DEPENDENCIES:
   - CryptoSwift
   - Nuke
   - Nuke-Alamofire-Plugin
-  - Permissionable
+  - Permissionable/Camera
+  - Permissionable/Photos
   - SwiftyDropbox
   - UILoader
 
