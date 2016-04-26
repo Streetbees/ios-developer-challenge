@@ -30,7 +30,7 @@ public extension MarvelComic
     
     static func makeThumbURL(withPath path: String, andExtension ext: String) -> NSURL?
     {
-        return NSURL(string: path)?.URLByAppendingPathComponent("portrait_fantastic").URLByAppendingPathExtension(ext)
+        return NSURL(string: path)?.URLByAppendingPathComponent("portrait_uncanny").URLByAppendingPathExtension(ext)
     }
     
     //MARK: Serialising
