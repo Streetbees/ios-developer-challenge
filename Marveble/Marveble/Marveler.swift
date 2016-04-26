@@ -14,14 +14,14 @@ import CryptoSwift
 
 //MARK: - Marveler Delegate
 /*
- This is how View Controllers interact with the Marveler
+ This is how other objects get responses from the Marveler
  */
 public protocol MarvelerDelegate: AnyObject
 {
     associatedtype M
     func willStartLoadingMarvelComics() //We call this method when the Marveler is about to load data from the network
     func willFinishLoadingMarvelComics(errorMessage: String?) //We call this method when we have finished loading data from the network, but haven't finished processing each individual comic
-    func didFinishLoadingMarvelComics<M: MarvelComic>(comic: M) //We call this method for each individual comic that has finished loading, so we can update the UI in a more NSFetchedResultsController fashion
+    func didFinishLoadingMarvelComics<M>(comic: M) //We call this method for each individual comic that has finished loading, so we can update the UI in a more NSFetchedResultsController fashion
 }
 
 
@@ -30,15 +30,15 @@ public protocol MarvelerDelegate: AnyObject
  This is the main interface for everything Marvel
  In good MVC fashion, the Marveler is the controller that handles requests to the Marvel remote API
  */
-public class Marveler<C: MarvelComic, D: MarvelerDelegate>
+public final class Marveler<C: MarvelComic, D: MarvelerDelegate>
 {
     //MARK: Setup
     /*
      Instantiating a new Marveler with a delegate
      */
-    private(set) weak var delegate: D?
+    public private(set) weak var delegate: D?
     
-    init(delegate: D)
+    public init(delegate: D)
     {
         self.delegate = delegate
         Manager.sharedInstance.startRequestsImmediately = false //Nuke disables this anyway, so...
@@ -54,7 +54,7 @@ public class Marveler<C: MarvelComic, D: MarvelerDelegate>
     //TODO: Optimise this so we only load the objects that have not been fetched yet
     private let limit = 100
     
-    func getComics(startingAt position: Int)
+    public final func getComics(startingAt position: Int)
     {
         self.delegate?.willStartLoadingMarvelComics()
         
@@ -154,8 +154,34 @@ public class Marveler<C: MarvelComic, D: MarvelerDelegate>
      */
     public private(set) var comics: [C]?
     
+    public final func updateComics(comics: [C])
+    {
+        guard let current = self.comics else { return }
+        self.updateComicsRecursive(comics, current)
+    }
+    
+    private func updateComicsRecursive(c: [C], _ current: [C]) {
+        guard !c.isEmpty else { return }
+        
+        var comics = c
+        let comic = comics.removeLast()
+        
+        for (index, element) in current.enumerate() {
+            if comic == element {
+                self.comics?[index] = comic
+                onTheMainThread { [weak self] _ in
+                    self?.delegate?.didFinishLoadingMarvelComics(comic)
+                }
+                break
+            }
+        }
+        
+        self.updateComicsRecursive(comics, current)
+    }
+    
     /*
      Helper method to traverse the elements in our result array according to the range we want to investigate
+     We return true on the traverse block to shortcircuit the loop
      */
     private func traverseComics(withPosition position: Int = 0, _ block: (element: C) -> Bool) {
         guard let comics = self.comics else { return }

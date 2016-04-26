@@ -68,7 +68,7 @@ public extension MarvelComic
     }
 }
 
-func ==<M: MarvelComic>(lhs: M, rhs: M) -> Bool {
+public func ==<M: MarvelComic>(lhs: M, rhs: M) -> Bool {
     guard let leftId = lhs.comicId, let rightId = rhs.comicId else { return false }
     return leftId == rightId
 }

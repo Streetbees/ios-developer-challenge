@@ -12,6 +12,15 @@
 		652A18C91CCF57F300496971 /* MarvelComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18C81CCF57F300496971 /* MarvelComic.swift */; };
 		652A18CE1CCF6ED300496971 /* Dropboxer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18CD1CCF6ED300496971 /* Dropboxer.swift */; };
 		652A18D61CCF701900496971 /* MarvelerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18D51CCF701900496971 /* MarvelerTests.swift */; };
+		652A18DF1CCF924200496971 /* DropboxComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18DE1CCF924200496971 /* DropboxComic.swift */; };
+		652A18E01CCF924200496971 /* DropboxComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18DE1CCF924200496971 /* DropboxComic.swift */; };
+		652A18E11CCF924500496971 /* Dropboxer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18CD1CCF6ED300496971 /* Dropboxer.swift */; };
+		652A18E31CCF960800496971 /* Apocalypse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18E21CCF960800496971 /* Apocalypse.swift */; };
+		652A18E41CCF960800496971 /* Apocalypse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18E21CCF960800496971 /* Apocalypse.swift */; };
+		652A18E51CCF971800496971 /* Marveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659645D01CCE876D00D524CE /* Marveler.swift */; };
+		652A18E61CCF971B00496971 /* MarvelComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18C81CCF57F300496971 /* MarvelComic.swift */; };
+		652A18E71CCF972100496971 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659645D41CCF39B800D524CE /* Comic.swift */; };
+		652A18E91CCFE62800496971 /* DroboxerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A18E81CCFE62800496971 /* DroboxerTests.swift */; };
 		659645D11CCE876D00D524CE /* Marveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659645D01CCE876D00D524CE /* Marveler.swift */; };
 		659645D51CCF39B800D524CE /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659645D41CCF39B800D524CE /* Comic.swift */; };
 		65EC32CB1CCE747500D973B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC32CA1CCE747500D973B6 /* AppDelegate.swift */; };
@@ -38,6 +47,9 @@
 		652A18D31CCF701900496971 /* MarvebleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvebleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		652A18D51CCF701900496971 /* MarvelerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelerTests.swift; sourceTree = "<group>"; };
 		652A18D71CCF701900496971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		652A18DE1CCF924200496971 /* DropboxComic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropboxComic.swift; sourceTree = "<group>"; };
+		652A18E21CCF960800496971 /* Apocalypse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apocalypse.swift; sourceTree = "<group>"; };
+		652A18E81CCFE62800496971 /* DroboxerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DroboxerTests.swift; sourceTree = "<group>"; };
 		659645D01CCE876D00D524CE /* Marveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marveler.swift; sourceTree = "<group>"; };
 		659645D41CCF39B800D524CE /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		65EC32C71CCE747500D973B6 /* Marveble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marveble.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,9 +104,19 @@
 			isa = PBXGroup;
 			children = (
 				652A18D51CCF701900496971 /* MarvelerTests.swift */,
+				652A18E81CCFE62800496971 /* DroboxerTests.swift */,
 				652A18D71CCF701900496971 /* Info.plist */,
 			);
 			path = MarvebleTests;
+			sourceTree = "<group>";
+		};
+		652A18DD1CCF91BA00496971 /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				652A18CD1CCF6ED300496971 /* Dropboxer.swift */,
+				652A18DE1CCF924200496971 /* DropboxComic.swift */,
+			);
+			name = Dropbox;
 			sourceTree = "<group>";
 		};
 		659645D31CCE877300D524CE /* Data Model and Controllers */ = {
@@ -102,8 +124,9 @@
 			children = (
 				652A18C61CCF504900496971 /* Serialising.swift */,
 				652A18CB1CCF57F700496971 /* Marvel */,
-				652A18CD1CCF6ED300496971 /* Dropboxer.swift */,
+				652A18DD1CCF91BA00496971 /* Dropbox */,
 				659645D41CCF39B800D524CE /* Comic.swift */,
+				652A18E21CCF960800496971 /* Apocalypse.swift */,
 			);
 			name = "Data Model and Controllers";
 			sourceTree = "<group>";
@@ -131,8 +154,8 @@
 		65EC32C91CCE747500D973B6 /* Marveble */ = {
 			isa = PBXGroup;
 			children = (
-				659645D31CCE877300D524CE /* Data Model and Controllers */,
 				65EC32CA1CCE747500D973B6 /* AppDelegate.swift */,
+				659645D31CCE877300D524CE /* Data Model and Controllers */,
 				65EC32CC1CCE747500D973B6 /* ViewController.swift */,
 				65EC32CE1CCE747500D973B6 /* Main.storyboard */,
 				65EC32D11CCE747500D973B6 /* Assets.xcassets */,
@@ -317,7 +340,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652A18E51CCF971800496971 /* Marveler.swift in Sources */,
+				652A18E41CCF960800496971 /* Apocalypse.swift in Sources */,
+				652A18E71CCF972100496971 /* Comic.swift in Sources */,
+				652A18E61CCF971B00496971 /* MarvelComic.swift in Sources */,
+				652A18E01CCF924200496971 /* DropboxComic.swift in Sources */,
 				652A18D61CCF701900496971 /* MarvelerTests.swift in Sources */,
+				652A18E91CCFE62800496971 /* DroboxerTests.swift in Sources */,
+				652A18E11CCF924500496971 /* Dropboxer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,12 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652A18E31CCF960800496971 /* Apocalypse.swift in Sources */,
 				652A18C71CCF504900496971 /* Serialising.swift in Sources */,
 				65EC32CD1CCE747500D973B6 /* ViewController.swift in Sources */,
 				652A18CE1CCF6ED300496971 /* Dropboxer.swift in Sources */,
 				652A18C91CCF57F300496971 /* MarvelComic.swift in Sources */,
 				659645D51CCF39B800D524CE /* Comic.swift in Sources */,
 				65EC32CB1CCE747500D973B6 /* AppDelegate.swift in Sources */,
+				652A18DF1CCF924200496971 /* DropboxComic.swift in Sources */,
 				659645D11CCE876D00D524CE /* Marveler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +547,7 @@
 				652A18DC1CCF701900496971 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65EC32C21CCE747500D973B6 /* Build configuration list for PBXProject "Marveble" */ = {
 			isa = XCConfigurationList;
