@@ -14,6 +14,7 @@ struct Appearance
     static func customise()
     {
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-CondensedMedium", size: 18)!, NSForegroundColorAttributeName: UIColor.marvelRed()]
+        UINavigationBar.appearance().tintColor = UIColor.marvelRed()
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Futura-CondensedMedium", size: 16)!], forState: .Normal)
     }
 }

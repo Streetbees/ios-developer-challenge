@@ -40,6 +40,10 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     //MARK: Collection View Controller Data Source
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -84,15 +88,22 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
             return
         }
         
-        let cameraAction = Alert.Action(title: "Camera", style: nil, handler: { (action) -> Void in
-            imagePicker.sourceType = .Camera
-            present()
+        let cameraAction = Alert.Action(title: "Camera", style: nil, handler: { [unowned self] (action) -> Void in
+            Permissions.Camera.request(self) { (success) in
+                imagePicker.sourceType = .Camera
+                present()
+            }
         })
-        let photoAction = Alert.Action(title: "Camera", style: nil, handler: { (action) -> Void in
-            imagePicker.sourceType = .PhotoLibrary
-            present()
+        let photoAction = Alert.Action(title: "Photo Library", style: nil, handler: { [unowned self] (action) -> Void in
+            Permissions.Photos.request(self) { (success) in
+                imagePicker.sourceType = .PhotoLibrary
+                present()
+            }
         })
-        self.alert(this: Alert("Where would you like to pick an image from?", nil, self, [cameraAction, photoAction], .ActionSheet))
+        let cancelAction = Alert.Action(title: "Cancel", style: .Cancel) { (action) in
+            //Noop
+        }
+        self.alert(this: Alert("Where would you like to pick an image from?", nil, self, [cameraAction, photoAction, cancelAction], .ActionSheet))
     }
     
     //MARK: Scroll View Delegate
@@ -111,9 +122,26 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
     
     //MARK: Image Picker Delegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        guard let current = self.currentComic else { return }
-        self.currentComic = nil
-        self.apocalypse.uploadImage(image, toComic: current)
+        self.dismissViewControllerAnimated(true) { [unowned self] _ in
+            guard let current = self.currentComic else { return }
+            self.currentComic = nil
+            func go() {
+                self.apocalypse.uploadImage(image, toComic: current)
+            }
+            if !self.apocalypse.dropboxer.autorised {
+                self.apocalypse.dropboxer.authorise(self) { (success) in
+                    if success {
+                        go()
+                    }
+                }
+                return
+            }
+            go()
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     //MARK: Apocalypse
