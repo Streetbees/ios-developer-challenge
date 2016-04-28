@@ -165,6 +165,8 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
     
     //Delegate
     func didFinishLoadingEverything(errorMessage: String?) {
+        self.loading = false
+        
         if let message = errorMessage {
             self.alert(this: Alert(message, "Marveble", self))
             self.collectionView?.reloadData()

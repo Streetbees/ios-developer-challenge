@@ -261,6 +261,7 @@
 					};
 					65EC32C61CCE747500D973B6 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = XY7HUX42SH;
 					};
 				};
 			};
@@ -544,6 +545,7 @@
 			baseConfigurationReference = 693340092ED80D9737392575 /* Pods-Marveble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -562,6 +564,7 @@
 			baseConfigurationReference = 8655B2AC6B43D67E18A601ED /* Pods-Marveble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Marveble/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
