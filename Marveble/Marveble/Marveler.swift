@@ -54,8 +54,13 @@ public final class Marveler<C: MarvelComic, D: MarvelerDelegate>
     //TODO: Optimise this so we only load the objects that have not been fetched yet
     private let limit = 100
     
+    private var loading = false
+    
     public final func getComics(startingAt position: Int)
     {
+        guard !self.loading else { return }
+        self.loading = true
+        
         self.delegate?.willStartLoadingMarvelComics()
         
         //Helper function that finishes everything
@@ -63,6 +68,7 @@ public final class Marveler<C: MarvelComic, D: MarvelerDelegate>
             onTheMainThread { [weak self] _ in
                 self?.delegate?.willFinishLoadingMarvelComics(errorMessage)
             }
+            self.loading = false
             guard errorMessage == nil else {
                 //We reset our data model if we have an error
                 self.totalComics = 0

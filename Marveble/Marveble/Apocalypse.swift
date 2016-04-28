@@ -16,6 +16,7 @@ import Backgroundable
 public protocol ApocalypseDelegate: UILoader
 {
     func didFinishLoadingEverything(errorMessage: String?)
+    func didFinishUploadingPhoto(forComic: Comic)
     func didUpdateComic(comic: Comic)
 }
 
@@ -116,7 +117,9 @@ public final class Apocalypse<D: ApocalypseDelegate>: MarvelerDelegate, Dropboxe
     public func didUploadFileToDropbox(withMetadata metadata: SwiftyDropbox.Files.FileMetadata?) {
         guard let metadata = metadata else { return }
         guard var current = self.currentUploadingComic else { return }
+        current = current.setDropboxMetadata(metadata)
+        self.dropboxer.getPhoto(withComic: current)
         self.currentUploadingComic = nil
-        self.marveler.updateComics([current.setDropboxMetadata(metadata)]) //This will channel messages to the Apocalypse delegate
+        self.delegate?.didFinishUploadingPhoto(current)
     }
 }

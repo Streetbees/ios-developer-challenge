@@ -151,6 +151,7 @@ public final class Dropboxer<C: DropboxComic, D: DropboxerDelegate>
             client.files.getMetadata(path: "/\(photoId).jpg").response { (metadataResult: (Files.Metadata)?, metadataError: CallError<(Files.GetMetadataError)>?) in
                 guard metadataError == nil else { dLog("\(metadataError)"); end(nil); return }
                 guard let metadata = metadataResult as? SwiftyDropbox.Files.FileMetadata else { end(nil); return }
+                
                 end(metadata)
             }
         }

@@ -27,7 +27,7 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !self.alerting {
+        if !self.alerting && !self.pickingImage {
             self.loadData()
         }
     }
@@ -70,6 +70,8 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.currentComic = self.apocalypse.marveler.comics?[indexPath.row]
+        
+        self.pickingImage = true
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -121,11 +123,15 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
     }
     
     //MARK: Image Picker Delegate
+    private var pickingImage = false
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         self.dismissViewControllerAnimated(true) { [unowned self] _ in
+            self.pickingImage = false
             guard let current = self.currentComic else { return }
             self.currentComic = nil
             func go() {
+                self.loading = true
                 self.apocalypse.uploadImage(image, toComic: current)
             }
             if !self.apocalypse.dropboxer.autorised {
@@ -141,7 +147,9 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true) { [unowned self] _ in
+            self.pickingImage = false
+        }
     }
     
     //MARK: Apocalypse
@@ -168,6 +176,10 @@ class MainViewController: UICollectionViewController, ApocalypseDelegate, Alerta
                 self.collectionView?.reloadData()
             }
         }
+    }
+    
+    func didFinishUploadingPhoto(forComic: Comic) {
+        self.loading = false
     }
     
     func didUpdateComic(comic: Comic) {
