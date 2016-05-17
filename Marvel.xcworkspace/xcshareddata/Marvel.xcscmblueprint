@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4AC22B8A39DFFB16C2032BCF9D1497515CBFD0ED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "78AC375D5124814621E27C90B6383391AC9BFE8D" : 0,
+    "4AC22B8A39DFFB16C2032BCF9D1497515CBFD0ED" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "856D8496-A3F0-4CDD-86EC-A6BE94D855EF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "78AC375D5124814621E27C90B6383391AC9BFE8D" : "Comic\/",
+    "4AC22B8A39DFFB16C2032BCF9D1497515CBFD0ED" : "lead-ios-developer\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Marvel",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Marvel.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/GabrielMassana\/lead-ios-developer",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4AC22B8A39DFFB16C2032BCF9D1497515CBFD0ED"
+    }
+  ]
+}
