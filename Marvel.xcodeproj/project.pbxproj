@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7AA6B8F11CEBB2220011BCDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA6B8F01CEBB2220011BCDA /* AppDelegate.swift */; };
-		7AA6B8F31CEBB2220011BCDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA6B8F21CEBB2220011BCDA /* ViewController.swift */; };
-		7AA6B8F61CEBB2220011BCDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA6B8F41CEBB2220011BCDA /* Main.storyboard */; };
-		7AA6B8F81CEBB2220011BCDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA6B8F71CEBB2220011BCDA /* Assets.xcassets */; };
-		7AA6B8FB1CEBB2220011BCDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA6B8F91CEBB2220011BCDA /* LaunchScreen.storyboard */; };
+		7ADCE07F1CEBB78E0028E3D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */; };
+		7ADCE0801CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE0651CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift */; };
+		7ADCE0811CEBB78E0028E3D0 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE0681CEBB78E0028E3D0 /* String+MD5.swift */; };
+		7ADCE0821CEBB78E0028E3D0 /* UIFont+Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE06B1CEBB78E0028E3D0 /* UIFont+Marvel.swift */; };
+		7ADCE0831CEBB78E0028E3D0 /* TradeGothic-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCE0731CEBB78E0028E3D0 /* TradeGothic-Light.ttf */; };
+		7ADCE0841CEBB78E0028E3D0 /* TradeGothicLT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCE0741CEBB78E0028E3D0 /* TradeGothicLT.ttf */; };
+		7ADCE0851CEBB78E0028E3D0 /* TradeGothicNo.2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCE0751CEBB78E0028E3D0 /* TradeGothicNo.2-Bold.ttf */; };
+		7ADCE0861CEBB78E0028E3D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCE0771CEBB78E0028E3D0 /* Assets.xcassets */; };
+		7ADCE0881CEBB78E0028E3D0 /* ComicsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */; };
+		7ADCE08B1CEBB8700028E3D0 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE08A1CEBB8700028E3D0 /* RootNavigationController.swift */; };
 		81835B70BC014B704789BC6A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748429FD14AD3B4AE90436CE /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,12 +25,18 @@
 		59FF8D49D9C56AF7949E5147 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		748429FD14AD3B4AE90436CE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA6B8ED1CEBB2220011BCDA /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AA6B8F01CEBB2220011BCDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7AA6B8F21CEBB2220011BCDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7AA6B8F51CEBB2220011BCDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7AA6B8F71CEBB2220011BCDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7AA6B8FA1CEBB2220011BCDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7AA6B8FC1CEBB2220011BCDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7ADCE0651CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+ServerResponse.swift"; sourceTree = "<group>"; };
+		7ADCE0681CEBB78E0028E3D0 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		7ADCE06B1CEBB78E0028E3D0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
+		7ADCE0731CEBB78E0028E3D0 /* TradeGothic-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothic-Light.ttf"; sourceTree = "<group>"; };
+		7ADCE0741CEBB78E0028E3D0 /* TradeGothicLT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TradeGothicLT.ttf; sourceTree = "<group>"; };
+		7ADCE0751CEBB78E0028E3D0 /* TradeGothicNo.2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothicNo.2-Bold.ttf"; sourceTree = "<group>"; };
+		7ADCE0771CEBB78E0028E3D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7ADCE07A1CEBB78E0028E3D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsFeedViewController.swift; sourceTree = "<group>"; };
+		7ADCE08A1CEBB8700028E3D0 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		7ADCE08C1CEBB9720028E3D0 /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +81,188 @@
 		7AA6B8EF1CEBB2220011BCDA /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
-				7AA6B8F01CEBB2220011BCDA /* AppDelegate.swift */,
-				7AA6B8F21CEBB2220011BCDA /* ViewController.swift */,
-				7AA6B8F41CEBB2220011BCDA /* Main.storyboard */,
-				7AA6B8F71CEBB2220011BCDA /* Assets.xcassets */,
-				7AA6B8F91CEBB2220011BCDA /* LaunchScreen.storyboard */,
-				7AA6B8FC1CEBB2220011BCDA /* Info.plist */,
+				7ADCE0611CEBB78E0028E3D0 /* AppDelegate */,
+				7ADCE0631CEBB78E0028E3D0 /* Extensions */,
+				7ADCE06C1CEBB78E0028E3D0 /* Model */,
+				7ADCE0701CEBB78E0028E3D0 /* Networking */,
+				7ADCE0711CEBB78E0028E3D0 /* Resources */,
+				7ADCE0781CEBB78E0028E3D0 /* Services */,
+				7ADCE0791CEBB78E0028E3D0 /* SupportingFiles */,
+				7ADCE07B1CEBB78E0028E3D0 /* ViewControllers */,
+				7ADCE07E1CEBB78E0028E3D0 /* Views */,
 			);
 			path = Marvel;
+			sourceTree = "<group>";
+		};
+		7ADCE0611CEBB78E0028E3D0 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7ADCE0631CEBB78E0028E3D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0641CEBB78E0028E3D0 /* NSDateFormatter */,
+				7ADCE0661CEBB78E0028E3D0 /* String */,
+				7ADCE0691CEBB78E0028E3D0 /* UIColor */,
+				7ADCE06A1CEBB78E0028E3D0 /* UIFont */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7ADCE0641CEBB78E0028E3D0 /* NSDateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0651CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift */,
+			);
+			path = NSDateFormatter;
+			sourceTree = "<group>";
+		};
+		7ADCE0661CEBB78E0028E3D0 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0671CEBB78E0028E3D0 /* MD5 */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		7ADCE0671CEBB78E0028E3D0 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0681CEBB78E0028E3D0 /* String+MD5.swift */,
+			);
+			path = MD5;
+			sourceTree = "<group>";
+		};
+		7ADCE0691CEBB78E0028E3D0 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		7ADCE06A1CEBB78E0028E3D0 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE06B1CEBB78E0028E3D0 /* UIFont+Marvel.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		7ADCE06C1CEBB78E0028E3D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE06D1CEBB78E0028E3D0 /* CoreData */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7ADCE06D1CEBB78E0028E3D0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE06E1CEBB78E0028E3D0 /* ManagedObjects */,
+				7ADCE06F1CEBB78E0028E3D0 /* Model */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7ADCE06E1CEBB78E0028E3D0 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		7ADCE06F1CEBB78E0028E3D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7ADCE0701CEBB78E0028E3D0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7ADCE0711CEBB78E0028E3D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0721CEBB78E0028E3D0 /* Fonts */,
+				7ADCE0761CEBB78E0028E3D0 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7ADCE0721CEBB78E0028E3D0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0731CEBB78E0028E3D0 /* TradeGothic-Light.ttf */,
+				7ADCE0741CEBB78E0028E3D0 /* TradeGothicLT.ttf */,
+				7ADCE0751CEBB78E0028E3D0 /* TradeGothicNo.2-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7ADCE0761CEBB78E0028E3D0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0771CEBB78E0028E3D0 /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7ADCE0781CEBB78E0028E3D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7ADCE0791CEBB78E0028E3D0 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE07A1CEBB78E0028E3D0 /* Info.plist */,
+				7ADCE08C1CEBB9720028E3D0 /* Marvel-Bridging-Header.h */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		7ADCE07B1CEBB78E0028E3D0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE07C1CEBB78E0028E3D0 /* ComicsFeed */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7ADCE07C1CEBB78E0028E3D0 /* ComicsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */,
+			);
+			path = ComicsFeed;
+			sourceTree = "<group>";
+		};
+		7ADCE07E1CEBB78E0028E3D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE0891CEBB8700028E3D0 /* UINavigationController */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7ADCE0891CEBB8700028E3D0 /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCE08A1CEBB8700028E3D0 /* RootNavigationController.swift */,
+			);
+			path = UINavigationController;
 			sourceTree = "<group>";
 		};
 		FCCAE7ACDDFE7574B39FECDD /* Frameworks */ = {
@@ -149,9 +334,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA6B8FB1CEBB2220011BCDA /* LaunchScreen.storyboard in Resources */,
-				7AA6B8F81CEBB2220011BCDA /* Assets.xcassets in Resources */,
-				7AA6B8F61CEBB2220011BCDA /* Main.storyboard in Resources */,
+				7ADCE0831CEBB78E0028E3D0 /* TradeGothic-Light.ttf in Resources */,
+				7ADCE0851CEBB78E0028E3D0 /* TradeGothicNo.2-Bold.ttf in Resources */,
+				7ADCE0861CEBB78E0028E3D0 /* Assets.xcassets in Resources */,
+				7ADCE0841CEBB78E0028E3D0 /* TradeGothicLT.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,31 +396,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA6B8F31CEBB2220011BCDA /* ViewController.swift in Sources */,
-				7AA6B8F11CEBB2220011BCDA /* AppDelegate.swift in Sources */,
+				7ADCE0821CEBB78E0028E3D0 /* UIFont+Marvel.swift in Sources */,
+				7ADCE0811CEBB78E0028E3D0 /* String+MD5.swift in Sources */,
+				7ADCE07F1CEBB78E0028E3D0 /* AppDelegate.swift in Sources */,
+				7ADCE0801CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift in Sources */,
+				7ADCE0881CEBB78E0028E3D0 /* ComicsFeedViewController.swift in Sources */,
+				7ADCE08B1CEBB8700028E3D0 /* RootNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7AA6B8F41CEBB2220011BCDA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7AA6B8F51CEBB2220011BCDA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7AA6B8F91CEBB2220011BCDA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7AA6B8FA1CEBB2220011BCDA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7AA6B8FD1CEBB2220011BCDA /* Debug */ = {
@@ -326,10 +497,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				INFOPLIST_FILE = Marvel/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Marvel/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Gabriel-Massana.Marvel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Marvel/SupportingFiles/Marvel-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -339,10 +512,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				INFOPLIST_FILE = Marvel/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Marvel/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Gabriel-Massana.Marvel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Marvel/SupportingFiles/Marvel-Bridging-Header.h";
 			};
 			name = Release;
 		};
