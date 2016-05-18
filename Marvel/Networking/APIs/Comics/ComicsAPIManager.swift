@@ -25,30 +25,30 @@ class ComicsAPIManager: APIManager {
     class func retrieveComics(offset: String, success: NetworkingOnSuccess, failure: NetworkingOnFailure) {
         
         // Offset from Core Data
-        let characterRequest: ComicsRequest = ComicsRequest.comicRequest()
+        let comicRequest: ComicsRequest = ComicsRequest.comicRequest()
         
-        characterRequest.updateRequestWithEndpoint("/v1/public/comics", offset: offset)
+        comicRequest.updateRequestWithEndpoint("/v1/public/comics", offset: offset)
         
-        let task: CNMURLSessionDataTask = CNMSession.defaultSession().dataTaskFromRequest(characterRequest)
+        let task: CNMURLSessionDataTask = CNMSession.defaultSession().dataTaskFromRequest(comicRequest)
         
         task.onCompletion = { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
-            if let _ = data {
+            if let data = data {
                 
                 do {
-                    let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+                    let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
                     
                     print(json)
                     
-//                    let operation: ComicsParserOperation = ComicsParserOperation(comicsResponse: json)
-//                    operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier
-//                    
-//                    operation.onSuccess = { (result:AnyObject?) -> Void in
-//                        
-//                        success(result: nil)
-//                    }
-//                    
-//                    COMOperationQueueManager.sharedInstance().addOperation(operation)
+                    let operation: ComicsParserOperation = ComicsParserOperation(comicsResponse: json, offset: offset)
+                    operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier
+                    
+                    operation.onSuccess = { (result:AnyObject?) -> Void in
+                        
+                        success(result: nil)
+                    }
+                    
+                    COMOperationQueueManager.sharedInstance().addOperation(operation)
                 }
                 catch
                 {

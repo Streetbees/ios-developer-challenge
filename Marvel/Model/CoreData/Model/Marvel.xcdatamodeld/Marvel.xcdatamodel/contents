@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
-    <elements/>
+    <entity name="Comic" representedClassName="Comic" syncable="YES">
+        <attribute name="comicDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comicID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="onSaleDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="thumbnailExtension" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ComicFeed" inverseName="comics" inverseEntity="ComicFeed" syncable="YES"/>
+    </entity>
+    <entity name="ComicFeed" representedClassName="ComicFeed" syncable="YES">
+        <attribute name="feedID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastServerFailure" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="totalComics" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="feed" inverseEntity="Comic" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Comic" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="ComicFeed" positionX="-54" positionY="-9" width="128" height="105"/>
+    </elements>
 </model>
