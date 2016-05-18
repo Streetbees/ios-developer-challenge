@@ -67,4 +67,24 @@ class ComicFeed: NSManagedObject {
             return feed!
         }
     }
+    
+    //MARK: - MoreContent
+    
+    /**
+     Asks the feed if there are more content to download based on stored parameters
+     
+     - returns: True if there are more content to download. False otherwise
+     */
+    func hasMoreContentToDownload() -> Bool {
+        
+        var hasMoreContentToDownload: Bool = false
+        
+        if (totalComics?.integerValue != comics!.count ||
+            totalComics?.integerValue == 0) {
+            
+            hasMoreContentToDownload = true
+        }
+        
+        return hasMoreContentToDownload
+    }
 }

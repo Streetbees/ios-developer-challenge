@@ -85,14 +85,9 @@ class ComicsFeedViewController: UIViewController {
         // API call to download Comics
         
         ComicsAPIManager.retrieveComics(String(offset),
-                                            success: { [weak self] (result) -> Void in
-                                                
-                                                if let strongSelf = self {
-                                                    
-//                                                    strongSelf.paginate()
-                                                }
+                                            success: {(result) -> Void in
             },
-                                            failure: { (error) -> Void in
+                                            failure: {(error) -> Void in
         })
     }
     
@@ -101,16 +96,14 @@ class ComicsFeedViewController: UIViewController {
      */
     private func paginate() {
         
-        self.downloadComicsFromMarvelAPI(0)
-        
         CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
             
-//            let feed: ComicFeed = ComicFeed.fetchComicFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
-//            
-//            if feed.hasMoreContentToDownload() {
-//                
-//                self.downloadComicsFromMarvelAPI((feed.comics?.count)!)
-//            }
+            let feed: ComicFeed = ComicFeed.fetchComicFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
+            
+            if feed.hasMoreContentToDownload() {
+                
+                self.downloadComicsFromMarvelAPI((feed.comics?.count)!)
+            }
         }
     }
 }
