@@ -55,8 +55,6 @@ class ComicFeedCell: TableViewCell {
         let comicImageView: UIImageView = UIImageView.newAutoLayoutView()
         
         comicImageView.image = UIImage(named: "icon-cell-placeholder")
-        comicImageView.layer.borderWidth = 0.0;
-        comicImageView.layer.cornerRadius = 14.0;
         
         return comicImageView
     }()
@@ -147,8 +145,20 @@ class ComicFeedCell: TableViewCell {
             }
         }
 
+        MediaAPIManager.retrieveMediaAsset(MediaAspectRatio.Portrait, comic: comic) { [weak self] (imageComic: Comic, mediaImage: UIImage?) -> Void in
+            
+            if let strongSelf = self {
+                
+                if strongSelf.comic!.comicID == imageComic.comicID {
+                    
+                    dispatch_async(dispatch_get_main_queue(),{
+                        
+                        strongSelf.comicImageView.image = mediaImage
+                    })
+                }
+            }
+        }
     }
-
     
     //MARK: - PrepareForReuse
     

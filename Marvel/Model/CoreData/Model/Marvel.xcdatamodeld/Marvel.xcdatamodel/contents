@@ -4,6 +4,7 @@
         <attribute name="comicDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comicID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="onSaleDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="parseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="thumbnailExtension" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,7 +17,7 @@
         <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="feed" inverseEntity="Comic" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Comic" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Comic" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="ComicFeed" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

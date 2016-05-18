@@ -21,5 +21,5 @@ extension Comic {
     @NSManaged var onSaleDate: NSDate?
     @NSManaged var comicID: String?
     @NSManaged var feed: ComicFeed?
-
+    @NSManaged var parseDate: NSDate?
 }

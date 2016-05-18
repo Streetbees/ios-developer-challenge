@@ -30,6 +30,16 @@ class ComicsFeedAdapter: NSObject {
     weak var delegate: ComicsFeedAdapterDelegate?
  
     /**
+     The offset for when a pagination attempt can be made.
+     */
+    let paginationOffset = 10
+    
+    /**
+     Boolean for if new content is currently being retrieved.
+     */
+    var paginating: Bool = false
+    
+    /**
      Table view to display data.
      */
     var tableView: UITableView! {
@@ -43,7 +53,7 @@ class ComicsFeedAdapter: NSObject {
                 tableView.dataSource = self
                 tableView.delegate = self
                 tableView.backgroundColor = UIColor.whiteColor()
-                tableView.rowHeight = 120.0
+                tableView.rowHeight = 170.0
                 tableView.separatorStyle = .None
                 
                 //RegisterCells
@@ -91,7 +101,7 @@ class ComicsFeedAdapter: NSObject {
      */
     lazy var sortDescriptors: Array<NSSortDescriptor> = {
         
-        let sortDescriptors:NSSortDescriptor = NSSortDescriptor(key: "onSaleDate", ascending: false)
+        let sortDescriptors:NSSortDescriptor = NSSortDescriptor(key: "parseDate", ascending: true)
         
         return [sortDescriptors]
     }()
@@ -123,8 +133,6 @@ class ComicsFeedAdapter: NSObject {
         cell.configureWithComic(comic)
     }
     
-    
-    
     //MARK: - RetrieveData
     
     /**
@@ -137,16 +145,43 @@ class ComicsFeedAdapter: NSObject {
         // API call to download Comics
         
         ComicsAPIManager.retrieveComics(String(offset),
-                                        success: {(result) -> Void in
+                                        success: { [weak self] (result) -> Void in
+                                            
+                                            if let strongSelf = self {
+                                                
+                                                strongSelf.didPaginate()
+                                            }
             },
-                                        failure: {(error) -> Void in
+                                        failure: { [weak self] (error) -> Void in
+                                            
+                                            if let strongSelf = self {
+                                                
+                                                strongSelf.didPaginate()
+                                            }
         })
+    }
+    
+    func shouldPaginate(index: NSInteger) -> Bool {
+        
+        var shouldPaginate = false
+        
+        if let fetchedObjects = fetchedResultsController.fetchedObjects {
+            
+            if index > (fetchedObjects.count - paginationOffset) {
+                
+                shouldPaginate = true
+            }
+        }
+        
+        return shouldPaginate
     }
     
     /**
      Calls for a next page of data from the Marvel API if there are more content to be downloaded.
      */
     func paginate() {
+        
+        willPaginate()
         
         CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
             
@@ -158,7 +193,16 @@ class ComicsFeedAdapter: NSObject {
             }
         }
     }
+    
+    func willPaginate() {
+        
+        paginating = true
+    }
 
+    func didPaginate() {
+        
+        paginating = false
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -177,6 +221,11 @@ extension ComicsFeedAdapter: UITableViewDataSource {
         configureCell(cell, indexPath: indexPath)
         
         cell.layoutByApplyingConstraints()
+        
+        if shouldPaginate(indexPath.row) {
+            
+            paginate()
+        }
         
         return cell
     }

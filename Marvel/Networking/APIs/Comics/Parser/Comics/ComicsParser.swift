@@ -74,13 +74,26 @@ class ComicsParser: Parser {
             }
             
             
-            if let dates = comicResponse["dates"] as? NSDictionary,
-                let onSaleDate = dates["onsaleDate"] as? String {
+            if let dates = comicResponse["dates"] as? NSArray {
                 
-                let dateFormatter: NSDateFormatter = NSDateFormatter.serverDateFormatter()
-                
-                comic?.onSaleDate = dateFormatter.dateFromString(onSaleDate)
+                for date in dates {
+                    
+                    if let type = date["type"] as? String,
+                        let date = date["date"] as? String {
+                        
+                        if type == "onsaleDate" {
+                            
+                            let dateFormatter: NSDateFormatter = NSDateFormatter.serverDateFormatter()
+                            
+                            comic?.onSaleDate = dateFormatter.dateFromString(date)
+                            
+                            break
+                        }
+                    }
+                }
             }
+            
+            comic?.parseDate = NSDate()
         }
         
         return comic
