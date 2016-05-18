@@ -1,0 +1,80 @@
+PODS:
+  - AFDateHelper (3.3.1)
+  - Alamofire (3.4.0)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
+  - FDTake (0.3.2)
+  - HexColors (2.3.0)
+  - Infinity (1.0.5)
+  - Instabug (5.2.4)
+  - MJRefresh (3.1.0)
+  - ObjectMapper (1.3.0)
+  - PKHUD (3.1.0)
+  - Refresher (0.5.0)
+  - RxBlocking (2.5.0):
+    - RxSwift (~> 2.5)
+  - RxCocoa (2.5.0):
+    - RxSwift (~> 2.5)
+  - RxSwift (2.5.0)
+  - SnapKit (0.15.0)
+  - SwiftValidators (2.1.0)
+  - SwiftyJSON (2.3.2)
+  - TSMessages (0.9.13):
+    - HexColors (~> 2.3.0)
+
+DEPENDENCIES:
+  - AFDateHelper
+  - Alamofire (~> 3.0)
+  - AlamofireImage (~> 2.0)
+  - FDTake
+  - Infinity
+  - Instabug
+  - MJRefresh
+  - ObjectMapper (~> 1.1)
+  - PKHUD
+  - Refresher
+  - RxBlocking (~> 2.0)
+  - RxCocoa (~> 2.0)
+  - RxSwift (~> 2.0)
+  - SnapKit (~> 0.15.0)
+  - SwiftValidators
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - TSMessages (from `https://github.com/KrauseFx/TSMessages.git`)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  TSMessages:
+    :git: https://github.com/KrauseFx/TSMessages.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  TSMessages:
+    :commit: e63f23304f781dcadbac31e6d338f3105fb3cd78
+    :git: https://github.com/KrauseFx/TSMessages.git
+
+SPEC CHECKSUMS:
+  AFDateHelper: 3cf2296dc56cdc72af8fb8e73fb04ca0bd1999ae
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  FDTake: 122aaf465673b05648cd1b40200a19c85b1aa9e0
+  HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
+  Infinity: 1fc4ac96d9f22f70b588ce32b9e47cd304677d2d
+  Instabug: 6fa40a5e2a4620f0589dfc8e4e01b1018c8c42b1
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
+  Refresher: 485f5990e6315add7f3470db5a4ca106451b11d3
+  RxBlocking: 595d9ab56dde6b00beaa5aba40e95b150d2135f1
+  RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
+  RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  SwiftValidators: 82e4897430af0e19b9e263cab447284daaca761b
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TSMessages: 6e403b790139636c15ab4f51946537095e03e79c
+
+PODFILE CHECKSUM: 56ecb8ebd6327bd7d90e399399673aa47fc75eb7
+
+COCOAPODS: 1.0.0

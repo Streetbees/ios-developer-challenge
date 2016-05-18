@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Rz4-fF-r3g">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="lBJ-r2-Yfr">
+            <objects>
+                <navigationController id="Rz4-fF-r3g" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1dA-Zl-gXA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dud-9w-NkS" kind="relationship" relationship="rootViewController" id="uGE-oK-hnh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gkf-Qz-aIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="478"/>
+        </scene>
+        <!--Comics-->
+        <scene sceneID="sCS-EM-HvF">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJx-Zw-nMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="ComicsListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dud-9w-NkS" customClass="ComicsListViewController" customModule="MarvelStreetbees" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="Btd-Xa-Xup">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="qeR-Js-TFg" customClass="ComicCell" customModule="MarvelStreetbees" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="320" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qeR-Js-TFg" id="SUS-iu-Lbc">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5vy-j2-FFe">
+                                            <rect key="frame" x="8" y="8" width="103" height="103"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="5vy-j2-FFe" secondAttribute="height" multiplier="1:1" id="WTd-EB-ZIt"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="are-gM-3Fp">
+                                            <rect key="frame" x="119" y="8" width="193" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5vy-j2-FFe" firstAttribute="top" secondItem="SUS-iu-Lbc" secondAttribute="top" constant="8" id="53J-Tr-BHK"/>
+                                        <constraint firstItem="5vy-j2-FFe" firstAttribute="leading" secondItem="SUS-iu-Lbc" secondAttribute="leading" constant="8" id="9qQ-Og-0pD"/>
+                                        <constraint firstItem="are-gM-3Fp" firstAttribute="leading" secondItem="5vy-j2-FFe" secondAttribute="trailing" constant="8" id="FDB-NL-V7b"/>
+                                        <constraint firstAttribute="bottom" secondItem="5vy-j2-FFe" secondAttribute="bottom" constant="8" id="M5Z-Lo-MUf"/>
+                                        <constraint firstAttribute="trailing" secondItem="are-gM-3Fp" secondAttribute="trailing" constant="8" id="efC-jv-5H2"/>
+                                        <constraint firstItem="are-gM-3Fp" firstAttribute="top" secondItem="SUS-iu-Lbc" secondAttribute="top" constant="8" id="xr6-sj-YGO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="comicImageView" destination="5vy-j2-FFe" id="Rhh-ea-fyD"/>
+                                    <outlet property="comicNameLabel" destination="are-gM-3Fp" id="B0k-gH-Ghv"/>
+                                    <segue destination="fI5-YE-n05" kind="show" identifier="ComicDetail" id="R0s-JF-uPv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dud-9w-NkS" id="Mi3-ya-g9o"/>
+                            <outlet property="delegate" destination="dud-9w-NkS" id="7wf-F1-bio"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Comics" id="9qF-S0-oLY"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="309" y="478"/>
+        </scene>
+        <!--Comic Detail View Controller-->
+        <scene sceneID="gmP-zD-U9W">
+            <objects>
+                <viewController storyboardIdentifier="ComicDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fI5-YE-n05" customClass="ComicDetailViewController" customModule="MarvelStreetbees" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="USm-nK-JdV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yfc-p3-n6N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S90-Nl-6D8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRz-kk-GnX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="478"/>
+        </scene>
+    </scenes>
+</document>
