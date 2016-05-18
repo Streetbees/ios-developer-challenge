@@ -82,18 +82,18 @@ class ComicsFeedViewController: UIViewController {
      */
     private func downloadComicsFromMarvelAPI(offset: Int) {
         
-        // API call to download Characters
+        // API call to download Comics
         
-//        ComicsAPIManager.retrieveCharacters(String(offset),
-//                                            success: { [weak self] (result) -> Void in
-//                                                
-//                                                if let strongSelf = self {
-//                                                    
+        ComicsAPIManager.retrieveComics(String(offset),
+                                            success: { [weak self] (result) -> Void in
+                                                
+                                                if let strongSelf = self {
+                                                    
 //                                                    strongSelf.paginate()
-//                                                }
-//            },
-//                                            failure: { (error) -> Void in
-//        })
+                                                }
+            },
+                                            failure: { (error) -> Void in
+        })
     }
     
     /**
@@ -101,13 +101,15 @@ class ComicsFeedViewController: UIViewController {
      */
     private func paginate() {
         
+        self.downloadComicsFromMarvelAPI(0)
+        
         CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
             
-//            let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
+//            let feed: ComicFeed = ComicFeed.fetchComicFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
 //            
 //            if feed.hasMoreContentToDownload() {
 //                
-//                self.downloadDataFromMarvelAPI((feed.characters?.count)!)
+//                self.downloadComicsFromMarvelAPI((feed.comics?.count)!)
 //            }
         }
     }

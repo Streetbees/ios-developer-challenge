@@ -68,7 +68,7 @@ class ComicsFeedAdapter: NSObject {
      */
     func registerCells() {
         
-//        tableView.registerClass(CharactersFeedCell.self, forCellReuseIdentifier: CharactersFeedCell.reuseIdentifier())
+//        tableView.registerClass(ComicFeedCell.self, forCellReuseIdentifier: ComicFeedCell.reuseIdentifier())
     }
 
 }
@@ -85,7 +85,7 @@ extension ComicsFeedAdapter: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-//        let cell = tableView.dequeueReusableCellWithIdentifier(CharactersFeedCell.reuseIdentifier(), forIndexPath: indexPath) as! CharactersFeedCell
+//        let cell = tableView.dequeueReusableCellWithIdentifier(ComicFeedCell.reuseIdentifier(), forIndexPath: indexPath) as! ComicFeedCell
 //        
 //        configureCell(cell, indexPath: indexPath)
 //        

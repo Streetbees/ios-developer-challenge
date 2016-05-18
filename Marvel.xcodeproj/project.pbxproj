@@ -12,6 +12,8 @@
 		7AA5D0AA1CEC5B98007B039D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5D0A71CEC5B98007B039D /* APIManager.swift */; };
 		7AA5D0AB1CEC5B98007B039D /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5D0A91CEC5B98007B039D /* Parser.swift */; };
 		7AA5D0AD1CEC5BC6007B039D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5D0AC1CEC5BC6007B039D /* Request.swift */; };
+		7AA5D0AF1CEC5CCB007B039D /* ComicsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5D0AE1CEC5CCB007B039D /* ComicsAPIManager.swift */; };
+		7AA5D0B11CEC5D4B007B039D /* ComicsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5D0B01CEC5D4B007B039D /* ComicsRequest.swift */; };
 		7ADCE07F1CEBB78E0028E3D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */; };
 		7ADCE0801CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE0651CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift */; };
 		7ADCE0811CEBB78E0028E3D0 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE0681CEBB78E0028E3D0 /* String+MD5.swift */; };
@@ -34,6 +36,8 @@
 		7AA5D0A71CEC5B98007B039D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		7AA5D0A91CEC5B98007B039D /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		7AA5D0AC1CEC5BC6007B039D /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		7AA5D0AE1CEC5CCB007B039D /* ComicsAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsAPIManager.swift; sourceTree = "<group>"; };
+		7AA5D0B01CEC5D4B007B039D /* ComicsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsRequest.swift; sourceTree = "<group>"; };
 		7AA6B8ED1CEBB2220011BCDA /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ADCE0651CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+ServerResponse.swift"; sourceTree = "<group>"; };
@@ -115,6 +119,9 @@
 		7AA5D09B1CEC5B6F007B039D /* Comics */ = {
 			isa = PBXGroup;
 			children = (
+				7AA5D0AE1CEC5CCB007B039D /* ComicsAPIManager.swift */,
+				7AA5D0B21CEC5E63007B039D /* Operation */,
+				7AA5D0B31CEC5E63007B039D /* Parser */,
 			);
 			path = Comics;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 		7AA5D09F1CEC5B6F007B039D /* Comics */ = {
 			isa = PBXGroup;
 			children = (
+				7AA5D0B01CEC5D4B007B039D /* ComicsRequest.swift */,
 			);
 			path = Comics;
 			sourceTree = "<group>";
@@ -162,6 +170,20 @@
 			isa = PBXGroup;
 			children = (
 				7AA5D0A91CEC5B98007B039D /* Parser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		7AA5D0B21CEC5E63007B039D /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		7AA5D0B31CEC5E63007B039D /* Parser */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -511,6 +533,8 @@
 				7ADCE0811CEBB78E0028E3D0 /* String+MD5.swift in Sources */,
 				7AA5D0AB1CEC5B98007B039D /* Parser.swift in Sources */,
 				7AA5D0981CEC5AF0007B039D /* Marvel.xcdatamodeld in Sources */,
+				7AA5D0B11CEC5D4B007B039D /* ComicsRequest.swift in Sources */,
+				7AA5D0AF1CEC5CCB007B039D /* ComicsAPIManager.swift in Sources */,
 				7AA5D0AD1CEC5BC6007B039D /* Request.swift in Sources */,
 				7AA5D0AA1CEC5B98007B039D /* APIManager.swift in Sources */,
 				7ADCE07F1CEBB78E0028E3D0 /* AppDelegate.swift in Sources */,
