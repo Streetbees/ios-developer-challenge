@@ -28,7 +28,7 @@ class ComicsFeedViewController: UIViewController {
     }()
     
     /**
-     Adapter to  manage the common logic of the tableView.
+     Adapter to  manage the common logic and data of the tableView.
      */
     lazy var adapter: ComicsFeedAdapter = {
         
@@ -55,7 +55,7 @@ class ComicsFeedViewController: UIViewController {
         
         /*-------------------*/
         
-        paginate()
+        adapter.paginate()
         
         /*-------------------*/
         
@@ -71,40 +71,6 @@ class ComicsFeedViewController: UIViewController {
         /*-------------------*/
         
         tableView.autoPinEdgesToSuperviewEdges()
-    }
-    
-    //MARK: - RetrieveData
-
-    /**
-     Triggers the actions to download and parse comics from the API with an offset
-     
-     - parameter offset: the offset of data to be ask for.
-     */
-    private func downloadComicsFromMarvelAPI(offset: Int) {
-        
-        // API call to download Comics
-        
-        ComicsAPIManager.retrieveComics(String(offset),
-                                            success: {(result) -> Void in
-            },
-                                            failure: {(error) -> Void in
-        })
-    }
-    
-    /**
-     Calls for a next page of data from the Marvel API if there are more content to be downloaded.
-     */
-    private func paginate() {
-        
-        CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
-            
-            let feed: ComicFeed = ComicFeed.fetchComicFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
-            
-            if feed.hasMoreContentToDownload() {
-                
-                self.downloadComicsFromMarvelAPI((feed.comics?.count)!)
-            }
-        }
     }
 }
 
