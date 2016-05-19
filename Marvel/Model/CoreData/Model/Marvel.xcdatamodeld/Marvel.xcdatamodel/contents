@@ -13,12 +13,11 @@
     </entity>
     <entity name="ComicFeed" representedClassName="ComicFeed" syncable="YES">
         <attribute name="feedID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="lastServerFailure" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="totalComics" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="feed" inverseEntity="Comic" syncable="YES"/>
     </entity>
     <elements>
         <element name="Comic" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="ComicFeed" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="ComicFeed" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

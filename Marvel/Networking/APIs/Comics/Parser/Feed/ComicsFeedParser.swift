@@ -43,10 +43,6 @@ class ComicsFeedParser: Parser {
                 }
             }
         }
-        else
-        {
-            feed.lastServerFailure = NSDate()
-        }
         
         return feed
     }

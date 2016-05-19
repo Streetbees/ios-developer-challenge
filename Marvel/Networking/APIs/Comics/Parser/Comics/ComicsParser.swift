@@ -53,15 +53,15 @@ class ComicsParser: Parser {
         
         var comic: Comic?
         
-        if let comicID = comicResponse["id"] as? String {
+        if let comicID = comicResponse["id"] as? NSNumber {
             
-            comic = Comic.fetchComic(comicID, managedObjectContext: parserManagedObjectContext!)
+            comic = Comic.fetchComic(comicID.stringValue, managedObjectContext: parserManagedObjectContext!)
             
             if (comic == nil)
             {
                 comic = CDFInsertService.insertNewObjectForEntityClass(Comic.self, inManagedObjectContext: parserManagedObjectContext!) as? Comic
                 
-                comic?.comicID = comicID
+                comic?.comicID = comicID.stringValue
             }
             
             comic?.title = comicResponse["title"] as? String

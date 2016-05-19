@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow? = {
         
+        DropboxService.sharedInstance
+        
+        /*-------------------*/
+
         let window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.backgroundColor = UIColor.whiteColor()
         
@@ -68,6 +72,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
 
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+
+        if DBSession.sharedSession().handleOpenURL(url) {
+            
+            if DBSession.sharedSession().isLinked() {
+                
+                print("Dropbox Linked")
+            }
+            
+            return true
+        }
+        
+        return false
     }
     
     //MARK: - OperationQueues

@@ -28,11 +28,23 @@ class ComicsFeedViewController: UIViewController {
     /**
      Table view to display data.
      */
-    lazy var tableView: UITableView = {
+    lazy var tableView: MarvelTableView = {
         
-        let tableView: UITableView = UITableView.newAutoLayoutView()
+        let tableView: MarvelTableView = MarvelTableView.newAutoLayoutView()
         
+        tableView.emptyView = self.emptyView
+
         return tableView
+    }()
+    
+    /**
+     Empty View to be shown when no data in the Table View.
+     */
+    lazy var emptyView: ComicFeedEmptyView = {
+        
+        let emptyView: ComicFeedEmptyView = ComicFeedEmptyView(frame: CGRect.init(x: 0.0, y: 0.0, width: CGRectGetWidth(UIScreen.mainScreen().bounds), height: CGRectGetHeight(UIScreen.mainScreen().bounds) - NavigationBarHeight))
+        
+        return emptyView
     }()
     
     /**
@@ -54,6 +66,7 @@ class ComicsFeedViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.whiteColor()
+        self.navigationItem.title = "Marvel Comics"
         
         /*-------------------*/
         
@@ -81,6 +94,8 @@ class ComicsFeedViewController: UIViewController {
         tableView.autoPinEdgesToSuperviewEdges()
     }
     
+    //MARK: - OpenCamera
+
     func openCamera() {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -94,6 +109,18 @@ class ComicsFeedViewController: UIViewController {
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    //MARK: - Dropbox
+
+    func uploadImageToDropbox(comic: Comic) {
+        
+        if !DBSession.sharedSession().isLinked() {
+        
+            DBSession.sharedSession().linkFromController(self)
+        }
+        
+        DropboxService.sharedInstance.uploadImage(comic.comicID!)
     }
 }
 
@@ -113,7 +140,7 @@ extension ComicsFeedViewController : ComicsFeedAdapterDelegate {
     }
 }
 
-extension ComicsFeedViewController : UIImagePickerControllerDelegate {
+extension ComicsFeedViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
@@ -129,14 +156,9 @@ extension ComicsFeedViewController : UIImagePickerControllerDelegate {
                 print(image)
                 
                 MediaAPIManager.saveImage(image, comic: comic)
+                
+                uploadImageToDropbox(comic)
             }
-            
-            
-            // Operation save image and update Comic object
          }
     }
-}
-
-extension ComicsFeedViewController : UINavigationControllerDelegate {
-    
 }

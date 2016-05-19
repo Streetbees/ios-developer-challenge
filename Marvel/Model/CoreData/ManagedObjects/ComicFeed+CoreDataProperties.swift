@@ -15,7 +15,6 @@ import CoreData
 extension ComicFeed {
 
     @NSManaged var feedID: String?
-    @NSManaged var lastServerFailure: NSDate?
     @NSManaged var totalComics: NSNumber?
     @NSManaged var comics: NSSet?
 

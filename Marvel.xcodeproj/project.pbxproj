@@ -38,6 +38,11 @@
 		7ADCE0881CEBB78E0028E3D0 /* ComicsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */; };
 		7ADCE08B1CEBB8700028E3D0 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE08A1CEBB8700028E3D0 /* RootNavigationController.swift */; };
 		81835B70BC014B704789BC6A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748429FD14AD3B4AE90436CE /* Pods.framework */; };
+		C08C209D1CEDF4B200499938 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08C209C1CEDF4B200499938 /* DropboxSDK.framework */; };
+		C08C20A21CEDF53700499938 /* DropboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A11CEDF53700499938 /* DropboxService.swift */; };
+		C08C20A51CEE090800499938 /* MarvelTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A41CEE090800499938 /* MarvelTableView.swift */; };
+		C08C20AA1CEE09DC00499938 /* ComicFeedEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */; };
+		C08C20AC1CEE09E900499938 /* LoadingCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20AB1CEE09E900499938 /* LoadingCameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +70,7 @@
 		7AA5D0BE1CEC6A9D007B039D /* ComicFeed+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ComicFeed+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AA5D0BF1CEC6A9D007B039D /* ComicFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicFeed.swift; sourceTree = "<group>"; };
 		7AA6B8ED1CEBB2220011BCDA /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AppDelegate/AppDelegate.swift; sourceTree = "<group>"; };
 		7ADCE0651CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+ServerResponse.swift"; sourceTree = "<group>"; };
 		7ADCE0681CEBB78E0028E3D0 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		7ADCE06B1CEBB78E0028E3D0 /* UIFont+Marvel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Marvel.swift"; sourceTree = "<group>"; };
@@ -77,6 +82,11 @@
 		7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsFeedViewController.swift; sourceTree = "<group>"; };
 		7ADCE08A1CEBB8700028E3D0 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		7ADCE08C1CEBB9720028E3D0 /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
+		C08C209C1CEDF4B200499938 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		C08C20A11CEDF53700499938 /* DropboxService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropboxService.swift; sourceTree = "<group>"; };
+		C08C20A41CEE090800499938 /* MarvelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelTableView.swift; sourceTree = "<group>"; };
+		C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicFeedEmptyView.swift; sourceTree = "<group>"; };
+		C08C20AB1CEE09E900499938 /* LoadingCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08C209D1CEDF4B200499938 /* DropboxSDK.framework in Frameworks */,
 				81835B70BC014B704789BC6A /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,13 +142,6 @@
 				7A158D591CEC7E07003B2980 /* ComicFeedCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		7AA062971CEC57BA0080E9C2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7AA5D0991CEC5B6F007B039D /* APIs */ = {
@@ -274,11 +278,12 @@
 			isa = PBXGroup;
 			children = (
 				7ADCE0611CEBB78E0028E3D0 /* AppDelegate */,
+				7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */,
 				7ADCE0631CEBB78E0028E3D0 /* Extensions */,
 				7ADCE06C1CEBB78E0028E3D0 /* Model */,
 				7ADCE0701CEBB78E0028E3D0 /* Networking */,
 				7ADCE0711CEBB78E0028E3D0 /* Resources */,
-				7ADCE0781CEBB78E0028E3D0 /* Services */,
+				C08C209E1CEDF50900499938 /* Services */,
 				7ADCE0791CEBB78E0028E3D0 /* SupportingFiles */,
 				7ADCE07B1CEBB78E0028E3D0 /* ViewControllers */,
 				7ADCE07E1CEBB78E0028E3D0 /* Views */,
@@ -289,7 +294,6 @@
 		7ADCE0611CEBB78E0028E3D0 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				7ADCE0621CEBB78E0028E3D0 /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -418,13 +422,6 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		7ADCE0781CEBB78E0028E3D0 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		7ADCE0791CEBB78E0028E3D0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,7 +444,7 @@
 			children = (
 				7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */,
 				7AA062951CEC57BA0080E9C2 /* Adapter */,
-				7AA062971CEC57BA0080E9C2 /* Views */,
+				C08C20A61CEE09B600499938 /* Views */,
 			);
 			path = ComicsFeed;
 			sourceTree = "<group>";
@@ -456,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				7ADCE0891CEBB8700028E3D0 /* UINavigationController */,
+				C08C20A31CEE08EF00499938 /* UITableView */,
 				7A158D561CEC7D5B003B2980 /* UITableViewCell */,
 			);
 			path = Views;
@@ -469,9 +467,59 @@
 			path = UINavigationController;
 			sourceTree = "<group>";
 		};
+		C08C209E1CEDF50900499938 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C08C20A01CEDF52600499938 /* Dropbox */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C08C20A01CEDF52600499938 /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				C08C20A11CEDF53700499938 /* DropboxService.swift */,
+			);
+			path = Dropbox;
+			sourceTree = "<group>";
+		};
+		C08C20A31CEE08EF00499938 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				C08C20A41CEE090800499938 /* MarvelTableView.swift */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		C08C20A61CEE09B600499938 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C08C20A71CEE09B600499938 /* EmptyView */,
+				C08C20A81CEE09B600499938 /* LoadingCameraView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C08C20A71CEE09B600499938 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		C08C20A81CEE09B600499938 /* LoadingCameraView */ = {
+			isa = PBXGroup;
+			children = (
+				C08C20AB1CEE09E900499938 /* LoadingCameraView.swift */,
+			);
+			path = LoadingCameraView;
+			sourceTree = "<group>";
+		};
 		FCCAE7ACDDFE7574B39FECDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C08C209C1CEDF4B200499938 /* DropboxSDK.framework */,
 				748429FD14AD3B4AE90436CE /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -602,6 +650,7 @@
 			files = (
 				7AA5D0BB1CEC6969007B039D /* ComicsFeedParser.swift in Sources */,
 				7ADCE0821CEBB78E0028E3D0 /* UIFont+Marvel.swift in Sources */,
+				C08C20A51CEE090800499938 /* MarvelTableView.swift in Sources */,
 				7A158D5C1CEC7FAB003B2980 /* UIColor+Marvel.swift in Sources */,
 				7ADCE0811CEBB78E0028E3D0 /* String+MD5.swift in Sources */,
 				7AA5D0AB1CEC5B98007B039D /* Parser.swift in Sources */,
@@ -613,14 +662,17 @@
 				7A158D5E1CEC7FFC003B2980 /* UIColor+Hex.swift in Sources */,
 				7AA5D0C21CEC6A9D007B039D /* ComicFeed+CoreDataProperties.swift in Sources */,
 				7A158D5A1CEC7E07003B2980 /* ComicFeedCell.swift in Sources */,
+				C08C20AA1CEE09DC00499938 /* ComicFeedEmptyView.swift in Sources */,
 				7AA5D0C11CEC6A9D007B039D /* Comic.swift in Sources */,
 				7AA5D0AD1CEC5BC6007B039D /* Request.swift in Sources */,
+				C08C20A21CEDF53700499938 /* DropboxService.swift in Sources */,
 				7AA5D0B91CEC695A007B039D /* ComicsParser.swift in Sources */,
 				7A158D581CEC7D6C003B2980 /* TableViewCell.swift in Sources */,
 				7AA5D0AA1CEC5B98007B039D /* APIManager.swift in Sources */,
 				7ADCE07F1CEBB78E0028E3D0 /* AppDelegate.swift in Sources */,
 				7AA5D0951CEC5897007B039D /* ComicsFeedAdapter.swift in Sources */,
 				7ADCE0801CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift in Sources */,
+				C08C20AC1CEE09E900499938 /* LoadingCameraView.swift in Sources */,
 				7A158D601CEC819C003B2980 /* MediaAPIManager.swift in Sources */,
 				7ADCE0881CEBB78E0028E3D0 /* ComicsFeedViewController.swift in Sources */,
 				7AA5D0C01CEC6A9D007B039D /* Comic+CoreDataProperties.swift in Sources */,
@@ -721,6 +773,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -736,6 +792,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
