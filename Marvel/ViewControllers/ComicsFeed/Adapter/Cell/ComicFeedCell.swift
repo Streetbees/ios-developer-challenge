@@ -181,6 +181,11 @@ class ComicFeedCell: TableViewCell {
         }
     }
     
+    /**
+     Retrieve media asset from Marvel API.
+     
+     - parameter comic: the comic object related to the media.
+     */
     func retrieveMarvelMediaAsset(comic: Comic) {
         
         MediaAPIManager.retrieveMarvelMediaAsset(MediaAspectRatio.Portrait, comic: comic) { [weak self] (imageComic: Comic, mediaImage: UIImage?) -> Void in
