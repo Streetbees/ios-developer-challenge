@@ -104,7 +104,6 @@ class MediaAPIManager: NSObject {
     /**
      Saves the image locally in disk.
      Starts the operation to update CoreData for the Comic object.
-     Starts the operation to upload to Dropbox.
      */
     class func saveImage(image: UIImage, comic: Comic) {
         
