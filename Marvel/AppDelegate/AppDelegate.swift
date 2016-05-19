@@ -14,6 +14,8 @@ import CoreOperation
 let NetworkDataOperationQueueTypeIdentifier: String = "NetworkDataOperationQueueTypeIdentifier"
 let LocalDataOperationQueueTypeIdentifier: String = "LocalDataOperationQueueTypeIdentifier"
 
+let DropboxLinked: String = "DropboxLinked"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -80,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if DBSession.sharedSession().isLinked() {
                 
-                print("Dropbox Linked")
+                NSNotificationCenter.defaultCenter().postNotificationName(DropboxLinked, object: nil)
             }
             
             return true

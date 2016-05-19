@@ -92,6 +92,10 @@ class ComicsFeedViewController: UIViewController {
         
         /*-------------------*/
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(dropboxLinked), name: DropboxLinked, object: nil)
+        
+        /*-------------------*/
+        
         updateViewConstraints()
     }
     
@@ -140,8 +144,23 @@ class ComicsFeedViewController: UIViewController {
         
             DBSession.sharedSession().linkFromController(self)
         }
+        else {
+            
+            DropboxService.sharedInstance.uploadImage(comic.comicID!)
+        }
+    }
+
+    func dropboxLinked() {
         
-        DropboxService.sharedInstance.uploadImage(comic.comicID!)
+        if let comic = self.comic {
+            
+            DropboxService.sharedInstance.uploadImage(comic.comicID!)
+        }
+    }
+    
+    deinit {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
 
