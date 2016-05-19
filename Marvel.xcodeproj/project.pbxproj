@@ -42,7 +42,6 @@
 		C08C20A21CEDF53700499938 /* DropboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A11CEDF53700499938 /* DropboxService.swift */; };
 		C08C20A51CEE090800499938 /* MarvelTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A41CEE090800499938 /* MarvelTableView.swift */; };
 		C08C20AA1CEE09DC00499938 /* ComicFeedEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */; };
-		C08C20AC1CEE09E900499938 /* LoadingCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20AB1CEE09E900499938 /* LoadingCameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,7 +85,6 @@
 		C08C20A11CEDF53700499938 /* DropboxService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropboxService.swift; sourceTree = "<group>"; };
 		C08C20A41CEE090800499938 /* MarvelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelTableView.swift; sourceTree = "<group>"; };
 		C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicFeedEmptyView.swift; sourceTree = "<group>"; };
-		C08C20AB1CEE09E900499938 /* LoadingCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,7 +493,6 @@
 			isa = PBXGroup;
 			children = (
 				C08C20A71CEE09B600499938 /* EmptyView */,
-				C08C20A81CEE09B600499938 /* LoadingCameraView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -506,14 +503,6 @@
 				C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */,
 			);
 			path = EmptyView;
-			sourceTree = "<group>";
-		};
-		C08C20A81CEE09B600499938 /* LoadingCameraView */ = {
-			isa = PBXGroup;
-			children = (
-				C08C20AB1CEE09E900499938 /* LoadingCameraView.swift */,
-			);
-			path = LoadingCameraView;
 			sourceTree = "<group>";
 		};
 		FCCAE7ACDDFE7574B39FECDD /* Frameworks */ = {
@@ -672,7 +661,6 @@
 				7ADCE07F1CEBB78E0028E3D0 /* AppDelegate.swift in Sources */,
 				7AA5D0951CEC5897007B039D /* ComicsFeedAdapter.swift in Sources */,
 				7ADCE0801CEBB78E0028E3D0 /* NSDateFormatter+ServerResponse.swift in Sources */,
-				C08C20AC1CEE09E900499938 /* LoadingCameraView.swift in Sources */,
 				7A158D601CEC819C003B2980 /* MediaAPIManager.swift in Sources */,
 				7ADCE0881CEBB78E0028E3D0 /* ComicsFeedViewController.swift in Sources */,
 				7AA5D0C01CEC6A9D007B039D /* Comic+CoreDataProperties.swift in Sources */,

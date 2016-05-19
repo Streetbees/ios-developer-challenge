@@ -57,6 +57,7 @@ class ComicFeedEmptyView: UIView {
         titleLabel.autoPinEdgeToSuperviewEdge(.Right)
         titleLabel.autoPinEdgeToSuperviewEdge(.Left)
         titleLabel.autoPinEdgeToSuperviewEdge(.Top, withInset: 200.0)
+        titleLabel.autoSetDimension(.Height, toSize: 70.0)
         
         /*-------------------*/
         

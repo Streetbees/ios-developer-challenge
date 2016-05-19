@@ -55,7 +55,8 @@ class ComicFeedCell: TableViewCell {
         let comicImageView: UIImageView = UIImageView.newAutoLayoutView()
         
         comicImageView.image = UIImage(named: "icon-cell-placeholder")
-        
+        comicImageView.contentMode = .ScaleAspectFill
+
         return comicImageView
     }()
 

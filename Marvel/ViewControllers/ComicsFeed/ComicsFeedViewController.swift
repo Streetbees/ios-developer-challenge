@@ -23,7 +23,19 @@ class ComicsFeedViewController: UIViewController {
      */
     var comic: Comic?
     
-    var imagePicker = UIImagePickerController()
+    lazy var imagePicker: UIImagePickerController = {
+        
+        var imagePicker = UIImagePickerController()
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType =  UIImagePickerControllerSourceType.Camera
+        imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Front
+        imagePicker.mediaTypes = [kUTTypeImage as String]
+        imagePicker.allowsEditing = false
+        imagePicker.modalPresentationStyle = .FullScreen
+        
+        return imagePicker
+    }()
     
     /**
      Table view to display data.
@@ -100,15 +112,16 @@ class ComicsFeedViewController: UIViewController {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
-            imagePicker.delegate = self
-            imagePicker.sourceType =  UIImagePickerControllerSourceType.Camera
-            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Front
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
-            imagePicker.modalPresentationStyle = .FullScreen
-            
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            dispatch_async(dispatch_get_main_queue(),{
+                
+                self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            })
         }
+        else
+        {
+            print("No camera on Simulator!")
+        }
+        
     }
     
     //MARK: - Dropbox
@@ -128,12 +141,6 @@ extension ComicsFeedViewController : ComicsFeedAdapterDelegate {
     
     func didSelectComic(comic: Comic) {
     
-        // Open Camera
-        print("Open Camera")
-        
-        // Add Spinner
-        // Add alert if no Camera allowed
-        
         self.comic = comic
         
         openCamera()

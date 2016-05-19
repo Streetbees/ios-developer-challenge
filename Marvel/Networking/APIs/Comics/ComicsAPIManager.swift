@@ -38,8 +38,6 @@ class ComicsAPIManager: APIManager {
                 do {
                     let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
                     
-                    print(json)
-                    
                     let operation: ComicsParserOperation = ComicsParserOperation(comicsResponse: json, offset: offset)
                     operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier
                     
