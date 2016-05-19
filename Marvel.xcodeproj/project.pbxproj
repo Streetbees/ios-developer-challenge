@@ -38,11 +38,23 @@
 		7ADCE0881CEBB78E0028E3D0 /* ComicsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */; };
 		7ADCE08B1CEBB8700028E3D0 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCE08A1CEBB8700028E3D0 /* RootNavigationController.swift */; };
 		81835B70BC014B704789BC6A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748429FD14AD3B4AE90436CE /* Pods.framework */; };
+		C005F98A1CEE271000EA2296 /* ComicFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005F9891CEE271000EA2296 /* ComicFeedTests.swift */; };
 		C08C209D1CEDF4B200499938 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08C209C1CEDF4B200499938 /* DropboxSDK.framework */; };
 		C08C20A21CEDF53700499938 /* DropboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A11CEDF53700499938 /* DropboxService.swift */; };
 		C08C20A51CEE090800499938 /* MarvelTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A41CEE090800499938 /* MarvelTableView.swift */; };
 		C08C20AA1CEE09DC00499938 /* ComicFeedEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */; };
+		C08C20B41CEE16CA00499938 /* ComicsParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C20B31CEE16CA00499938 /* ComicsParserTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C08C20B61CEE16CA00499938 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AA6B8E51CEBB2220011BCDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AA6B8EC1CEBB2220011BCDA;
+			remoteInfo = Marvel;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0DE5E8B98277EB3B2C489264 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,10 +93,14 @@
 		7ADCE07D1CEBB78E0028E3D0 /* ComicsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsFeedViewController.swift; sourceTree = "<group>"; };
 		7ADCE08A1CEBB8700028E3D0 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		7ADCE08C1CEBB9720028E3D0 /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
+		C005F9891CEE271000EA2296 /* ComicFeedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicFeedTests.swift; sourceTree = "<group>"; };
 		C08C209C1CEDF4B200499938 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		C08C20A11CEDF53700499938 /* DropboxService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropboxService.swift; sourceTree = "<group>"; };
 		C08C20A41CEE090800499938 /* MarvelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelTableView.swift; sourceTree = "<group>"; };
 		C08C20A91CEE09DC00499938 /* ComicFeedEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicFeedEmptyView.swift; sourceTree = "<group>"; };
+		C08C20B11CEE16CA00499938 /* MarvelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08C20B31CEE16CA00499938 /* ComicsParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsParserTests.swift; sourceTree = "<group>"; };
+		C08C20B51CEE16CA00499938 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +110,13 @@
 			files = (
 				C08C209D1CEDF4B200499938 /* DropboxSDK.framework in Frameworks */,
 				81835B70BC014B704789BC6A /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08C20AE1CEE16CA00499938 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA6B8EF1CEBB2220011BCDA /* Marvel */,
+				C08C20B21CEE16CA00499938 /* MarvelTests */,
 				7AA6B8EE1CEBB2220011BCDA /* Products */,
 				27B458868A189283FE4EA474 /* Pods */,
 				FCCAE7ACDDFE7574B39FECDD /* Frameworks */,
@@ -268,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA6B8ED1CEBB2220011BCDA /* Marvel.app */,
+				C08C20B11CEE16CA00499938 /* MarvelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -505,6 +530,16 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
+		C08C20B21CEE16CA00499938 /* MarvelTests */ = {
+			isa = PBXGroup;
+			children = (
+				C08C20B31CEE16CA00499938 /* ComicsParserTests.swift */,
+				C005F9891CEE271000EA2296 /* ComicFeedTests.swift */,
+				C08C20B51CEE16CA00499938 /* Info.plist */,
+			);
+			path = MarvelTests;
+			sourceTree = "<group>";
+		};
 		FCCAE7ACDDFE7574B39FECDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +572,24 @@
 			productReference = 7AA6B8ED1CEBB2220011BCDA /* Marvel.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C08C20B01CEE16CA00499938 /* MarvelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08C20B81CEE16CA00499938 /* Build configuration list for PBXNativeTarget "MarvelTests" */;
+			buildPhases = (
+				C08C20AD1CEE16CA00499938 /* Sources */,
+				C08C20AE1CEE16CA00499938 /* Frameworks */,
+				C08C20AF1CEE16CA00499938 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C08C20B71CEE16CA00499938 /* PBXTargetDependency */,
+			);
+			name = MarvelTests;
+			productName = MarvelTests;
+			productReference = C08C20B11CEE16CA00499938 /* MarvelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -549,6 +602,10 @@
 				TargetAttributes = {
 					7AA6B8EC1CEBB2220011BCDA = {
 						CreatedOnToolsVersion = 7.3;
+					};
+					C08C20B01CEE16CA00499938 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 7AA6B8EC1CEBB2220011BCDA;
 					};
 				};
 			};
@@ -566,6 +623,7 @@
 			projectRoot = "";
 			targets = (
 				7AA6B8EC1CEBB2220011BCDA /* Marvel */,
+				C08C20B01CEE16CA00499938 /* MarvelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -579,6 +637,13 @@
 				7ADCE0851CEBB78E0028E3D0 /* TradeGothicNo.2-Bold.ttf in Resources */,
 				7ADCE0861CEBB78E0028E3D0 /* Assets.xcassets in Resources */,
 				7ADCE0841CEBB78E0028E3D0 /* TradeGothicLT.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08C20AF1CEE16CA00499938 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,7 +734,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C08C20AD1CEE16CA00499938 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08C20B41CEE16CA00499938 /* ComicsParserTests.swift in Sources */,
+				C005F98A1CEE271000EA2296 /* ComicFeedTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C08C20B71CEE16CA00499938 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AA6B8EC1CEBB2220011BCDA /* Marvel */;
+			targetProxy = C08C20B61CEE16CA00499938 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7AA6B8FD1CEBB2220011BCDA /* Debug */ = {
@@ -793,6 +875,30 @@
 			};
 			name = Release;
 		};
+		C08C20B91CEE16CA00499938 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarvelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gabriel-Massana.MarvelTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel.app/Marvel";
+			};
+			name = Debug;
+		};
+		C08C20BA1CEE16CA00499938 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarvelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gabriel-Massana.MarvelTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel.app/Marvel";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -810,6 +916,15 @@
 			buildConfigurations = (
 				7AA6B9001CEBB2220011BCDA /* Debug */,
 				7AA6B9011CEBB2220011BCDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08C20B81CEE16CA00499938 /* Build configuration list for PBXNativeTarget "MarvelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08C20B91CEE16CA00499938 /* Debug */,
+				C08C20BA1CEE16CA00499938 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
