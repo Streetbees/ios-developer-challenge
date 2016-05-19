@@ -91,6 +91,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+        if DBSession.sharedSession().handleOpenURL(url) {
+            
+            if DBSession.sharedSession().isLinked() {
+                
+                NSNotificationCenter.defaultCenter().postNotificationName(DropboxLinked, object: nil)
+            }
+            
+            return true
+        }
+        
+        return false
+    }
+    
     //MARK: - OperationQueues
     
     /**

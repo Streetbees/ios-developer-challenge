@@ -110,7 +110,7 @@ class MediaAPIManager: NSObject {
         
         let documentName: String = String(format: "%@_%@", comic.comicID!, MediaAspectRatio.Camera.rawValue)
         
-        let data = UIImageJPEGRepresentation(image, 0.7)
+        let data = UIImageJPEGRepresentation(image, 0.5)
         
         NSFileManager.cfm_saveData(data, toCacheDirectoryPath: documentName)
 

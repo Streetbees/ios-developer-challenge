@@ -186,8 +186,6 @@ extension ComicsFeedViewController : UIImagePickerControllerDelegate, UINavigati
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
                 let comic = self.comic {
                 
-                print(image)
-                
                 MediaAPIManager.saveImage(image, comic: comic)
                 
                 uploadImageToDropbox(comic)
