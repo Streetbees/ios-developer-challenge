@@ -9,6 +9,7 @@
 import UIKit
 
 import CoreNetworking
+import CoreOperation
 
 enum MediaAspectRatio: String {
     
@@ -25,7 +26,7 @@ class MediaAPIManager: NSObject {
      - parameter comic: Comic object with the information to retrieve the media asset.
      - parameter completion: completion callback returning media asset and Comic object.
      */
-    class func retrieveMediaAsset(mediaAspectRatio: MediaAspectRatio, comic: Comic, completion:((imageComic: Comic, mediaImage: UIImage?) -> Void)?) {
+    class func retrieveMarvelMediaAsset(mediaAspectRatio: MediaAspectRatio, comic: Comic, completion:((imageComic: Comic, mediaImage: UIImage?) -> Void)?) {
         
         let cacheDirectory: String = NSFileManager.cfm_cacheDirectoryPath()
         let absolutePath: String = cacheDirectory.stringByAppendingString(String(format: "/%@_%@", comic.comicID!, mediaAspectRatio.rawValue))
@@ -100,6 +101,11 @@ class MediaAPIManager: NSObject {
         }
     }
     
+    /**
+     Saves the image locally in disk.
+     Starts the operation to update CoreData for the Comic object.
+     Starts the operation to upload to Dropbox.
+     */
     class func saveImage(image: UIImage, comic: Comic) {
         
         let documentName: String = String(format: "%@_%@", comic.comicID!, MediaAspectRatio.Camera.rawValue)
@@ -107,7 +113,16 @@ class MediaAPIManager: NSObject {
         let data = UIImageJPEGRepresentation(image, 0.7)
         
         NSFileManager.cfm_saveData(data, toCacheDirectoryPath: documentName)
+
+        /*-------------------*/
+
+        let operation: ComicUpdateWithLocalImageOperation = ComicUpdateWithLocalImageOperation(image: image, comicID: comic.comicID!)
+        operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier
         
+        operation.onSuccess = { (result:AnyObject?) -> Void in
+            
+        }
         
+        COMOperationQueueManager.sharedInstance().addOperation(operation)
     }
 }

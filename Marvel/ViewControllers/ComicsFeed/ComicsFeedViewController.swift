@@ -23,6 +23,8 @@ class ComicsFeedViewController: UIViewController {
      */
     var comic: Comic?
     
+    var imagePicker = UIImagePickerController()
+    
     /**
      Table view to display data.
      */
@@ -83,13 +85,12 @@ class ComicsFeedViewController: UIViewController {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
-            let imagePicker = UIImagePickerController()
-            
             imagePicker.delegate = self
             imagePicker.sourceType =  UIImagePickerControllerSourceType.Camera
             imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Front
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
+            imagePicker.modalPresentationStyle = .FullScreen
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
@@ -122,9 +123,14 @@ extension ComicsFeedViewController : UIImagePickerControllerDelegate {
         
         if mediaType == kUTTypeImage as String {
             
-            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
+                let comic = self.comic {
+                
+                print(image)
+                
+                MediaAPIManager.saveImage(image, comic: comic)
+            }
             
-            print(image)
             
             // Operation save image and update Comic object
          }

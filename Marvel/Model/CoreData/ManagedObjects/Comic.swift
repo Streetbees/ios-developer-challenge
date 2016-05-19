@@ -21,7 +21,7 @@ class Comic: NSManagedObject {
      
      - returns: Comic instance or nil if comic can't be found.
      */
-    class func fetchComic(comicID:NSNumber,  managedObjectContext: NSManagedObjectContext) -> Comic? {
+    class func fetchComic(comicID: String,  managedObjectContext: NSManagedObjectContext) -> Comic? {
         
         let predicate: NSPredicate = NSPredicate(format: "comicID == %@", comicID)
         

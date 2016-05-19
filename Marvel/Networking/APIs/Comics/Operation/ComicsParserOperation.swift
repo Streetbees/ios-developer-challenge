@@ -20,6 +20,9 @@ class ComicsParserOperation: COMOperation {
      */
     var comicsResponse: NSDictionary?
     
+    /**
+     The offset value
+     */
     var offset: String?
     
     //MARK: - Init
@@ -49,24 +52,23 @@ class ComicsParserOperation: COMOperation {
             
             let feedParser: ComicsFeedParser = ComicsFeedParser.parser(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
             
-            if let response = self.comicsResponse {
+            guard let response = self.comicsResponse else {
                 
-                let feed: ComicFeed = feedParser.parseFeed(response)
-                
-                do {
-                    try CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.save()
-                    
-                    self.didSucceedWithResult(feed.feedID)
-                }
-                catch
-                {
-                    print(error)
-                    self.didFailWithError(nil)
-                }
+                self.didFailWithError(nil)
+
+                return
             }
-            else
+            
+            let feed: ComicFeed = feedParser.parseFeed(response)
+            
+            do {
+                try CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.save()
+                
+                self.didSucceedWithResult(feed.feedID)
+            }
+            catch
             {
-                // Failure
+                print(error)
                 self.didFailWithError(nil)
             }
         }

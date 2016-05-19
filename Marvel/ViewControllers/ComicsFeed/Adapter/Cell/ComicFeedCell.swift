@@ -144,8 +144,45 @@ class ComicFeedCell: TableViewCell {
                 descriptionLabel.text = comicDescription
             }
         }
-
-        MediaAPIManager.retrieveMediaAsset(MediaAspectRatio.Portrait, comic: comic) { [weak self] (imageComic: Comic, mediaImage: UIImage?) -> Void in
+        
+        if comic.withLocalImage!.boolValue == true {
+            
+            let cacheDirectory: String = NSFileManager.cfm_cacheDirectoryPath()
+            let absolutePath: String = cacheDirectory.stringByAppendingString(String(format: "/%@_%@", comic.comicID!, MediaAspectRatio.Camera.rawValue))
+            
+            NSFileManager.cfm_fileExistsAtPath(absolutePath) { (fileExists: Bool) -> Void in
+                
+                if fileExists {
+                    
+                    let documentName: String = String(format: "%@_%@", comic.comicID!, MediaAspectRatio.Camera.rawValue)
+                    let imageData = NSFileManager.cfm_retrieveDataFromCacheDirectoryWithPath(documentName)
+                    
+                    if let imageData = imageData {
+                        
+                        let image: UIImage = UIImage(data: imageData)!
+                        
+                        self.comicImageView.image = image
+                    }
+                    else {
+                        
+                        self.retrieveMarvelMediaAsset(comic)
+                    }
+                }
+                else {
+                    
+                    self.retrieveMarvelMediaAsset(comic)
+                }
+            }
+        }
+        else {
+            
+            retrieveMarvelMediaAsset(comic)
+        }
+    }
+    
+    func retrieveMarvelMediaAsset(comic: Comic) {
+        
+        MediaAPIManager.retrieveMarvelMediaAsset(MediaAspectRatio.Portrait, comic: comic) { [weak self] (imageComic: Comic, mediaImage: UIImage?) -> Void in
             
             if let strongSelf = self {
                 
