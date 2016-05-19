@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="38e-6d-EJS" customClass="ComicCell" customModule="MarvelStreetbees" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="38e-6d-EJS" id="O1f-jB-gtY">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nNs-tK-sve">
+                        <rect key="frame" x="8" y="8" width="103" height="103"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nNs-tK-sve" secondAttribute="height" multiplier="1:1" id="urT-WM-xwy"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPS-V9-oah">
+                        <rect key="frame" x="119" y="8" width="193" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="VPS-V9-oah" secondAttribute="trailing" constant="8" id="2nX-Kn-FXs"/>
+                    <constraint firstItem="VPS-V9-oah" firstAttribute="top" secondItem="O1f-jB-gtY" secondAttribute="top" constant="8" id="DhF-kL-caR"/>
+                    <constraint firstItem="VPS-V9-oah" firstAttribute="leading" secondItem="nNs-tK-sve" secondAttribute="trailing" constant="8" id="Uj3-VR-bUi"/>
+                    <constraint firstItem="nNs-tK-sve" firstAttribute="top" secondItem="O1f-jB-gtY" secondAttribute="top" constant="8" id="cuo-NO-fOB"/>
+                    <constraint firstAttribute="bottom" secondItem="nNs-tK-sve" secondAttribute="bottom" constant="8" id="rQh-m1-Ajg"/>
+                    <constraint firstItem="nNs-tK-sve" firstAttribute="leading" secondItem="O1f-jB-gtY" secondAttribute="leading" constant="8" id="wcg-OQ-qg1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="comicImageView" destination="nNs-tK-sve" id="FWY-X7-sZ5"/>
+                <outlet property="comicNameLabel" destination="VPS-V9-oah" id="m70-df-MBZ"/>
+            </connections>
+            <point key="canvasLocation" x="663" y="406"/>
+        </tableViewCell>
+    </objects>
+</document>

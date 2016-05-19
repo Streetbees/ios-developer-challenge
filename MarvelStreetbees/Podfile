@@ -1,0 +1,34 @@
+platform :ios, '9.0'
+
+inhibit_all_warnings!
+use_frameworks!
+
+target 'MarvelStreetbees' do
+    
+pod 'Alamofire', '~> 3.0'
+pod 'ObjectMapper', '~> 1.1'
+pod 'Instabug'
+
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'SwiftValidators'
+pod 'AFDateHelper'
+pod 'SwiftyDropbox'
+
+
+# eyecandy
+pod 'PKHUD'
+pod 'AlamofireImage', '~> 2.0'
+pod 'SnapKit', '~> 0.15.0'
+pod 'TSMessages', :git => 'https://github.com/KrauseFx/TSMessages.git'
+pod 'MJRefresh'
+pod 'FDTake'
+pod 'Refresher'
+pod 'Infinity'
+pod 'DZNEmptyDataSet'
+
+# RxSwift
+pod 'RxSwift',    '~> 2.0'
+pod 'RxCocoa',    '~> 2.0'
+pod 'RxBlocking', '~> 2.0'
+
+end
