@@ -1,0 +1,11 @@
+platform :ios, '9.0'
+use_frameworks!
+
+pod "Synchronized", "2.0.1"
+pod 'UIScrollView-InfiniteScroll', '0.7.3'
+pod 'Kingfisher', '2.4.1'
+pod 'SwiftyDropbox', '3.0.0'
+pod 'Alamofire', '3.4.0'
+pod 'Gloss', '0.7.3'
+pod 'RxSwift', '2.5.0'
+pod 'CryptoSwift', '0.4.1'

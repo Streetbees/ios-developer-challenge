@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (3.4.0)
+  - CryptoSwift (0.4.1)
+  - Gloss (0.7.3)
+  - Kingfisher (2.4.1)
+  - RxSwift (2.5.0)
+  - SwiftyDropbox (3.0.0):
+    - Alamofire (~> 3.1)
+  - Synchronized (2.0.1)
+  - UIScrollView-InfiniteScroll (0.7.3)
+
+DEPENDENCIES:
+  - Alamofire (= 3.4.0)
+  - CryptoSwift (= 0.4.1)
+  - Gloss (= 0.7.3)
+  - Kingfisher (= 2.4.1)
+  - RxSwift (= 2.5.0)
+  - SwiftyDropbox (= 3.0.0)
+  - Synchronized (= 2.0.1)
+  - UIScrollView-InfiniteScroll (= 0.7.3)
+
+SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  CryptoSwift: 25b5aff3f260967391f8fff2e9abe4254d2c6fd5
+  Gloss: c97a95d6279821f35fa0138700bce0391bce87c1
+  Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
+  RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  SwiftyDropbox: e0d4aa3166082ec07ed942e94edb8c732b3376e4
+  Synchronized: 727f6307a92ea6e3a2fb4e5a345daad8878dd050
+  UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
+
+COCOAPODS: 0.39.0

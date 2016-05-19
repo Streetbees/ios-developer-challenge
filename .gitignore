@@ -61,3 +61,15 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+TestMarvel/.idea/modules.xml
+
+TestMarvel/.idea/encodings.xml
+
+TestMarvel/.idea/misc.xml
+
+TestMarvel/.idea/TestMarvel.iml
+
+TestMarvel/.idea/workspace.xml
+
+TestMarvel/.idea/xcode.xml
