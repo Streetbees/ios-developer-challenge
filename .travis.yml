@@ -7,4 +7,4 @@ before_install:
    - sudo gem install cocoapods -v '0.39.0'  
 
 script: 
-   xctool -workspace Marvel.xcworkspace -scheme Marvel test -sdk iphonesimulator
+   xcodebuild -scheme Marvel -destination 'platform=iOS Simulator,name=iPhone Retina (4-inch),OS=9.3' test
