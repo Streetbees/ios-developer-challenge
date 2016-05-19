@@ -128,7 +128,6 @@ class ComicsFeedViewController: UIViewController {
         {
             print("No camera on Simulator!")
         }
-        
     }
     
     //MARK: - Dropbox
