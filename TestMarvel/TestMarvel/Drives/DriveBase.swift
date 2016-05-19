@@ -10,6 +10,7 @@ import Foundation
 public protocol DriveBase {
     func name() -> String
     
+    func handleURL(url:NSURL, onSuccess: (String) -> (), onError: (String) -> ())
     func alreadyLoggedIn() -> Bool
     func doLogin(controller: UIViewController)
     func unlink()

@@ -34,19 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        if let authResult = Dropbox.handleRedirectURL(url) {
-            switch authResult {
-            case .Success(let token):
-                let viewControllers = window!.rootViewController!.childViewControllers
-                for viewController in viewControllers {
-                    if viewController.isKindOfClass(ComicsViewController) {
-                        (viewController as! ComicsViewController).driveLoggedIn()
-                    }
-                }
-                print("Success! User is logged into Dropbox with token: \(token)")
-                
-            case .Error(let error, let description):
-                print("Error \(error): \(description)")
+        let viewControllers = window!.rootViewController!.childViewControllers
+        for viewController in viewControllers {
+            if viewController.isKindOfClass(ComicsViewController) {
+                (viewController as! ComicsViewController).driveAppDelegateURL(url)
             }
         }
         

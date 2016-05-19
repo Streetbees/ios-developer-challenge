@@ -371,5 +371,18 @@ class ComicsViewController: UIViewController, UICollectionViewDelegate, UINaviga
             }
         }
     }
+    
+    func driveAppDelegateURL(url:NSURL) {
+        self.drive.handleURL(url, onSuccess: {
+            [weak self] (token) in
+            if let selfWeak = self {
+                selfWeak.driveLoggedIn()
+            }
+            
+            }, onError: {
+            (description) in
+                //
+        })
+    }
 }
 

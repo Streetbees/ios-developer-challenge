@@ -20,6 +20,21 @@ class DriveDropbox : DriveBase {
         return "Dropbox"
     }
     
+    func handleURL(url:NSURL, onSuccess: (String) -> (), onError: (String) -> ()) {
+        if let authResult = Dropbox.handleRedirectURL(url) {
+            switch authResult {
+            case .Success(let token):
+                onSuccess(token.accessToken)
+                print("Success! User is logged into Dropbox with token: \(token)")
+            
+            case .Error(let error, let description):
+                onError(description)
+                print("Error \(error): \(description)")
+            }
+        }
+    }
+
+    
     func fileFromDisk(filename: String) -> NSData? {
         let url = urlFor(filename)
         if url.checkResourceIsReachableAndReturnError(nil) {
@@ -33,6 +48,16 @@ class DriveDropbox : DriveBase {
     func fileToDisk(filename: String, content: NSData) -> Bool {
         //save file locally
         let url = urlFor(filename)
+        
+        if url.checkResourceIsReachableAndReturnError(nil) {
+            do {
+                try NSFileManager.defaultManager().removeItemAtURL(url)
+                
+            } catch {
+                //TODO log error
+            }
+        }
+        
         if content.writeToURL(url, atomically: true) {
             return true
             
@@ -86,8 +111,19 @@ class DriveDropbox : DriveBase {
     
     func loadFile(filename: String, onSuccess: () -> (), onError: (String) -> ()) {
         if let client = Dropbox.authorizedClient {
+            let urlFor = self.urlFor(filename)
+            
+            if urlFor.checkResourceIsReachableAndReturnError(nil) {
+                do {
+                    try NSFileManager.defaultManager().removeItemAtURL(urlFor)
+                    
+                } catch {
+                    //TODO log error
+                }
+            }
+            
             client.files.download(path: "/\(filename)", destination: { (url, response) -> NSURL in
-                return self.urlFor(filename)
+                return urlFor
                 
             }).response({ (result, error) in
                 if let (_, _) = result {
