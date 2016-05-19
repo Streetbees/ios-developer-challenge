@@ -3,25 +3,88 @@
 //  MarvelStreetbees
 //
 //  Created by Danut Pralea on 18/05/16.
-//  Copyright © 2016 Parhelion Software. All rights reserved.
+//  Copyright © 2016 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
 enum MarvelImageResolution {
-    case Small
-    case Medium
-    case Large
+    
+    // Portrait
+    case PortraitSmall
+    case PortraitMedium
+    case PortraitXLarge
+    case PortraitFantastic
+    case PortraitUncanny
+    case PortraitIncredible
+    
+    // Standard
+    case StandardSmall
+    case StandardMedium
+    case StandardLarge
+    case StandardXLarge
+    case StandardFantastic
+    case StandardAmazing
+    
+    // Landscape
+    case LandscapeSmall
+    case LandscapeMedium
+    case LandscapeLarge
+    case LandscapeXLarge
+    case LandscapeAmazing
+    case LandscapeIncredible
+    
+    //Other
+    case Detail
+    case Full
+    
     
     var resolutionName : String {
         switch self {
-        case .Small:
+        case .PortraitSmall:
             return "/standard_small"
-        case .Medium:
+        case .PortraitMedium:
             return "/standard_medium"
-        case .Large:
+        case .PortraitXLarge:
             return "/standard_large"
+        case .PortraitFantastic:
+            return "/standard_xlarge"
+        case .PortraitUncanny:
+            return "/standard_fantastic"
+        case .PortraitIncredible:
+            return "/standard_amazing"
+            
+        case .StandardSmall:
+            return "/standard_small"
+        case .StandardMedium:
+            return "/standard_medium"
+        case .StandardLarge:
+            return "/standard_large"
+        case .StandardXLarge:
+            return "/standard_xlarge"
+        case .StandardFantastic:
+            return "/standard_fantastic"
+        case .StandardAmazing:
+            return "/standard_amazing"
+            
+        case .LandscapeSmall:
+            return "/landscape_small"
+        case .LandscapeMedium:
+            return "/landscape_medium"
+        case .LandscapeLarge:
+            return "/landscape_large"
+        case .LandscapeXLarge:
+            return "/landscape_xlarge"
+        case .LandscapeAmazing:
+            return "/landscape_amazing"
+        case .LandscapeIncredible:
+            return "/landscape_incredible"
+            
+        case .Detail:
+            return "/detail"
+        case .Full:
+            return ""
         }
     }
 }
@@ -30,6 +93,10 @@ enum MarvelImageResolution {
 struct MarvelImage: Mappable {
     var path: String?
     var ext: String?
+    
+    var localPath: String?
+    
+    var localName: String?
     
     
     init?(_ map: Map) {

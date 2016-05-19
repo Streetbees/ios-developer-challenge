@@ -1,9 +1,9 @@
 //
 //  HUDState.swift
-//  SportXast
+//  MarvelStreetbees
 //
-//  Created by Danut Pralea on 14/01/16.
-//  Copyright © 2016 SportXast. All rights reserved.
+//  Created by Danut Pralea on 18/05/16.
+//  Copyright © 2016 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation

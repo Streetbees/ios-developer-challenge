@@ -642,6 +642,10 @@ extension UIView {
         
         self.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
+    
+    class func fromNib<T : UIView>() -> T {
+        return NSBundle.mainBundle().loadNibNamed(String(T), owner: nil, options: nil).first! as! T
+    }
 }
 
 // ============================================================================

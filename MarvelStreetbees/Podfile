@@ -12,6 +12,7 @@ pod 'Instabug'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'SwiftValidators'
 pod 'AFDateHelper'
+pod 'SwiftyDropbox'
 
 
 # eyecandy
@@ -23,6 +24,7 @@ pod 'MJRefresh'
 pod 'FDTake'
 pod 'Refresher'
 pod 'Infinity'
+pod 'DZNEmptyDataSet'
 
 # RxSwift
 pod 'RxSwift',    '~> 2.0'

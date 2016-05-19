@@ -3,11 +3,14 @@
 //  MarvelStreetbees
 //
 //  Created by Danut Pralea on 18/05/16.
-//  Copyright © 2016 Parhelion Software. All rights reserved.
+//  Copyright © 2016 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
+import SwiftyDropbox
+
+
 
 struct MarvelComic: Mappable {
     var id: Int?
@@ -30,6 +33,15 @@ struct MarvelComic: Mappable {
     
     init?(_ map: Map) {
         
+    }
+    
+    init(fromFile: Files.Metadata) {
+
+        var newImage = MarvelImage()
+        newImage.localPath = Constants.Settings.kMarvelDropboxFolder + "/" + fromFile.name
+        newImage.localName = fromFile.name
+        
+        thumbnail = newImage
     }
     
     // Mappable

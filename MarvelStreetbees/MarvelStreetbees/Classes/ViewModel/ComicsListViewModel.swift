@@ -1,9 +1,9 @@
 //
 //  EventsViewModel.swift
-//  Gocus
+//  MarvelStreetbees
 //
-//  Created by Andrei on 08/12/15.
-//  Copyright © 2015 ALT TAB Mobile. All rights reserved.
+//  Created by Danut Pralea on 018/05/16.
+//  Copyright © 2015 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation

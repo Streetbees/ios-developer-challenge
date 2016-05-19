@@ -1,9 +1,9 @@
 //
 //  MenuViewController.swift
-//  SportXast
+//  MarvelStreetbees
 //
 //  Created by Danut Pralea on 10/01/16.
-//  Copyright © 2016 SportXast. All rights reserved.
+//  Copyright © 2016 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation
@@ -27,6 +27,8 @@ public enum NetworkError: ErrorType, CustomStringConvertible {
     ///
     case InvalidDataForParsing
     
+    case DropBoxNotAuthorized
+    
     public var description: String {
         let text: String
         switch self {
@@ -46,6 +48,8 @@ public enum NetworkError: ErrorType, CustomStringConvertible {
             return "Not Enough permissions"
         case InvalidDataForParsing:
             return "Data for Parsing is invalid!"
+        case DropBoxNotAuthorized:
+            return "DropBox is not authorized! Please try again"
         }
         
         

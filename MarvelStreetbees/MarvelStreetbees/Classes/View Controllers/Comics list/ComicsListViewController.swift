@@ -3,16 +3,14 @@
 //  MarvelStreetbees
 //
 //  Created by Danut Pralea on 18/05/16.
-//  Copyright © 2016 Parhelion Software. All rights reserved.
+//  Copyright © 2016 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
-import PKHUD
 import Infinity
-import Refresher
 
 let pageSize = 20
 
@@ -33,6 +31,7 @@ class ComicsListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Comics".localized
         self.edgesForExtendedLayout = .None
         setupBindings()
         viewModel.makeTheCall(pageSize: pageSize, page: currentPage, showLoading: true)
@@ -42,11 +41,19 @@ class ComicsListViewController: UITableViewController {
             guard let strongSelf = self else { return }
             strongSelf.loadMoreData()
         })
+        
+        let bundle = NSBundle.mainBundle()
+        let nib = UINib(nibName: "ComicCell", bundle: bundle)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
     }
     
     func loadMoreData() {
         currentPage = currentPage + 1
         viewModel.makeTheCall(pageSize: pageSize, page: currentPage, showLoading: false)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 120
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,16 +77,10 @@ class ComicsListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ComicDetail",
-            let comicDetailVC = segue.destinationViewController as? ComicDetailViewController,
-            let indexPath = self.tableView.indexPathForSelectedRow,
+        if let comicDetailsController = UIStoryboard.mainStoryboard().instantiateViewControllerWithIdentifier("ComicDetailViewController") as? ComicDetailViewController,
             let contentArray = contentArray {
-                comicDetailVC.viewModel.comic = contentArray[indexPath.row]
+            comicDetailsController.viewModel.comic = contentArray[indexPath.row]
+            self.navigationController?.pushViewController(comicDetailsController, animated: true)
         }
     }
-    
 }

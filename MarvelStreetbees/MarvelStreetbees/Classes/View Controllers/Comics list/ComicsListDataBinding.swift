@@ -1,9 +1,9 @@
 //
-//  LoginDataBinding.swift
-//  SportXast
+//  ComicsListDataBinding.swift
+//  MarvelStreetbees
 //
-//  Created by Pralea Danut on 3/29/16.
-//  Copyright © 2016 SportXast. All rights reserved.
+//  Created by Pralea Danut on 18/05/16.
+//  Copyright © 2016 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation
@@ -41,7 +41,6 @@ extension ComicsListViewController {
                 } else {
                     self.contentArray = value
                 }
-                self.tableView.stopPullToRefresh()
                 self.tableView.endInfiniteScrolling()
             }
             .addDisposableTo(disposeBag)

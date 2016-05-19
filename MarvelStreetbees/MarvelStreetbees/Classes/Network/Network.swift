@@ -1,9 +1,9 @@
 //
 //  MenuViewController.swift
-//  SportXast
+//  MarvelStreetbees
 //
 //  Created by Danut Pralea on 10/01/16.
-//  Copyright © 2016 SportXast. All rights reserved.
+//  Copyright © 2016 MarvelStreetbees. All rights reserved.
 //
 
 import Foundation
@@ -44,7 +44,7 @@ enum Router: Alamofire.URLRequestConvertible {
     var route: (path: String, parameters: [String : AnyObject]?) {
         switch self {
         case .GetComicsList(let pageIndex, let pageSize):
-            return ("comics", ["limit": pageSize, "offset": pageIndex])
+            return ("comics", ["limit": pageSize, "offset": pageIndex * pageSize, "orderBy": "-onsaleDate"])
         }
     }
     
@@ -175,13 +175,4 @@ class NetworkManager {
             }
         }
     }
-    
-//    Alamofire.request(.GET, imageURL)
-//    .responseImage { response in
-//    if let image = response.result.value {
-//    self.comicImageView.image = image
-//    }
-//    }
 }
-// ===============================================================
-// ===============================================================
