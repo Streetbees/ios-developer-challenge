@@ -1,3 +1,35 @@
+[![Build Status](https://img.shields.io/travis/GabrielMassana/lead-ios-developer/master.svg?style=flat-square)](https://travis-ci.org/GabrielMassana/lead-ios-developer)
+
+# How and why
+
+### Unit Test
+
+I added some tests to the project. I know they are a really small part of the tests that can be added to this project, but they are only trying to be a small example of how powerful they are.
+
+### Continuous Integration
+
+The project is integrated with [Travis-CI](https://travis-ci.org/GabrielMassana/lead-ios-developer) as Continuous Integration to automate the build and test of the project.
+
+### Using my own Pods
+
+I used four of [my own pods in Cocoapods](https://cocoapods.org/owners/10374).   
+   
+- **CoreDataFullStack**. A project to simplify the use of Core Data.
+- **CoreOperation**. Small wrapper project to simplify `NSOperation` and `NSOperationQueue`.
+- **CoreNetworking**. A small project that simplifies NSURLSession.
+
+### Third party Pods
+
+- **[PureLayout](https://cocoapods.org/pods/PureLayout)**. An easy and powerfull pod that helps a lot using auto-layout.
+- **[ConvenientFileManager](https://cocoapods.org/pods/ConvenientFileManager)**. A suite of categories to ease using NSFileManager for common tasks. 
+
+### The app meets all the functional requirements 
+
+ - When i open the application I want to see a list of all Marvel’s released comic books covers ordered from most recent to the oldest so I can scroll trough the the Marvel universe;
+ - When I select one of the comics I want to be able to change the cover picture with a photo taken from my camera so I can be a Marvel character!
+ - When I change a comic cover image I want to able to store it in my dropbox account so I won’t lose it when I reopen the application.
+
+
 # Streetbees lead iOS developer position
 
 [Role description](https://github.com/Streetbees/lead-ios-developer/wiki/Role-description)
