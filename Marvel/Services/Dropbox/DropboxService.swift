@@ -42,6 +42,11 @@ class DropboxService: NSObject {
         DBSession.setSharedSession(session)
     }
     
+    /**
+     Upload images to Dropbox Apps
+     
+     - parameter comicID: comid ID of the image to be uploaded.
+     */
     func uploadImage(comicID: String) {
         
         let cacheDirectory: String = NSFileManager.cfm_cacheDirectoryPath()

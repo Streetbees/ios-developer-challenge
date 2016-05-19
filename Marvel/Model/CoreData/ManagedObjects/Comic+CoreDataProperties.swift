@@ -23,5 +23,4 @@ extension Comic {
     @NSManaged var title: String?
     @NSManaged var withLocalImage: NSNumber?
     @NSManaged var feed: ComicFeed?
-
 }

@@ -220,7 +220,3 @@ class ComicsParserTests: XCTestCase, CDFCoreDataManagerDelegate {
         XCTAssertEqual(lastObjectParsed.comicID, (lastObject["id"] as! NSNumber).stringValue, String(format:"Should have the same ID: %@", lastObjectParsed.comicID!));
     }
 }
-
-
-
-

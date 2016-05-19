@@ -108,6 +108,9 @@ class ComicsFeedViewController: UIViewController {
     
     //MARK: - OpenCamera
 
+    /**
+     Opens the camera to capture a new comic image.
+     */
     func openCamera() {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -126,6 +129,11 @@ class ComicsFeedViewController: UIViewController {
     
     //MARK: - Dropbox
 
+    /**
+     Call to upload image to Dropbox
+     
+     - parameter comic: comic object related to the image to upload to Dropbox.
+     */
     func uploadImageToDropbox(comic: Comic) {
         
         if !DBSession.sharedSession().isLinked() {
