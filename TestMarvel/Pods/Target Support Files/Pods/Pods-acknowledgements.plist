@@ -41,6 +41,14 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Fabric: Copyright 2015 Twitter, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Fabric Software and Services Agreement located at http://fabric.io/terms. Answers: Copyright (c) 2015 Crashlytics, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Answers Agreement located at http://answers.io/terms and the Answers Privacy Policy located at http://answers.io/privacy. OSS: http://get.fabric.io/terms/opensource.txt</string>
+			<key>Title</key>
+			<string>Answers</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (C) 2014 Marcin Krzy&#380;anowski &lt;marcin.krzyzanowski@gmail.com&gt;
 This software is provided 'as-is', without any express or implied warranty. 
 
@@ -53,6 +61,14 @@ Permission is granted to anyone to use this software for any purpose,including c
 - This notice may not be removed or altered from any source or binary distribution.</string>
 			<key>Title</key>
 			<string>CryptoSwift</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Fabric: Copyright 2015 Twitter, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Fabric Software and Services Agreement located at https://fabric.io/terms. OSS: http://get.fabric.io/terms/opensource.txt</string>
+			<key>Title</key>
+			<string>Fabric</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

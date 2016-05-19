@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (3.4.0)
+  - Answers (1.2.0):
+    - Fabric (~> 1.6.3)
   - CryptoSwift (0.4.1)
+  - Fabric (1.6.7)
   - Gloss (0.7.3)
   - Kingfisher (2.4.1)
   - RxSwift (2.5.0)
@@ -11,7 +14,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 3.4.0)
+  - Answers
   - CryptoSwift (= 0.4.1)
+  - Fabric
   - Gloss (= 0.7.3)
   - Kingfisher (= 2.4.1)
   - RxSwift (= 2.5.0)
@@ -21,7 +26,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  Answers: f47bc44937ab00fe5a119b16df28e1d1aeadcf84
   CryptoSwift: 25b5aff3f260967391f8fff2e9abe4254d2c6fd5
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   Gloss: c97a95d6279821f35fa0138700bce0391bce87c1
   Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae

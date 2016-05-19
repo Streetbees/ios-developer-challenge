@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Answers
+
+Fabric: Copyright 2015 Twitter, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Fabric Software and Services Agreement located at http://fabric.io/terms. Answers: Copyright (c) 2015 Crashlytics, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Answers Agreement located at http://answers.io/terms and the Answers Privacy Policy located at http://answers.io/privacy. OSS: http://get.fabric.io/terms/opensource.txt
+
 ## CryptoSwift
 
 Copyright (C) 2014 Marcin Krzyżanowski <marcin.krzyzanowski@gmail.com>
@@ -36,6 +40,10 @@ Permission is granted to anyone to use this software for any purpose,including c
 - The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation is required.
 - Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 - This notice may not be removed or altered from any source or binary distribution.
+
+## Fabric
+
+Fabric: Copyright 2015 Twitter, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Fabric Software and Services Agreement located at https://fabric.io/terms. OSS: http://get.fabric.io/terms/opensource.txt
 
 ## Gloss
 
