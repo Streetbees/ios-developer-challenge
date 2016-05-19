@@ -14,12 +14,14 @@ import CoreData
 
 extension Comic {
 
-    @NSManaged var title: String?
     @NSManaged var comicDescription: String?
+    @NSManaged var comicID: String?
+    @NSManaged var onSaleDate: NSDate?
+    @NSManaged var parseDate: NSDate?
     @NSManaged var thumbnailExtension: String?
     @NSManaged var thumbnailPath: String?
-    @NSManaged var onSaleDate: NSDate?
-    @NSManaged var comicID: String?
+    @NSManaged var title: String?
+    @NSManaged var withLocalImage: NSNumber?
     @NSManaged var feed: ComicFeed?
-    @NSManaged var parseDate: NSDate?
+
 }

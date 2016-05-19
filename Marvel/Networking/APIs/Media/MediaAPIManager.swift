@@ -13,6 +13,7 @@ import CoreNetworking
 enum MediaAspectRatio: String {
     
     case Portrait = "portrait_incredible"
+    case Camera = "camera"
 }
 
 class MediaAPIManager: NSObject {
@@ -97,5 +98,16 @@ class MediaAPIManager: NSObject {
                 }
             }
         }
+    }
+    
+    class func saveImage(image: UIImage, comic: Comic) {
+        
+        let documentName: String = String(format: "%@_%@", comic.comicID!, MediaAspectRatio.Camera.rawValue)
+        
+        let data = UIImageJPEGRepresentation(image, 0.7)
+        
+        NSFileManager.cfm_saveData(data, toCacheDirectoryPath: documentName)
+        
+        
     }
 }

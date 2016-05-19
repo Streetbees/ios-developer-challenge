@@ -17,7 +17,7 @@ protocol ComicsFeedAdapterDelegate: class {
      
      - parameter comic: the selected comic object.
      */
-//    func didSelectComic(comic: Comic)
+    func didSelectComic(comic: Comic)
 }
 
 class ComicsFeedAdapter: NSObject {
@@ -235,4 +235,10 @@ extension ComicsFeedAdapter: UITableViewDataSource {
 
 extension ComicsFeedAdapter: UITableViewDelegate {
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let comic: Comic = fetchedResultsController.fetchedObjects![indexPath.row] as! Comic
+        
+        self.delegate?.didSelectComic(comic)
+    }
 }

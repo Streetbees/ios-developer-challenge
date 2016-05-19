@@ -10,6 +10,7 @@ import UIKit
 
 import CoreDataFullStack
 import PureLayout
+import MobileCoreServices
 
 let NavigationBarHeight: CGFloat = 64.0
 
@@ -17,6 +18,11 @@ class ComicsFeedViewController: UIViewController {
 
     //MARK: - Accessors
 
+    /**
+     Tapped comic object to add personal photo.
+     */
+    var comic: Comic?
+    
     /**
      Table view to display data.
      */
@@ -72,9 +78,59 @@ class ComicsFeedViewController: UIViewController {
         
         tableView.autoPinEdgesToSuperviewEdges()
     }
+    
+    func openCamera() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            
+            let imagePicker = UIImagePickerController()
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType =  UIImagePickerControllerSourceType.Camera
+            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Front
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
 }
 
 extension ComicsFeedViewController : ComicsFeedAdapterDelegate {
     
+    func didSelectComic(comic: Comic) {
+    
+        // Open Camera
+        print("Open Camera")
+        
+        // Add Spinner
+        // Add alert if no Camera allowed
+        
+        self.comic = comic
+        
+        openCamera()
+    }
+}
+
+extension ComicsFeedViewController : UIImagePickerControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if mediaType == kUTTypeImage as String {
+            
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            print(image)
+            
+            // Operation save image and update Comic object
+         }
+    }
+}
+
+extension ComicsFeedViewController : UINavigationControllerDelegate {
     
 }

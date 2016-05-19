@@ -8,6 +8,7 @@
         <attribute name="thumbnailExtension" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="withLocalImage" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ComicFeed" inverseName="comics" inverseEntity="ComicFeed" syncable="YES"/>
     </entity>
     <entity name="ComicFeed" representedClassName="ComicFeed" syncable="YES">
@@ -17,7 +18,7 @@
         <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="feed" inverseEntity="Comic" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Comic" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Comic" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="ComicFeed" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>
