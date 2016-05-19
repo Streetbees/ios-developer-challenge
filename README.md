@@ -1,14 +1,8 @@
-[![Build Status](https://img.shields.io/travis/GabrielMassana/lead-ios-developer/master.svg?style=flat-square)](https://travis-ci.org/GabrielMassana/lead-ios-developer)
-
 # How and why
 
 ### Unit Test
 
 I added some tests to the project. I know they are a really small part of the tests that can be added to this project, but they are only trying to be a small example of how powerful they are.
-
-### Continuous Integration
-
-The project is integrated with [Travis-CI](https://travis-ci.org/GabrielMassana/lead-ios-developer) as Continuous Integration to automate the build and test of the project.
 
 ### Using my own Pods
 
