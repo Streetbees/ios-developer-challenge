@@ -1,0 +1,19 @@
+platform :ios, '9.0'
+use_frameworks!
+
+
+source 'https://github.com/CocoaPods/Specs.git'
+pod 'Alamofire', '~> 3.4'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+
+
+target 'MarvelBees' do
+
+    
+end
+
+
+target 'MarvelBeesTests' do
+
+end
+
