@@ -1,10 +1,11 @@
 platform :ios, '9.0'
 use_frameworks!
-
-
 source 'https://github.com/CocoaPods/Specs.git'
+
 pod 'Alamofire', '~> 3.4'
+pod 'XCGLogger', '~> 3.3'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'CryptoSwift'
 
 
 target 'MarvelBees' do

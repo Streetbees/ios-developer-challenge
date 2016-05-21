@@ -85,9 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MarvelBees/Alamofire.framework"
+  install_framework "Pods-MarvelBees/CryptoSwift.framework"
   install_framework "Pods-MarvelBees/SwiftyJSON.framework"
+  install_framework "Pods-MarvelBees/XCGLogger.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MarvelBees/Alamofire.framework"
+  install_framework "Pods-MarvelBees/CryptoSwift.framework"
   install_framework "Pods-MarvelBees/SwiftyJSON.framework"
+  install_framework "Pods-MarvelBees/XCGLogger.framework"
 fi

@@ -7,6 +7,15 @@
 //
 
 import UIKit
+import XCGLogger
+
+// Configure logging
+let log: XCGLogger = {
+    let log = XCGLogger.defaultInstance()
+    log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true)
+    log.xcodeColorsEnabled = true
+    return log
+}()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
