@@ -9,17 +9,21 @@
 import Foundation
 import CryptoSwift
 
+
 class Authentication {
     
-    func generateHash(timeStamp: String, privateKey: String, publicKey: String) -> String {
+    var timeStamp = NSDate().timeIntervalSince1970.description
+    let publicKey = "9be75bf4626446510afb05ce61a87743"
+
+    func generateHash() -> String {
         
-        let publicKey = ""
+        timeStamp = NSDate().timeIntervalSince1970.description
+        log.debug("Timestamp: \(timeStamp)")
         let privateKey = ""
-        
         let input = "\(timeStamp)\(privateKey)\(publicKey)"
-        var hash: String { return input.md5() }
+        let hash = input.md5()
         
         return hash
     }
-
+    
 }

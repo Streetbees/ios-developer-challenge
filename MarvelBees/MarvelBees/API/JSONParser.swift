@@ -9,8 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-
-
 class JSONParser {
     
     func parseComics(json: JSON) -> [Comic] {

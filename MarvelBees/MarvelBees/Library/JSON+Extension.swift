@@ -35,7 +35,7 @@ extension JSON {
     
 }
 
-
+// TODO: shift this
 class DateFormatter {
     
     private static var internalJsonDateFormatter: NSDateFormatter?

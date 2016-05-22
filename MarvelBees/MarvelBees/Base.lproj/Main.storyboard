@@ -8,13 +8,13 @@
         <!--Marvel Comics-->
         <scene sceneID="8Zs-2d-FzC">
             <objects>
-                <tableViewController title="Marvel Comics" id="BxG-lg-Hq8" customClass="ComicTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Marvel Comics" id="BxG-lg-Hq8" customClass="ComicTableViewController" customModule="MarvelBees" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" id="5kN-KQ-6bf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="AYz-97-7rW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ComicCell" rowHeight="113" id="AYz-97-7rW">
                                 <rect key="frame" x="0.0" y="92" width="600" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AYz-97-7rW" id="LHz-ja-u4p">
@@ -37,7 +37,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Ogh-cF-S5D">
-                        <barButtonItem key="rightBarButtonItem" title="DropBox" id="rJK-Yb-sb1"/>
+                        <barButtonItem key="rightBarButtonItem" title="DropBox" id="rJK-Yb-sb1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cb-c9-00D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -70,6 +72,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TLJ-lN-rmG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.84705882352941175" green="0.0039215686274509803" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
