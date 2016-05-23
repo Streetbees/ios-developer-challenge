@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hkE-sQ-P8N">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Link ToDB View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LinkToDBViewController" customModule="Streetbees_iOS_Developer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4E-rP-9n3">
+                                <rect key="frame" x="217" y="280" width="166" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="eDq-E0-e1D"/>
+                                    <constraint firstAttribute="height" constant="39" id="z1l-p0-b8U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Link to Dropbox"/>
+                                <connections>
+                                    <action selector="linkToDB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xdc-my-Btm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x4E-rP-9n3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DT4-Di-PMu"/>
+                            <constraint firstItem="x4E-rP-9n3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vp3-mC-NMC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="k9z-f5-HKY"/>
+                    <connections>
+                        <segue destination="m1U-jm-5fo" kind="show" identifier="segueToCollectionVC" id="kN4-jM-M4N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546" y="456"/>
+        </scene>
+        <!--Comic Cover Collection View Controller-->
+        <scene sceneID="A7e-S7-tJA">
+            <objects>
+                <collectionViewController id="m1U-jm-5fo" customClass="ComicCoverCollectionViewController" customModule="Streetbees_iOS_Developer" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="RqK-48-wWD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ajU-DU-0IT">
+                            <size key="itemSize" width="598" height="537"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="AMf-mW-0g6" customClass="ComicCoverCollectionViewCell" customModule="Streetbees_iOS_Developer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="63" width="598" height="537"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="598" height="537"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SdW-bK-DWJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="598" height="537"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="SdW-bK-DWJ" firstAttribute="leading" secondItem="AMf-mW-0g6" secondAttribute="leadingMargin" constant="-8" id="VWN-An-C8k"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="SdW-bK-DWJ" secondAttribute="bottom" constant="-8" id="gSO-3I-Ysu"/>
+                                    <constraint firstItem="SdW-bK-DWJ" firstAttribute="top" secondItem="AMf-mW-0g6" secondAttribute="topMargin" constant="-8" id="nN6-B7-Jkf"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="SdW-bK-DWJ" secondAttribute="trailing" constant="-8" id="pwZ-1l-3sv"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="comicCoverImageView" destination="SdW-bK-DWJ" id="lB3-kD-1sX"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="m1U-jm-5fo" id="DcW-43-C7m"/>
+                            <outlet property="delegate" destination="m1U-jm-5fo" id="wsG-sa-KUT"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pPv-OC-AUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2229" y="456"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bd0-Jx-ZPH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hkE-sQ-P8N" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GTd-H9-Hfu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gfs-AI-7QD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uxy-Hw-2If" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="456"/>
+        </scene>
+    </scenes>
+</document>
