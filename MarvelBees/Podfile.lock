@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (3.4.0)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
+  - CryptoSwift (0.4.1)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SwiftyDropbox (3.0.0):
+    - Alamofire (~> 3.1)
+  - SwiftyJSON (2.3.2)
+  - XCGLogger (3.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4)
+  - AlamofireImage (~> 2.0)
+  - CryptoSwift
+  - SDWebImage (~> 3.7)
+  - SwiftyDropbox (~> 3.0.0)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - XCGLogger (~> 3.3)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  CryptoSwift: 25b5aff3f260967391f8fff2e9abe4254d2c6fd5
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SwiftyDropbox: e0d4aa3166082ec07ed942e94edb8c732b3376e4
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
+
+COCOAPODS: 0.39.0

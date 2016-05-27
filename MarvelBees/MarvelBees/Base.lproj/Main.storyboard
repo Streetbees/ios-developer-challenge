@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6z3-5n-NEl">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Marvel Comics-->
+        <scene sceneID="8Zs-2d-FzC">
+            <objects>
+                <tableViewController title="Marvel Comics" id="BxG-lg-Hq8" customClass="ComicTableViewController" customModule="MarvelBees" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" id="5kN-KQ-6bf" userLabel="Marvel Comics">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.88235294119999996" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.84705882349999995" green="0.0039215686269999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="0.88235294119999996" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ComicCell" rowHeight="120" id="AYz-97-7rW" customClass="ComicTableViewCell" customModule="MarvelBees" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AYz-97-7rW" id="LHz-ja-u4p">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TMs-Tj-BXd">
+                                            <rect key="frame" x="8" y="8" width="68" height="103"/>
+                                            <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="TMs-Tj-BXd" secondAttribute="height" multiplier="560:850" id="HYP-JZ-FGf"/>
+                                                <constraint firstAttribute="width" constant="69" id="ZgB-kl-tGS"/>
+                                                <constraint firstAttribute="width" constant="66" id="b5B-eP-jVd"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="ZgB-kl-tGS"/>
+                                                    <exclude reference="b5B-eP-jVd"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfE-ZD-DzU">
+                                            <rect key="frame" x="83" y="0.0" width="509" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="uPZ-2R-Pvn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kji-Ok-k8q">
+                                            <rect key="frame" x="83" y="40" width="509" height="71"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="282" id="lSs-uJ-P42"/>
+                                            </constraints>
+                                            <string key="text">Summary: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
+                                            <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="lSs-uJ-P42"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TMs-Tj-BXd" firstAttribute="bottom" secondItem="LHz-ja-u4p" secondAttribute="bottomMargin" id="LQ8-BX-5Mi"/>
+                                        <constraint firstItem="TMs-Tj-BXd" firstAttribute="top" secondItem="LHz-ja-u4p" secondAttribute="topMargin" id="PZt-MT-Od0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="yfE-ZD-DzU" secondAttribute="trailing" id="QPd-Bf-t61"/>
+                                        <constraint firstItem="kji-Ok-k8q" firstAttribute="top" secondItem="yfE-ZD-DzU" secondAttribute="bottom" constant="8" symbolic="YES" id="UZK-ly-Ig7"/>
+                                        <constraint firstItem="TMs-Tj-BXd" firstAttribute="bottom" secondItem="LHz-ja-u4p" secondAttribute="bottomMargin" id="VYY-wa-hNF"/>
+                                        <constraint firstItem="TMs-Tj-BXd" firstAttribute="leading" secondItem="LHz-ja-u4p" secondAttribute="leadingMargin" id="Xv6-Fs-Mzy"/>
+                                        <constraint firstItem="yfE-ZD-DzU" firstAttribute="trailing" secondItem="kji-Ok-k8q" secondAttribute="trailing" id="ZdO-X2-e5d"/>
+                                        <constraint firstItem="TMs-Tj-BXd" firstAttribute="top" secondItem="LHz-ja-u4p" secondAttribute="topMargin" id="aBL-e7-1tJ"/>
+                                        <constraint firstItem="yfE-ZD-DzU" firstAttribute="top" secondItem="LHz-ja-u4p" secondAttribute="top" id="bBt-BU-Rjb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kji-Ok-k8q" secondAttribute="trailing" id="dvy-t2-FY8"/>
+                                        <constraint firstItem="yfE-ZD-DzU" firstAttribute="leading" secondItem="kji-Ok-k8q" secondAttribute="leading" id="etu-tI-vS7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kji-Ok-k8q" secondAttribute="bottom" id="k8X-9h-53x"/>
+                                        <constraint firstItem="kji-Ok-k8q" firstAttribute="leading" secondItem="TMs-Tj-BXd" secondAttribute="trailing" constant="6" id="tNH-2S-6Do"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="PZt-MT-Od0"/>
+                                            <exclude reference="VYY-wa-hNF"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.88235294119999996" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="comicThumbnail" destination="LHz-ja-u4p" id="8mH-e4-9hH"/>
+                                    <outlet property="coverThumbnail" destination="TMs-Tj-BXd" id="eH7-5D-KDJ"/>
+                                    <outlet property="summary" destination="kji-Ok-k8q" id="0PQ-3y-sbl"/>
+                                    <outlet property="title" destination="yfE-ZD-DzU" id="JEC-96-gWY"/>
+                                    <segue destination="BdZ-Qg-Ajs" kind="show" id="JgX-Ol-UtS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BxG-lg-Hq8" id="KH0-lI-juy"/>
+                            <outlet property="delegate" destination="BxG-lg-Hq8" id="BLK-YD-Sdd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Marvel Comics" id="Ogh-cF-S5D">
+                        <barButtonItem key="rightBarButtonItem" image="dropbox" id="gGP-mz-jtL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="linkButtonPressed:" destination="BxG-lg-Hq8" id="EQZ-bl-uEM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Cb-c9-00D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1521" y="332"/>
+        </scene>
+        <!--View Comic-->
+        <scene sceneID="nJr-jj-R2N">
+            <objects>
+                <viewController title="View Comic" id="BdZ-Qg-Ajs" customClass="ComicViewController" customModule="MarvelBees" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hb5-TI-F5N"/>
+                        <viewControllerLayoutGuide type="bottom" id="AVU-Oy-Ii8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7zg-z4-FAY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0a-sC-C9U">
+                                <rect key="frame" x="20" y="320" width="560" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="IFr-mW-9PJ"/>
+                                    <constraint firstAttribute="height" constant="25" id="fjf-Kt-CXS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IFr-mW-9PJ"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEV-Lt-4Ck">
+                                <rect key="frame" x="20" y="377" width="560" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="GvO-4c-nEr"/>
+                                    <constraint firstAttribute="height" constant="101" id="aZK-lg-aAw"/>
+                                </constraints>
+                                <string key="text">Summary: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GvO-4c-nEr"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swy-Ma-sMI">
+                                <rect key="frame" x="20" y="353" width="214" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="BTL-fF-5rX"/>
+                                    <constraint firstAttribute="width" constant="214" id="Jxx-zT-3FR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LQS-gv-OqO">
+                                <rect key="frame" x="20" y="72" width="158" height="240"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LQS-gv-OqO" secondAttribute="height" multiplier="560:850" id="FBK-52-BOc"/>
+                                    <constraint firstAttribute="width" constant="158" id="FtS-Fg-49K"/>
+                                    <constraint firstAttribute="height" constant="240" id="NQg-ve-ZZD"/>
+                                    <constraint firstAttribute="width" constant="158" id="PY3-CY-gGl"/>
+                                    <constraint firstAttribute="width" constant="158" id="VlG-zV-HrO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FtS-Fg-49K"/>
+                                        <exclude reference="PY3-CY-gGl"/>
+                                        <exclude reference="VlG-zV-HrO"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.85098039215686272" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="VEV-Lt-4Ck" firstAttribute="top" secondItem="swy-Ma-sMI" secondAttribute="bottom" constant="8" symbolic="YES" id="Gob-zM-erM"/>
+                            <constraint firstItem="swy-Ma-sMI" firstAttribute="top" secondItem="j0a-sC-C9U" secondAttribute="bottom" constant="8" symbolic="YES" id="I4F-ho-0GD"/>
+                            <constraint firstItem="j0a-sC-C9U" firstAttribute="trailing" secondItem="VEV-Lt-4Ck" secondAttribute="trailing" id="IU2-hd-Nv0"/>
+                            <constraint firstItem="AVU-Oy-Ii8" firstAttribute="top" secondItem="VEV-Lt-4Ck" secondAttribute="bottom" constant="8" symbolic="YES" id="JR7-rv-Jie"/>
+                            <constraint firstItem="swy-Ma-sMI" firstAttribute="leading" secondItem="VEV-Lt-4Ck" secondAttribute="leading" id="KP6-np-73A"/>
+                            <constraint firstItem="j0a-sC-C9U" firstAttribute="top" secondItem="LQS-gv-OqO" secondAttribute="bottom" constant="8" symbolic="YES" id="NVn-F2-g0s"/>
+                            <constraint firstItem="j0a-sC-C9U" firstAttribute="trailing" secondItem="7zg-z4-FAY" secondAttribute="trailingMargin" id="OAV-ok-U10"/>
+                            <constraint firstItem="LQS-gv-OqO" firstAttribute="centerX" secondItem="7zg-z4-FAY" secondAttribute="centerX" id="Prn-QW-4IO"/>
+                            <constraint firstItem="LQS-gv-OqO" firstAttribute="leading" secondItem="7zg-z4-FAY" secondAttribute="leadingMargin" id="dzs-Ts-mKu"/>
+                            <constraint firstItem="LQS-gv-OqO" firstAttribute="top" secondItem="hb5-TI-F5N" secondAttribute="bottom" constant="8" symbolic="YES" id="jhh-bq-JWP"/>
+                            <constraint firstItem="AVU-Oy-Ii8" firstAttribute="top" secondItem="VEV-Lt-4Ck" secondAttribute="bottom" constant="122" id="lCz-9Z-fdc"/>
+                            <constraint firstItem="j0a-sC-C9U" firstAttribute="leading" secondItem="swy-Ma-sMI" secondAttribute="leading" id="wOy-1L-rim"/>
+                            <constraint firstItem="AVU-Oy-Ii8" firstAttribute="top" secondItem="VEV-Lt-4Ck" secondAttribute="bottom" constant="8" symbolic="YES" id="x3O-3A-Rm8"/>
+                            <constraint firstItem="LQS-gv-OqO" firstAttribute="leading" secondItem="j0a-sC-C9U" secondAttribute="leading" id="xOA-7U-2cP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Prn-QW-4IO"/>
+                                <exclude reference="JR7-rv-Jie"/>
+                                <exclude reference="x3O-3A-Rm8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Comic" id="99a-32-hsv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="tgg-89-8zg">
+                            <connections>
+                                <action selector="takePhoto:" destination="BdZ-Qg-Ajs" id="6Ee-9D-7l1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="coverThumbnail" destination="LQS-gv-OqO" id="fKm-9G-SKW"/>
+                        <outlet property="onSaleDate" destination="swy-Ma-sMI" id="fae-ib-Bcz"/>
+                        <outlet property="summaryLabel" destination="VEV-Lt-4Ck" id="lZg-GI-lLI"/>
+                        <outlet property="titleLabel" destination="j0a-sC-C9U" id="Av0-6d-zwi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ac-8A-Gls" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2205" y="332"/>
+        </scene>
+        <!--Marvel Comics-->
+        <scene sceneID="f9A-tg-Ovg">
+            <objects>
+                <navigationController title="Marvel Comics" automaticallyAdjustsScrollViewInsets="NO" id="6z3-5n-NEl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TLJ-lN-rmG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.84705882352941175" green="0.0039215686274509803" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="WCQ-HF-nx7">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BxG-lg-Hq8" kind="relationship" relationship="rootViewController" id="91V-T7-Urn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qge-Ex-Mb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="332"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dropbox" width="25" height="25"/>
+    </resources>
+</document>

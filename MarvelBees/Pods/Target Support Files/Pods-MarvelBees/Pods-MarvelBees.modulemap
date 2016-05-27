@@ -1,0 +1,6 @@
+framework module Pods_MarvelBees {
+  umbrella header "Pods-MarvelBees-umbrella.h"
+
+  export *
+  module * { export * }
+}
