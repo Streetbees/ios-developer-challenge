@@ -50,12 +50,7 @@ class ComicViewController: UIViewController, UINavigationControllerDelegate, UII
         
         let alertController  = UIAlertController(title: "", message: "Saving (0%)", preferredStyle: .Alert)
         
-        
-        //var alert: UIAlertView = UIAlertView(title: "", message: "Saving (0%)", delegate: nil, cancelButtonTitle: "Cancel");
-        
-        
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
-        //loadingIndicator.center = alertController.view.center;
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         loadingIndicator.startAnimating();
@@ -86,7 +81,7 @@ class ComicViewController: UIViewController, UINavigationControllerDelegate, UII
             })
 
         }
-        imagePicker.dismissViewControllerAnimated(true) { 
+            imagePicker.dismissViewControllerAnimated(true) {
             self.presentViewController(alertController, animated: true) {
                 
             }

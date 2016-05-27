@@ -180,10 +180,12 @@ class ComicTableViewController: UITableViewController {
     
     // MARK: - Dropbox
     @IBAction func linkButtonPressed(sender: AnyObject) {
+        
         if (Dropbox.authorizedClient == nil) {
             Dropbox.authorizeFromController(self)
         } else {
-            print("User is already authorized!")
+            Dropbox.unlinkClient()
+            //print("User is already authorized!")
         }
     }
     
