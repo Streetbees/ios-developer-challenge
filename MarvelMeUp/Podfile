@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+
+target 'MarvelMeUp' do
+  use_frameworks!
+
+  pod 'SwiftyDropbox', '~> 3.0.0'
+
+  target 'MarvelMeUpTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
