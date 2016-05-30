@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="amw-jE-T9U">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Hfg-9A-c9T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="amw-jE-T9U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9f-Ym-YwL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VF7-Ke-MIA" kind="relationship" relationship="rootViewController" id="rPI-QH-iQH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEZ-9m-wbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="422" y="428"/>
+        </scene>
+        <!--Comics Table View Controller-->
+        <scene sceneID="Ejc-a7-hQK">
+            <objects>
+                <tableViewController id="VF7-Ke-MIA" customClass="ComicsTableViewController" customModule="MarvelMeUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="sVF-m8-szZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="comicCell" id="a1o-8S-sOY" customClass="ComicTableViewCell" customModule="MarvelMeUp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a1o-8S-sOY" id="4Gv-l2-vG5">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYT-Jk-TKf">
+                                            <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="FOM-Jf-dUX"/>
+                                                <constraint firstAttribute="width" constant="100" id="pUZ-34-YEQ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-UB-Sb0">
+                                            <rect key="frame" x="116" y="8" width="443" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AYT-Jk-TKf" firstAttribute="leading" secondItem="4Gv-l2-vG5" secondAttribute="leading" constant="8" id="GSY-sB-A7T"/>
+                                        <constraint firstItem="Mhz-UB-Sb0" firstAttribute="leading" secondItem="AYT-Jk-TKf" secondAttribute="trailing" constant="8" id="e9e-FB-lPf"/>
+                                        <constraint firstItem="Mhz-UB-Sb0" firstAttribute="top" secondItem="4Gv-l2-vG5" secondAttribute="top" constant="8" id="icy-j4-TUU"/>
+                                        <constraint firstItem="Mhz-UB-Sb0" firstAttribute="leading" secondItem="AYT-Jk-TKf" secondAttribute="trailing" constant="8" id="m8N-5a-hnt"/>
+                                        <constraint firstAttribute="trailing" secondItem="Mhz-UB-Sb0" secondAttribute="trailing" constant="8" id="qYV-Pk-svb"/>
+                                        <constraint firstItem="AYT-Jk-TKf" firstAttribute="top" secondItem="4Gv-l2-vG5" secondAttribute="top" constant="8" id="uyp-iD-5k0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellImageView" destination="AYT-Jk-TKf" id="NuP-qw-Zkc"/>
+                                    <outlet property="titleLabel" destination="Mhz-UB-Sb0" id="cYN-xO-3u5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VF7-Ke-MIA" id="v6h-bR-W3d"/>
+                            <outlet property="delegate" destination="VF7-Ke-MIA" id="SVU-cl-F6C"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="zeZ-eP-HGb"/>
+                    <connections>
+                        <segue destination="1Jq-pq-JXS" kind="show" identifier="ShowComic" id="ZXe-1W-GWf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ya-li-xPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905.5" y="427.5"/>
+        </scene>
+        <!--Comic View Controller-->
+        <scene sceneID="SRT-kp-ZYA">
+            <objects>
+                <viewController id="1Jq-pq-JXS" customClass="ComicViewController" customModule="MarvelMeUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LC8-5C-lsr"/>
+                        <viewControllerLayoutGuide type="bottom" id="MDe-1G-KwE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PEQ-pw-ZKf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WV7-7C-Bob">
+                                <rect key="frame" x="20" y="72" width="335" height="503"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WV7-7C-Bob" secondAttribute="height" multiplier="10:15" id="34O-bm-038"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPI-Xx-aOP">
+                                <rect key="frame" x="118" y="583" width="139" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Shoot a new cover!"/>
+                                <connections>
+                                    <action selector="shootPhotoButtonPressed:" destination="1Jq-pq-JXS" eventType="touchUpInside" id="8Ng-x3-JAF"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDt-lV-mru">
+                                <rect key="frame" x="124" y="623" width="127" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Reset to original cover"/>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="1Jq-pq-JXS" eventType="touchUpInside" id="XqB-T2-zhR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WV7-7C-Bob" secondAttribute="trailing" constant="20" id="9el-mm-cXi"/>
+                            <constraint firstItem="OPI-Xx-aOP" firstAttribute="centerX" secondItem="PEQ-pw-ZKf" secondAttribute="centerX" id="MBi-5o-z6q"/>
+                            <constraint firstItem="rDt-lV-mru" firstAttribute="top" secondItem="OPI-Xx-aOP" secondAttribute="bottom" constant="8" id="Qcj-Qj-6jK"/>
+                            <constraint firstItem="WV7-7C-Bob" firstAttribute="leading" secondItem="PEQ-pw-ZKf" secondAttribute="leading" constant="20" id="l2H-YP-fbq"/>
+                            <constraint firstItem="WV7-7C-Bob" firstAttribute="top" secondItem="LC8-5C-lsr" secondAttribute="bottom" constant="8" id="lrQ-ZP-UPK"/>
+                            <constraint firstItem="OPI-Xx-aOP" firstAttribute="top" secondItem="WV7-7C-Bob" secondAttribute="bottom" constant="8" id="qNH-Ng-5CL"/>
+                            <constraint firstItem="rDt-lV-mru" firstAttribute="centerX" secondItem="PEQ-pw-ZKf" secondAttribute="centerX" id="w1c-q5-5B8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="comicImageView" destination="WV7-7C-Bob" id="QCN-pM-GHZ"/>
+                        <outlet property="resetButton" destination="rDt-lV-mru" id="dh2-n7-c0O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="miV-GC-6im" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1402.5" y="427.5"/>
+        </scene>
+    </scenes>
+</document>
