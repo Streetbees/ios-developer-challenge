@@ -1,0 +1,6 @@
+framework module Pods_StreetbeesiOSChallengeTests {
+  umbrella header "Pods-StreetbeesiOSChallengeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
