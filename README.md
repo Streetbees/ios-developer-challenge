@@ -33,3 +33,12 @@ Don't spend more than 3 hours working on this. Don't worry if you don't get the 
 
 ### Deliverables
 - The forked version of this repo
+
+### Installing CocoaPods dependencies
+
+This app uses Realm Database (www.realm.io) and is installed via CocoaPods.
+
+Visit
+https://guides.cocoapods.org/using/getting-started.html
+for instuctions on how to install.
+
