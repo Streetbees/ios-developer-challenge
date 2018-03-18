@@ -1,0 +1,26 @@
+
+Hi, 
+
+This is my project, respecting the constraint of te 3 hours time. 
+I'm somewhat happy with what I achieved but there's a few issues that should be solved for it to be a properly presented projected.
+
+The main bug is on the images, if you scroll quite quickly it will be obvious that the images 
+flicker as I didn't do a proper assyncronous loading system for them, 
+this could be easily solved either by using Kingfisher (I added cocoapods to the project) or 
+just by having a cell identification system that would take care of seeing which cell would the image belong to and 
+only change it if appropriate.
+
+Besides that there was no time to add local storage, so I quickly hacked a way of storing images in memory with a image caching system, 
+but this will cause the app to use way too much ram.
+
+With a couple more hours the project would be way more presentable.
+
+My priority was just having something that worked and could be testable, 
+hence I did apply a sort of MVVM-ish structure taht would allow to test easily.
+
+This is my attempt and I tried not to pass the time limit as I thought that I could be "cheating" in doing so. 
+
+Any feedback is appreciated.
+
+Cheers
+Flávio.
