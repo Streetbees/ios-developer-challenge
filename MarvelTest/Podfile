@@ -1,0 +1,13 @@
+use_frameworks!
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+target 'MarvelTest' do
+
+end
+
+target 'MarvelTestTests' do
+
+end
+

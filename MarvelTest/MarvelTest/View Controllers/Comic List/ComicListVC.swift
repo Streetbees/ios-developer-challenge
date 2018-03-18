@@ -8,8 +8,6 @@
 
 import UIKit
 
-typealias JSON = [String:Any]
-
 class ComicListVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,6 +23,9 @@ class ComicListVC: UIViewController, UICollectionViewDataSource, UICollectionVie
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         print(viewModel.viewModel(at: indexPath).imageURL)
+        let imageView = cell.viewWithTag(101) as! UIImageView
+        imageView.set(assynchronouslyFrom: viewModel.viewModel(at: indexPath).imageURL, at: indexPath.row)
+        
         return cell
     }
     
@@ -41,6 +42,20 @@ class ComicListVC: UIViewController, UICollectionViewDataSource, UICollectionVie
         
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 110.0, height: 170.0)
     
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetails", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? ComicDetailsPageController,
+        let index = sender as? Int else { return }
+        
+        destination.viewModel = self.viewModel
+        destination.currentPage = index
+        
     }
 
 
