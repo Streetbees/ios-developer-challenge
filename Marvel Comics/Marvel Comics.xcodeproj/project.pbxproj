@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012C175920714A6900B64BAE /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C175820714A6900B64BAE /* ConfigProvider.swift */; };
+		012C175C20714BB400B64BAE /* APIServiceRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C175B20714BB400B64BAE /* APIServiceRequestable.swift */; };
+		012C175F20714CF800B64BAE /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 012C175E20714CF800B64BAE /* AppConfig.plist */; };
+		012C176220714EBA00B64BAE /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C176120714EBA00B64BAE /* APIServiceTests.swift */; };
+		012C176520714EDE00B64BAE /* CryptoHasherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C176420714EDE00B64BAE /* CryptoHasherTests.swift */; };
+		012C176820714F7C00B64BAE /* MockMarvelComic.json in Resources */ = {isa = PBXBuildFile; fileRef = 012C176720714F7C00B64BAE /* MockMarvelComic.json */; };
+		012C176B2071522200B64BAE /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C176A2071522200B64BAE /* MockAPIService.swift */; };
 		01A937F020713EA000FD3841 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A937EF20713EA000FD3841 /* Image.swift */; };
 		01A937F220713F5D00FD3841 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A937F120713F5D00FD3841 /* Comic.swift */; };
 		01A937F420713F7700FD3841 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A937F320713F7700FD3841 /* Character.swift */; };
@@ -17,6 +24,11 @@
 		01A93800207144A300FD3841 /* CharacterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A937FF207144A300FD3841 /* CharacterTests.swift */; };
 		01A93802207144F900FD3841 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A93801207144F900FD3841 /* DataTests.swift */; };
 		01A93806207147D000FD3841 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A93805207147D000FD3841 /* ResponseTests.swift */; };
+		01A93809207148DB00FD3841 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A93808207148DB00FD3841 /* APIService.swift */; };
+		01A9380C2071494B00FD3841 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A9380B2071494B00FD3841 /* Errors.swift */; };
+		01A9380E2071496700FD3841 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A9380D2071496700FD3841 /* Constants.swift */; };
+		01A938102071499600FD3841 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A9380F2071499600FD3841 /* Router.swift */; };
+		01A93812207149C500FD3841 /* CryptoHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A93811207149C500FD3841 /* CryptoHasher.swift */; };
 		01FBD71A2071361100AE4CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FBD7192071361100AE4CDD /* AppDelegate.swift */; };
 		01FBD71C2071361100AE4CDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FBD71B2071361100AE4CDD /* ViewController.swift */; };
 		01FBD71F2071361100AE4CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01FBD71D2071361100AE4CDD /* Main.storyboard */; };
@@ -37,6 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		012C175820714A6900B64BAE /* ConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
+		012C175B20714BB400B64BAE /* APIServiceRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceRequestable.swift; sourceTree = "<group>"; };
+		012C175E20714CF800B64BAE /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
+		012C176120714EBA00B64BAE /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		012C176420714EDE00B64BAE /* CryptoHasherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHasherTests.swift; sourceTree = "<group>"; };
+		012C176720714F7C00B64BAE /* MockMarvelComic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockMarvelComic.json; sourceTree = "<group>"; };
+		012C176A2071522200B64BAE /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		01A937EF20713EA000FD3841 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		01A937F120713F5D00FD3841 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		01A937F320713F7700FD3841 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -48,6 +67,11 @@
 		01A937FF207144A300FD3841 /* CharacterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTests.swift; sourceTree = "<group>"; };
 		01A93801207144F900FD3841 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		01A93805207147D000FD3841 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		01A93808207148DB00FD3841 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		01A9380B2071494B00FD3841 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		01A9380D2071496700FD3841 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		01A9380F2071499600FD3841 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		01A93811207149C500FD3841 /* CryptoHasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHasher.swift; sourceTree = "<group>"; };
 		01FBD7162071361100AE4CDD /* Marvel Comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01FBD7192071361100AE4CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01FBD71B2071361100AE4CDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +109,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012C175A20714BA500B64BAE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				012C175B20714BB400B64BAE /* APIServiceRequestable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		012C175D20714CE200B64BAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				012C175E20714CF800B64BAE /* AppConfig.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		012C176020714EA500B64BAE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				012C176120714EBA00B64BAE /* APIServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		012C176320714ED100B64BAE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				012C176420714EDE00B64BAE /* CryptoHasherTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		012C176620714F1200B64BAE /* JSON Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				012C176720714F7C00B64BAE /* MockMarvelComic.json */,
+			);
+			path = "JSON Mocks";
+			sourceTree = "<group>";
+		};
+		012C17692071521500B64BAE /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				012C176A2071522200B64BAE /* MockAPIService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		01A937EE20713E4A00FD3841 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +179,26 @@
 				01A937FF207144A300FD3841 /* CharacterTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		01A93807207148C600FD3841 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01A93808207148DB00FD3841 /* APIService.swift */,
+				01A9380F2071499600FD3841 /* Router.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		01A9380A2071493C00FD3841 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				01A9380B2071494B00FD3841 /* Errors.swift */,
+				01A9380D2071496700FD3841 /* Constants.swift */,
+				01A93811207149C500FD3841 /* CryptoHasher.swift */,
+				012C175820714A6900B64BAE /* ConfigProvider.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		01FBD70D2071361100AE4CDD = {
@@ -134,9 +226,13 @@
 		01FBD7182071361100AE4CDD /* Marvel Comics */ = {
 			isa = PBXGroup;
 			children = (
-				01A937EE20713E4A00FD3841 /* Model */,
 				01FBD7192071361100AE4CDD /* AppDelegate.swift */,
+				01A937EE20713E4A00FD3841 /* Model */,
+				012C175A20714BA500B64BAE /* Protocols */,
+				01A93807207148C600FD3841 /* Services */,
+				01A9380A2071493C00FD3841 /* Utilities */,
 				01FBD71B2071361100AE4CDD /* ViewController.swift */,
+				012C175D20714CE200B64BAE /* Supporting Files */,
 				01FBD71D2071361100AE4CDD /* Main.storyboard */,
 				01FBD7202071361100AE4CDD /* Assets.xcassets */,
 				01FBD7222071361100AE4CDD /* LaunchScreen.storyboard */,
@@ -149,6 +245,10 @@
 			isa = PBXGroup;
 			children = (
 				01A937F920713FF900FD3841 /* Model */,
+				012C176020714EA500B64BAE /* Service */,
+				012C176320714ED100B64BAE /* Utilities */,
+				012C17692071521500B64BAE /* Mocks */,
+				012C176620714F1200B64BAE /* JSON Mocks */,
 				01FBD7302071361100AE4CDD /* Info.plist */,
 				01A937FA2071403300FD3841 /* Marvel ComicsTests-Bridging-Header.h */,
 			);
@@ -265,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012C175F20714CF800B64BAE /* AppConfig.plist in Resources */,
 				01FBD7242071361100AE4CDD /* LaunchScreen.storyboard in Resources */,
 				01FBD7212071361100AE4CDD /* Assets.xcassets in Resources */,
 				01FBD71F2071361100AE4CDD /* Main.storyboard in Resources */,
@@ -275,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012C176820714F7C00B64BAE /* MockMarvelComic.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,12 +506,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A938102071499600FD3841 /* Router.swift in Sources */,
+				01A93812207149C500FD3841 /* CryptoHasher.swift in Sources */,
 				01FBD71C2071361100AE4CDD /* ViewController.swift in Sources */,
 				01A937F620713FC200FD3841 /* Data.swift in Sources */,
 				01A937F220713F5D00FD3841 /* Comic.swift in Sources */,
 				01A937F420713F7700FD3841 /* Character.swift in Sources */,
+				012C175C20714BB400B64BAE /* APIServiceRequestable.swift in Sources */,
 				01A937F020713EA000FD3841 /* Image.swift in Sources */,
+				01A9380E2071496700FD3841 /* Constants.swift in Sources */,
+				012C175920714A6900B64BAE /* ConfigProvider.swift in Sources */,
 				01FBD71A2071361100AE4CDD /* AppDelegate.swift in Sources */,
+				01A93809207148DB00FD3841 /* APIService.swift in Sources */,
+				01A9380C2071494B00FD3841 /* Errors.swift in Sources */,
 				01A937F820713FDB00FD3841 /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,10 +527,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012C176220714EBA00B64BAE /* APIServiceTests.swift in Sources */,
 				01A93806207147D000FD3841 /* ResponseTests.swift in Sources */,
 				01A937FC2071403300FD3841 /* ImageTests.swift in Sources */,
 				01A93800207144A300FD3841 /* CharacterTests.swift in Sources */,
+				012C176B2071522200B64BAE /* MockAPIService.swift in Sources */,
 				01A937FE2071439800FD3841 /* ComicTests.swift in Sources */,
+				012C176520714EDE00B64BAE /* CryptoHasherTests.swift in Sources */,
 				01A93802207144F900FD3841 /* DataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
