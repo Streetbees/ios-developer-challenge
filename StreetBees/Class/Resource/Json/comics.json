@@ -1,0 +1,8 @@
+{
+    "queryItems" : [
+                    { "startYear"   : "1996" },
+                    { "orderBy"     : "title,issueNumber" },
+                    { "limit"       : "60" }
+                    ]
+}
+
