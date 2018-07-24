@@ -12,8 +12,6 @@ You will need to sign up for a free developer account with Marvel.
 
 Feel free to use whatever flare you can to show off your skills.
 
-Don't spend more than 3 hours working on this. Don't worry if you don't get the task finished as we'd like to hear how you prioritised your time.
-
 ### Design
 
 ![design](design.png)
