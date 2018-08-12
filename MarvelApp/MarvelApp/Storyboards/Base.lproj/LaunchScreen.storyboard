@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background" translatesAutoresizingMaskIntoConstraints="NO" id="1WT-71-6uy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvel_logo" translatesAutoresizingMaskIntoConstraints="NO" id="30l-Uy-cBX">
+                                <rect key="frame" x="56.5" y="133.5" width="262.5" height="66.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="30l-Uy-cBX" secondAttribute="height" multiplier="75:19" id="s1W-5q-Svo"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="30l-Uy-cBX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.5" id="Ek2-0E-gMy"/>
+                            <constraint firstItem="1WT-71-6uy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G96-g2-17a"/>
+                            <constraint firstItem="30l-Uy-cBX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="QCN-3f-Bko"/>
+                            <constraint firstItem="1WT-71-6uy" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="fWV-U7-Ft2"/>
+                            <constraint firstItem="1WT-71-6uy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="osY-Mh-PCx"/>
+                            <constraint firstItem="1WT-71-6uy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pjR-gf-Aha"/>
+                            <constraint firstItem="30l-Uy-cBX" firstAttribute="width" secondItem="1WT-71-6uy" secondAttribute="width" multiplier="0.7" id="yl5-9a-hFI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="marvel_logo" width="2774" height="700"/>
+        <image name="splash_background" width="1080" height="1920"/>
+    </resources>
+</document>
