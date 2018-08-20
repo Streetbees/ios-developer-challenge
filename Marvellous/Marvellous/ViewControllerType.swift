@@ -29,43 +29,12 @@ extension ViewControllerType {
     }
 }
 
-protocol ViewModelType: class {
+protocol ViewModelType {
     associatedtype Input
     associatedtype Output
 
     var input: Input { get }
     var output: Output { get }
-}
-
-class MyViewController: UIViewController, ViewControllerType {
-    var vm: MyViewModel!
-
-    static let storyboardName = "Main"
-    static let identifier = "XYZ"
-
-    func bindViewModel() {
-
-    }
-}
-
-class MyViewModel: ViewModelType {
-    struct Input {
-
-    }
-
-    struct Output {
-
-    }
-
-    let input: Input
-    let output: Output
-
-    init(input: Input, output: Output) {
-        self.input = input
-        self.output = output
-
-
-    }
 }
 
 

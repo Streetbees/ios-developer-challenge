@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '11.0'
+use_frameworks!
+
+target 'Marvellous' do
+	pod 'Alamofire'
+	pod 'RxSwift'
+	pod 'RxCocoa'
+	pod 'Realm'
+	pod 'RxRealm'
+    pod 'CryptoSwift'
+end
+

@@ -7,84 +7,126 @@
 //
 
 import UIKit
+import CryptoSwift
+import Alamofire
 
-class MasterViewController: UITableViewController {
+struct ComicsIssue {
 
-    var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
+}
 
+struct Signer {
+    let privateKey: String
+    let publicKey: String
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+    func hash(timestamp: Date) -> String {
+        let timestampString = String(timestamp.timeIntervalSinceReferenceDate)
+        return (timestampString + privateKey + publicKey).md5()
     }
+}
 
-    override func viewWillAppear(_ animated: Bool) {
-        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
-    }
+struct ComicsRequest: URLConvertible {
+    enum EndPoint: String {
+        case comics = "public/comics"
 
-    @objc
-    func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+        var version: String {
+            switch self {
+            case .comics: return "v1"
             }
         }
     }
 
-    // MARK: - Table View
+    private let base = "https://gateway.marvel.com"
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    private let endpoint: EndPoint
+
+    // Public
+
+    init(_ endpoint: EndPoint) {
+        self.endpoint = endpoint
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+    func asURL() throws -> URL {
+        return URL(string: base)!.appendingPathComponent(endpoint.version).appendingPathComponent(endpoint.rawValue)
     }
+}
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
-    }
-
+protocol ComicsProviderType {
 
 }
 
+class ComicsProvider: ComicsProviderType {
+    private let signer: Signer
+
+    init(privateKey: String, publicKey: String) {
+        self.signer = Signer(privateKey: privateKey, publicKey: publicKey)
+
+        // Test
+        Alamofire.request(ComicsRequest(.comics), parameters: parameters(), headers: nil)
+            .responseString { response in
+                if let value = response.result.value {
+                    print("SUCCESS: \(value)")
+                }
+        }
+    }
+
+    private func parameters() -> Parameters {
+        let timestamp = Date()
+        return ["apikey" : signer.publicKey, "ts" : timestamp.timeIntervalSinceReferenceDate, "hash" : signer.hash(timestamp: timestamp)]
+    }
+}
+
+class Coordinator {
+    private var root: UINavigationController!
+
+    static let shared = Coordinator()
+
+    private init() { }
+
+    static func start(with window: UIWindow, comicsProvider: ComicsProviderType) {
+        let vm = MasterViewModel(input: .init(comicsProvider: comicsProvider), output: .init())
+        let vc = MasterViewController.instantiate(vm)
+        shared.root = window.rootViewController as! UINavigationController
+        shared.start(with: vc)
+    }
+
+    private func start(with vc: UIViewController) {
+        root.viewControllers = [vc]
+    }
+}
+
+class MasterViewController: UICollectionViewController, ViewControllerType {
+    // MARK: - ViewControllerType
+
+    var vm: MasterViewModel!
+    static let storyboardName = "Main"
+    static let identifier = "Master"
+
+    func bindViewModel() {
+
+    }
+
+    // MARK: - CollectionViewDatasource
+
+}
+
+struct MasterViewModel: ViewModelType {
+    // MARK: - ViewControllerType
+
+    let input: Input
+    let output: Output
+
+    // MARK: - Implementation
+
+    init(input: Input, output: Output) {
+        self.input = input
+        self.output = output
+    }
+
+    struct Input {
+        let comicsProvider: ComicsProviderType
+    }
+
+    struct Output {
+
+    }
+}
