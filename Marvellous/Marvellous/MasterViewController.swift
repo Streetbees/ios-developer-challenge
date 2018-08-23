@@ -7,92 +7,7 @@
 //
 
 import UIKit
-import CryptoSwift
-import Alamofire
-
-struct ComicsIssue {
-
-}
-
-struct Signer {
-    let privateKey: String
-    let publicKey: String
-
-    func hash(timestamp: Date) -> String {
-        let timestampString = String(timestamp.timeIntervalSinceReferenceDate)
-        return (timestampString + privateKey + publicKey).md5()
-    }
-}
-
-struct ComicsRequest: URLConvertible {
-    enum EndPoint: String {
-        case comics = "public/comics"
-
-        var version: String {
-            switch self {
-            case .comics: return "v1"
-            }
-        }
-    }
-
-    private let base = "https://gateway.marvel.com"
-
-    private let endpoint: EndPoint
-
-    // Public
-
-    init(_ endpoint: EndPoint) {
-        self.endpoint = endpoint
-    }
-
-    func asURL() throws -> URL {
-        return URL(string: base)!.appendingPathComponent(endpoint.version).appendingPathComponent(endpoint.rawValue)
-    }
-}
-
-protocol ComicsProviderType {
-
-}
-
-class ComicsProvider: ComicsProviderType {
-    private let signer: Signer
-
-    init(privateKey: String, publicKey: String) {
-        self.signer = Signer(privateKey: privateKey, publicKey: publicKey)
-
-        // Test
-        Alamofire.request(ComicsRequest(.comics), parameters: parameters(), headers: nil)
-            .responseString { response in
-                if let value = response.result.value {
-                    print("SUCCESS: \(value)")
-                }
-        }
-    }
-
-    private func parameters() -> Parameters {
-        let timestamp = Date()
-        return ["apikey" : signer.publicKey, "ts" : timestamp.timeIntervalSinceReferenceDate, "hash" : signer.hash(timestamp: timestamp)]
-    }
-}
-
-class Coordinator {
-    private var root: UINavigationController!
-
-    static let shared = Coordinator()
-
-    private init() { }
-
-    static func start(with window: UIWindow, comicsProvider: ComicsProviderType) {
-        let vm = MasterViewModel(input: .init(comicsProvider: comicsProvider), output: .init())
-        let vc = MasterViewController.instantiate(vm)
-        shared.root = window.rootViewController as! UINavigationController
-        shared.start(with: vc)
-    }
-
-    private func start(with vc: UIViewController) {
-        root.viewControllers = [vc]
-    }
-}
+import RxSwift
 
 class MasterViewController: UICollectionViewController, ViewControllerType {
     // MARK: - ViewControllerType
@@ -101,32 +16,93 @@ class MasterViewController: UICollectionViewController, ViewControllerType {
     static let storyboardName = "Main"
     static let identifier = "Master"
 
-    func bindViewModel() {
+    private var bag = DisposeBag()
 
+    func bindViewModel() {
+////        vm.
+//
+//        vm.input.comicsProvider.getComic(5).debug("COMIC 5").subscribe().disposed(by: bag)
+//        vm.input.comicsProvider.getComic(10).debug("COMIC 10").subscribe().disposed(by: bag)
+//        vm.input.comicsProvider.getComic(100).debug("COMIC 100").subscribe().disposed(by: bag)
     }
 
     // MARK: - CollectionViewDatasource
 
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("collectionView COUNT: \(max(100, (try? vm.count.value()) ?? 0))")
+        return max(100, (try? vm.count.value()) ?? 0)
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComicCell", for: indexPath) as! ComicCell
+        cell.setup(vm: ComicCellViewModel(comic: vm.comic(offset: indexPath.item)))
+        return cell
+    }
+}
+
+class ComicCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var title: UILabel!
+
+    private var vm: ComicCellViewModel!
+    private var bag: DisposeBag!
+
+    func setup(vm: ComicCellViewModel) {
+        self.bag = DisposeBag()
+        self.vm = vm
+
+        vm.title
+            .asDriver(onErrorDriveWith: .empty())
+            .drive(title.rx.text)
+            .disposed(by: bag)
+    }
+}
+
+struct ComicCellViewModel {
+    // Input
+    private let comic: Single<Comic>
+
+    // Output
+    let title: Single<String>
+
+    // Output
+    init(comic: Single<Comic>) {
+        self.comic = comic
+        self.title = comic.map { $0.title }
+    }
 }
 
 struct MasterViewModel: ViewModelType {
+    private let bag = DisposeBag()
+
     // MARK: - ViewControllerType
 
     let input: Input
-    let output: Output
 
     // MARK: - Implementation
 
-    init(input: Input, output: Output) {
+    init(input: Input) {
         self.input = input
-        self.output = output
+
+        input.comicsProvider
+            .count
+            .drive(count)
+            .disposed(by: bag)
     }
 
     struct Input {
         let comicsProvider: ComicsProviderType
     }
 
-    struct Output {
+    // MARK: - Output
 
+    let count = BehaviorSubject(value: 0)
+
+    func comic(offset: Int) -> Single<Comic> {
+        return input.comicsProvider.getComic(offset)
     }
 }
