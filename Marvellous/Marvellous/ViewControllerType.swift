@@ -15,8 +15,6 @@ protocol ViewControllerType: class {
 
     static var storyboardName: String { get }
     static var identifier: String { get }
-
-    func bindViewModel()
 }
 
 extension ViewControllerType {
@@ -24,7 +22,6 @@ extension ViewControllerType {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: identifier) as! Self
         vc.vm = vm
-        vc.bindViewModel()
         return vc
     }
 }
@@ -34,8 +31,6 @@ protocol ViewModelType {
 
     var input: Input { get }
 }
-
-
 
 
 

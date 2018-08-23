@@ -20,4 +20,13 @@ class Coordinator {
         shared.root = window.rootViewController as! UINavigationController
         shared.root.viewControllers = [vc]
     }
+
+    func selectedCell(vm: CoverViewModel) {
+        let vc = CoverViewController.instantiate(vm)
+        root.present(vc, animated: true, completion: nil)
+    }
+
+    func leaveCover() {
+        root.dismiss(animated: true, completion: nil)
+    }
 }

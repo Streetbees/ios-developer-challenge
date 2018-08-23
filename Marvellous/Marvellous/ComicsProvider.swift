@@ -60,9 +60,14 @@ enum ComicError: Error {
     case unavailable
     case couldNotSave
     case noPhoto
+    case placeholderPhotoAlreadySaved
+    case photoAlreadySaved
+    case alreadyRequested
+    case alreadyDownloaded
 }
 
-private let pageLength = 30
+private let pageLength = 50
+let placeholderPath = "image_not_available.jpg"
 
 class ComicsProvider: ComicsProviderType {
     private let signer: Signer
@@ -71,7 +76,7 @@ class ComicsProvider: ComicsProviderType {
     private let realm = try! Realm()
     private let sortedComics: Results<Comic>
 
-    private var requested: Set<Int> = []
+    private var alreadyRequested: Set<Int> = []
     private let bag = DisposeBag()
 
     init(privateKey: String, publicKey: String) {
@@ -80,13 +85,8 @@ class ComicsProvider: ComicsProviderType {
         self.count = Observable.collection(from: sortedComics)
             .map { ($0.last?.offset).flatMap { $0 + 1 } ?? 0 }
             .asDriver(onErrorJustReturn: 0)
-            .debug(" ================= COUNT")
 
         count.asObservable()
-            .subscribe()
-            .disposed(by: bag)
-
-        getComic(0)
             .subscribe()
             .disposed(by: bag)
     }
@@ -96,53 +96,55 @@ class ComicsProvider: ComicsProviderType {
     let count: Driver<Int>
 
     func getComic(_ offset: Int) -> Single<Comic> {
-        if let comic = realm.object(ofType: Comic.self, forPrimaryKey: offset) {
-            print("=== OFFSET \(offset) existed, has thumbnail: \(comic.thumbnail != nil)")
-            return .just(comic)
-        }
-        else if requested.contains(offset) {
-            print("=== OFFSET \(offset) has already been requested")
+        print("Get COMIC: \(offset)")
 
-            // No need to request it again, just pass along an observable that will eventually contain the comic
-            let comicResults = sortedComics.filter("offset == %@", offset)
-            return Observable.collection(from: comicResults)
-                .map { $0.first }
-                .filter { $0 != nil }
-                .map { $0! }
-                .take(1)
-                .asSingle()
-                .do(onSuccess: { print("====== OFFSET \($0.offset) has been received") })
-        }
+        downloadIfNeeded(chunkAt: offset).subscribe(onError: handleError).disposed(by: bag)
+        downloadIfNeeded(chunkAt: offset + pageLength).subscribe(onError: handleError).disposed(by: bag)
 
-        print("=== OFFSET \(offset) will be requested")
-
-        // Make a new request and return the eventual result in an observable
-        let requestedOffset = pageLength*offset/pageLength
-        let requestedLimit = 2*pageLength
-        return download(offset: requestedOffset, limit: requestedLimit)
-            .retry(3)
-            .flatMap(save)
-            .do(onSuccess: { [unowned self] in self.downloadThumbnails(comics: $0) },
-                onError: { _ in (requestedOffset..<requestedOffset + requestedLimit).forEach { self.requested.remove($0) } })
-            .flatMap { comics in
-                if let comic = comics.first(where: { $0.offset == offset }) {
-                    return Single.just(comic)
-                }
-                else {
-                    return Single.error(ComicError.unavailable)
-                }
-        }
+        return comic(offset: offset)
     }
 
     // MARK: - Helpers
 
+    private func handleError(error: Error) {
+        // ignore for now
+    }
+
+    private func comic(offset: Int) -> Single<Comic> {
+        let comicResults = sortedComics.filter("offset == %@", offset)
+        return Observable.collection(from: comicResults)
+            .map { $0.first }
+            .filter { $0 != nil }
+            .map { $0! }
+            .take(1)
+            .asSingle()
+    }
+
+    private func downloadIfNeeded(chunkAt offset: Int) -> Completable {
+        guard realm.object(ofType: Comic.self, forPrimaryKey: offset) == nil else {
+            print("downloadIfNeeded \(offset): alreadyDownloaded")
+            return Completable.error(ComicError.alreadyDownloaded)
+        }
+
+        guard !alreadyRequested.contains(offset) else {
+            print("downloadIfNeeded \(offset): alreadyRequested")
+            return Completable.error(ComicError.alreadyRequested)
+        }
+
+        print("downloadIfNeeded \(offset): will download")
+        return download(offset: pageLength*(offset/pageLength), limit: pageLength)
+            .retry(3)
+            .flatMap(save)
+            .flatMapCompletable(downloadThumbnails)
+    }
+
     private func download(offset: Int, limit: Int) -> Single<[Comic]> {
-        // Add offsets to list of requested items
-        (offset..<offset + limit).forEach { requested.insert($0) }
+        (offset..<offset + limit).forEach { alreadyRequested.insert($0) }
 
         let params = parameters(offset: offset, limit: limit)
         return Single.create { event in
-            print("Trying to download comics: \(offset)..<\(offset + limit)")
+            print("download: \(offset)..<\(offset + limit)")
+            
             Alamofire.request(ComicsRequest(.comics), parameters: params, headers: nil)
                 .responseData { response in
                     switch response.result {
@@ -167,37 +169,43 @@ class ComicsProvider: ComicsProviderType {
                     }
             }
 
-            return Disposables.create()
+            return Disposables.create { [weak self] in
+                (offset..<offset + limit).forEach { self?.alreadyRequested.remove($0) } }
         }
     }
 
     private func save(comics: [Comic]) -> Single<[Comic]> {
-        do {
-            try realm.write {
-                self.realm.add(comics, update: true)
+        return Single.create { [unowned self] event in
+            do {
+                try self.realm.write {
+                    self.realm.add(comics, update: true)
+                    event(.success(comics))
+                }
+            }
+            catch {
+                event(.error(ComicError.couldNotSave))
             }
 
-            // Remove offsets for received comics from list of requested items
-            comics.forEach { requested.remove($0.offset) }
-            return .just(comics)
-        }
-        catch {
-            return .error(ComicError.couldNotSave)
+            return Disposables.create()
         }
     }
 
-    private func downloadThumbnails(comics: [Comic]) {
-//        for comic in comics {
-//            downloadThumbnail(comic: comic)
-//                .retry(3)
-//                .subscribe()
-//                .disposed(by: bag)
-//        }
+    private func downloadThumbnails(comics: [Comic]) -> Completable {
+        let tasks = comics.map { self.downloadThumbnail(comic: $0).retry(3) }
+        return Completable.merge(tasks)
     }
 
     private func downloadThumbnail(comic: Comic) -> Completable {
+        if comic.thumbnail != nil {
+            return .empty()
+        }
+
         guard let path = comic.thumbnailPath else {
-            return .error(ComicError.noPhoto)
+            return .empty()
+        }
+
+        if path.hasSuffix(placeholderPath) {
+            return .empty()
         }
 
         return Completable.create { [unowned self] event in
@@ -207,11 +215,11 @@ class ComicsProvider: ComicsProviderType {
                     switch response.result {
                     case .success(let data):
                         do {
+                            print("Downloaded image: \(comic.offset)")
                             try self.realm.write {
                                 comic.thumbnail = data
+                                event(.completed)
                             }
-                            print("Downloaded image: \(comic.offset)")
-                            event(.completed)
                         }
                         catch {
                             event(.error(error))

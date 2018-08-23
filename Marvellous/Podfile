@@ -4,7 +4,8 @@ use_frameworks!
 
 target 'Marvellous' do
 	pod 'Alamofire'
-	pod 'RxSwift'
+    pod 'RxSwift'
+    pod 'RxSwiftExt'
 	pod 'RxCocoa'
 	pod 'Realm'
 	pod 'RxRealm'

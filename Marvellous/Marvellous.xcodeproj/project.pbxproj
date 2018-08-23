@@ -17,6 +17,7 @@
 		22D59421212C82EB004C3B51 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D59420212C82EB004C3B51 /* DataModels.swift */; };
 		22D59423212E4733004C3B51 /* ComicsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D59422212E4733004C3B51 /* ComicsProvider.swift */; };
 		22D59427212E4E89004C3B51 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D59426212E4E89004C3B51 /* Coordinator.swift */; };
+		22EE536B212F3BDF0077A90B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22EE536A212F3BDF0077A90B /* Images.xcassets */; };
 		B3A7DF78436564D409D8742E /* Pods_Marvellous.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5D2B1F1A87435F86CB7643 /* Pods_Marvellous.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		22D59420212C82EB004C3B51 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		22D59422212E4733004C3B51 /* ComicsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsProvider.swift; sourceTree = "<group>"; };
 		22D59426212E4E89004C3B51 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		22EE536A212F3BDF0077A90B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70E62A76DA243C0E351E3DFE /* Pods-Marvellous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvellous.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvellous/Pods-Marvellous.release.xcconfig"; sourceTree = "<group>"; };
 		D53DB36393A7D464F0B4DB8D /* Pods-Marvellous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvellous.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvellous/Pods-Marvellous.debug.xcconfig"; sourceTree = "<group>"; };
 		EF5D2B1F1A87435F86CB7643 /* Pods_Marvellous.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvellous.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 				228DD8BF2127662A00ED9280 /* LaunchScreen.storyboard */,
 				228DD8BA2127662600ED9280 /* Main.storyboard */,
 				228DD8C22127662A00ED9280 /* Info.plist */,
+				22EE536A212F3BDF0077A90B /* Images.xcassets */,
 			);
 			path = Marvellous;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				228DD8C12127662A00ED9280 /* LaunchScreen.storyboard in Resources */,
+				22EE536B212F3BDF0077A90B /* Images.xcassets in Resources */,
 				228DD8BE2127662A00ED9280 /* Assets.xcassets in Resources */,
 				228DD8BC2127662600ED9280 /* Main.storyboard in Resources */,
 			);
@@ -204,6 +208,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -214,6 +219,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
