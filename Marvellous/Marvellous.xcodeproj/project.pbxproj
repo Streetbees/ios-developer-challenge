@@ -10,7 +10,6 @@
 		228DD8B52127662600ED9280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DD8B42127662600ED9280 /* AppDelegate.swift */; };
 		228DD8B72127662600ED9280 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DD8B62127662600ED9280 /* MasterViewController.swift */; };
 		228DD8BC2127662600ED9280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228DD8BA2127662600ED9280 /* Main.storyboard */; };
-		228DD8BE2127662A00ED9280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228DD8BD2127662A00ED9280 /* Assets.xcassets */; };
 		228DD8C12127662A00ED9280 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228DD8BF2127662A00ED9280 /* LaunchScreen.storyboard */; };
 		228DD8C9212767D100ED9280 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DD8C8212767D100ED9280 /* ViewControllerType.swift */; };
 		22D5941F212B625F004C3B51 /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5941E212B625E004C3B51 /* CoverViewController.swift */; };
@@ -26,7 +25,6 @@
 		228DD8B42127662600ED9280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228DD8B62127662600ED9280 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		228DD8BB2127662600ED9280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		228DD8BD2127662A00ED9280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		228DD8C02127662A00ED9280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		228DD8C22127662A00ED9280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		228DD8C8212767D100ED9280 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				22D59422212E4733004C3B51 /* ComicsProvider.swift */,
 				228DD8B62127662600ED9280 /* MasterViewController.swift */,
 				22D5941E212B625E004C3B51 /* CoverViewController.swift */,
-				228DD8BD2127662A00ED9280 /* Assets.xcassets */,
 				228DD8BF2127662A00ED9280 /* LaunchScreen.storyboard */,
 				228DD8BA2127662600ED9280 /* Main.storyboard */,
 				228DD8C22127662A00ED9280 /* Info.plist */,
@@ -168,7 +165,6 @@
 			files = (
 				228DD8C12127662A00ED9280 /* LaunchScreen.storyboard in Resources */,
 				22EE536B212F3BDF0077A90B /* Images.xcassets in Resources */,
-				228DD8BE2127662A00ED9280 /* Assets.xcassets in Resources */,
 				228DD8BC2127662600ED9280 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

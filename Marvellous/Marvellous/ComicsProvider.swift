@@ -96,8 +96,6 @@ class ComicsProvider: ComicsProviderType {
     let count: Driver<Int>
 
     func getComic(_ offset: Int) -> Single<Comic> {
-        print("Get COMIC: \(offset)")
-
         downloadIfNeeded(chunkAt: offset).subscribe(onError: handleError).disposed(by: bag)
         downloadIfNeeded(chunkAt: offset + pageLength).subscribe(onError: handleError).disposed(by: bag)
 
@@ -122,16 +120,13 @@ class ComicsProvider: ComicsProviderType {
 
     private func downloadIfNeeded(chunkAt offset: Int) -> Completable {
         guard realm.object(ofType: Comic.self, forPrimaryKey: offset) == nil else {
-            print("downloadIfNeeded \(offset): alreadyDownloaded")
             return Completable.error(ComicError.alreadyDownloaded)
         }
 
         guard !alreadyRequested.contains(offset) else {
-            print("downloadIfNeeded \(offset): alreadyRequested")
             return Completable.error(ComicError.alreadyRequested)
         }
 
-        print("downloadIfNeeded \(offset): will download")
         return download(offset: pageLength*(offset/pageLength), limit: pageLength)
             .retry(3)
             .flatMap(save)
@@ -143,8 +138,6 @@ class ComicsProvider: ComicsProviderType {
 
         let params = parameters(offset: offset, limit: limit)
         return Single.create { event in
-            print("download: \(offset)..<\(offset + limit)")
-            
             Alamofire.request(ComicsRequest(.comics), parameters: params, headers: nil)
                 .responseData { response in
                     switch response.result {
@@ -155,16 +148,13 @@ class ComicsProvider: ComicsProviderType {
                                 comic.offset = offset
                             }
 
-                            print("Downloaded comics: \(offset)..<\(offset + limit)")
                             event(.success(data.results))
                         }
                         catch {
-                            print("Parse failed: \(error)")
                             event(.error(error))
                         }
 
                     case .failure(let error):
-                        print("Download failed: \(error)")
                         event(.error(error))
                     }
             }
@@ -215,7 +205,6 @@ class ComicsProvider: ComicsProviderType {
                     switch response.result {
                     case .success(let data):
                         do {
-                            print("Downloaded image: \(comic.offset)")
                             try self.realm.write {
                                 comic.thumbnail = data
                                 event(.completed)
