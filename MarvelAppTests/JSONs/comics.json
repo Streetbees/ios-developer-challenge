@@ -1,0 +1,498 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2018 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2018 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2018 MARVEL</a>",
+    "etag": "4199ec4180e1cef9bb0fcd3d7ef93daf64181238",
+    "data": {
+        "offset": 0,
+        "limit": 5,
+        "total": 42433,
+        "count": 5,
+        "results": [
+                    {
+                    "id": 38041,
+                    "digitalId": 0,
+                    "title": "X-Men (2010)",
+                    "issueNumber": 0,
+                    "variantDescription": "",
+                    "description": null,
+                    "modified": "-0001-11-30T00:00:00-0500",
+                    "isbn": "",
+                    "upc": "",
+                    "diamondCode": "",
+                    "ean": "",
+                    "issn": "",
+                    "format": "Comic",
+                    "pageCount": 0,
+                    "textObjects": [],
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/38041",
+                    "urls": [
+                             {
+                             "type": "detail",
+                             "url": "http://marvel.com/comics/issue/38041/x-men_2010?utm_campaign=apiRef&utm_source=7b4f13e52f003cd917442e0b4ee720e1"
+                             }
+                             ],
+                    "series": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/series/9906",
+                    "name": "X-Men (2010 - 2013)"
+                    },
+                    "variants": [],
+                    "collections": [],
+                    "collectedIssues": [],
+                    "dates": [
+                              {
+                              "type": "onsaleDate",
+                              "date": "2029-12-31T00:00:00-0500"
+                              },
+                              {
+                              "type": "focDate",
+                              "date": "-0001-11-30T00:00:00-0500"
+                              }
+                              ],
+                    "prices": [
+                               {
+                               "type": "printPrice",
+                               "price": 0
+                               }
+                               ],
+                    "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+                    "extension": "jpg"
+                    },
+                    "images": [],
+                    "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/38041/creators",
+                    "items": [],
+                    "returned": 0
+                    },
+                    "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/38041/characters",
+                    "items": [],
+                    "returned": 0
+                    },
+                    "stories": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/38041/stories",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/106732",
+                              "name": "cover from X-Men #0",
+                              "type": "cover"
+                              }
+                              ],
+                    "returned": 1
+                    },
+                    "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/38041/events",
+                    "items": [],
+                    "returned": 0
+                    }
+                    },
+                    {
+                    "id": 59181,
+                    "digitalId": 0,
+                    "title": "Civil War II (2016) #6 (Gi Connecting Variant H)",
+                    "issueNumber": 6,
+                    "variantDescription": "Gi Connecting Variant H",
+                    "description": null,
+                    "modified": "2016-08-30T11:04:03-0400",
+                    "isbn": "",
+                    "upc": "75960608471500641",
+                    "diamondCode": "",
+                    "ean": "",
+                    "issn": "",
+                    "format": "Comic",
+                    "pageCount": 40,
+                    "textObjects": [],
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/59181",
+                    "urls": [
+                             {
+                             "type": "detail",
+                             "url": "http://marvel.com/comics/issue/59181/civil_war_ii_2016_6_gi_connecting_variant_h/gi_connecting_variant_h?utm_campaign=apiRef&utm_source=7b4f13e52f003cd917442e0b4ee720e1"
+                             }
+                             ],
+                    "series": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/series/21417",
+                    "name": "Civil War II (2016)"
+                    },
+                    "variants": [
+                                 {
+                                 "resourceURI": "http://gateway.marvel.com/v1/public/comics/59754",
+                                 "name": "Civil War II (2016) #6 (Sprouse Battle Variant)"
+                                 },
+                                 {
+                                 "resourceURI": "http://gateway.marvel.com/v1/public/comics/58683",
+                                 "name": "Civil War II (2016) #6"
+                                 },
+                                 {
+                                 "resourceURI": "http://gateway.marvel.com/v1/public/comics/58879",
+                                 "name": "Civil War II (2016) #6 (Michael Cho Variant)"
+                                 },
+                                 {
+                                 "resourceURI": "http://gateway.marvel.com/v1/public/comics/59180",
+                                 "name": "Civil War II (2016) #6 (Gi B&W Virgin Connecting Variant G)"
+                                 },
+                                 {
+                                 "resourceURI": "http://gateway.marvel.com/v1/public/comics/59454",
+                                 "name": "Civil War II (2016) #6 (Noto Black Panther Variant)"
+                                 }
+                                 ],
+                    "collections": [],
+                    "collectedIssues": [],
+                    "dates": [
+                              {
+                              "type": "onsaleDate",
+                              "date": "2029-12-31T00:00:00-0500"
+                              },
+                              {
+                              "type": "focDate",
+                              "date": "2016-08-24T00:00:00-0400"
+                              }
+                              ],
+                    "prices": [
+                               {
+                               "type": "printPrice",
+                               "price": 4.99
+                               }
+                               ],
+                    "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+                    "extension": "jpg"
+                    },
+                    "images": [],
+                    "creators": {
+                    "available": 2,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/59181/creators",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2133",
+                              "name": "Tom Brevoort",
+                              "role": "editor"
+                              },
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12853",
+                              "name": "Jung Gi Kim",
+                              "role": "penciller (cover)"
+                              }
+                              ],
+                    "returned": 2
+                    },
+                    "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/59181/characters",
+                    "items": [],
+                    "returned": 0
+                    },
+                    "stories": {
+                    "available": 2,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/59181/stories",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/128895",
+                              "name": "cover from Cw2 (2016) #6 (GI CONNECTING VARIANT H)",
+                              "type": "cover"
+                              },
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/128896",
+                              "name": "story from Cw2 (2016) #6 (GI CONNECTING VARIANT H)",
+                              "type": "interiorStory"
+                              }
+                              ],
+                    "returned": 2
+                    },
+                    "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/59181/events",
+                    "items": [],
+                    "returned": 0
+                    }
+                    },
+                    {
+                    "id": 61137,
+                    "digitalId": 0,
+                    "title": "The Punisher (2016) #5 (Cosplay Variant)",
+                    "issueNumber": 5,
+                    "variantDescription": "Cosplay Variant",
+                    "description": null,
+                    "modified": "2016-09-01T12:40:16-0400",
+                    "isbn": "",
+                    "upc": "75960608413500521",
+                    "diamondCode": "",
+                    "ean": "",
+                    "issn": "",
+                    "format": "Comic",
+                    "pageCount": 32,
+                    "textObjects": [],
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/61137",
+                    "urls": [
+                             {
+                             "type": "detail",
+                             "url": "http://marvel.com/comics/issue/61137/the_punisher_2016_5_cosplay_variant/cosplay_variant?utm_campaign=apiRef&utm_source=7b4f13e52f003cd917442e0b4ee720e1"
+                             }
+                             ],
+                    "series": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/series/20879",
+                    "name": "The Punisher (2016 - Present)"
+                    },
+                    "variants": [
+                                 {
+                                 "resourceURI": "http://gateway.marvel.com/v1/public/comics/57219",
+                                 "name": "The Punisher (2016) #5"
+                                 },
+                                 {
+                                 "resourceURI": "http://gateway.marvel.com/v1/public/comics/61197",
+                                 "name": "The Punisher (2016) #5 (Aja Defenders Variant)"
+                                 }
+                                 ],
+                    "collections": [],
+                    "collectedIssues": [],
+                    "dates": [
+                              {
+                              "type": "onsaleDate",
+                              "date": "2029-12-31T00:00:00-0500"
+                              },
+                              {
+                              "type": "focDate",
+                              "date": "2016-08-23T00:00:00-0400"
+                              }
+                              ],
+                    "prices": [
+                               {
+                               "type": "printPrice",
+                               "price": 3.99
+                               }
+                               ],
+                    "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+                    "extension": "jpg"
+                    },
+                    "images": [],
+                    "creators": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/61137/creators",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11921",
+                              "name": "Jacob Thomas",
+                              "role": "editor"
+                              }
+                              ],
+                    "returned": 1
+                    },
+                    "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/61137/characters",
+                    "items": [],
+                    "returned": 0
+                    },
+                    "stories": {
+                    "available": 2,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/61137/stories",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/132727",
+                              "name": "cover from The Punisher (2016) #5 (COSPLAY VARIANT)",
+                              "type": "cover"
+                              },
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/132728",
+                              "name": "story from The Punisher (2016) #5 (COSPLAY VARIANT)",
+                              "type": "interiorStory"
+                              }
+                              ],
+                    "returned": 2
+                    },
+                    "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/61137/events",
+                    "items": [],
+                    "returned": 0
+                    }
+                    },
+                    {
+                    "id": 16243,
+                    "digitalId": 0,
+                    "title": "Cap Transport (2005) #4",
+                    "issueNumber": 4,
+                    "variantDescription": "",
+                    "description": null,
+                    "modified": "-0001-11-30T00:00:00-0500",
+                    "isbn": "",
+                    "upc": "",
+                    "diamondCode": "",
+                    "ean": "",
+                    "issn": "",
+                    "format": "Comic",
+                    "pageCount": 0,
+                    "textObjects": [],
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/16243",
+                    "urls": [
+                             {
+                             "type": "detail",
+                             "url": "http://marvel.com/comics/issue/16243/cap_transport_2005_4?utm_campaign=apiRef&utm_source=7b4f13e52f003cd917442e0b4ee720e1"
+                             }
+                             ],
+                    "series": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/series/2722",
+                    "name": "Cap Transport (2005 - 2006)"
+                    },
+                    "variants": [],
+                    "collections": [],
+                    "collectedIssues": [],
+                    "dates": [
+                              {
+                              "type": "onsaleDate",
+                              "date": "2029-12-31T00:00:00-0500"
+                              },
+                              {
+                              "type": "focDate",
+                              "date": "-0001-11-30T00:00:00-0500"
+                              }
+                              ],
+                    "prices": [
+                               {
+                               "type": "printPrice",
+                               "price": 0
+                               }
+                               ],
+                    "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+                    "extension": "jpg"
+                    },
+                    "images": [],
+                    "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/16243/creators",
+                    "items": [],
+                    "returned": 0
+                    },
+                    "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/16243/characters",
+                    "items": [],
+                    "returned": 0
+                    },
+                    "stories": {
+                    "available": 2,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/16243/stories",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/34014",
+                              "name": "",
+                              "type": ""
+                              },
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/67543",
+                              "name": "cap transport 4 cover",
+                              "type": "cover"
+                              }
+                              ],
+                    "returned": 2
+                    },
+                    "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/16243/events",
+                    "items": [],
+                    "returned": 0
+                    }
+                    },
+                    {
+                    "id": 21486,
+                    "digitalId": 0,
+                    "title": "Ultimate X-Men (Spanish Language Edition) (2000) #9",
+                    "issueNumber": 9,
+                    "variantDescription": "",
+                    "description": null,
+                    "modified": "-0001-11-30T00:00:00-0500",
+                    "isbn": "",
+                    "upc": "",
+                    "diamondCode": "",
+                    "ean": "",
+                    "issn": "",
+                    "format": "Comic",
+                    "pageCount": 36,
+                    "textObjects": [],
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/21486",
+                    "urls": [
+                             {
+                             "type": "detail",
+                             "url": "http://marvel.com/comics/issue/21486/ultimate_x-men_spanish_language_edition_2000_9?utm_campaign=apiRef&utm_source=7b4f13e52f003cd917442e0b4ee720e1"
+                             }
+                             ],
+                    "series": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/series/5106",
+                    "name": "Ultimate X-Men (Spanish Language Edition) (2000)"
+                    },
+                    "variants": [],
+                    "collections": [],
+                    "collectedIssues": [],
+                    "dates": [
+                              {
+                              "type": "onsaleDate",
+                              "date": "2029-12-31T00:00:00-0500"
+                              },
+                              {
+                              "type": "focDate",
+                              "date": "-0001-11-30T00:00:00-0500"
+                              }
+                              ],
+                    "prices": [
+                               {
+                               "type": "printPrice",
+                               "price": 0
+                               }
+                               ],
+                    "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+                    "extension": "jpg"
+                    },
+                    "images": [],
+                    "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/21486/creators",
+                    "items": [],
+                    "returned": 0
+                    },
+                    "characters": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/21486/characters",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011109",
+                              "name": "X-Men (Ultimate)"
+                              }
+                              ],
+                    "returned": 1
+                    },
+                    "stories": {
+                    "available": 2,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/21486/stories",
+                    "items": [
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/49000",
+                              "name": "Cover #49000",
+                              "type": "cover"
+                              },
+                              {
+                              "resourceURI": "http://gateway.marvel.com/v1/public/stories/49001",
+                              "name": "Interior #49001",
+                              "type": "interiorStory"
+                              }
+                              ],
+                    "returned": 2
+                    },
+                    "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/comics/21486/events",
+                    "items": [],
+                    "returned": 0
+                    }
+                    }
+                    ]
+    }
+}
