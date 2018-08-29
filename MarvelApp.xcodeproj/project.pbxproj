@@ -33,7 +33,6 @@
 		3F0820512131B8BE005EE218 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0820502131B8BE005EE218 /* TestHelpers.swift */; };
 		3F14727A2131BDA90060C49F /* comics.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F1472792131BDA90060C49F /* comics.json */; };
 		3F14727D2131F6B70060C49F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F14727B2131F6B70060C49F /* Alamofire.framework */; };
-		3F14727E2131F6B70060C49F /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F14727C2131F6B70060C49F /* SnapKit.framework */; };
 		3F1472802131F7070060C49F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14727F2131F7070060C49F /* Router.swift */; };
 		3F1472822131F7320060C49F /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1472812131F7320060C49F /* MarvelService.swift */; };
 		3F1472842131F7440060C49F /* AlamofireMarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1472832131F7440060C49F /* AlamofireMarvelAPI.swift */; };
@@ -139,7 +138,6 @@
 				3FD6973621361B4F00FF2EE0 /* Kingfisher.framework in Frameworks */,
 				3FF940882132E596002272AF /* CryptoSwift.framework in Frameworks */,
 				3F14727D2131F6B70060C49F /* Alamofire.framework in Frameworks */,
-				3F14727E2131F6B70060C49F /* SnapKit.framework in Frameworks */,
 				3F08203D213184D5005EE218 /* Realm.framework in Frameworks */,
 				3F08203E213184D5005EE218 /* RealmSwift.framework in Frameworks */,
 			);
@@ -552,7 +550,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
