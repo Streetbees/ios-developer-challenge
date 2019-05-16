@@ -1,25 +1,26 @@
 # Streetbees iOS developer challenge 
 
-### Description
+## Description
 Using the best API available on this side of the universe [https://developer.marvel.com/](https://developer.marvel.com/) make a simple master detail app that allows the user to scroll through all the comics ever released and view details for each comic.
 
 You will need to sign up for a free developer account with Marvel.
 
-### Functional requirements (Using the Job to be Done framework)
+## Functional requirements
 
 - When I open the application I want to see a list of all Marvel’s released comic books
 - When tapping on a comic it should open up a modal view controller showing the cover art full screen
 
 Feel free to use whatever flare you can to show off your skills.
 
-### Design
+## Design
 
 ![design](design.png)
-### Technical requirements
-- Application must be developed for the iPhone with Swift 4, iOS 11 and xcode 9. We are not expecting iPad support.
-- You are free to use whatever frameworks or tools you see fit
 
-### Evaluation Criteria
+## Technical requirements
+
+Application must be developed support iOS 10, the code can be written with Swift 4+.
+
+## Evaluation Criteria
 - Adaptability. We want to see how well you can develop for the different screen sizes.
 - You create maintainable code
 - You create testable code
