@@ -1,0 +1,883 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F00D71921331C060019E715 /* RMComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D71821331C060019E715 /* RMComic.swift */; };
+		3F00D71B21331E620019E715 /* RMComicImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D71A21331E620019E715 /* RMComicImage.swift */; };
+		3F00D71D21331E780019E715 /* ComicImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D71C21331E780019E715 /* ComicImage.swift */; };
+		3F00D71F213331560019E715 /* RMComicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D71E213331560019E715 /* RMComicTests.swift */; };
+		3F00D721213331630019E715 /* RMComicImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D720213331630019E715 /* RMComicImageTests.swift */; };
+		3F00D7242133415B0019E715 /* ComicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D7232133415B0019E715 /* ComicViewModel.swift */; };
+		3F00D726213350060019E715 /* ComicUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D725213350060019E715 /* ComicUseCase.swift */; };
+		3F00D729213352060019E715 /* RMComicUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D728213352060019E715 /* RMComicUseCase.swift */; };
+		3F00D73321335B980019E715 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00D73221335B980019E715 /* UseCaseProvider.swift */; };
+		3F081FFA2130B735005EE218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F081FF92130B735005EE218 /* AppDelegate.swift */; };
+		3F0820012130B736005EE218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F0820002130B736005EE218 /* Assets.xcassets */; };
+		3F0820042130B736005EE218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0820022130B736005EE218 /* LaunchScreen.storyboard */; };
+		3F08200F2130B737005EE218 /* MarvelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08200E2130B737005EE218 /* MarvelAppTests.swift */; };
+		3F08203121317CE3005EE218 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08203021317CE3005EE218 /* Repository.swift */; };
+		3F08203621317F8E005EE218 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08203521317F8E005EE218 /* DomainConvertibleType.swift */; };
+		3F08203821317FAD005EE218 /* RealmRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08203721317FAD005EE218 /* RealmRepresentable.swift */; };
+		3F08203D213184D5005EE218 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F08203B213184D5005EE218 /* Realm.framework */; };
+		3F08203E213184D5005EE218 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F08203C213184D5005EE218 /* RealmSwift.framework */; };
+		3F08204121318A8C005EE218 /* Realm+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08204021318A8C005EE218 /* Realm+Additions.swift */; };
+		3F08204321318AB4005EE218 /* Sequence+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08204221318AB4005EE218 /* Sequence+Additions.swift */; };
+		3F08204921318CA5005EE218 /* ComicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08204821318CA5005EE218 /* ComicsTests.swift */; };
+		3F08204B2131B7EC005EE218 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08204A2131B7EC005EE218 /* Comic.swift */; };
+		3F08204E2131B831005EE218 /* FileLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08204D2131B831005EE218 /* FileLoadable.swift */; };
+		3F0820512131B8BE005EE218 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0820502131B8BE005EE218 /* TestHelpers.swift */; };
+		3F14727A2131BDA90060C49F /* comics.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F1472792131BDA90060C49F /* comics.json */; };
+		3F14727D2131F6B70060C49F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F14727B2131F6B70060C49F /* Alamofire.framework */; };
+		3F1472802131F7070060C49F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14727F2131F7070060C49F /* Router.swift */; };
+		3F1472822131F7320060C49F /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1472812131F7320060C49F /* MarvelService.swift */; };
+		3F1472842131F7440060C49F /* AlamofireMarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1472832131F7440060C49F /* AlamofireMarvelAPI.swift */; };
+		3F14728821320A4C0060C49F /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14728721320A4C0060C49F /* Konstants.swift */; };
+		3F3FD1482132FE4A006B2837 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F14727B2131F6B70060C49F /* Alamofire.framework */; };
+		3F3FD1492132FE4A006B2837 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F08203B213184D5005EE218 /* Realm.framework */; };
+		3F3FD14A2132FE4A006B2837 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F08203C213184D5005EE218 /* RealmSwift.framework */; };
+		3F3FD14D2132FFC0006B2837 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3FD14C2132FFC0006B2837 /* Parser.swift */; };
+		3F3FD14F2133009D006B2837 /* ComicParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3FD14E2133009D006B2837 /* ComicParser.swift */; };
+		3F3FD152213300FD006B2837 /* ComicParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3FD151213300FD006B2837 /* ComicParserTest.swift */; };
+		3F3FD154213301BF006B2837 /* invalidComics.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD153213301BF006B2837 /* invalidComics.json */; };
+		3F798348213685AE00778FD2 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F798347213685AE00778FD2 /* UICollectionView+Additions.swift */; };
+		3F79834A2137310F00778FD2 /* ComicDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7983492137310F00778FD2 /* ComicDetailTableViewCell.swift */; };
+		3FD6971F2133E98B00FF2EE0 /* RMUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6971E2133E98B00FF2EE0 /* RMUseCaseProvider.swift */; };
+		3FD6972121348BA700FF2EE0 /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6972021348BA700FF2EE0 /* MarvelAPI.swift */; };
+		3FD697282135E89F00FF2EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD697272135E89F00FF2EE0 /* Main.storyboard */; };
+		3FD6972D213608C700FF2EE0 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6972C213608C700FF2EE0 /* ComicCollectionViewCell.swift */; };
+		3FD69734213616CB00FF2EE0 /* UIImageView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD69733213616CB00FF2EE0 /* UIImageView+Additions.swift */; };
+		3FD6973621361B4F00FF2EE0 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD6973521361B4F00FF2EE0 /* Kingfisher.framework */; };
+		3FF940882132E596002272AF /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF940872132E596002272AF /* CryptoSwift.framework */; };
+		3FF9408A2132ECB1002272AF /* ComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF940892132ECB1002272AF /* ComicsViewController.swift */; };
+		3FF9408C2132F429002272AF /* NetworkTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF9408B2132F429002272AF /* NetworkTestHelper.swift */; };
+		3FF9408E2132F875002272AF /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF9408D2132F875002272AF /* NetworkServiceTests.swift */; };
+		5B0A5B24213581A500C78CDF /* RealmTestsSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A5B23213581A500C78CDF /* RealmTestsSetup.swift */; };
+		5B0A5B2721359A8900C78CDF /* RMComicUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A5B2621359A8900C78CDF /* RMComicUseCaseTests.swift */; };
+		5B0A5B2921359A9A00C78CDF /* RMUseCaseProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A5B2821359A9A00C78CDF /* RMUseCaseProviderTests.swift */; };
+		5B0B3AA621370D3B00376FB4 /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B3AA521370D3B00376FB4 /* ComicDetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F08200B2130B737005EE218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F081FEE2130B735005EE218 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F081FF52130B735005EE218;
+			remoteInfo = MarvelApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F00D71821331C060019E715 /* RMComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMComic.swift; sourceTree = "<group>"; };
+		3F00D71A21331E620019E715 /* RMComicImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMComicImage.swift; sourceTree = "<group>"; };
+		3F00D71C21331E780019E715 /* ComicImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicImage.swift; sourceTree = "<group>"; };
+		3F00D71E213331560019E715 /* RMComicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMComicTests.swift; sourceTree = "<group>"; };
+		3F00D720213331630019E715 /* RMComicImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMComicImageTests.swift; sourceTree = "<group>"; };
+		3F00D7232133415B0019E715 /* ComicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewModel.swift; sourceTree = "<group>"; };
+		3F00D725213350060019E715 /* ComicUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicUseCase.swift; sourceTree = "<group>"; };
+		3F00D728213352060019E715 /* RMComicUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMComicUseCase.swift; sourceTree = "<group>"; };
+		3F00D73221335B980019E715 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		3F081FF62130B735005EE218 /* MarvelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F081FF92130B735005EE218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F0820002130B736005EE218 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F0820032130B736005EE218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F0820052130B736005EE218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F08200A2130B737005EE218 /* MarvelAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F08200E2130B737005EE218 /* MarvelAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAppTests.swift; sourceTree = "<group>"; };
+		3F0820102130B737005EE218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F08203021317CE3005EE218 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		3F08203521317F8E005EE218 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
+		3F08203721317FAD005EE218 /* RealmRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepresentable.swift; sourceTree = "<group>"; };
+		3F08203B213184D5005EE218 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		3F08203C213184D5005EE218 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		3F08204021318A8C005EE218 /* Realm+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Additions.swift"; sourceTree = "<group>"; };
+		3F08204221318AB4005EE218 /* Sequence+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Additions.swift"; sourceTree = "<group>"; };
+		3F08204821318CA5005EE218 /* ComicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsTests.swift; sourceTree = "<group>"; };
+		3F08204A2131B7EC005EE218 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		3F08204D2131B831005EE218 /* FileLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoadable.swift; sourceTree = "<group>"; };
+		3F0820502131B8BE005EE218 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		3F1472792131BDA90060C49F /* comics.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comics.json; sourceTree = "<group>"; };
+		3F14727B2131F6B70060C49F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		3F14727C2131F6B70060C49F /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		3F14727F2131F7070060C49F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		3F1472812131F7320060C49F /* MarvelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelService.swift; sourceTree = "<group>"; };
+		3F1472832131F7440060C49F /* AlamofireMarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireMarvelAPI.swift; sourceTree = "<group>"; };
+		3F14728721320A4C0060C49F /* Konstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Konstants.swift; sourceTree = "<group>"; };
+		3F3FD14C2132FFC0006B2837 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		3F3FD14E2133009D006B2837 /* ComicParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicParser.swift; sourceTree = "<group>"; };
+		3F3FD151213300FD006B2837 /* ComicParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicParserTest.swift; sourceTree = "<group>"; };
+		3F3FD153213301BF006B2837 /* invalidComics.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = invalidComics.json; sourceTree = "<group>"; };
+		3F798347213685AE00778FD2 /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
+		3F7983492137310F00778FD2 /* ComicDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailTableViewCell.swift; sourceTree = "<group>"; };
+		3FD6971E2133E98B00FF2EE0 /* RMUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMUseCaseProvider.swift; sourceTree = "<group>"; };
+		3FD6972021348BA700FF2EE0 /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
+		3FD697272135E89F00FF2EE0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3FD6972C213608C700FF2EE0 /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCell.swift; sourceTree = "<group>"; };
+		3FD69733213616CB00FF2EE0 /* UIImageView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Additions.swift"; sourceTree = "<group>"; };
+		3FD6973521361B4F00FF2EE0 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		3FF940872132E596002272AF /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		3FF940892132ECB1002272AF /* ComicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
+		3FF9408B2132F429002272AF /* NetworkTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTestHelper.swift; sourceTree = "<group>"; };
+		3FF9408D2132F875002272AF /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		5B0A5B23213581A500C78CDF /* RealmTestsSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTestsSetup.swift; sourceTree = "<group>"; };
+		5B0A5B2621359A8900C78CDF /* RMComicUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMComicUseCaseTests.swift; sourceTree = "<group>"; };
+		5B0A5B2821359A9A00C78CDF /* RMUseCaseProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMUseCaseProviderTests.swift; sourceTree = "<group>"; };
+		5B0B3AA521370D3B00376FB4 /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F081FF32130B735005EE218 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD6973621361B4F00FF2EE0 /* Kingfisher.framework in Frameworks */,
+				3FF940882132E596002272AF /* CryptoSwift.framework in Frameworks */,
+				3F14727D2131F6B70060C49F /* Alamofire.framework in Frameworks */,
+				3F08203D213184D5005EE218 /* Realm.framework in Frameworks */,
+				3F08203E213184D5005EE218 /* RealmSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0820072130B737005EE218 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F3FD1482132FE4A006B2837 /* Alamofire.framework in Frameworks */,
+				3F3FD1492132FE4A006B2837 /* Realm.framework in Frameworks */,
+				3F3FD14A2132FE4A006B2837 /* RealmSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F00D72221333FE50019E715 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				3F00D728213352060019E715 /* RMComicUseCase.swift */,
+				3FD6971E2133E98B00FF2EE0 /* RMUseCaseProvider.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		3F00D727213351D70019E715 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3F00D71E213331560019E715 /* RMComicTests.swift */,
+				3F00D720213331630019E715 /* RMComicImageTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3F081FED2130B735005EE218 = {
+			isa = PBXGroup;
+			children = (
+				3F081FF82130B735005EE218 /* MarvelApp */,
+				3F08200D2130B737005EE218 /* MarvelAppTests */,
+				3F081FF72130B735005EE218 /* Products */,
+				3F08203A213184D5005EE218 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3F081FF72130B735005EE218 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F081FF62130B735005EE218 /* MarvelApp.app */,
+				3F08200A2130B737005EE218 /* MarvelAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F081FF82130B735005EE218 /* MarvelApp */ = {
+			isa = PBXGroup;
+			children = (
+				3F081FF92130B735005EE218 /* AppDelegate.swift */,
+				3FD697272135E89F00FF2EE0 /* Main.storyboard */,
+				3F14728721320A4C0060C49F /* Konstants.swift */,
+				3F08202E21317AF0005EE218 /* Application */,
+				3F08202921317A82005EE218 /* Domain */,
+				3F08202C21317ABC005EE218 /* RealmStorage */,
+				3F3FD14B2132FF48006B2837 /* Parser */,
+				3F08202B21317A95005EE218 /* Network */,
+				3F08204C2131B81B005EE218 /* Utils */,
+				3F0820002130B736005EE218 /* Assets.xcassets */,
+				3F0820022130B736005EE218 /* LaunchScreen.storyboard */,
+				3F0820052130B736005EE218 /* Info.plist */,
+			);
+			path = MarvelApp;
+			sourceTree = "<group>";
+		};
+		3F08200D2130B737005EE218 /* MarvelAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F08200E2130B737005EE218 /* MarvelAppTests.swift */,
+				3F082028213178E8005EE218 /* Domain */,
+				3F08202D21317ACB005EE218 /* RealmStorage */,
+				3F3FD150213300DF006B2837 /* Parser */,
+				3F08202A21317A8E005EE218 /* Network */,
+				3F08204F2131B8A9005EE218 /* Helpers */,
+				3F1472782131BD7A0060C49F /* JSONs */,
+				3F0820102130B737005EE218 /* Info.plist */,
+			);
+			path = MarvelAppTests;
+			sourceTree = "<group>";
+		};
+		3F082028213178E8005EE218 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3F08204521318BE3005EE218 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3F08202921317A82005EE218 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3F08203221317F4A005EE218 /* Entities */,
+				3F08203321317F57005EE218 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3F08202A21317A8E005EE218 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3FF9408D2132F875002272AF /* NetworkServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3F08202B21317A95005EE218 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3F14727F2131F7070060C49F /* Router.swift */,
+				3FD6972021348BA700FF2EE0 /* MarvelAPI.swift */,
+				3F1472812131F7320060C49F /* MarvelService.swift */,
+				3F1472832131F7440060C49F /* AlamofireMarvelAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3F08202C21317ABC005EE218 /* RealmStorage */ = {
+			isa = PBXGroup;
+			children = (
+				3F08204421318B55005EE218 /* Entities */,
+				3F00D72221333FE50019E715 /* UseCases */,
+				3F08202F21317C89005EE218 /* Repository */,
+				3F08203F21318A73005EE218 /* Utility */,
+			);
+			path = RealmStorage;
+			sourceTree = "<group>";
+		};
+		3F08202D21317ACB005EE218 /* RealmStorage */ = {
+			isa = PBXGroup;
+			children = (
+				5B0A5B23213581A500C78CDF /* RealmTestsSetup.swift */,
+				3F00D727213351D70019E715 /* Entities */,
+				5B0A5B2521359A6D00C78CDF /* UseCases */,
+			);
+			path = RealmStorage;
+			sourceTree = "<group>";
+		};
+		3F08202E21317AF0005EE218 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3FF940892132ECB1002272AF /* ComicsViewController.swift */,
+				3FD6972C213608C700FF2EE0 /* ComicCollectionViewCell.swift */,
+				5B0B3AA521370D3B00376FB4 /* ComicDetailViewController.swift */,
+				3F7983492137310F00778FD2 /* ComicDetailTableViewCell.swift */,
+				3F00D7232133415B0019E715 /* ComicViewModel.swift */,
+				3FD6972E2136157C00FF2EE0 /* Utils */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3F08202F21317C89005EE218 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3F08203021317CE3005EE218 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		3F08203221317F4A005EE218 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3F08204A2131B7EC005EE218 /* Comic.swift */,
+				3F00D71C21331E780019E715 /* ComicImage.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3F08203321317F57005EE218 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				3F00D725213350060019E715 /* ComicUseCase.swift */,
+				3F00D73221335B980019E715 /* UseCaseProvider.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		3F08203421317F70005EE218 /* Convertion */ = {
+			isa = PBXGroup;
+			children = (
+				3F08203521317F8E005EE218 /* DomainConvertibleType.swift */,
+				3F08203721317FAD005EE218 /* RealmRepresentable.swift */,
+			);
+			path = Convertion;
+			sourceTree = "<group>";
+		};
+		3F08203A213184D5005EE218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FD6973521361B4F00FF2EE0 /* Kingfisher.framework */,
+				3FF940872132E596002272AF /* CryptoSwift.framework */,
+				3F14727B2131F6B70060C49F /* Alamofire.framework */,
+				3F14727C2131F6B70060C49F /* SnapKit.framework */,
+				3F08203B213184D5005EE218 /* Realm.framework */,
+				3F08203C213184D5005EE218 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F08203F21318A73005EE218 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3F08204021318A8C005EE218 /* Realm+Additions.swift */,
+				3F08204221318AB4005EE218 /* Sequence+Additions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3F08204421318B55005EE218 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3F00D71821331C060019E715 /* RMComic.swift */,
+				3F00D71A21331E620019E715 /* RMComicImage.swift */,
+				3F08203421317F70005EE218 /* Convertion */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3F08204521318BE3005EE218 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3F08204821318CA5005EE218 /* ComicsTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3F08204C2131B81B005EE218 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3F08204D2131B831005EE218 /* FileLoadable.swift */,
+				3F3FD14C2132FFC0006B2837 /* Parser.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3F08204F2131B8A9005EE218 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F0820502131B8BE005EE218 /* TestHelpers.swift */,
+				3FF9408B2132F429002272AF /* NetworkTestHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3F1472782131BD7A0060C49F /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				3F1472792131BDA90060C49F /* comics.json */,
+				3F3FD153213301BF006B2837 /* invalidComics.json */,
+			);
+			path = JSONs;
+			sourceTree = "<group>";
+		};
+		3F3FD14B2132FF48006B2837 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				3F3FD14E2133009D006B2837 /* ComicParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		3F3FD150213300DF006B2837 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				3F3FD151213300FD006B2837 /* ComicParserTest.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		3FD6972E2136157C00FF2EE0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3FD69731213616A200FF2EE0 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3FD69731213616A200FF2EE0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FD69733213616CB00FF2EE0 /* UIImageView+Additions.swift */,
+				3F798347213685AE00778FD2 /* UICollectionView+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5B0A5B2521359A6D00C78CDF /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				5B0A5B2621359A8900C78CDF /* RMComicUseCaseTests.swift */,
+				5B0A5B2821359A9A00C78CDF /* RMUseCaseProviderTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F081FF52130B735005EE218 /* MarvelApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F08201E2130B737005EE218 /* Build configuration list for PBXNativeTarget "MarvelApp" */;
+			buildPhases = (
+				3F08203921318456005EE218 /* Carthage */,
+				3F081FF22130B735005EE218 /* Sources */,
+				3F081FF32130B735005EE218 /* Frameworks */,
+				3F081FF42130B735005EE218 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarvelApp;
+			productName = MarvelApp;
+			productReference = 3F081FF62130B735005EE218 /* MarvelApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F0820092130B737005EE218 /* MarvelAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F0820212130B737005EE218 /* Build configuration list for PBXNativeTarget "MarvelAppTests" */;
+			buildPhases = (
+				3F0820062130B737005EE218 /* Sources */,
+				3F0820072130B737005EE218 /* Frameworks */,
+				3F0820082130B737005EE218 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F08200C2130B737005EE218 /* PBXTargetDependency */,
+			);
+			name = MarvelAppTests;
+			productName = MarvelAppTests;
+			productReference = 3F08200A2130B737005EE218 /* MarvelAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F081FEE2130B735005EE218 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Rodrigo Cardoso";
+				TargetAttributes = {
+					3F081FF52130B735005EE218 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					3F0820092130B737005EE218 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 3F081FF52130B735005EE218;
+					};
+				};
+			};
+			buildConfigurationList = 3F081FF12130B735005EE218 /* Build configuration list for PBXProject "MarvelApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F081FED2130B735005EE218;
+			productRefGroup = 3F081FF72130B735005EE218 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F081FF52130B735005EE218 /* MarvelApp */,
+				3F0820092130B737005EE218 /* MarvelAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F081FF42130B735005EE218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0820042130B736005EE218 /* LaunchScreen.storyboard in Resources */,
+				3F0820012130B736005EE218 /* Assets.xcassets in Resources */,
+				3FD697282135E89F00FF2EE0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0820082130B737005EE218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F14727A2131BDA90060C49F /* comics.json in Resources */,
+				3F3FD154213301BF006B2837 /* invalidComics.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F08203921318456005EE218 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F081FF22130B735005EE218 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F1472842131F7440060C49F /* AlamofireMarvelAPI.swift in Sources */,
+				3FD6972D213608C700FF2EE0 /* ComicCollectionViewCell.swift in Sources */,
+				3F08204B2131B7EC005EE218 /* Comic.swift in Sources */,
+				3F00D71921331C060019E715 /* RMComic.swift in Sources */,
+				3FD6972121348BA700FF2EE0 /* MarvelAPI.swift in Sources */,
+				3FF9408A2132ECB1002272AF /* ComicsViewController.swift in Sources */,
+				3F08204E2131B831005EE218 /* FileLoadable.swift in Sources */,
+				3F14728821320A4C0060C49F /* Konstants.swift in Sources */,
+				3F08203821317FAD005EE218 /* RealmRepresentable.swift in Sources */,
+				3F3FD14D2132FFC0006B2837 /* Parser.swift in Sources */,
+				3F00D73321335B980019E715 /* UseCaseProvider.swift in Sources */,
+				3F081FFA2130B735005EE218 /* AppDelegate.swift in Sources */,
+				3F00D71B21331E620019E715 /* RMComicImage.swift in Sources */,
+				3FD6971F2133E98B00FF2EE0 /* RMUseCaseProvider.swift in Sources */,
+				3F798348213685AE00778FD2 /* UICollectionView+Additions.swift in Sources */,
+				3FD69734213616CB00FF2EE0 /* UIImageView+Additions.swift in Sources */,
+				3F1472802131F7070060C49F /* Router.swift in Sources */,
+				3F00D71D21331E780019E715 /* ComicImage.swift in Sources */,
+				5B0B3AA621370D3B00376FB4 /* ComicDetailViewController.swift in Sources */,
+				3F08204121318A8C005EE218 /* Realm+Additions.swift in Sources */,
+				3F3FD14F2133009D006B2837 /* ComicParser.swift in Sources */,
+				3F00D729213352060019E715 /* RMComicUseCase.swift in Sources */,
+				3F08203121317CE3005EE218 /* Repository.swift in Sources */,
+				3F08204321318AB4005EE218 /* Sequence+Additions.swift in Sources */,
+				3F1472822131F7320060C49F /* MarvelService.swift in Sources */,
+				3F00D726213350060019E715 /* ComicUseCase.swift in Sources */,
+				3F79834A2137310F00778FD2 /* ComicDetailTableViewCell.swift in Sources */,
+				3F00D7242133415B0019E715 /* ComicViewModel.swift in Sources */,
+				3F08203621317F8E005EE218 /* DomainConvertibleType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0820062130B737005EE218 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0A5B2721359A8900C78CDF /* RMComicUseCaseTests.swift in Sources */,
+				3FF9408E2132F875002272AF /* NetworkServiceTests.swift in Sources */,
+				3F00D71F213331560019E715 /* RMComicTests.swift in Sources */,
+				3F00D721213331630019E715 /* RMComicImageTests.swift in Sources */,
+				5B0A5B24213581A500C78CDF /* RealmTestsSetup.swift in Sources */,
+				3F08200F2130B737005EE218 /* MarvelAppTests.swift in Sources */,
+				3F3FD152213300FD006B2837 /* ComicParserTest.swift in Sources */,
+				5B0A5B2921359A9A00C78CDF /* RMUseCaseProviderTests.swift in Sources */,
+				3F08204921318CA5005EE218 /* ComicsTests.swift in Sources */,
+				3FF9408C2132F429002272AF /* NetworkTestHelper.swift in Sources */,
+				3F0820512131B8BE005EE218 /* TestHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F08200C2130B737005EE218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F081FF52130B735005EE218 /* MarvelApp */;
+			targetProxy = 3F08200B2130B737005EE218 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F0820022130B736005EE218 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F0820032130B736005EE218 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F08201C2130B737005EE218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F08201D2130B737005EE218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F08201F2130B737005EE218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8S3DQVA5N6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MarvelApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BlackCape.MarvelApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F0820202130B737005EE218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8S3DQVA5N6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MarvelApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BlackCape.MarvelApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3F0820222130B737005EE218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22NYX4YW7B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MarvelAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BlackCape.MarvelAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelApp.app/MarvelApp";
+			};
+			name = Debug;
+		};
+		3F0820232130B737005EE218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22NYX4YW7B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MarvelAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BlackCape.MarvelAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelApp.app/MarvelApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F081FF12130B735005EE218 /* Build configuration list for PBXProject "MarvelApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F08201C2130B737005EE218 /* Debug */,
+				3F08201D2130B737005EE218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F08201E2130B737005EE218 /* Build configuration list for PBXNativeTarget "MarvelApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F08201F2130B737005EE218 /* Debug */,
+				3F0820202130B737005EE218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F0820212130B737005EE218 /* Build configuration list for PBXNativeTarget "MarvelAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F0820222130B737005EE218 /* Debug */,
+				3F0820232130B737005EE218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F081FEE2130B735005EE218 /* Project object */;
+}
