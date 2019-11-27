@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HoX-8E-PHn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Comics Collection View Controller-->
+        <scene sceneID="39M-X8-A0X">
+            <objects>
+                <collectionViewController id="HoX-8E-PHn" customClass="ComicsCollectionViewController" customModule="StreetBees" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="64d-qa-PjD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VVv-ls-Q4U">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="HoX-8E-PHn" id="Hb4-FI-HeF"/>
+                            <outlet property="delegate" destination="HoX-8E-PHn" id="bFj-4k-aJt"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <outlet property="collectionView" destination="64d-qa-PjD" id="oqa-gk-vYi"/>
+                        <segue destination="g3T-k7-3vw" kind="presentation" identifier="ModalSegue" id="6BQ-aY-RzK"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAf-l2-G1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="116"/>
+        </scene>
+        <!--Comic Detail View Controller-->
+        <scene sceneID="wUs-HF-Uhm">
+            <objects>
+                <viewController id="g3T-k7-3vw" customClass="ComicDetailViewController" customModule="StreetBees" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DNT-rv-3jB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HSz-Ri-Ibu">
+                                <rect key="frame" x="16" y="36" width="343" height="615"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptw-sI-EHf">
+                                <rect key="frame" x="311" y="36" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="n8J-XE-ode"/>
+                                    <constraint firstAttribute="width" constant="48" id="swj-3R-f0c"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HSz-Ri-Ibu" firstAttribute="leading" secondItem="Oc5-U4-uQ4" secondAttribute="leading" constant="16" id="IIa-W3-lcX"/>
+                            <constraint firstItem="Oc5-U4-uQ4" firstAttribute="trailing" secondItem="HSz-Ri-Ibu" secondAttribute="trailing" constant="16" id="KA4-PG-4aM"/>
+                            <constraint firstItem="HSz-Ri-Ibu" firstAttribute="top" secondItem="Oc5-U4-uQ4" secondAttribute="top" constant="16" id="UaX-H8-VTB"/>
+                            <constraint firstItem="ptw-sI-EHf" firstAttribute="top" secondItem="Oc5-U4-uQ4" secondAttribute="top" constant="16" id="Yw4-Q3-7Ca"/>
+                            <constraint firstItem="Oc5-U4-uQ4" firstAttribute="bottom" secondItem="HSz-Ri-Ibu" secondAttribute="bottom" constant="16" id="gs2-zj-XTJ"/>
+                            <constraint firstItem="Oc5-U4-uQ4" firstAttribute="trailing" secondItem="ptw-sI-EHf" secondAttribute="trailing" constant="16" id="q7I-Db-k6X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oc5-U4-uQ4"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="ptw-sI-EHf" id="nNi-eb-Rpu"/>
+                        <outlet property="imageView" destination="HSz-Ri-Ibu" id="Okf-R6-Fah"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1M6-ik-6u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1702" y="116"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel" width="128" height="128"/>
+    </resources>
+</document>
